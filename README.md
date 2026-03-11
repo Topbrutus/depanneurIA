@@ -8,6 +8,10 @@ Ce dépôt sert de **source unique de vérité** pour travailler à trois :
 - **Copilot** : exécution ciblée, issue par issue ;
 - **ChatGPT** : découpage logique, cohérence d’ensemble, contrôle de l’avancement.
 
+## Promesse client
+
+> Commander vite, clairement et simplement, avec paiement à la livraison.
+
 ## Fichiers à lire en premier
 
 - `docs/1000-checklist.md` — la checklist complète des 1000 tâches

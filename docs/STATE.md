@@ -27,7 +27,7 @@ On considère donc que le projet démarre officiellement avec la mise en place d
 
 ## Dernière tâche terminée
 
-- DEP-0001 — Fondation du monorepo initialisée : pack GitHub en place, `.github/copilot-instructions.md` créé, checklist mise à jour.
+- DEP-0002 — Promesse client définie : « Commander vite, clairement et simplement, avec paiement à la livraison. »
 
 ## En cours
 
