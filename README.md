@@ -42,6 +42,10 @@ C'est le nom commercial officiel du produit SaaS destiné aux dépanneurs. Il es
 
 > Aujourd’hui, commander au dépanneur oblige le client à décrire sa demande par morceaux (appels, messages, allers-retours) sans savoir si les produits sont disponibles ni quand ils arriveront. Il perd du temps à répéter adresse et liste d’articles pour obtenir une confirmation, surtout quand il est pressé ou mal à l’aise avec les interfaces actuelles.
 
+## Problème principal côté dépanneur
+
+> Aujourd’hui, le dépanneur reçoit des commandes incomplètes par appels ou messages, doit rappeler pour récupérer l’adresse, vérifier la disponibilité et convenir du paiement à la livraison. Il jongle entre préparation et livraison sans interface simple, perd du temps à coordonner et risque erreurs ou ventes perdues juste pour finaliser une commande de base.
+
 ## Fichiers à lire en premier
 
 - `docs/1000-checklist.md` — la checklist complète des 1000 tâches
