@@ -32,6 +32,10 @@ C'est le nom commercial officiel du produit SaaS destiné aux dépanneurs. Il es
 
 > Commander simplement. Livrer clairement.
 
+## Problème principal côté client
+
+> Aujourd’hui, commander au dépanneur oblige le client à décrire sa demande par morceaux (appels, messages, allers-retours) sans savoir si les produits sont disponibles ni quand ils arriveront. Il perd du temps à répéter adresse et liste d’articles pour obtenir une confirmation, surtout quand il est pressé ou mal à l’aise avec les interfaces actuelles.
+
 ## Fichiers à lire en premier
 
 - `docs/1000-checklist.md` — la checklist complète des 1000 tâches

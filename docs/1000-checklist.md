@@ -17,7 +17,7 @@ Version convertie depuis le fichier source fourni par l’utilisateur.
 - [x] DEP-0005 Choisir le nom commercial du produit SaaS destiné aux dépanneurs.
 - [x] DEP-0006 Choisir le slogan principal du produit.
 - [ ] DEP-0007 Définir les profils principaux : client, dépanneur, livreur, super administrateur.
-- [ ] DEP-0008 Écrire le problème principal que vit le client aujourd’hui.
+- [x] DEP-0008 Écrire le problème principal que vit le client aujourd’hui.
 - [ ] DEP-0009 Écrire le problème principal que vit le dépanneur aujourd’hui.
 - [ ] DEP-0010 Écrire le problème principal que vit le livreur aujourd’hui.
 - [ ] DEP-0011 Écrire la solution principale côté client.

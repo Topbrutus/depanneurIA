@@ -7,6 +7,7 @@
 - `.github/copilot-instructions.md` : créé
 - Code produit : pas commencé
 - Système de suivi à trois : en place
+- Problème principal client formulé : commande lente et incertaine (infos répétées, disponibilité inconnue)
 
 ## Bloc actif recommandé
 
@@ -27,7 +28,7 @@ On considère donc que le projet démarre officiellement avec la mise en place d
 
 ## Dernière tâche terminée
 
-- DEP-0006 — Slogan principal choisi : **Commander simplement. Livrer clairement.**
+- DEP-0008 — Problème principal côté client formulé : commande lente et incertaine, infos répétées pour confirmer.
 
 ## En cours
 
