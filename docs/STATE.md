@@ -27,7 +27,7 @@ On considère donc que le projet démarre officiellement avec la mise en place d
 
 ## Dernière tâche terminée
 
-- DEP-0003 — Promesse dépanneur définie : « Recevoir, traiter et livrer des commandes simplement, sans compliquer les opérations du dépanneur. »
+- DEP-0004 — Nom de travail interne choisi : **depaneurIA**
 
 ## En cours
 

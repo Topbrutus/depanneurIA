@@ -8,6 +8,12 @@ Ce dépôt sert de **source unique de vérité** pour travailler à trois :
 - **Copilot** : exécution ciblée, issue par issue ;
 - **ChatGPT** : découpage logique, cohérence d’ensemble, contrôle de l’avancement.
 
+## Nom de travail interne
+
+> **depaneurIA**
+
+C'est le nom de travail interne officiel du projet. Il est utilisé dans le dépôt, la documentation et les conventions.
+
 ## Promesse client
 
 > Commander vite, clairement et simplement, avec paiement à la livraison.
