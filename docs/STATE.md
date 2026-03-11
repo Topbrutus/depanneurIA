@@ -16,8 +16,7 @@
 
 ## Observation importante
 
-Le dépôt existe déjà, mais la checklist n'a pas encore été cochée dans le dépôt.
-On considère donc que le projet démarre officiellement avec la mise en place de cette base documentaire et GitHub.
+Les premières décisions de base (DEP-0001 à DEP-0007) sont documentées et cochées. Le dépôt reste centré sur la documentation initiale avant de passer aux blocs GitHub.
 
 ## Prochaines actions suggérées
 
