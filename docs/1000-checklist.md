@@ -10,7 +10,7 @@ Version convertie depuis le fichier source fourni par l’utilisateur.
 
 ## Bloc 0001–0040
 
-- [ ] DEP-0001 Définir en une phrase la mission du produit : permettre à un client de commander un dépanneur en mode manuel, assisté ou téléphonique.
+- [x] DEP-0001 Définir en une phrase la mission du produit : permettre à un client de commander un dépanneur en mode manuel, assisté ou téléphonique.
 - [ ] DEP-0002 Définir en une phrase la promesse client : commander vite, clairement et sans paiement en ligne.
 - [ ] DEP-0003 Définir en une phrase la promesse dépanneur : recevoir, traiter et livrer des commandes simplement.
 - [ ] DEP-0004 Choisir le nom de travail interne du projet.

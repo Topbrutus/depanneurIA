@@ -3,9 +3,10 @@
 ## Situation actuelle
 
 - Dépôt créé : oui
-- Base projet installée : partielle
+- Base projet installée : oui
+- `.github/copilot-instructions.md` : créé
 - Code produit : pas commencé
-- Système de suivi à trois : initialisé par les fichiers de ce pack
+- Système de suivi à trois : en place
 
 ## Bloc actif recommandé
 
@@ -14,29 +15,28 @@
 
 ## Observation importante
 
-Le dépôt existe déjà, mais la checklist n’a pas encore été cochée dans le dépôt.
+Le dépôt existe déjà, mais la checklist n'a pas encore été cochée dans le dépôt.
 On considère donc que le projet démarre officiellement avec la mise en place de cette base documentaire et GitHub.
 
 ## Prochaines actions suggérées
 
-1. Ajouter ce pack au dépôt
-2. Ouvrir une issue pour `DEP-0084` à `DEP-0101`
-3. Créer ou compléter les fichiers GitHub manquants
-4. Cocher les tâches réellement terminées
-5. Mettre à jour cet état à chaque bloc terminé
+1. Ouvrir une issue pour `DEP-0084` à `DEP-0101`
+2. Créer ou compléter les fichiers GitHub manquants (templates, workflows)
+3. Cocher les tâches réellement terminées
+4. Mettre à jour cet état à chaque bloc terminé
 
 ## Dernière tâche terminée
 
-- Aucune consignée dans le dépôt pour l’instant
+- DEP-0001 — Fondation du monorepo initialisée : pack GitHub en place, `.github/copilot-instructions.md` créé, checklist mise à jour.
 
 ## En cours
 
-- Initialisation du système de suivi GitHub
+- Aucune
 
 ## Bloqueurs
 
 - Aucun connu
 
-## Convention d’ID
+## Convention d'ID
 
 - Format affiché : `DEP-0001`
