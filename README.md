@@ -22,6 +22,10 @@ C'est le nom de travail interne officiel du projet. Il est utilisé dans le dép
 
 > Recevoir, traiter et livrer des commandes simplement, sans compliquer les opérations du dépanneur.
 
+## Slogan
+
+> Commander simplement. Livrer clairement.
+
 ## Fichiers à lire en premier
 
 - `docs/1000-checklist.md` — la checklist complète des 1000 tâches
