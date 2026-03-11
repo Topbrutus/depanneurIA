@@ -27,7 +27,7 @@ On considère donc que le projet démarre officiellement avec la mise en place d
 
 ## Dernière tâche terminée
 
-- DEP-0004 — Nom de travail interne choisi : **depaneurIA**
+- DEP-0005 — Nom commercial choisi : **DépannVite**
 
 ## En cours
 

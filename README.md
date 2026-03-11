@@ -14,6 +14,12 @@ Ce dépôt sert de **source unique de vérité** pour travailler à trois :
 
 C'est le nom de travail interne officiel du projet. Il est utilisé dans le dépôt, la documentation et les conventions.
 
+## Nom commercial
+
+> **DépannVite**
+
+C'est le nom commercial officiel du produit SaaS destiné aux dépanneurs. Il est utilisé pour présenter le produit aux futurs clients dépanneurs, dans les supports de communication et la documentation orientée utilisateur. Le nom interne `depaneurIA` reste utilisé dans le dépôt et le code.
+
 ## Promesse client
 
 > Commander vite, clairement et simplement, avec paiement à la livraison.

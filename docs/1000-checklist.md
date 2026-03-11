@@ -14,7 +14,7 @@ Version convertie depuis le fichier source fourni par l’utilisateur.
 - [x] DEP-0002 Définir en une phrase la promesse client : commander vite, clairement et sans paiement en ligne.
 - [x] DEP-0003 Définir en une phrase la promesse dépanneur : recevoir, traiter et livrer des commandes simplement.
 - [x] DEP-0004 Choisir le nom de travail interne du projet.
-- [ ] DEP-0005 Choisir le nom commercial du produit SaaS destiné aux dépanneurs.
+- [x] DEP-0005 Choisir le nom commercial du produit SaaS destiné aux dépanneurs.
 - [ ] DEP-0006 Choisir le slogan principal du produit.
 - [ ] DEP-0007 Définir les profils principaux : client, dépanneur, livreur, super administrateur.
 - [ ] DEP-0008 Écrire le problème principal que vit le client aujourd’hui.
