@@ -67,6 +67,46 @@ C'est le nom commercial officiel du produit SaaS destiné aux dépanneurs. Il es
 - Paiement de base : le paiement standard se fait à la livraison, directement au dépanneur ou au livreur mandaté, sans prépaiement en ligne.
 - Affichage des prix : tant que le paiement se fait à la livraison en V1, aucun affichage public obligatoire des prix n’est exigé ; le dépanneur peut communiquer les montants lors de la confirmation ou au moment de la remise.
 
+## Cadre fonctionnel V1
+
+### Exceptions futures possibles (non développées)
+
+- Paiement en ligne ou options de paiement différé.
+- Affichage public détaillé des prix et tarification dynamique.
+- Automatisations avancées (recommandations intelligentes, substitutions automatiques, relances).
+- Options premium (livraison express, abonnements, avantages fidélité étendus).
+- Intégrations externes (POS/caisse, marketplaces, CRM ou outils tiers).
+
+### Portée exacte de la V1
+
+- Prise de commande simple : articles et quantités saisis avec adresse, contact, consignes et mention de paiement à la livraison.
+- Confirmation claire et transmission de la commande au dépanneur, puis au livreur quand mandaté.
+- Préparation et remise de la commande prête pour enlèvement ou livraison.
+- Suivi des états clés pour le client, le dépanneur et le livreur jusqu’à la remise.
+- Encaissement à la livraison (dépanneur ou livreur) et confirmation associée.
+
+### Hors portée explicite de la V1
+
+- Marketplace multi-dépanneurs ou catalogue partagé entre boutiques.
+- Programme de fidélité avancé, promotions/coupons ou abonnements premium.
+- Recommandations intelligentes poussées ou automatisation complète du choix produit.
+- Paiements complexes (en ligne, fractionné, différé) et facturation détaillée.
+- Analytics poussées et tableaux de bord avancés.
+
+### Modes d’entrée de commande (V1)
+
+- Manuel : saisie directe des articles et coordonnées par le client sans assistance.
+- Assisté écran : parcours guidé avec validations et suggestions affichées à l’écran.
+- Assisté téléphone : prise de commande guidée par appel avec l’agent vocal.
+
+### Définition d’une commande réussie
+
+- Commande reçue complète (articles, quantités, coordonnées, consignes, paiement à la livraison indiqué).
+- Disponibilité confirmée par le dépanneur.
+- Commande préparée et remise au client ou au livreur désigné.
+- Paiement à la livraison encaissé et confirmé quand attendu.
+- Confirmation de remise visible côté client et dépanneur (et livreur si concerné).
+
 ## Fichiers à lire en premier
 
 - `docs/1000-checklist.md` — la checklist complète des 1000 tâches
