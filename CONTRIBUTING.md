@@ -32,6 +32,13 @@ On évite les changements flous, larges ou non reliés à un bloc précis.
 - `chore: add GitHub issue templates`
 - `ci: add repo guard workflow`
 
+### Tags de version
+- Format : `vMAJEUR.MINEUR.PATCH` (SemVer strict)
+- Exemples : `v1.0.0`, `v1.2.3`, `v2.0.0`
+- Pré-versions : `v1.0.0-alpha.1`, `v1.0.0-beta.2`, `v1.0.0-rc.1`
+- Toujours créer le tag depuis la branche `main` après fusion
+- Le message du tag doit rappeler la version et le bloc DEP concerné
+
 ## Pull requests
 
 Chaque PR devrait contenir :
