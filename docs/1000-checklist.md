@@ -101,22 +101,22 @@ Version convertie depuis le fichier source fourni par l’utilisateur.
 - [ ] DEP-0083 Créer le dépôt principal GitHub.
 - [ ] DEP-0084 Créer un fichier README initial.
 - [ ] DEP-0085 Créer un fichier LICENSE initial.
-- [ ] DEP-0086 Créer un fichier .gitignore adapté au projet.
+- [x] DEP-0086 Créer un fichier .gitignore adapté au projet.
 - [ ] DEP-0087 Créer un dossier docs dans le dépôt.
-- [ ] DEP-0088 Créer un dossier apps dans le dépôt.
-- [ ] DEP-0089 Créer un dossier packages dans le dépôt.
-- [ ] DEP-0090 Créer un dossier infra dans le dépôt.
-- [ ] DEP-0091 Créer un dossier scripts dans le dépôt.
-- [ ] DEP-0092 Créer un dossier assets dans le dépôt.
-- [ ] DEP-0093 Créer un dossier decisions pour les décisions techniques.
-- [ ] DEP-0094 Créer un dossier diagrams pour les schémas.
-- [ ] DEP-0095 Créer un dossier prompts pour les consignes d’assistant.
+- [x] DEP-0088 Créer un dossier apps dans le dépôt.
+- [x] DEP-0089 Créer un dossier packages dans le dépôt.
+- [x] DEP-0090 Créer un dossier infra dans le dépôt.
+- [x] DEP-0091 Créer un dossier scripts dans le dépôt.
+- [x] DEP-0092 Créer un dossier assets dans le dépôt.
+- [x] DEP-0093 Créer un dossier decisions pour les décisions techniques.
+- [x] DEP-0094 Créer un dossier diagrams pour les schémas.
+- [x] DEP-0095 Créer un dossier prompts pour les consignes d’assistant.
 - [ ] DEP-0096 Créer un fichier CONTRIBUTING.md.
-- [ ] DEP-0097 Créer un fichier CODEOWNERS.
-- [ ] DEP-0098 Créer un modèle d’issue GitHub pour les bugs.
-- [ ] DEP-0099 Créer un modèle d’issue GitHub pour les tâches.
-- [ ] DEP-0100 Créer un modèle d’issue GitHub pour les idées produit.
-- [ ] DEP-0101 Créer un modèle de pull request GitHub.
+- [x] DEP-0097 Créer un fichier CODEOWNERS.
+- [x] DEP-0098 Créer un modèle d’issue GitHub pour les bugs.
+- [x] DEP-0099 Créer un modèle d’issue GitHub pour les tâches.
+- [x] DEP-0100 Créer un modèle d’issue GitHub pour les idées produit.
+- [x] DEP-0101 Créer un modèle de pull request GitHub.
 - [ ] DEP-0102 Créer la branche principale stable.
 - [ ] DEP-0103 Créer une branche de développement.
 - [ ] DEP-0104 Définir la règle de nommage des branches.

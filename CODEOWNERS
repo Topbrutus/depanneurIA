@@ -1,0 +1,13 @@
+# CODEOWNERS — depaneurIA
+# Les propriétaires listés ici seront automatiquement demandés en revue
+# lors de l'ouverture d'une pull request modifiant les fichiers correspondants.
+# Documentation : https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Par défaut, tous les fichiers
+* @Topbrutus
+
+# Documentation
+docs/ @Topbrutus
+
+# Infrastructure
+infra/ @Topbrutus
