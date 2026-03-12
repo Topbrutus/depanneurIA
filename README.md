@@ -8,6 +8,12 @@ Ce dépôt sert de **source unique de vérité** pour travailler à trois :
 - **Copilot** : exécution ciblée, issue par issue ;
 - **ChatGPT** : découpage logique, cohérence d’ensemble, contrôle de l’avancement.
 
+## Mission du produit
+
+> Permettre à un client de commander un dépanneur en mode manuel, assisté ou téléphonique.
+
+C'est la mission centrale du projet : offrir trois modes de commande flexibles (saisie manuelle directe, assistance guidée à l'écran, ou passage de commande par téléphone) pour répondre aux besoins de tous les types de clients.
+
 ## Nom de travail interne
 
 > **depaneurIA**
