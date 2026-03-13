@@ -311,46 +311,46 @@ Version convertie depuis le fichier source fourni par l’utilisateur.
 
 ## Bloc 0281–0320
 
-- [ ] DEP-0281 Définir le parcours d’inscription client à la première réouverture du site ou de l’application.
-- [ ] DEP-0282 Définir les champs obligatoires à l’inscription : nom, téléphone, adresse.
-- [ ] DEP-0283 Définir les champs optionnels à l’inscription.
-- [ ] DEP-0284 Définir la logique de vérification du numéro de téléphone.
-- [ ] DEP-0285 Définir la logique de vérification d’adresse.
-- [ ] DEP-0286 Définir la logique de connexion simple du client.
-- [ ] DEP-0287 Définir la logique de reconnexion du client.
-- [ ] DEP-0288 Définir la logique de réinitialisation d’accès.
-- [ ] DEP-0289 Définir la logique de gestion de plusieurs adresses client.
-- [ ] DEP-0290 Définir la logique d’adresse par défaut.
-- [ ] DEP-0291 Définir la logique de notes de livraison client.
-- [ ] DEP-0292 Définir la logique de suppression de compte client.
-- [ ] DEP-0293 Définir la logique de mise à jour du téléphone client.
-- [ ] DEP-0294 Définir la logique de mise à jour de l’adresse client.
+- [x] DEP-0281 Définir le parcours d’inscription client à la première réouverture du site ou de l’application.
+- [x] DEP-0282 Définir les champs obligatoires à l’inscription : nom, téléphone, adresse.
+- [x] DEP-0283 Définir les champs optionnels à l’inscription.
+- [x] DEP-0284 Définir la logique de vérification du numéro de téléphone.
+- [x] DEP-0285 Définir la logique de vérification d’adresse.
+- [x] DEP-0286 Définir la logique de connexion simple du client.
+- [x] DEP-0287 Définir la logique de reconnexion du client.
+- [x] DEP-0288 Définir la logique de réinitialisation d’accès.
+- [x] DEP-0289 Définir la logique de gestion de plusieurs adresses client.
+- [x] DEP-0290 Définir la logique d’adresse par défaut.
+- [x] DEP-0291 Définir la logique de notes de livraison client.
+- [x] DEP-0292 Définir la logique de suppression de compte client.
+- [x] DEP-0293 Définir la logique de mise à jour du téléphone client.
+- [x] DEP-0294 Définir la logique de mise à jour de l’adresse client.
 - [ ] DEP-0295 Définir la logique de consentement minimal aux notifications.
 - [ ] DEP-0296 Définir la logique de consentement minimal à l’assistant vocal.
 - [ ] DEP-0297 Définir la logique de choix initial entre mode manuel et mode assisté.
 - [ ] DEP-0298 Définir la logique de changement de mode pendant la navigation.
 - [ ] DEP-0299 Définir la logique de mémorisation du mode préféré du client.
-- [ ] DEP-0300 Définir la logique d’ouverture directe sur la boutique après connexion.
-- [ ] DEP-0301 Créer l’écran d’inscription client.
-- [ ] DEP-0302 Créer l’écran de connexion client.
-- [ ] DEP-0303 Créer l’écran de profil client.
-- [ ] DEP-0304 Créer l’écran de gestion d’adresses.
+- [x] DEP-0300 Définir la logique d’ouverture directe sur la boutique après connexion.
+- [x] DEP-0301 Créer l’écran d’inscription client.
+- [x] DEP-0302 Créer l’écran de connexion client.
+- [x] DEP-0303 Créer l’écran de profil client.
+- [x] DEP-0304 Créer l’écran de gestion d’adresses.
 - [ ] DEP-0305 Créer l’écran de choix manuel ou assisté.
 - [ ] DEP-0306 Créer l’écran de récupération d’accès.
 - [ ] DEP-0307 Créer le message de bienvenue du mode manuel.
 - [ ] DEP-0308 Créer le message de bienvenue du mode assisté.
 - [ ] DEP-0309 Créer le message de bienvenue du mode téléphone.
-- [ ] DEP-0310 Créer le message d’erreur pour adresse incomplète.
-- [ ] DEP-0311 Créer le message d’erreur pour téléphone invalide.
-- [ ] DEP-0312 Créer le message d’erreur pour zone non desservie.
-- [ ] DEP-0313 Créer le message d’erreur pour compte incomplet.
+- [x] DEP-0310 Créer le message d’erreur pour adresse incomplète.
+- [x] DEP-0311 Créer le message d’erreur pour téléphone invalide.
+- [x] DEP-0312 Créer le message d’erreur pour zone non desservie.
+- [x] DEP-0313 Créer le message d’erreur pour compte incomplet.
 - [ ] DEP-0314 Créer la logique de sauvegarde du panier lié au compte.
 - [ ] DEP-0315 Créer la logique de sauvegarde des préférences de recherche.
 - [ ] DEP-0316 Créer la logique de sauvegarde de la dernière commande.
 - [ ] DEP-0317 Créer la logique de sauvegarde des produits favoris si utile plus tard.
-- [ ] DEP-0318 Valider que le client peut s’inscrire et revenir sans friction.
-- [ ] DEP-0319 Valider que les données minimales du client sont suffisantes pour livrer.
-- [ ] DEP-0320 Geler le parcours client de base avant d’ajouter plus de complexité.
+- [x] DEP-0318 Valider que le client peut s’inscrire et revenir sans friction.
+- [x] DEP-0319 Valider que les données minimales du client sont suffisantes pour livrer.
+- [x] DEP-0320 Geler le parcours client de base avant d’ajouter plus de complexité.
 
 ## Bloc 0321–0360
 
