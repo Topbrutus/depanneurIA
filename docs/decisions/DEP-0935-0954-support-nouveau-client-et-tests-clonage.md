@@ -745,3 +745,27 @@ les autres tenants.
 - Les requêtes API retournent exclusivement les données du tenant appelant.
 - L'isolation est garantie au niveau de la base de données (filtrage par
   `tenant_id`).
+
+---
+
+## Conclusion
+
+Ce document définit 20 décisions réparties en quatre sous-blocs :
+
+1. **DEP-0935–DEP-0940** — Processus de support d'un nouveau client :
+   validation avant mise en ligne, formation, support des 7 premiers jours,
+   support mensuel, facturation et suspension pour non-paiement.
+
+2. **DEP-0941–DEP-0946** — Checklists d'onboarding d'un nouveau dépanneur :
+   onboarding général, branding, catalogue, livraison, téléphonie et
+   formation.
+
+3. **DEP-0947–DEP-0950** — Pages super admin : onboarding client, clonage de
+   configuration, suivi des tenants et santé globale.
+
+4. **DEP-0951–DEP-0954** — Tests de clonage : clonage vers un deuxième et un
+   troisième tenant fictif, séparation des domaines et séparation des
+   catalogues entre tenants.
+
+Ces décisions sont exclusivement documentaires. L'implémentation sera
+effectuée dans les blocs de travail correspondants.
