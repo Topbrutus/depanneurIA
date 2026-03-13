@@ -8,6 +8,19 @@ couvrent **uniquement** la documentation : aucun setup réel, aucune activation
 de numéro ou d’utilisateur productif. Tous les éléments se font en
 environnement de démonstration/staging avec données factices.
 
+### Principes communs (pilote fictif)
+- Environnement : staging/sandbox uniquement, tenant pilote isolé, catalogue démo et comptes clients factices.
+- Téléphonie : appels simulés via sandbox (TTS), aucune redirection vers des appareils personnels.
+- Notifications : pas d’email/SMS vers l’extérieur ; chaque message indique « session de test ».
+- Données : nettoyage après chaque session de test ; aucune PII réelle.
+- Journalisation : conserver les journaux staging (commandes, livraisons, téléphonie) pour débrief interne uniquement.
+
+### Livrables communs
+- Fiches d’accès staging (dépanneur/livreur) avec procédure OTP simulée.
+- Scripts vocaux/textes d’accueil et de validation stockés dans la doc interne.
+- Scénarios de tests (jour, soir, aléas) et checklists de validation associées.
+- Captures clés (connexion, parcours complet) pour preuve de maîtrise.
+
 ---
 
 ## DEP-0895 — Préparer les utilisateurs dépanneur du pilote
@@ -27,6 +40,10 @@ impacter la production.
 ### Validation
 - Connexion OK sur l’interface réception staging.
 - Accès limité au tenant pilote factice.
+
+### Livrables
+- Fiche d’accès pour chaque compte (email factice, OTP simulé, rôle).
+- Capture d’écran de la connexion réussie sur la réception staging.
 
 ---
 
@@ -48,6 +65,10 @@ permissions livraison uniquement.
 - Connexion OK sur interface livraison staging.
 - Impossible d’accéder aux écrans admin ou client.
 
+### Livrables
+- Fiche d’accès pour chaque compte (email factice, OTP simulé, rôle).
+- Capture d’écran de la liste des courses vide puis assignée en staging.
+
 ---
 
 ## DEP-0897 — Préparer le numéro téléphonique du pilote
@@ -68,6 +89,10 @@ productif.
 - Appel simulé atteint le flow sandbox sans composer de numéro réel.
 - Aucun renvoi vers un téléphone personnel.
 
+### Livrables
+- Fiche du numéro sandbox (SID, région, message d’avertissement).
+- Capture ou transcription du flow d’appel simulé.
+
 ---
 
 ## DEP-0898 — Préparer les messages d’accueil du pilote
@@ -87,6 +112,7 @@ texte) sans enregistrement public.
 - Messages disponibles en TTS FR ; option EN facultative si déjà prévue.
 - Scripts stockés dans le dossier `docs/telephonie/scripts/` (staging), pas de
 diffusion externe.
+- Lecture test enregistrée (fichier local) pour vérification interne.
 
 ---
 
@@ -104,6 +130,10 @@ commandes, changements d’état, alertes, journal.
 | Journal & alertes | Lecture journal immuable, réaction à alerte sonore | Identifie l’événement dans le journal |
 | Accessibilité | Raccourcis clavier essentiels si activés | Effectue 1 parcours complet au clavier |
 
+### Livrables
+- Checklist formation signée (3 commandes test traitées).
+- Capture du journal montrant les actions successives.
+
 ---
 
 ## DEP-0900 — Former le livreur à l’interface livraison
@@ -118,6 +148,10 @@ Former le livreur pilote aux statuts livraison et à la preuve de remise.
 | Cycle statut | Accepter/refuser, partir, arrivé, livré | Enchaîne le cycle complet sur 2 commandes test |
 | Notes & appels | Consulter notes client, lancer appel simulé | Appel test déclenché depuis la fiche |
 | Preuve | Ajouter confirmation remise (bouton/checkbox) | Statut livré visible côté dépanneur |
+
+### Livrables
+- Capture du cycle complet de statuts sur une commande factice.
+- Note de remise simulée visible côté dépanneur.
 
 ---
 
@@ -134,6 +168,10 @@ Assurer que le dépanneur sait gérer le catalogue minimal pour le pilote.
 | Tri | Réordonner un produit dans une catégorie | Ordre reflété côté boutique staging |
 | Validation | Vérifier statut brouillon/actif | Produit activé visible en test |
 
+### Livrables
+- Produit démo créé + édité en staging (capture avant/après).
+- Note rappelant l’usage exclusif d’images placeholders.
+
 ---
 
 ## DEP-0902 — Former le dépanneur aux alertes
@@ -148,6 +186,10 @@ stock, paiement).
 | Types d’alertes | Nouvelle commande, article manquant, incident livraison | Identifie le type et sa priorité |
 | Gestion | Ouvrir, marquer résolu, ajouter note | 3 alertes traitées sans assistance |
 | Notification | Comprendre sons/badges, pas d’usage email prod | Peut différencier sonore vs visuel |
+
+### Livrables
+- Journal d’alertes montrant 3 résolutions.
+- Fiche mémo des types/priorités d’alertes.
 
 ---
 
@@ -164,6 +206,10 @@ Gérer un produit manquant et proposer un remplacement au client.
 | Validation | Accepter/refuser la réponse client simulée | Statut reflété dans la commande test |
 | Communication | Message pré-écrit d’excuse/confirmation | Message envoyé via canal simulé |
 
+### Livrables
+- Capture du flux remplacement (proposition, acceptation/refus).
+- Modèle de message d’excuse utilisé en simulation.
+
 ---
 
 ## DEP-0904 — Former le dépanneur au paiement à la livraison
@@ -178,6 +224,10 @@ Savoir marquer et suivre un paiement à la livraison en V1.
 | Statuts | Marquer payé/non payé/problème | Statut reflété côté livreur et client |
 | Journal | Ajouter note de paiement | Note visible dans la timeline |
 | Exceptions | Que faire en cas de refus de paiement | Procédure expliquée, statut problème utilisé |
+
+### Livrables
+- Capture de statut « payé » et « problème paiement » sur commandes test.
+- Procédure écrite pour refus de paiement (staging uniquement).
 
 ---
 
@@ -194,6 +244,10 @@ Assurer la saisie correcte de la remise au client.
 | Notes | Ajouter note (ex : remis au concierge) | Note visible en consultation ultérieure |
 | Synchronisation | Attendre synchro réseau avant fermeture | Pas de perte d’état en mode offline simulé |
 
+### Livrables
+- Capture de la confirmation remise et de la note associée.
+- Temps de synchro mesuré en mode offline simulé.
+
 ---
 
 ## DEP-0906 — Former le livreur à la gestion des problèmes
@@ -208,6 +262,10 @@ Traiter les incidents livraison pendant le pilote.
 | Actions | Marquer problème, notifier dépanneur | Alerte reçue côté dépanneur |
 | Escalade | Escalade vers support pilote (contact interne) | Contact simulé déclenché |
 | Reprise | Replanifier ou annuler selon consigne | Statut mis à jour et journal cohérent |
+
+### Livrables
+- Journal montrant une alerte problème et sa résolution.
+- Contact d’escalade interne documenté (staging).
 
 ---
 
@@ -227,6 +285,7 @@ Simuler une journée type avec commandes étalées pour valider les flux.
 ### Validation
 - Aucun blocage interface dépanneur/livreur.
 - Journal complet pour chaque commande.
+- Rapport de fin de journée listant incidents et temps de traitement.
 
 ---
 
@@ -245,6 +304,7 @@ Tester les pics soirée avec contraintes horaires.
 ### Validation
 - SLA simulation respecté (préparation <20 min).
 - Aucune notification envoyée à des contacts réels.
+- Rapport synthèse sur charge et latence des alertes.
 
 ---
 
@@ -262,6 +322,7 @@ Vérifier la résilience lors d’une coupure réseau côté dépanneur ou livre
 ### Validation
 - Messages d’erreur clairs, aucune donnée perdue.
 - Journal note l’incident réseau (staging).
+- Rapport d’incident incluant durée de coupure et resynchronisation.
 
 ---
 
@@ -279,6 +340,7 @@ Valider le flux de rupture et remplacement pendant le pilote.
 
 ### Validation
 - Aucun produit indispo ne reste « actif » sans décision.
+- Capture montrant le journal de rupture et la décision prise.
 
 ---
 
@@ -296,6 +358,7 @@ Gérer une adresse invalide ou hors zone durant le flux pilote.
 ### Validation
 - Statut passe en « problème » avec note cause.
 - Pas de livraison poursuivie sans correction.
+- Capture de l’erreur affichée et de la note corrective.
 
 ---
 
@@ -313,6 +376,7 @@ S’assurer qu’une annulation (client ou dépanneur) est gérée proprement.
 ### Validation
 - Journal inclut motif et acteur.
 - Alertes dépanneur/livreur se ferment.
+- Capture du statut annulé et du message associé.
 
 ---
 
@@ -331,6 +395,7 @@ Tester le parcours voix (appel simulé) de bout en bout.
 ### Validation
 - Transcription stockée en sandbox, pas de PII réelle.
 - Commande visible côté dépanneur en <1 min.
+- Audio TTS sauvegardé localement pour débrief.
 
 ---
 
@@ -349,4 +414,4 @@ Tester le parcours assisté texte (chat) complet.
 ### Validation
 - Journal assistant inclut l’intention et les produits.
 - Aucun envoi de notification à de vrais clients.
-
+- Capture de la conversation et du panier final.
