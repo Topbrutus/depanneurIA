@@ -119,7 +119,7 @@ mise en ligne d'un nouveau tenant.
 |-----------------------------------------|----------------------------------------|
 | Délai de réponse maximal                | 2 heures ouvrables                     |
 | Canal de support principal              | Courriel ou messagerie instantanée     |
-| Disponibilité du support                | Lundi à vendredi, 9 h à 18 h (heure locale du client) |
+| Disponibilité du support                | Lundi à vendredi, 9 h à 18 h (fuseau horaire du client, HE par défaut) |
 | Appel de suivi proactif                 | Jour 1, jour 3, jour 7                |
 | Rapport de lancement                    | Envoyé au jour 7                       |
 
@@ -162,7 +162,7 @@ initiale de 7 jours.
 |-----------------------------------------|----------------------------------------|
 | Délai de réponse maximal                | 24 heures ouvrables                    |
 | Canal de support principal              | Courriel                               |
-| Disponibilité du support                | Lundi à vendredi, 9 h à 18 h (heure locale du client) |
+| Disponibilité du support                | Lundi à vendredi, 9 h à 18 h (fuseau horaire du client, HE par défaut) |
 | Appel de suivi mensuel                  | 1 appel par mois (facultatif si le client décline) |
 | Rapport mensuel                         | Envoyé avant le 5 du mois suivant      |
 
