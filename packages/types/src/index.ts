@@ -44,3 +44,6 @@ export type {
   CreateProductPayload,
   UpdateProductPayload,
 } from './catalog';
+
+export { DEFAULT_TENANT_ID } from './tenant';
+export type { Tenant } from './tenant';

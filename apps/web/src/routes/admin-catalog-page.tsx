@@ -13,6 +13,8 @@ import { CatalogToolbar } from '../components/admin/catalog-toolbar';
 import { CategoryList } from '../components/admin/category-list';
 import { ProductList } from '../components/admin/product-list';
 import { ProductForm } from '../components/admin/product-form';
+import { TenantSelector } from '../components/admin/tenant-selector';
+import { useTenant } from '../lib/tenant-context';
 import '../styles/admin-catalog.css';
 
 type AvailabilityFilter = ProductAvailability | 'all';
@@ -30,6 +32,7 @@ export default function AdminCatalogPage() {
   const [search, setSearch] = useState('');
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const { currentTenantId } = useTenant();
 
   const categoryLabels = useMemo(() => {
     return categories.reduce<Record<string, string>>((acc, category) => {
@@ -64,7 +67,7 @@ export default function AdminCatalogPage() {
     } finally {
       setLoading(false);
     }
-  }, [filtersForApi]);
+  }, [filtersForApi, currentTenantId]);
 
   useEffect(() => {
     void loadData();
@@ -182,7 +185,10 @@ export default function AdminCatalogPage() {
             casser le catalogue client.
           </p>
         </div>
-        <div className="status-pill active">{products.length} produits</div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <TenantSelector />
+          <div className="status-pill active">{products.length} produits</div>
+        </div>
       </div>
 
       <CatalogToolbar

@@ -17,6 +17,7 @@ import StoreOpsPage from './routes/store-ops-page'
 import AdminCatalogPage from './routes/admin-catalog-page'
 import { clearCustomer, endSession, loadCustomer, loadSession, saveCustomer, startSession } from './lib/customer-storage'
 import { normalizePhone } from './lib/validation'
+import { TenantProvider } from './lib/tenant-context'
 
 const Navigation = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
   const { pathname } = useLocation()
@@ -164,6 +165,7 @@ const AppShell = () => {
 
   return (
     <BrowserRouter>
+      <TenantProvider>
       <div className="app-shell">
         <header className="topbar">
           <div className="brand">
@@ -235,6 +237,7 @@ const AppShell = () => {
           </Routes>
         </main>
       </div>
+      </TenantProvider>
     </BrowserRouter>
   )
 }

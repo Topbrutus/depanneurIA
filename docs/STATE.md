@@ -224,7 +224,23 @@ La fondation technique (DEP-0121 à DEP-0160) est complète. Les blocs de docume
 
 ## En cours
 
-- Prochaine étape : **DEP-0641 à DEP-0680** (multi-tenant de base et gel admin catalogue)
+- Prochaine étape : **DEP-0761 à DEP-0800** (bloc suivant après multi-tenant V1)
+
+## Multi-tenant V1 — DEP-0641 à DEP-0680
+
+Ajouté dans cette PR :
+- `packages/types/src/tenant.ts` — type `Tenant` et constante `DEFAULT_TENANT_ID`
+- `apps/api/src/lib/tenant-store.ts` — store mémoire avec 2 tenants de démonstration
+- `apps/api/src/lib/tenant-context.ts` — middleware de résolution tenant
+- `apps/api/src/lib/tenant-mappers.ts` — mappers de réponse tenant
+- `apps/api/src/routes/tenants.ts` — routes multi-tenant (GET /tenants, GET/POST scoped par tenant)
+- `apps/web/src/lib/tenant-api.ts` — client API tenant côté front
+- `apps/web/src/lib/tenant-context.tsx` — React context pour le tenant courant
+- `apps/web/src/components/admin/tenant-selector.tsx` — sélecteur tenant pour admin
+- `apps/web/src/components/store/tenant-filter.tsx` — filtre tenant pour opérateur
+- `apps/web/src/components/driver/tenant-filter.tsx` — filtre tenant pour livreur
+- Pages admin, opérateur et livreur mises à jour avec sélection de tenant
+- Routes existantes conservées pour compatibilité rétro (tenant par défaut)
 
 ## Bloqueurs
 

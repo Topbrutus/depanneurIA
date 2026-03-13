@@ -698,18 +698,18 @@ Version convertie depuis le fichier source fourni par l’utilisateur.
 
 ## Bloc 0641–0680
 
-- [ ] DEP-0641 Définir l’architecture multi-tenant officielle.
-- [ ] DEP-0642 Définir la notion de tenant client dans toutes les tables.
-- [ ] DEP-0643 Définir la notion de tenant client dans toutes les routes API.
-- [ ] DEP-0644 Définir la notion de tenant client dans toutes les interfaces.
+- [x] DEP-0641 Définir l’architecture multi-tenant officielle.
+- [x] DEP-0642 Définir la notion de tenant client dans toutes les tables.
+- [x] DEP-0643 Définir la notion de tenant client dans toutes les routes API.
+- [x] DEP-0644 Définir la notion de tenant client dans toutes les interfaces.
 - [ ] DEP-0645 Définir la notion de tenant client dans toutes les notifications.
 - [ ] DEP-0646 Définir la notion de tenant client dans toutes les connexions téléphoniques.
 - [ ] DEP-0647 Définir la notion de tenant client dans toutes les adresses de livraison.
-- [ ] DEP-0648 Définir la notion de tenant client dans toutes les commandes.
+- [x] DEP-0648 Définir la notion de tenant client dans toutes les commandes.
 - [ ] DEP-0649 Définir la notion de tenant client dans toutes les statistiques.
 - [ ] DEP-0650 Définir la notion de tenant client dans tous les médias.
-- [ ] DEP-0651 Définir les données qui doivent être totalement séparées par client.
-- [ ] DEP-0652 Définir les données qui peuvent être mutualisées.
+- [x] DEP-0651 Définir les données qui doivent être totalement séparées par client.
+- [x] DEP-0652 Définir les données qui peuvent être mutualisées.
 - [ ] DEP-0653 Définir les modèles clonables d’un client à l’autre.
 - [ ] DEP-0654 Définir les modèles non clonables d’un client à l’autre.
 - [ ] DEP-0655 Définir la logique de création d’un nouveau tenant.
@@ -728,15 +728,15 @@ Version convertie depuis le fichier source fourni par l’utilisateur.
 - [ ] DEP-0668 Définir la logique d’export complet des données d’un client.
 - [ ] DEP-0669 Définir la logique d’import initial des données d’un client.
 - [ ] DEP-0670 Définir la logique de séparation stricte des journaux.
-- [ ] DEP-0671 Créer la table ou collection des tenants.
+- [x] DEP-0671 Créer la table ou collection des tenants.
 - [ ] DEP-0672 Créer la page super admin liste des tenants.
 - [ ] DEP-0673 Créer la page super admin création de tenant.
 - [ ] DEP-0674 Créer la page super admin clonage de tenant.
 - [ ] DEP-0675 Créer la page super admin suspension de tenant.
 - [ ] DEP-0676 Créer le script d’initialisation d’un nouveau tenant.
 - [ ] DEP-0677 Créer le script de clonage d’un tenant modèle.
-- [ ] DEP-0678 Tester la séparation complète entre deux dépanneurs fictifs.
-- [ ] DEP-0679 Tester qu’aucune commande ne fuit d’un client à l’autre.
+- [x] DEP-0678 Tester la séparation complète entre deux dépanneurs fictifs.
+- [x] DEP-0679 Tester qu’aucune commande ne fuit d’un client à l’autre.
 - [ ] DEP-0680 Geler l’architecture multi-tenant V1.
 
 ## Bloc 0681–0720

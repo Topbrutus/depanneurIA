@@ -12,11 +12,12 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@depaneuria/types": "workspace:^",
+    "lucide-react": "^0.344.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.0",
-    "zustand": "^4.5.0",
-    "lucide-react": "^0.344.0"
+    "zustand": "^4.5.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.56",
@@ -24,10 +25,10 @@
     "@typescript-eslint/eslint-plugin": "^8.57.0",
     "@typescript-eslint/parser": "^8.57.0",
     "@vitejs/plugin-react": "^4.2.1",
-    "globals": "^15.11.0",
     "eslint": "^8.56.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "globals": "^15.11.0",
     "prettier": "^3.2.5",
     "typescript": "^5.3.3",
     "typescript-eslint": "^8.57.0",

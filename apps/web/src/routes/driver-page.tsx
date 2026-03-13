@@ -3,6 +3,8 @@ import type { OrderStatus } from '@depaneuria/types';
 import type { OrderWithDetails } from '../lib/driver-api';
 import { fetchDeliveryOrders, updateOrderStatus } from '../lib/driver-api';
 import { DeliveryQueue } from '../components/driver/delivery-queue';
+import { TenantFilter } from '../components/driver/tenant-filter';
+import { useTenant } from '../lib/tenant-context';
 import '../styles/driver.css';
 
 type StatusFilter = 'all' | 'ready_for_delivery' | 'assigned_to_driver' | 'out_for_delivery';
@@ -19,6 +21,7 @@ export function DriverPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [statusFilter, setStatusFilter] = useState<StatusFilter>('all');
+  const { currentTenantId } = useTenant();
 
   const loadOrders = async (filter: StatusFilter) => {
     setIsLoading(true);
@@ -51,7 +54,7 @@ export function DriverPage() {
 
   useEffect(() => {
     loadOrders(statusFilter);
-  }, [statusFilter]);
+  }, [statusFilter, currentTenantId]);
 
   const handleStatusChange = async (
     orderId: string,
@@ -74,6 +77,7 @@ export function DriverPage() {
     <div className="driver-page">
       <header className="driver-header">
         <h1>Interface Livreur</h1>
+        <TenantFilter />
       </header>
 
       <div className="status-filters">

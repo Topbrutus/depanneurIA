@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import type { OrderStatus } from '@depaneuria/types';
 import { fetchOrders, updateOrderStatus, type OrderWithDetails } from '../lib/store-api';
 import { OrderQueue } from '../components/store/order-queue';
+import { TenantFilter } from '../components/store/tenant-filter';
+import { useTenant } from '../lib/tenant-context';
 import '../styles/store.css';
 
 type StatusFilter = OrderStatus | 'all';
@@ -19,6 +21,7 @@ export default function StoreOpsPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [statusFilter, setStatusFilter] = useState<StatusFilter>('all');
+  const { currentTenantId } = useTenant();
 
   const loadOrders = async (filter: StatusFilter) => {
     setIsLoading(true);
@@ -35,7 +38,7 @@ export default function StoreOpsPage() {
 
   useEffect(() => {
     loadOrders(statusFilter);
-  }, [statusFilter]);
+  }, [statusFilter, currentTenantId]);
 
   const handleStatusChange = async (orderId: string, newStatus: OrderStatus) => {
     try {
@@ -52,6 +55,7 @@ export default function StoreOpsPage() {
       <div className="store-ops-header">
         <h1>Gestion des commandes</h1>
         <p>Acceptez, préparez et gérez les commandes entrantes</p>
+        <TenantFilter />
       </div>
 
       <div className="status-filters">
