@@ -19,7 +19,7 @@
 - Blocs GitHub de fondation (`DEP-0084` à `DEP-0120`) terminés
 - Blocs fondation technique (`DEP-0121` à `DEP-0160`) terminés
 - Blocs parcours utilisateur et pages (`DEP-0161` à `DEP-0180`) terminés
-- Prochain bloc recommandé : `DEP-0181` à `DEP-0200` (définition des comportements UX et dispositions)
+- Prochain bloc recommandé : `DEP-0181` à `DEP-0200` (comportements UX et dispositions)
 
 ## Observation importante
 
@@ -35,9 +35,8 @@ Le bloc 0001 (DEP-0001 à DEP-0010) reste complet. Le bloc GitHub de fondation (
 - DEP-0134 à DEP-0135 — structure monorepo définie (`apps/`, `packages/` avec workspaces)
 - DEP-0136 à DEP-0140 — stratégies env et scripts documentées et implémentées
 - DEP-0141 à DEP-0160 — scripts npm/pnpm créés, règles de nommage établies, ossature locale stabilisée
-- DEP-0161 à DEP-0164 — cartes du site définies (client, dépanneur, livreur, super admin)
-- DEP-0165 à DEP-0170 — pages principales définies (accueil, boutique, mode assisté, connexion, inscription, profil)
-- DEP-0171 à DEP-0180 — pages secondaires définies (adresses, historique, suivi, contact, conditions, confidentialité, accessibilité, aide vocale)
+- DEP-0161 à DEP-0170 — cartes du site (client, dépanneur, livreur, admin) et pages principales définies
+- DEP-0171 à DEP-0180 — pages secondaires définies (adresses, historique, suivi, contact, légal, accessibilité, aide vocale)
 
 **Fichiers de configuration créés :**
 - `tsconfig.json` — configuration TypeScript 5.3+ strict
@@ -45,10 +44,10 @@ Le bloc 0001 (DEP-0001 à DEP-0010) reste complet. Le bloc GitHub de fondation (
 - `.prettierrc` — configuration Prettier pour formatage uniforme
 - `package.json` — monorepo avec workspaces pnpm et scripts dev/build/test/lint/format
 - `.env.example` — modèle de variables d'environnement
-- Docs decisions : DEP-0121-0127, DEP-0136-0140, DEP-0161-0164, DEP-0165-0170, DEP-0171-0180
+- Docs decisions : DEP-0121-0127, DEP-0136-0140, DEP-0161-0170, DEP-0171-0180
 
 **Non commencé :**
-- DEP-0181 à DEP-0200 — définition des comportements UX et dispositions
+- DEP-0181 à DEP-0200 — comportements UX et dispositions desktop/mobile
 
 ## Manques publics actuels
 
@@ -58,12 +57,12 @@ Aucun manque identifié dans les blocs DEP-0084 à DEP-0160. La fondation techni
 
 **Bloc prioritaire : DEP-0181 à DEP-0200**
 
-1. **DEP-0181 à DEP-0190** — Définir les comportements UX :
+1. **DEP-0181 à DEP-0190** — Définir les dispositions et emplacements :
    - Dispositions desktop et mobile (3 sections vs empilée)
-   - Comportements du panier, du chat assistant, des suggestions
-   - Comportements de la grille produits au clic et à la voix
+   - Emplacements exacts du panier, du chat et des suggestions sur chaque format
 
-2. **DEP-0191 à DEP-0200** — Définir les comportements de l'assistant :
+2. **DEP-0191 à DEP-0200** — Définir les comportements UX :
+   - Comportements de la grille produits, du panier, du chat assistant
    - Comportements de l'assistant selon différents contextes utilisateur
 
 ## Vérifications à faire dans GitHub UI (admin requis)
@@ -106,17 +105,17 @@ Aucun manque identifié dans les blocs DEP-0084 à DEP-0160. La fondation techni
 
 ## Dernière tâche terminée
 
-- DEP-0161 à DEP-0180 — cartes du site (4 rôles), pages principales (6) et pages secondaires (10) définies
+- DEP-0161 à DEP-0180 — cartes du site (client, dépanneur, livreur, admin), pages principales (accueil, boutique, mode assisté, connexion, inscription, profil) et pages secondaires (adresses, historique, suivi, produits populaires, contact, conditions, confidentialité, accessibilité, aide vocale)
 
 ## En cours
 
 - Aucune tâche actuellement en cours
-- Prochaine étape : DEP-0181 à DEP-0200 (définition des comportements UX et dispositions)
+- Prochaine étape : DEP-0181 à DEP-0200 (comportements UX et dispositions desktop/mobile)
 
 ## Bloqueurs
 
 - Aucun bloqueur technique identifié
-- Les blocs DEP-0181+ peuvent être réalisés en se concentrant sur la documentation des comportements UX et dispositions
+- Les blocs DEP-0181+ peuvent être réalisés en se concentrant sur les comportements UX et les dispositions desktop/mobile
 
 ## Convention d'ID
 
