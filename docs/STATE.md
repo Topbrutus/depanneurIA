@@ -27,6 +27,7 @@
 - `.github/copilot-instructions.md` : créé
 - Code produit : pas commencé
 - Système de suivi à trois : en place
+- Saisie vocale web V1 : bouton micro start/stop, statuts écoute/transcription/erreur et fallback si non support (branche `copilot/r6-voice-web-v1`)
 - Problème principal client formulé : commande lente et incertaine (infos répétées, disponibilité inconnue)
 - Branche `develop` : ❌ **absente** (n'existe pas dans le dépôt distant)
 - Protection `main` : ❌ **absente** (`main` n'est pas protégée, `protected: false`)

@@ -427,7 +427,7 @@ Version convertie depuis le fichier source fourni par l’utilisateur.
 - [ ] DEP-0388 Créer la boîte de chat de l’assistant.
 - [ ] DEP-0389 Créer l’entrée texte du client.
 - [ ] DEP-0390 Créer le bouton d’envoi texte.
-- [ ] DEP-0391 Créer le bouton micro du mode assisté écran.
+- [x] DEP-0391 Créer le bouton micro du mode assisté écran.
 - [ ] DEP-0392 Créer l’affichage des suggestions produits de l’assistant.
 - [ ] DEP-0393 Créer l’action de clic sur une suggestion proposée par l’assistant.
 - [ ] DEP-0394 Créer la réduction des suggestions après sélection d’un produit.
@@ -461,12 +461,12 @@ Version convertie depuis le fichier source fourni par l’utilisateur.
 - [ ] DEP-0419 Définir la logique d’accessibilité pour clients malvoyants.
 - [ ] DEP-0420 Définir la logique d’accessibilité pour clients aveugles.
 - [ ] DEP-0421 Définir la logique d’accessibilité pour clients ayant des difficultés de lecture.
-- [ ] DEP-0422 Créer le bouton micro visible sur ordinateur.
-- [ ] DEP-0423 Créer le bouton micro visible sur téléphone.
-- [ ] DEP-0424 Créer l’indicateur visuel “écoute active”.
-- [ ] DEP-0425 Créer l’indicateur visuel “traitement en cours”.
+- [x] DEP-0422 Créer le bouton micro visible sur ordinateur.
+- [x] DEP-0423 Créer le bouton micro visible sur téléphone.
+- [x] DEP-0424 Créer l’indicateur visuel “écoute active”.
+- [x] DEP-0425 Créer l’indicateur visuel “traitement en cours”.
 - [ ] DEP-0426 Créer l’indicateur visuel “parole de l’assistant”.
-- [ ] DEP-0427 Créer l’indicateur visuel “erreur audio”.
+- [x] DEP-0427 Créer l’indicateur visuel “erreur audio”.
 - [ ] DEP-0428 Créer le raccourci clavier pour activer la voix sur ordinateur.
 - [ ] DEP-0429 Créer le comportement tactile pour activer la voix sur téléphone.
 - [ ] DEP-0430 Créer la lecture du panier par l’assistant vocal.

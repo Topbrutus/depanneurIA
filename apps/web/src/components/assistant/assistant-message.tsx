@@ -1,10 +1,11 @@
 import type { AssistantMessage } from '@depaneuria/types';
+import type { CSSProperties } from 'react';
 
 interface Props {
   message: AssistantMessage;
 }
 
-const USER_STYLE: React.CSSProperties = {
+const USER_STYLE: CSSProperties = {
   maxWidth: '78%',
   padding: '0.55rem 0.9rem',
   borderRadius: '16px 16px 4px 16px',
@@ -15,7 +16,7 @@ const USER_STYLE: React.CSSProperties = {
   wordBreak: 'break-word',
 };
 
-const ASSISTANT_STYLE: React.CSSProperties = {
+const ASSISTANT_STYLE: CSSProperties = {
   maxWidth: '78%',
   padding: '0.55rem 0.9rem',
   borderRadius: '16px 16px 16px 4px',

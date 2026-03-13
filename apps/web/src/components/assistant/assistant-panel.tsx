@@ -1,11 +1,19 @@
 'use client';
 
 import type { AssistantMessage } from '@depaneuria/types';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { processMessage } from '../../lib/assistant-adapter';
+import {
+  createVoiceAdapter,
+  type VoiceAdapter,
+  type VoiceState,
+} from '../../lib/voice-adapter';
 import { AssistantInput } from './assistant-input';
 import { AssistantMessageBubble } from './assistant-message';
+import { VoiceButton } from './voice-button';
+import { VoiceStatus } from './voice-status';
+import '../../styles/assistant.css';
 
 const WELCOME: AssistantMessage = {
   id: 'welcome',
@@ -17,17 +25,22 @@ const WELCOME: AssistantMessage = {
 export function AssistantPanel() {
   const [messages, setMessages] = useState<AssistantMessage[]>([WELCOME]);
   const [isLoading, setIsLoading] = useState(false);
+  const [voiceState, setVoiceState] = useState<VoiceState>({ status: 'ready' });
   const bottomRef = useRef<HTMLDivElement>(null);
+  const voiceRef = useRef<VoiceAdapter | null>(null);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  const handleSend = (text: string) => {
+  const handleSend = useCallback((text: string) => {
+    const trimmed = text.trim();
+    if (!trimmed) return;
+
     const userMsg: AssistantMessage = {
       id: `u-${Date.now().toString()}`,
       role: 'user',
-      text,
+      text: trimmed,
       timestamp: Date.now(),
     };
 
@@ -36,7 +49,7 @@ export function AssistantPanel() {
 
     // Léger délai pour un rendu naturel (moteur synchrone, mais UX préférable)
     setTimeout(() => {
-      const response = processMessage(text);
+      const response = processMessage(trimmed);
       const assistantMsg: AssistantMessage = {
         id: `a-${Date.now().toString()}`,
         role: 'assistant',
@@ -46,6 +59,26 @@ export function AssistantPanel() {
       setMessages((prev) => [...prev, assistantMsg]);
       setIsLoading(false);
     }, 250);
+  }, []);
+
+  useEffect(() => {
+    const adapter = createVoiceAdapter({
+      onTranscript: (transcript) => handleSend(transcript),
+      onStatusChange: (state) => setVoiceState(state),
+    });
+
+    voiceRef.current = adapter;
+    setVoiceState(adapter.getState());
+
+    return () => adapter.dispose();
+  }, [handleSend]);
+
+  const startVoice = () => {
+    voiceRef.current?.start();
+  };
+
+  const stopVoice = () => {
+    voiceRef.current?.stop();
   };
 
   return (
@@ -113,6 +146,16 @@ export function AssistantPanel() {
         )}
 
         <div ref={bottomRef} />
+      </div>
+
+      <div className="assistant-voice-row">
+        <VoiceButton
+          status={voiceState.status}
+          onStart={startVoice}
+          onStop={stopVoice}
+          disabled={isLoading}
+        />
+        <VoiceStatus state={voiceState} />
       </div>
 
       {/* Zone de saisie */}

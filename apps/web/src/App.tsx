@@ -1,33 +1,16 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { ShopPage } from './routes/shop-page';
-import { CartPage } from './routes/cart-page';
-import { OrderSuccessPage } from './routes/order-success-page';
-import { OrderFailurePage } from './routes/order-failure-page';
-import { OrderTrackingPage } from './routes/order-tracking-page';
-
-function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<ShopPage />} />
-        <Route path="/panier" element={<CartPage />} />
-        <Route path="/commande/succes" element={<OrderSuccessPage />} />
-        <Route path="/commande/echec" element={<OrderFailurePage />} />
-        <Route path="/commande/suivi" element={<OrderTrackingPage />} />
-      </Routes>
-    </BrowserRouter>
-  );
-}
-
-export default App;
 import { useMemo, useState } from 'react'
 import { BrowserRouter, Link, Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import type { Address, CustomerData, CustomerSession } from '@depaneuria/types'
+
 import AddressesPage from './routes/addresses-page'
+import { CartPage } from './routes/cart-page'
 import LoginPage from './routes/login-page'
 import NotFoundPage from './routes/not-found-page'
+import { OrderFailurePage } from './routes/order-failure-page'
+import { OrderSuccessPage } from './routes/order-success-page'
+import { OrderTrackingPage } from './routes/order-tracking-page'
 import ProfilePage from './routes/profile-page'
+import { ShopPage } from './routes/shop-page'
 import SignupPage from './routes/signup-page'
 import { clearCustomer, endSession, loadCustomer, loadSession, saveCustomer, startSession } from './lib/customer-storage'
 import { normalizePhone } from './lib/validation'
@@ -67,7 +50,7 @@ const HomePage = ({ customer, defaultAddress }: { customer: CustomerData | null;
     <div className="page">
       <div className="page-header">
         <div>
-          <p className="eyebrow">Accueil boutique</p>
+          <p className="eyebrow">Résumé compte</p>
           <h1>Commandez plus vite, votre profil est prêt</h1>
           <p className="muted">
             Ce mini parcours client V1 garde votre profil, vos adresses et vos notes de livraison en local. À la connexion, vous revenez
@@ -186,7 +169,12 @@ const AppShell = () => {
 
         <main>
           <Routes>
-            <Route path="/" element={<HomePage customer={customer} defaultAddress={defaultAddress} />} />
+            <Route path="/" element={<ShopPage />} />
+            <Route path="/panier" element={<CartPage />} />
+            <Route path="/commande/succes" element={<OrderSuccessPage />} />
+            <Route path="/commande/echec" element={<OrderFailurePage />} />
+            <Route path="/commande/suivi" element={<OrderTrackingPage />} />
+            <Route path="/home" element={<HomePage customer={customer} defaultAddress={defaultAddress} />} />
             <Route
               path="/signup"
               element={
