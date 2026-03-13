@@ -23,15 +23,44 @@
 
 Le bloc 0001 (DEP-0001 à DEP-0010) reste complet. Le bloc GitHub de fondation (DEP-0084 à DEP-0120) est maintenant achevé : README, LICENSE, .gitignore, dossiers structurants, CONTRIBUTING, CODEOWNERS, modèles d'issues/PR, branche `develop`, protection `main`, projet `DépannVite` (Board) et labels personnalisés sont en place. Les règles de nommage des branches, commits et tags de version sont documentées dans CONTRIBUTING.md.
 
+## État Réel Vérifié (2026-03-13)
+
+**Terminé concrètement :**
+- DEP-0084 à DEP-0120 — fondation GitHub complète
+- Structure de dossiers de base : `apps/`, `packages/`, `scripts/`, `infra/`, `assets/`, `docs/`
+
+**Non commencé (aucun fichier concret) :**
+- DEP-0121 à DEP-0127 — décisions techniques (pas de documentation des choix stack)
+- DEP-0128 à DEP-0133 — formatage, lint, qualité (aucun fichier tsconfig.json, .eslintrc, .prettierrc, package.json)
+- DEP-0134 à DEP-0141 — configuration monorepo, env, scripts (dossiers créés mais vides, aucune config)
+
 ## Manques publics actuels
 
-- DEP-0121 à DEP-0129 — choix officiels du stack (TypeScript, React, Node.js), du gestionnaire de paquets et des outils qualité à acter
+- DEP-0121 à DEP-0127 — documenter officiellement les choix de stack (TypeScript, React, Node.js, monorepo, npm workspaces)
+- DEP-0128 à DEP-0133 — créer les fichiers de configuration qualité (Prettier, ESLint, TypeScript)
+- DEP-0134 à DEP-0141 — définir et implémenter la structure monorepo concrète
 
 ## Prochaines actions suggérées
 
-1. Trancher officiellement la stack cible (TypeScript, React, Node.js) et le modèle monorepo (DEP-0121 à DEP-0124)
-2. Choisir le gestionnaire de paquets et fixer les versions minimales Node.js/TypeScript (DEP-0125 à DEP-0127)
-3. Définir les outils et règles qualité (formatage, lint, qualité minimale) pour cadrer les prochains commits (DEP-0128 à DEP-0130)
+**Bloc prioritaire : DEP-0121 à DEP-0130**
+
+1. **DEP-0121 à DEP-0127** — Documenter les décisions techniques :
+   - Créer `docs/decisions/DEP-0121-DEP-0127.md` pour acter les choix de stack
+   - Documenter : TypeScript (langage principal), React (frontend), Node.js (backend)
+   - Documenter : monorepo npm workspaces, versions minimales requises
+
+2. **DEP-0128 à DEP-0130** — Définir les outils qualité :
+   - Documenter : Prettier pour formatage, ESLint pour lint, règles TypeScript strictes
+   - Ces décisions serviront de base pour DEP-0131 à DEP-0133 (création des configs)
+
+3. **DEP-0131 à DEP-0133** — Créer les configurations :
+   - Créer tsconfig.json, .prettierrc, .eslintrc.json
+   - Implémenter les décisions prises en DEP-0128 à DEP-0130
+
+4. **DEP-0134 à DEP-0141** — Structurer le monorepo :
+   - Créer package.json racine avec workspaces
+   - Définir scripts npm pour dev, build, lint, format
+   - Définir stratégie .env et secrets
 
 ## Vérifications à faire dans GitHub UI (admin requis)
 
@@ -73,15 +102,17 @@ Le bloc 0001 (DEP-0001 à DEP-0010) reste complet. Le bloc GitHub de fondation (
 
 ## Dernière tâche terminée
 
-- DEP-0110 à DEP-0120 — gouvernance GitHub finalisée (protection `main`, revues/checks requis, projet `DépannVite`, labels personnalisés, premier commit propre)
+- DEP-0084 à DEP-0120 — gouvernance GitHub finalisée (README, LICENSE, .gitignore, structure de dossiers, CONTRIBUTING, CODEOWNERS, templates, protection `main`, revues/checks requis, projet `DépannVite`, labels personnalisés, premier commit propre)
 
 ## En cours
 
-- Préparation des décisions techniques et outillage qualité (DEP-0121 à DEP-0130)
+- Aucune tâche actuellement en cours
+- Prochaine étape : DEP-0121 à DEP-0130 (documenter et définir les décisions techniques et outils qualité)
 
 ## Bloqueurs
 
-- Aucun bloqueur identifié pour la suite documentaire (décisions techniques à prendre)
+- Aucun bloqueur technique identifié
+- Les blocs DEP-0121 à DEP-0141 peuvent être réalisés entièrement via documentation et fichiers de configuration
 
 ## Convention d'ID
 
