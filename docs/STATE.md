@@ -19,7 +19,8 @@
 - Blocs GitHub de fondation (`DEP-0084` à `DEP-0120`) terminés
 - Blocs fondation technique (`DEP-0121` à `DEP-0160`) terminés
 - Blocs parcours utilisateur et pages (`DEP-0161` à `DEP-0180`) terminés
-- Prochain bloc recommandé : `DEP-0181` à `DEP-0200` (comportements UX et dispositions)
+- Blocs comportements UX et dispositions (`DEP-0181` à `DEP-0200`) terminés
+- Prochain bloc recommandé : `DEP-0201` à `DEP-0220` (système visuel de base)
 
 ## Observation importante
 
@@ -37,6 +38,7 @@ Le bloc 0001 (DEP-0001 à DEP-0010) reste complet. Le bloc GitHub de fondation (
 - DEP-0141 à DEP-0160 — scripts npm/pnpm créés, règles de nommage établies, ossature locale stabilisée
 - DEP-0161 à DEP-0170 — cartes du site (client, dépanneur, livreur, admin) et pages principales définies
 - DEP-0171 à DEP-0180 — pages secondaires définies (adresses, historique, suivi, contact, légal, accessibilité, aide vocale)
+- DEP-0181 à DEP-0200 — dispositions desktop/mobile (3 sections vs empilée), emplacements composants (panier, chat, suggestions), comportements grille produits, panier et assistant
 
 **Fichiers de configuration créés :**
 - `tsconfig.json` — configuration TypeScript 5.3+ strict
@@ -44,10 +46,10 @@ Le bloc 0001 (DEP-0001 à DEP-0010) reste complet. Le bloc GitHub de fondation (
 - `.prettierrc` — configuration Prettier pour formatage uniforme
 - `package.json` — monorepo avec workspaces pnpm et scripts dev/build/test/lint/format
 - `.env.example` — modèle de variables d'environnement
-- Docs decisions : DEP-0121-0127, DEP-0136-0140, DEP-0161-0170, DEP-0171-0180
+- Docs decisions : DEP-0121-0127, DEP-0136-0140, DEP-0161-0170, DEP-0171-0180, DEP-0181-0200
 
 **Non commencé :**
-- DEP-0181 à DEP-0200 — comportements UX et dispositions desktop/mobile
+- DEP-0201 à DEP-0220 — système visuel de base (couleurs, typographie, composants)
 
 ## Manques publics actuels
 
@@ -55,15 +57,17 @@ Aucun manque identifié dans les blocs DEP-0084 à DEP-0160. La fondation techni
 
 ## Prochaines actions suggérées
 
-**Bloc prioritaire : DEP-0181 à DEP-0200**
+**Bloc prioritaire : DEP-0201 à DEP-0220**
 
-1. **DEP-0181 à DEP-0190** — Définir les dispositions et emplacements :
-   - Dispositions desktop et mobile (3 sections vs empilée)
-   - Emplacements exacts du panier, du chat et des suggestions sur chaque format
+1. **DEP-0201 à DEP-0210** — Définir le système de couleurs et de typographie :
+   - Couleurs principales, secondaires et d'état
+   - Typographie principale et secondaire
+   - Échelles de titres, textes, boutons et cartes
 
-2. **DEP-0191 à DEP-0200** — Définir les comportements UX :
-   - Comportements de la grille produits, du panier, du chat assistant
-   - Comportements de l'assistant selon différents contextes utilisateur
+2. **DEP-0211 à DEP-0220** — Définir les styles visuels des composants :
+   - Styles des cartes produits, panier, chat, suggestions
+   - Badges d'état, alertes, écrans de chargement
+   - Icônes et animations minimales
 
 ## Vérifications à faire dans GitHub UI (admin requis)
 
@@ -105,12 +109,12 @@ Aucun manque identifié dans les blocs DEP-0084 à DEP-0160. La fondation techni
 
 ## Dernière tâche terminée
 
-- DEP-0161 à DEP-0180 — cartes du site (client, dépanneur, livreur, admin), pages principales (accueil, boutique, mode assisté, connexion, inscription, profil) et pages secondaires (adresses, historique, suivi, produits populaires, contact, conditions, confidentialité, accessibilité, aide vocale)
+- DEP-0181 à DEP-0200 — dispositions desktop/mobile (3 sections vs empilée), emplacements exacts des composants (panier, chat, suggestions), comportements de la grille produits (clic et voix), comportements du panier selon les états de commande, comportements de l'assistant selon différents contextes utilisateur
 
 ## En cours
 
 - Aucune tâche actuellement en cours
-- Prochaine étape : DEP-0181 à DEP-0200 (comportements UX et dispositions desktop/mobile)
+- Prochaine étape : DEP-0201 à DEP-0220 (système visuel de base : couleurs, typographie, styles des composants)
 
 ## Bloqueurs
 

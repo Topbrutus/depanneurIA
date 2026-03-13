@@ -132,17 +132,17 @@ Convention suggérée : une issue = un bloc.
 
 ## BLOCK-019 — DEP-0181 à DEP-0190
 
-- Statut : à faire
+- Statut : terminé
 - Première ligne : DEP-0181 — Définir la disposition ordinateur à trois sections.
 - Dernière ligne : DEP-0190 — Définir le comportement de la grille produits à la voix.
-- Titre d’issue suggéré : `[TASK] DEP-0181 à DEP-0190`
+- Titre d'issue suggéré : `[TASK] DEP-0181 à DEP-0190`
 
 ## BLOCK-020 — DEP-0191 à DEP-0200
 
-- Statut : à faire
+- Statut : terminé
 - Première ligne : DEP-0191 — Définir le comportement du panier au clic.
-- Dernière ligne : DEP-0200 — Définir le comportement de l’assistant si le client ne sait pas quoi choisir.
-- Titre d’issue suggéré : `[TASK] DEP-0191 à DEP-0200`
+- Dernière ligne : DEP-0200 — Définir le comportement de l'assistant si le client ne sait pas quoi choisir.
+- Titre d'issue suggéré : `[TASK] DEP-0191 à DEP-0200`
 
 ## BLOCK-021 — DEP-0201 à DEP-0210
 
