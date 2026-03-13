@@ -16,7 +16,10 @@
     "test": "pnpm --filter './packages/*' test && pnpm --filter './apps/*' test",
     "lint": "pnpm -r lint",
     "format": "pnpm -r format",
-    "typecheck": "pnpm -r typecheck"
+    "typecheck": "pnpm -r typecheck",
+    "db:migrate": "echo '[depaneurIA] db:migrate — pas encore configuré (Prisma requis)' && exit 0",
+    "db:seed": "echo '[depaneurIA] db:seed — pas encore configuré (Prisma requis)' && exit 0",
+    "db:seed:reset": "echo '[depaneurIA] db:seed:reset — pas encore configuré (Prisma requis)' && exit 0"
   },
   "devDependencies": {},
   "workspaces": [
