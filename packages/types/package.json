@@ -1,0 +1,11 @@
+{
+  "name": "@depaneuria/types",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "echo '[types] build: not yet wired' && exit 0",
+    "lint": "echo '[types] lint: not yet wired' && exit 0",
+    "typecheck": "echo '[types] typecheck: not yet wired' && exit 0",
+    "test": "echo '[types] test: not yet wired' && exit 0"
+  }
+}
