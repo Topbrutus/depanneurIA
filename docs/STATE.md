@@ -51,9 +51,22 @@ Le bloc 0001 (DEP-0001 à DEP-0010) reste complet. Le bloc GitHub de fondation (
 - Docs decisions : DEP-0121-0127, DEP-0136-0140, DEP-0161-0170, DEP-0171-0180, DEP-0181-0200, DEP-0201-0240
 
 **Résumé des 3 fichiers de décision DEP-0201 à DEP-0240 :**
-- `DEP-0201-0210-systeme-visuel-couleurs-typo.md` — Palette de couleurs complète (primaire bleu `#2563EB`, positive vert `#10B981`, accent ambre, neutres ; secondaires : indigo, cyan, violet, rose ; états : succès, alerte, erreur, attente ; mode contraste élevé AAA ≥7:1) et système typographique (Inter sans-serif en 4 graisses + JetBrains Mono monospace, échelles titres H1–H5, corps 12–18 px, boutons 3 tailles, cartes produits).
-- `DEP-0211-0227-styles-et-animations.md` — Styles visuels de 8 composants clés (cartes produits, panier, chat assistant, suggestions, badges d'état commande, alertes dépanneur, alertes livreur, écrans de chargement), bibliothèque d'icônes Lucide (DEP-0219), et 7 animations minimales : ajout/retrait panier, ouverture/fermeture suggestions, changement d'état commande, alerte nouvelle commande, alerte assignation livreur.
-- `DEP-0228-0240-composants-ui-de-base.md` — Spécifications détaillées de 12 composants UI de base (bouton principal, bouton secondaire, champ de recherche, carte produit, miniature panier, message assistant, message client, tuile suggestion, indicateur d'état livraison, carte dernière commande, carte top 10, modal de confirmation) avec variantes, tailles, états, accessibilité et critères de validation (DEP-0240).
+- `DEP-0201-0210-systeme-visuel-couleurs-typo.md` — Palette de couleurs et typographie :
+  - Couleurs principales (primaire `#2563EB`, positive `#10B981`, accent ambre, neutres)
+  - Couleurs secondaires (indigo, cyan, violet, rose)
+  - Couleurs d'état (succès, alerte, erreur, attente) et mode contraste élevé AAA ≥7:1
+  - Typographie Inter sans-serif (4 graisses) + JetBrains Mono monospace
+  - Échelles : titres H1–H5, corps 12–18 px, boutons 3 tailles, cartes produits
+- `DEP-0211-0227-styles-et-animations.md` — Styles visuels et animations :
+  - Styles de 8 composants clés : cartes produits, panier, chat assistant, suggestions, badges d'état commande, alertes dépanneur, alertes livreur, écrans de chargement
+  - Bibliothèque d'icônes Lucide (DEP-0219)
+  - 7 animations : ajout/retrait panier, ouverture/fermeture suggestions, changement d'état commande, alerte nouvelle commande, alerte assignation livreur
+- `DEP-0228-0240-composants-ui-de-base.md` — 12 composants UI de base :
+  - Bouton principal, bouton secondaire, champ de recherche, carte produit
+  - Miniature panier, message assistant, message client, tuile suggestion
+  - Indicateur d'état livraison, carte dernière commande, carte top 10, modal de confirmation
+  - Chaque composant : variantes, tailles, états, accessibilité
+  - Critères de validation avant implémentation (DEP-0240)
 
 **Non commencé :**
 - DEP-0241 à DEP-0280 — structure catalogue produits et conventions
