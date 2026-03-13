@@ -208,8 +208,8 @@ prompts/
 
 ## Statut actuel
 
-Le dépôt existe, mais la base projet est encore au tout début.
-Le premier bloc pratique recommandé est le bloc GitHub de fondation autour de la zone `0084+`.
+- Bloc GitHub de fondation terminé (DEP-0084 à DEP-0120) : README, LICENSE, .gitignore, arborescence docs/apps/packages/infra/scripts/assets/decisions/diagrams/prompts, CONTRIBUTING, CODEOWNERS, modèles d’issues/PR, branche `develop`, protection `main`, projet `DépannVite` et labels personnalisés en place.
+- Prochain bloc recommandé : DEP-0121 à DEP-0130 (choix stack et outillage qualité).
 
 ## Licence
 
