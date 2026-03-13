@@ -12,3 +12,15 @@ export type {
   CartItem,
   CartAdapter,
 } from './assistant';
+
+export type {
+  CallStatus,
+  CallDirection,
+  TelephonyEvent,
+  Transcription,
+  TelephonyCall,
+  SimulateCallRequest,
+  SimulateCallResponse,
+  CallHistoryQuery,
+  CallHistoryResponse,
+} from './telephony';
