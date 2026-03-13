@@ -6,7 +6,7 @@ Convention suggérée : une issue = un bloc.
 
 ## BLOCK-001 — DEP-0001 à DEP-0010
 
-- Statut : à faire
+- Statut : terminé
 - Première ligne : DEP-0001 — Définir en une phrase la mission du produit : permettre à un client de commander un dépanneur en mode manuel, assisté ou téléphonique.
 - Dernière ligne : DEP-0010 — Écrire le problème principal que vit le livreur aujourd’hui.
 - Titre d’issue suggéré : `[TASK] DEP-0001 à DEP-0010`
@@ -62,7 +62,7 @@ Convention suggérée : une issue = un bloc.
 
 ## BLOCK-009 — DEP-0081 à DEP-0090
 
-- Statut : à faire
+- Statut : partiel (DEP-0081 à DEP-0083 non complétés, DEP-0084 à DEP-0090 terminés)
 - Première ligne : DEP-0081 — Créer l’organisation GitHub du projet.
 - Dernière ligne : DEP-0090 — Créer un dossier infra dans le dépôt.
 - Titre d’issue suggéré : `[TASK] DEP-0081 à DEP-0090`
@@ -76,14 +76,14 @@ Convention suggérée : une issue = un bloc.
 
 ## BLOCK-011 — DEP-0101 à DEP-0110
 
-- Statut : terminé
+- Statut : partiel (DEP-0103, DEP-0107 à DEP-0110 non complétés)
 - Première ligne : DEP-0101 — Créer un modèle de pull request GitHub.
 - Dernière ligne : DEP-0110 — Configurer le tableau GitHub Projects du projet.
 - Titre d’issue suggéré : `[TASK] DEP-0101 à DEP-0110`
 
 ## BLOCK-012 — DEP-0111 à DEP-0120
 
-- Statut : terminé
+- Statut : partiel (DEP-0111 à DEP-0119 non complétés, seul DEP-0120 terminé)
 - Première ligne : DEP-0111 — Créer les colonnes À faire, En cours, En revue, Terminé.
 - Dernière ligne : DEP-0120 — Faire le premier commit propre du projet.
 - Titre d’issue suggéré : `[TASK] DEP-0111 à DEP-0120`
@@ -174,14 +174,14 @@ Convention suggérée : une issue = un bloc.
 
 ## BLOCK-025 — DEP-0241 à DEP-0250
 
-- Statut : à faire
+- Statut : terminé
 - Première ligne : DEP-0241 — Définir la structure d’une catégorie produit.
 - Dernière ligne : DEP-0250 — Définir la structure d’un produit populaire.
 - Titre d’issue suggéré : `[TASK] DEP-0241 à DEP-0250`
 
 ## BLOCK-026 — DEP-0251 à DEP-0260
 
-- Statut : à faire
+- Statut : terminé
 - Première ligne : DEP-0251 — Définir la structure d’un produit archivé.
 - Dernière ligne : DEP-0260 — Définir la structure de l’ordre d’affichage des produits.
 - Titre d’issue suggéré : `[TASK] DEP-0251 à DEP-0260`
@@ -195,7 +195,7 @@ Convention suggérée : une issue = un bloc.
 
 ## BLOCK-028 — DEP-0271 à DEP-0280
 
-- Statut : à faire
+- Statut : terminé
 - Première ligne : DEP-0271 — Créer le jeu de catégories initial pour la démonstration.
 - Dernière ligne : DEP-0280 — Faire un premier chargement de catalogue de test.
 - Titre d’issue suggéré : `[TASK] DEP-0271 à DEP-0280`

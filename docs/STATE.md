@@ -8,31 +8,32 @@
 - Code produit : pas commencé
 - Système de suivi à trois : en place
 - Problème principal client formulé : commande lente et incertaine (infos répétées, disponibilité inconnue)
-- Branche `develop` : créée et alignée sur `main`
-- Protection `main` : active (PR obligatoire, suppression interdite, 1 revue, branches à jour, status checks requis)
-- Projet GitHub : `DépannVite` (Board) avec colonnes À faire, En cours, En revue, Terminé, Bloqué
-- Labels personnalisés créés : DEP-0112 à DEP-0119 (domaines, priorités, risques, V1/V2, blocages)
+- Branche `develop` : ❌ **absente** (n'existe pas dans le dépôt distant)
+- Protection `main` : ❌ **absente** (`main` n'est pas protégée, `protected: false`)
+- Projet GitHub `DépannVite` : ❓ **non vérifiable** par API (aucune preuve de son existence)
+- Labels personnalisés (DEP-0112 à DEP-0119) : ❌ **absents** (seuls les labels GitHub par défaut existent : `bug`, `enhancement`, `documentation`, `duplicate`)
 - Premier commit de base enregistré
 
 ## Bloc actif recommandé
 
-- Blocs GitHub de fondation (`DEP-0084` à `DEP-0120`) terminés
+- Bloc vision initiale (`DEP-0001` à `DEP-0010`) terminé
+- Blocs GitHub de fondation (`DEP-0084` à `DEP-0120`) **partiellement** terminés — fichiers et dossiers créés, mais branche `develop`, protection `main`, projet GitHub et labels personnalisés manquants
 - Blocs fondation technique (`DEP-0121` à `DEP-0160`) terminés
 - Blocs parcours utilisateur et pages (`DEP-0161` à `DEP-0180`) terminés
 - Blocs comportements UX et dispositions (`DEP-0181` à `DEP-0200`) terminés
 - Blocs système visuel de base (`DEP-0201` à `DEP-0240`) terminés
 - Blocs structure catalogue et conventions (`DEP-0241` à `DEP-0280`) terminés
-- Prochain bloc recommandé : `DEP-0281` à `DEP-0320` (inscription, connexion et gestion client)
+- Prochain bloc recommandé : **compléter d'abord DEP-0103, DEP-0107 à DEP-0119** (réglages GitHub manquants), puis reprendre `DEP-0281` à `DEP-0320`
 
 ## Observation importante
 
-Le bloc 0001 (DEP-0001 à DEP-0010) reste complet. Le bloc GitHub de fondation (DEP-0084 à DEP-0120) est maintenant achevé : README, LICENSE, .gitignore, dossiers structurants, CONTRIBUTING, CODEOWNERS, modèles d'issues/PR, branche `develop`, protection `main`, projet `DépannVite` (Board) et labels personnalisés sont en place. Les règles de nommage des branches, commits et tags de version sont documentées dans CONTRIBUTING.md.
+Le bloc 0001 (DEP-0001 à DEP-0010) est complet. Le bloc GitHub de fondation (DEP-0084 à DEP-0120) est **partiellement** achevé : README, LICENSE, .gitignore, dossiers structurants, CONTRIBUTING, CODEOWNERS, modèles d'issues/PR et premier commit sont en place. En revanche, la branche `develop`, la protection de `main`, le projet GitHub `DépannVite` et les labels personnalisés **n'ont pas été vérifiés comme existants** et sont documentés comme manquants. Les règles de nommage des branches, commits et tags de version sont documentées dans CONTRIBUTING.md.
 
 ## État Réel Vérifié (2026-03-13)
 
 **Terminé concrètement :**
 - DEP-0001 à DEP-0010 — vision et cadrage initial
-- DEP-0084 à DEP-0120 — fondation GitHub complète
+- DEP-0084 à DEP-0106, DEP-0120 — fondation GitHub partielle (fichiers, dossiers, templates, nommage, premier commit)
 - DEP-0121 à DEP-0127 — décisions techniques stack documentées (TypeScript, React, Node.js, monorepo pnpm)
 - DEP-0128 à DEP-0133 — outils qualité configurés (Prettier, ESLint, TypeScript strict)
 - DEP-0134 à DEP-0135 — structure monorepo définie (`apps/`, `packages/` avec workspaces)
@@ -97,24 +98,52 @@ Le bloc 0001 (DEP-0001 à DEP-0010) reste complet. Le bloc GitHub de fondation (
   - Procédure de premier chargement catalogue avec toutes validations appliquées
 
 **Non commencé :**
+- DEP-0011 à DEP-0083 — cadrage V1 détaillé, politiques, logique commandes
 - DEP-0281 à DEP-0320 — inscription, connexion et gestion client
+
+**Non complété (réglages GitHub manquants) :**
+- DEP-0103 — branche `develop` (n'existe pas)
+- DEP-0107 — protection de `main` (non active)
+- DEP-0108 — revues obligatoires (non actives)
+- DEP-0109 — vérifications automatiques (non actives)
+- DEP-0110 — projet GitHub `DépannVite` (non vérifiable)
+- DEP-0111 — colonnes du projet GitHub (non vérifiable)
+- DEP-0112 à DEP-0114 — labels par domaine, priorité, risque (absents)
+- DEP-0115 à DEP-0119 — labels V1, V2, Bug critique, Blocage cloud, Blocage téléphonie (absents)
 
 ## Manques publics actuels
 
-Aucun manque identifié dans les blocs DEP-0084 à DEP-0160. La fondation technique est complète.
+Les réglages GitHub suivants sont documentés comme manquants (vérification du 2026-03-13) :
+
+| DEP | Élément | État vérifié |
+|-----|---------|-------------|
+| DEP-0103 | Branche `develop` | ❌ Absente — seules `main` et des branches `copilot/*` existent |
+| DEP-0107 | Protection de `main` | ❌ Absente — `main` n'est pas protégée (`protected: false`) |
+| DEP-0108 | Revues obligatoires | ❌ Absentes — pas de règle de protection active |
+| DEP-0109 | Checks obligatoires | ❌ Absents — pas de règle de protection active |
+| DEP-0110 | Projet GitHub `DépannVite` | ❓ Non vérifiable par API |
+| DEP-0111 | Colonnes du projet | ❓ Non vérifiable par API |
+| DEP-0112–0114 | Labels domaine/priorité/risque | ❌ Absents |
+| DEP-0115 | Label V1 | ❌ Absent |
+| DEP-0116 | Label V2 | ❌ Absent |
+| DEP-0117 | Label Bug critique | ❌ Absent |
+| DEP-0118 | Label Blocage cloud | ❌ Absent |
+| DEP-0119 | Label Blocage téléphonie | ❌ Absent |
+
+Labels GitHub existants (par défaut uniquement) : `bug`, `enhancement`, `documentation`, `duplicate`.
+
+La fondation technique (DEP-0121 à DEP-0160) est complète. Les blocs de documentation décisionnelle (DEP-0161 à DEP-0280) sont complets.
 
 ## Prochaines actions suggérées
 
-**Bloc prioritaire : DEP-0281 à DEP-0320**
+**Bloc prioritaire : compléter les réglages GitHub manquants (admin requis)**
 
-1. **DEP-0281 à DEP-0300** — Définir les parcours d'inscription et connexion client :
-   - Inscription (champs obligatoires/optionnels), vérification téléphone et adresse
-   - Connexion, reconnexion, réinitialisation d'accès
-   - Gestion multi-adresses
+1. **DEP-0103** — Créer la branche `develop` depuis `main`
+2. **DEP-0107 à DEP-0109** — Activer la protection de `main` (PR obligatoire, revues, checks)
+3. **DEP-0110 à DEP-0111** — Créer le projet GitHub `DépannVite` avec colonnes
+4. **DEP-0112 à DEP-0119** — Créer les labels personnalisés
 
-2. **DEP-0301 à DEP-0320** — Définir les parcours de commande client :
-   - Recherche produit, ajout au panier, validation commande
-   - Suivi de commande et notifications
+**Ensuite : DEP-0281 à DEP-0320** (inscription, connexion et gestion client)
 
 ## Vérifications à faire dans GitHub UI (admin requis)
 
@@ -160,13 +189,13 @@ Aucun manque identifié dans les blocs DEP-0084 à DEP-0160. La fondation techni
 
 ## En cours
 
-- Aucune tâche actuellement en cours
-- Prochaine étape : DEP-0281 à DEP-0320 (inscription, connexion et gestion client)
+- Synchronisation de l'état réel du dépôt (cette PR)
+- Prochaine étape : compléter DEP-0103, DEP-0107 à DEP-0119 (réglages GitHub), puis DEP-0281 à DEP-0320
 
 ## Bloqueurs
 
-- Aucun bloqueur technique identifié
-- Les blocs DEP-0181+ peuvent être réalisés en se concentrant sur les comportements UX et les dispositions desktop/mobile
+- DEP-0103, DEP-0107 à DEP-0119 requièrent un accès admin GitHub pour être complétés
+- Aucun bloqueur technique sur les blocs de documentation
 
 ## Convention d'ID
 

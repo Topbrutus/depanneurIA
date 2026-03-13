@@ -208,8 +208,11 @@ prompts/
 
 ## Statut actuel
 
-- Bloc GitHub de fondation terminé (DEP-0084 à DEP-0120) : README, LICENSE, .gitignore, arborescence docs/apps/packages/infra/scripts/assets/decisions/diagrams/prompts, CONTRIBUTING, CODEOWNERS, modèles d’issues/PR, branche `develop`, protection `main`, projet `DépannVite` et labels personnalisés en place.
-- Prochain bloc recommandé : DEP-0121 à DEP-0130 (choix stack et outillage qualité).
+- Bloc vision initiale terminé (DEP-0001 à DEP-0010).
+- Bloc GitHub de fondation **partiellement** terminé (DEP-0084 à DEP-0120) : README, LICENSE, .gitignore, arborescence, CONTRIBUTING, CODEOWNERS, modèles d’issues/PR et premier commit en place. Branche `develop`, protection `main`, projet GitHub et labels personnalisés **manquants** (voir `docs/STATE.md`).
+- Fondation technique terminée (DEP-0121 à DEP-0160).
+- Documentation décisionnelle terminée (DEP-0161 à DEP-0280).
+- Prochain bloc recommandé : compléter les réglages GitHub manquants (DEP-0103, DEP-0107 à DEP-0119), puis DEP-0281 à DEP-0320.
 
 ## Licence
 
