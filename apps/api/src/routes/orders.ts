@@ -46,7 +46,11 @@ router.post('/', async (req, res, next) => {
     });
 
     if (products.length !== productIds.length) {
-      throw new ValidationError('Un ou plusieurs produits sont introuvables ou inactifs');
+      const foundIds = new Set(products.map((p) => p.id));
+      const missing = productIds.filter((id) => !foundIds.has(id));
+      throw new ValidationError(
+        `Produits introuvables ou inactifs: ${missing.join(', ')}`
+      );
     }
 
     const productMap = new Map(products.map((p) => [p.id, p]));
