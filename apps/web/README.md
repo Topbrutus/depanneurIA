@@ -1,39 +1,86 @@
-# apps/web — Interface utilisateur (Front-end)
+# DépannVite — Application Web
 
-## Rôle
+Application web cliente pour le système depaneurIA de commande et livraison de pièces automobiles.
 
-Application web client de depaneurIA.  
-Permet aux clients, dépanneurs et livreurs d'accéder au service via un navigateur.
+## Technologies
 
-## Stack prévue
+- React 18
+- TypeScript
+- Vite
+- React Router
+- Zustand (state management)
+- Lucide React (icons)
 
-- **Framework** : Next.js (React)
-- **Langage** : TypeScript strict
-- **Style** : Tailwind CSS (décision à venir)
-- **Gestion d'état** : à décider (Zustand ou React Query selon les besoins)
+## Développement
 
-## Structure interne prévue
+```bash
+# Installation des dépendances
+pnpm install
 
+# Démarrage en mode développement
+pnpm dev
+
+# Build de production
+pnpm build
+
+# Prévisualisation du build
+pnpm preview
 ```
-apps/web/
-├── public/              # Fichiers statiques
-├── src/
-│   ├── app/             # Routes (App Router Next.js)
-│   ├── components/      # Composants UI locaux
-│   ├── hooks/           # Hooks React locaux
-│   └── lib/             # Utilitaires locaux
-├── .env.example         # Variables d'environnement requises
-├── next.config.ts
-├── tsconfig.json
-└── package.json
-```
 
-## Dépendances partagées utilisées
+## Structure
 
-- `packages/ui` — composants UI réutilisables
-- `packages/types` — types TypeScript partagés
-- `packages/utils` — fonctions utilitaires communes
+- `/src/routes/` - Pages principales de l'application
+- `/src/components/shop/` - Composants de la boutique
+- `/src/lib/` - Utilitaires et stores
+- `/src/styles/` - Styles globaux et thématiques
 
-## DEP concerné
+## Parcours implémentés (DEP-0321 à DEP-0360)
 
-DEP-0134
+### Mode manuel - Boutique
+- Grille de produits avec navigation par catégories
+- Recherche et filtres (disponibilité, popularité)
+- Carte produit avec ajout au panier
+- Panier visible en permanence (desktop) ou repliable (mobile)
+
+### Gestion du panier
+- Ajout/retrait de produits
+- Modification des quantités
+- Vidage du panier avec confirmation
+- Persistance locale avec localStorage
+
+### Finalisation de commande
+- Page récapitulatif avec adresse et téléphone
+- Envoi de commande (simulé)
+- Page succès avec numéro de commande
+- Page échec avec possibilité de réessayer
+- Page suivi en temps réel
+
+### Sections de raccourcis
+- Dernière commande (recommander rapidement)
+- Top 10 des produits populaires
+
+## Catalogue de démonstration
+
+Le catalogue de démonstration contient :
+- 8 catégories (Freins, Filtres, Éclairage, Batteries, Pneus, Huiles, Bougies, Essuie-glaces)
+- 12 produits répartis sur toutes les catégories
+- 5 produits marqués comme populaires
+
+## Accessibilité
+
+- Navigation clavier complète
+- Attributs ARIA appropriés
+- Support de `prefers-reduced-motion`
+- Labels et descriptions pour lecteurs d'écran
+
+## Design
+
+Basé sur le système visuel défini dans DEP-0201 à DEP-0240 :
+- Couleurs principales : #2563EB (primaire), #10B981 (positive)
+- Typographie : Inter (sans-serif)
+- Espacements et rayons standardisés
+- Animations fluides et légères
+
+## DEP concernés
+
+DEP-0321 à DEP-0360

@@ -354,43 +354,43 @@ Version convertie depuis le fichier source fourni par l’utilisateur.
 
 ## Bloc 0321–0360
 
-- [ ] DEP-0321 Créer la page boutique manuelle avec grille de produits.
-- [ ] DEP-0322 Créer la navigation par catégories.
+- [x] DEP-0321 Créer la page boutique manuelle avec grille de produits.
+- [x] DEP-0322 Créer la navigation par catégories.
 - [ ] DEP-0323 Créer la navigation par sous-catégories si nécessaire.
-- [ ] DEP-0324 Créer le champ de recherche de produits.
-- [ ] DEP-0325 Créer le filtre par catégorie.
-- [ ] DEP-0326 Créer le filtre par disponibilité.
-- [ ] DEP-0327 Créer le filtre par produits populaires.
+- [x] DEP-0324 Créer le champ de recherche de produits.
+- [x] DEP-0325 Créer le filtre par catégorie.
+- [x] DEP-0326 Créer le filtre par disponibilité.
+- [x] DEP-0327 Créer le filtre par produits populaires.
 - [ ] DEP-0328 Créer le filtre par dernière commande.
 - [ ] DEP-0329 Créer le tri simple de produits.
-- [ ] DEP-0330 Créer la carte produit de base.
-- [ ] DEP-0331 Créer l’action ajouter au panier depuis une carte produit.
-- [ ] DEP-0332 Créer l’action voir détail d’un produit.
-- [ ] DEP-0333 Créer l’action fermer le détail d’un produit.
-- [ ] DEP-0334 Créer la vue panier toujours visible sur ordinateur.
-- [ ] DEP-0335 Créer la vue panier repliable sur téléphone.
-- [ ] DEP-0336 Créer l’action modifier quantité dans le panier.
-- [ ] DEP-0337 Créer l’action retirer un produit du panier.
-- [ ] DEP-0338 Créer l’action vider le panier.
-- [ ] DEP-0339 Créer l’action confirmer le panier.
-- [ ] DEP-0340 Créer l’action recommander la dernière commande.
-- [ ] DEP-0341 Créer l’animation de translation d’un produit vers le panier.
-- [ ] DEP-0342 Créer la persistance du panier au rechargement de la page.
-- [ ] DEP-0343 Créer la persistance du panier au changement de mode.
-- [ ] DEP-0344 Créer la persistance du panier au changement de catégorie.
+- [x] DEP-0330 Créer la carte produit de base.
+- [x] DEP-0331 Créer l'action ajouter au panier depuis une carte produit.
+- [ ] DEP-0332 Créer l'action voir détail d'un produit.
+- [ ] DEP-0333 Créer l'action fermer le détail d'un produit.
+- [x] DEP-0334 Créer la vue panier toujours visible sur ordinateur.
+- [x] DEP-0335 Créer la vue panier repliable sur téléphone.
+- [x] DEP-0336 Créer l'action modifier quantité dans le panier.
+- [x] DEP-0337 Créer l'action retirer un produit du panier.
+- [x] DEP-0338 Créer l'action vider le panier.
+- [x] DEP-0339 Créer l'action confirmer le panier.
+- [x] DEP-0340 Créer l'action recommander la dernière commande.
+- [ ] DEP-0341 Créer l'animation de translation d'un produit vers le panier.
+- [x] DEP-0342 Créer la persistance du panier au rechargement de la page.
+- [x] DEP-0343 Créer la persistance du panier au changement de mode.
+- [x] DEP-0344 Créer la persistance du panier au changement de catégorie.
 - [ ] DEP-0345 Créer la persistance du panier pendant une micro-coupure réseau.
-- [ ] DEP-0346 Créer la logique “commande en cours de traitement”.
-- [ ] DEP-0347 Créer l’écran récapitulatif avant envoi de commande.
-- [ ] DEP-0348 Créer l’écran confirmation de commande envoyée.
-- [ ] DEP-0349 Créer l’écran suivi de commande.
-- [ ] DEP-0350 Créer l’écran échec d’envoi de commande.
-- [ ] DEP-0351 Ajouter la section “dernière commande”.
-- [ ] DEP-0352 Ajouter la section “top 10 des plus commandés”.
-- [ ] DEP-0353 Ajouter la section “recommandé pour vous” seulement si simple.
-- [ ] DEP-0354 Vérifier que le panier reste visible pendant la navigation principale.
-- [ ] DEP-0355 Vérifier que le panier reste visible pendant l’assistance texte.
-- [ ] DEP-0356 Vérifier que le panier reste visible pendant l’assistance vocale.
-- [ ] DEP-0357 Vérifier que la boutique fonctionne sans assistant.
+- [ ] DEP-0346 Créer la logique "commande en cours de traitement".
+- [x] DEP-0347 Créer l'écran récapitulatif avant envoi de commande.
+- [x] DEP-0348 Créer l'écran confirmation de commande envoyée.
+- [x] DEP-0349 Créer l'écran suivi de commande.
+- [x] DEP-0350 Créer l'écran échec d'envoi de commande.
+- [x] DEP-0351 Ajouter la section "dernière commande".
+- [x] DEP-0352 Ajouter la section "top 10 des plus commandés".
+- [ ] DEP-0353 Ajouter la section "recommandé pour vous" seulement si simple.
+- [x] DEP-0354 Vérifier que le panier reste visible pendant la navigation principale.
+- [ ] DEP-0355 Vérifier que le panier reste visible pendant l'assistance texte.
+- [ ] DEP-0356 Vérifier que le panier reste visible pendant l'assistance vocale.
+- [x] DEP-0357 Vérifier que la boutique fonctionne sans assistant.
 - [ ] DEP-0358 Vérifier que la boutique fonctionne avec assistant.
 - [ ] DEP-0359 Vérifier que le même moteur panier sert les trois modes.
 - [ ] DEP-0360 Geler le mode manuel comme base de vérité visuelle.
