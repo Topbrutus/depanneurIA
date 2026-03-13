@@ -47,3 +47,14 @@ export type {
 
 export { DEFAULT_TENANT_ID } from './tenant';
 export type { Tenant } from './tenant';
+
+export { USER_ROLES, ROLE_PERMISSIONS } from './roles';
+export type { UserRole, RolePermissions } from './roles';
+
+export type {
+  UserSession,
+  MockLoginRequest,
+  LoginResponse,
+  SessionResponse,
+  LogoutResponse,
+} from './auth';

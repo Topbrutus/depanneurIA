@@ -6,6 +6,7 @@ import AddressesPage from './routes/addresses-page'
 import { CartPage } from './routes/cart-page'
 import { DriverPage } from './routes/driver-page'
 import LoginPage from './routes/login-page'
+import MockLoginPage from './routes/mock-login-page'
 import NotFoundPage from './routes/not-found-page'
 import { OrderFailurePage } from './routes/order-failure-page'
 import { OrderSuccessPage } from './routes/order-success-page'
@@ -18,6 +19,7 @@ import AdminCatalogPage from './routes/admin-catalog-page'
 import { clearCustomer, endSession, loadCustomer, loadSession, saveCustomer, startSession } from './lib/customer-storage'
 import { normalizePhone } from './lib/validation'
 import { TenantProvider } from './lib/tenant-context'
+import { ProtectedRoute } from './components/common/protected-route'
 
 const Navigation = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
   const { pathname } = useLocation()
@@ -40,8 +42,17 @@ const Navigation = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
       <Link className={linkClass('/addresses')} to="/addresses">
         Adresses
       </Link>
+      <Link className={linkClass('/mock-login')} to="/mock-login">
+        Login Mock
+      </Link>
       <Link className={linkClass('/admin/catalog')} to="/admin/catalog">
         Admin catalogue
+      </Link>
+      <Link className={linkClass('/store-ops')} to="/store-ops">
+        Store Ops
+      </Link>
+      <Link className={linkClass('/driver')} to="/driver">
+        Driver
       </Link>
       {isLoggedIn && (
         <span className="status-pill" aria-label="Session active">
@@ -182,9 +193,31 @@ const AppShell = () => {
             <Route path="/commande/succes" element={<OrderSuccessPage />} />
             <Route path="/commande/echec" element={<OrderFailurePage />} />
             <Route path="/commande/suivi" element={<OrderTrackingPage />} />
-            <Route path="/operator" element={<StoreOpsPage />} />
-            <Route path="/driver" element={<DriverPage />} />
-            <Route path="/admin/catalog" element={<AdminCatalogPage />} />
+            <Route path="/mock-login" element={<MockLoginPage />} />
+            <Route
+              path="/store-ops"
+              element={
+                <ProtectedRoute allowedRoles={['store_operator', 'admin']} redirectTo="/mock-login">
+                  <StoreOpsPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/driver"
+              element={
+                <ProtectedRoute allowedRoles={['driver', 'admin']} redirectTo="/mock-login">
+                  <DriverPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/catalog"
+              element={
+                <ProtectedRoute allowedRoles={['admin']} redirectTo="/mock-login">
+                  <AdminCatalogPage />
+                </ProtectedRoute>
+              }
+            />
             <Route path="/home" element={<HomePage customer={customer} defaultAddress={defaultAddress} />} />
             <Route
               path="/signup"
