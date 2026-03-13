@@ -19,6 +19,13 @@
 
 Le bloc 0001 (DEP-0001 à DEP-0010) est maintenant complet. Le bloc GitHub de fondation (DEP-0084 à DEP-0106) est en cours : README, LICENSE, .gitignore, dossier docs, CONTRIBUTING.md, CODEOWNERS, dossiers decisions/diagrams/prompts, modèles d'issue GitHub (bug, task, idée produit) et modèle de PR sont tous en place. Les dossiers de structure (apps, packages, infra, scripts, assets) sont présents. La branche `main` est présente ; la branche `develop` reste à créer (droits push requis). Les règles de nommage des branches, commits et tags de version sont documentées dans CONTRIBUTING.md.
 
+## Manques publics actuels
+
+- DEP-0103 — branche `develop` absente (création bloquée faute d’accès GitHub)
+- DEP-0110 — projet GitHub non créé
+- DEP-0111 — colonnes du projet non créées
+- DEP-0112 à DEP-0119 — labels GitHub personnalisés non créés
+
 ## Prochaines actions suggérées
 
 1. Activer la protection de la branche `main` via GitHub UI (DEP-0107)
@@ -26,6 +33,12 @@ Le bloc 0001 (DEP-0001 à DEP-0010) est maintenant complet. Le bloc GitHub de fo
 3. Exiger des vérifications automatiques avant fusion via GitHub UI (DEP-0109)
 4. Configurer GitHub Projects via GitHub UI (DEP-0110)
 5. Créer les labels manquants (DEP-0111 à DEP-0119) dès que les droits repo sont disponibles
+
+## Vérifications à faire dans GitHub UI (admin requis)
+
+- DEP-0107 — Règle de protection `main` créée avec interdiction de suppression
+- DEP-0108 — Au moins 1 revue obligatoire avant fusion sur `main`
+- DEP-0109 — Status checks requis et branche à jour avant fusion
 
 ## Consignes GitHub UI
 
