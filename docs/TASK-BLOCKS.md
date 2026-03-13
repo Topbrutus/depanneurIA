@@ -174,28 +174,28 @@ Convention suggérée : une issue = un bloc.
 
 ## BLOCK-025 — DEP-0241 à DEP-0250
 
-- Statut : à faire
+- Statut : terminé
 - Première ligne : DEP-0241 — Définir la structure d’une catégorie produit.
 - Dernière ligne : DEP-0250 — Définir la structure d’un produit populaire.
 - Titre d’issue suggéré : `[TASK] DEP-0241 à DEP-0250`
 
 ## BLOCK-026 — DEP-0251 à DEP-0260
 
-- Statut : à faire
+- Statut : terminé
 - Première ligne : DEP-0251 — Définir la structure d’un produit archivé.
 - Dernière ligne : DEP-0260 — Définir la structure de l’ordre d’affichage des produits.
 - Titre d’issue suggéré : `[TASK] DEP-0251 à DEP-0260`
 
 ## BLOCK-027 — DEP-0261 à DEP-0270
 
-- Statut : à faire
+- Statut : terminé
 - Première ligne : DEP-0261 — Définir la convention de taille des images produits.
 - Dernière ligne : DEP-0270 — Définir la convention des synonymes téléphoniques pour l’agent vocal.
 - Titre d’issue suggéré : `[TASK] DEP-0261 à DEP-0270`
 
 ## BLOCK-028 — DEP-0271 à DEP-0280
 
-- Statut : à faire
+- Statut : terminé
 - Première ligne : DEP-0271 — Créer le jeu de catégories initial pour la démonstration.
 - Dernière ligne : DEP-0280 — Faire un premier chargement de catalogue de test.
 - Titre d’issue suggéré : `[TASK] DEP-0271 à DEP-0280`
