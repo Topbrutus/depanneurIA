@@ -1,0 +1,17 @@
+node_modules
+dist
+build
+coverage
+.git
+.github
+*.min.js
+*.min.css
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+.next
+.turbo
+.vercel
+.env
+.env.*
+*.log

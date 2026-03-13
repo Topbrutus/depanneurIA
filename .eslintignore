@@ -1,0 +1,12 @@
+node_modules
+dist
+build
+coverage
+.git
+.github
+*.min.js
+.next
+.turbo
+.vercel
+*.config.js
+*.config.ts
