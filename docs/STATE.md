@@ -21,7 +21,8 @@
 - Blocs parcours utilisateur et pages (`DEP-0161` à `DEP-0180`) terminés
 - Blocs comportements UX et dispositions (`DEP-0181` à `DEP-0200`) terminés
 - Blocs système visuel de base (`DEP-0201` à `DEP-0240`) terminés
-- Prochain bloc recommandé : `DEP-0241` à `DEP-0260` (structure catalogue produits)
+- Blocs structure catalogue et conventions (`DEP-0241` à `DEP-0280`) terminés
+- Prochain bloc recommandé : `DEP-0281` à `DEP-0320` (inscription, connexion et gestion client)
 
 ## Observation importante
 
@@ -41,6 +42,9 @@ Le bloc 0001 (DEP-0001 à DEP-0010) reste complet. Le bloc GitHub de fondation (
 - DEP-0171 à DEP-0180 — pages secondaires définies (adresses, historique, suivi, contact, légal, accessibilité, aide vocale)
 - DEP-0181 à DEP-0200 — dispositions desktop/mobile (3 sections vs empilée), emplacements composants (panier, chat, suggestions), comportements grille produits, panier et assistant
 - DEP-0201 à DEP-0240 — système visuel de base complet : couleurs (principales, secondaires, états, accessibilité), typographie (Inter, échelles complètes), styles visuels des composants, icônes (Lucide), animations (7 clés), spécifications de 12 composants de base
+- DEP-0241 à DEP-0255 — modèle catalogue de base : structures catégorie (id, slug, label, hiérarchie), produit (id, catégorie, sku, label, variantes), variante (unité, conditionnement, durée de vie), photo, mot-clé, synonyme, allergie/note, disponibilité (en_stock, rupture, sur_commande), produit vedette, produit populaire, produit archivé, surcharges produit/catégorie par tenant, zones de livraison et prix internes par tenant
+- DEP-0256 à DEP-0270 — conventions contenu et médias catalogue : unité de vente, image principale (1:1, CDN, alt obligatoire), images secondaires (≤4), ordre d'affichage catégories et produits, tailles images (thumb 150px, medium 400px, full 800px, hero 1200px), nommage images (`product-<slug>-<variant>-<size>.<ext>`), compression (WebP 75-90%, JPEG fallback), recadrage (produit centré, 70-85%), fond blanc #FFFFFF, textes courts (nom 25-40 car., description 50-80), descriptions longues (150-300 car.), mots-clés recherche (5-15 par produit), synonymes parlés assistant (5-20), synonymes téléphoniques agent vocal (8-25)
+- DEP-0271 à DEP-0280 — jeu de démonstration et validations : 8 catégories démo (Freins, Filtres, Éclairage…), 12 produits répartis sur toutes catégories, 15 images WebP 800×800px, synonymes recherche pour 11 produits, top 5 produits populaires, validations (catégorie valide, ≥1 image, nom ≤80 car., état disponibilité valide), procédure de premier chargement catalogue
 
 **Fichiers de configuration créés :**
 - `tsconfig.json` — configuration TypeScript 5.3+ strict
@@ -48,7 +52,7 @@ Le bloc 0001 (DEP-0001 à DEP-0010) reste complet. Le bloc GitHub de fondation (
 - `.prettierrc` — configuration Prettier pour formatage uniforme
 - `package.json` — monorepo avec workspaces pnpm et scripts dev/build/test/lint/format
 - `.env.example` — modèle de variables d'environnement
-- Docs decisions : DEP-0121-0127, DEP-0136-0140, DEP-0161-0170, DEP-0171-0180, DEP-0181-0200, DEP-0201-0240
+- Docs decisions : DEP-0121-0127, DEP-0136-0140, DEP-0161-0170, DEP-0171-0180, DEP-0181-0200, DEP-0201-0240, DEP-0241-0255, DEP-0256-0270, DEP-0271-0280
 
 **Résumé des 3 fichiers de décision DEP-0201 à DEP-0240 :**
 - `DEP-0201-0210-systeme-visuel-couleurs-typo.md` — Palette de couleurs et typographie :
@@ -68,8 +72,32 @@ Le bloc 0001 (DEP-0001 à DEP-0010) reste complet. Le bloc GitHub de fondation (
   - Chaque composant : variantes, tailles, états, accessibilité
   - Critères de validation avant implémentation (DEP-0240)
 
+**Résumé des 3 fichiers de décision DEP-0241 à DEP-0280 :**
+- `DEP-0241-0255-modele-catalogue-base.md` — Modèle catalogue de base :
+  - Structure catégorie (id, slug, label, hiérarchie parent/enfant)
+  - Structure produit (id, catégorie, sku, label, variantes, photos)
+  - Structure variante (unité de valeur, conditionnement, durée de vie)
+  - Structures complémentaires : photos, mots-clés, synonymes, allergènes/notes
+  - Disponibilité produit (en_stock, rupture, sur_commande), vedettes et populaires
+  - Produits archivés, surcharges tenant (produit, catégorie), zones de livraison, prix internes
+- `DEP-0256-0270-conventions-contenu-catalogue.md` — Conventions contenu et médias :
+  - Unités de vente (type, quantité, volume, libellé)
+  - Images : principale 1:1 CDN avec alt obligatoire, secondaires ≤4 angles différents
+  - Ordre d'affichage catégories (global, visibilité) et produits (par catégorie, épinglage, boost)
+  - Tailles images (thumb 150px, medium 400px, full 800px, hero 1200px)
+  - Nommage images (`product-<slug>-<variant>-<size>.<ext>`), compression WebP 75-90%
+  - Recadrage (produit centré 70-85%), fond blanc #FFFFFF
+  - Textes courts (nom 25-40 car., description 50-80), descriptions longues (150-300 car.)
+  - Mots-clés recherche (5-15 par produit, minuscules), synonymes parlés (5-20), synonymes téléphoniques (8-25)
+- `DEP-0271-0280-demo-catalogue-et-validations.md` — Jeu de démonstration et validations :
+  - 8 catégories démo (Freins, Filtres, Éclairage, Batteries, Pneus, Huiles, Bougies, Essuie-glaces)
+  - 12 produits répartis sur toutes catégories, 15 images WebP 800×800px
+  - Synonymes recherche pour 11 produits, top 5 produits populaires
+  - Validations : catégorie valide, ≥1 image, nom ≤80 car., état disponibilité valide
+  - Procédure de premier chargement catalogue avec toutes validations appliquées
+
 **Non commencé :**
-- DEP-0241 à DEP-0280 — structure catalogue produits et conventions
+- DEP-0281 à DEP-0320 — inscription, connexion et gestion client
 
 ## Manques publics actuels
 
@@ -77,17 +105,16 @@ Aucun manque identifié dans les blocs DEP-0084 à DEP-0160. La fondation techni
 
 ## Prochaines actions suggérées
 
-**Bloc prioritaire : DEP-0241 à DEP-0280**
+**Bloc prioritaire : DEP-0281 à DEP-0320**
 
-1. **DEP-0241 à DEP-0260** — Définir la structure des données du catalogue :
-   - Structure des catégories, produits, variantes, photos, mots-clés
-   - Structure multi-tenant et disponibilité
-   - Ordre d'affichage et produits vedettes
+1. **DEP-0281 à DEP-0300** — Définir les parcours d'inscription et connexion client :
+   - Inscription (champs obligatoires/optionnels), vérification téléphone et adresse
+   - Connexion, reconnexion, réinitialisation d'accès
+   - Gestion multi-adresses
 
-2. **DEP-0261 à DEP-0280** — Définir les conventions du catalogue :
-   - Conventions images (taille, nommage, compression, recadrage)
-   - Conventions textes (descriptions, mots-clés, synonymes)
-   - Jeu de données de démonstration initial
+2. **DEP-0301 à DEP-0320** — Définir les parcours de commande client :
+   - Recherche produit, ajout au panier, validation commande
+   - Suivi de commande et notifications
 
 ## Vérifications à faire dans GitHub UI (admin requis)
 
@@ -129,12 +156,12 @@ Aucun manque identifié dans les blocs DEP-0084 à DEP-0160. La fondation techni
 
 ## Dernière tâche terminée
 
-- DEP-0201 à DEP-0240 — système visuel de base complet : palette de couleurs complète (primaire, secondaire, états, accessibilité WCAG AA/AAA), typographie Inter avec échelles complètes (titres, corps, boutons, cartes), styles visuels de 8 composants clés, bibliothèque d'icônes Lucide, 7 animations critiques (ajout panier, suggestions, états), spécifications détaillées de 12 composants de base, checkpoint de validation avant implémentation
+- DEP-0241 à DEP-0280 — structure catalogue produits et conventions : modèle catalogue de base (catégories, produits, variantes, photos, mots-clés, synonymes, disponibilité, vedettes, populaires, archivés, surcharges tenant, zones de livraison, prix internes), conventions contenu et médias (unités de vente, images principale/secondaires, ordre d'affichage, tailles/nommage/compression/recadrage images, textes courts/longs, mots-clés recherche, synonymes parlés/téléphoniques), jeu de démonstration (8 catégories, 12 produits, 15 images, synonymes, top 5 populaires), validations catalogue (catégorie valide, ≥1 image, nom ≤80 car., état disponibilité valide, procédure de chargement)
 
 ## En cours
 
 - Aucune tâche actuellement en cours
-- Prochaine étape : DEP-0241 à DEP-0280 (structure catalogue et conventions produits)
+- Prochaine étape : DEP-0281 à DEP-0320 (inscription, connexion et gestion client)
 
 ## Bloqueurs
 

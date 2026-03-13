@@ -268,46 +268,46 @@ Version convertie depuis le fichier source fourni par l’utilisateur.
 
 ## Bloc 0241–0280
 
-- [ ] DEP-0241 Définir la structure d’une catégorie produit.
-- [ ] DEP-0242 Définir la structure d’un produit.
-- [ ] DEP-0243 Définir la structure d’une variante de produit.
-- [ ] DEP-0244 Définir la structure d’une photo produit.
-- [ ] DEP-0245 Définir la structure d’un mot-clé produit.
-- [ ] DEP-0246 Définir la structure d’un synonyme produit.
-- [ ] DEP-0247 Définir la structure d’une allergie ou note produit si utile.
-- [ ] DEP-0248 Définir la structure d’une disponibilité produit.
-- [ ] DEP-0249 Définir la structure d’un produit vedette.
-- [ ] DEP-0250 Définir la structure d’un produit populaire.
-- [ ] DEP-0251 Définir la structure d’un produit archivé.
-- [ ] DEP-0252 Définir la structure d’un produit par tenant client.
-- [ ] DEP-0253 Définir la structure d’une catégorie par tenant client.
-- [ ] DEP-0254 Définir la structure d’une zone de livraison par tenant client.
-- [ ] DEP-0255 Définir la structure d’un prix interne par tenant client.
-- [ ] DEP-0256 Définir la structure d’une unité de vente.
-- [ ] DEP-0257 Définir la structure d’une image principale produit.
-- [ ] DEP-0258 Définir la structure d’images secondaires produit.
-- [ ] DEP-0259 Définir la structure de l’ordre d’affichage des catégories.
-- [ ] DEP-0260 Définir la structure de l’ordre d’affichage des produits.
-- [ ] DEP-0261 Définir la convention de taille des images produits.
-- [ ] DEP-0262 Définir la convention de nommage des images produits.
-- [ ] DEP-0263 Définir la convention de compression des images produits.
-- [ ] DEP-0264 Définir la convention de recadrage des images produits.
-- [ ] DEP-0265 Définir la convention de fond visuel des images produits.
-- [ ] DEP-0266 Définir la convention des textes courts de produits.
-- [ ] DEP-0267 Définir la convention des descriptions longues de produits.
-- [ ] DEP-0268 Définir la convention des mots-clés de recherche.
-- [ ] DEP-0269 Définir la convention des synonymes parlés pour l’assistant.
-- [ ] DEP-0270 Définir la convention des synonymes téléphoniques pour l’agent vocal.
-- [ ] DEP-0271 Créer le jeu de catégories initial pour la démonstration.
-- [ ] DEP-0272 Créer le jeu de produits initial pour la démonstration.
-- [ ] DEP-0273 Créer le jeu de photos initial pour la démonstration.
-- [ ] DEP-0274 Créer le jeu de synonymes initial pour la démonstration.
-- [ ] DEP-0275 Créer le jeu de produits les plus commandés fictifs pour la démonstration.
-- [ ] DEP-0276 Vérifier que chaque produit a une catégorie valide.
-- [ ] DEP-0277 Vérifier que chaque produit a au moins une image valide.
-- [ ] DEP-0278 Vérifier que chaque produit a un nom court valide.
-- [ ] DEP-0279 Vérifier que chaque produit a un état de disponibilité valide.
-- [ ] DEP-0280 Faire un premier chargement de catalogue de test.
+- [x] DEP-0241 Définir la structure d’une catégorie produit.
+- [x] DEP-0242 Définir la structure d’un produit.
+- [x] DEP-0243 Définir la structure d’une variante de produit.
+- [x] DEP-0244 Définir la structure d’une photo produit.
+- [x] DEP-0245 Définir la structure d’un mot-clé produit.
+- [x] DEP-0246 Définir la structure d’un synonyme produit.
+- [x] DEP-0247 Définir la structure d’une allergie ou note produit si utile.
+- [x] DEP-0248 Définir la structure d’une disponibilité produit.
+- [x] DEP-0249 Définir la structure d’un produit vedette.
+- [x] DEP-0250 Définir la structure d’un produit populaire.
+- [x] DEP-0251 Définir la structure d’un produit archivé.
+- [x] DEP-0252 Définir la structure d’un produit par tenant client.
+- [x] DEP-0253 Définir la structure d’une catégorie par tenant client.
+- [x] DEP-0254 Définir la structure d’une zone de livraison par tenant client.
+- [x] DEP-0255 Définir la structure d’un prix interne par tenant client.
+- [x] DEP-0256 Définir la structure d’une unité de vente.
+- [x] DEP-0257 Définir la structure d’une image principale produit.
+- [x] DEP-0258 Définir la structure d’images secondaires produit.
+- [x] DEP-0259 Définir la structure de l’ordre d’affichage des catégories.
+- [x] DEP-0260 Définir la structure de l’ordre d’affichage des produits.
+- [x] DEP-0261 Définir la convention de taille des images produits.
+- [x] DEP-0262 Définir la convention de nommage des images produits.
+- [x] DEP-0263 Définir la convention de compression des images produits.
+- [x] DEP-0264 Définir la convention de recadrage des images produits.
+- [x] DEP-0265 Définir la convention de fond visuel des images produits.
+- [x] DEP-0266 Définir la convention des textes courts de produits.
+- [x] DEP-0267 Définir la convention des descriptions longues de produits.
+- [x] DEP-0268 Définir la convention des mots-clés de recherche.
+- [x] DEP-0269 Définir la convention des synonymes parlés pour l’assistant.
+- [x] DEP-0270 Définir la convention des synonymes téléphoniques pour l’agent vocal.
+- [x] DEP-0271 Créer le jeu de catégories initial pour la démonstration.
+- [x] DEP-0272 Créer le jeu de produits initial pour la démonstration.
+- [x] DEP-0273 Créer le jeu de photos initial pour la démonstration.
+- [x] DEP-0274 Créer le jeu de synonymes initial pour la démonstration.
+- [x] DEP-0275 Créer le jeu de produits les plus commandés fictifs pour la démonstration.
+- [x] DEP-0276 Vérifier que chaque produit a une catégorie valide.
+- [x] DEP-0277 Vérifier que chaque produit a au moins une image valide.
+- [x] DEP-0278 Vérifier que chaque produit a un nom court valide.
+- [x] DEP-0279 Vérifier que chaque produit a un état de disponibilité valide.
+- [x] DEP-0280 Faire un premier chargement de catalogue de test.
 
 ## Bloc 0281–0320
 
