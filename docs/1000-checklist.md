@@ -202,26 +202,26 @@ Version convertie depuis le fichier source fourni par l’utilisateur.
 - [x] DEP-0178 Définir la page de confidentialité.
 - [x] DEP-0179 Définir la page d’accessibilité.
 - [x] DEP-0180 Définir la page d’aide vocale.
-- [ ] DEP-0181 Définir la disposition ordinateur à trois sections.
-- [ ] DEP-0182 Définir la disposition téléphone empilée.
-- [ ] DEP-0183 Définir l’emplacement exact du panier sur ordinateur.
-- [ ] DEP-0184 Définir l’emplacement exact du chat sur ordinateur.
-- [ ] DEP-0185 Définir l’emplacement exact des suggestions sur ordinateur.
-- [ ] DEP-0186 Définir l’emplacement exact du panier sur téléphone.
-- [ ] DEP-0187 Définir l’emplacement exact du chat sur téléphone.
-- [ ] DEP-0188 Définir l’emplacement exact des suggestions sur téléphone.
-- [ ] DEP-0189 Définir le comportement de la grille produits au clic.
-- [ ] DEP-0190 Définir le comportement de la grille produits à la voix.
-- [ ] DEP-0191 Définir le comportement du panier au clic.
-- [ ] DEP-0192 Définir le comportement du panier après validation de commande.
-- [ ] DEP-0193 Définir le comportement du panier pendant la préparation.
-- [ ] DEP-0194 Définir le comportement du panier pendant la livraison.
-- [ ] DEP-0195 Définir le comportement du panier après livraison.
-- [ ] DEP-0196 Définir le comportement du panier si la commande échoue.
-- [ ] DEP-0197 Définir le comportement de l’assistant si le client dit seulement une catégorie.
-- [ ] DEP-0198 Définir le comportement de l’assistant si le client dit une marque.
-- [ ] DEP-0199 Définir le comportement de l’assistant si le client dit un produit ambigu.
-- [ ] DEP-0200 Définir le comportement de l’assistant si le client ne sait pas quoi choisir.
+- [x] DEP-0181 Définir la disposition ordinateur à trois sections.
+- [x] DEP-0182 Définir la disposition téléphone empilée.
+- [x] DEP-0183 Définir l'emplacement exact du panier sur ordinateur.
+- [x] DEP-0184 Définir l'emplacement exact du chat sur ordinateur.
+- [x] DEP-0185 Définir l'emplacement exact des suggestions sur ordinateur.
+- [x] DEP-0186 Définir l'emplacement exact du panier sur téléphone.
+- [x] DEP-0187 Définir l'emplacement exact du chat sur téléphone.
+- [x] DEP-0188 Définir l'emplacement exact des suggestions sur téléphone.
+- [x] DEP-0189 Définir le comportement de la grille produits au clic.
+- [x] DEP-0190 Définir le comportement de la grille produits à la voix.
+- [x] DEP-0191 Définir le comportement du panier au clic.
+- [x] DEP-0192 Définir le comportement du panier après validation de commande.
+- [x] DEP-0193 Définir le comportement du panier pendant la préparation.
+- [x] DEP-0194 Définir le comportement du panier pendant la livraison.
+- [x] DEP-0195 Définir le comportement du panier après livraison.
+- [x] DEP-0196 Définir le comportement du panier si la commande échoue.
+- [x] DEP-0197 Définir le comportement de l'assistant si le client dit seulement une catégorie.
+- [x] DEP-0198 Définir le comportement de l'assistant si le client dit une marque.
+- [x] DEP-0199 Définir le comportement de l'assistant si le client dit un produit ambigu.
+- [x] DEP-0200 Définir le comportement de l'assistant si le client ne sait pas quoi choisir.
 
 ## Bloc 0201–0240
 
