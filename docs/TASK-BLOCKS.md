@@ -188,7 +188,7 @@ Convention suggérée : une issue = un bloc.
 
 ## BLOCK-027 — DEP-0261 à DEP-0270
 
-- Statut : à faire
+- Statut : terminé
 - Première ligne : DEP-0261 — Définir la convention de taille des images produits.
 - Dernière ligne : DEP-0270 — Définir la convention des synonymes téléphoniques pour l’agent vocal.
 - Titre d’issue suggéré : `[TASK] DEP-0261 à DEP-0270`

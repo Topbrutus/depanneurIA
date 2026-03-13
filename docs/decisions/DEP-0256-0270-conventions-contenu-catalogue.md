@@ -1143,6 +1143,14 @@ Le contenu textuel suit des règles précises pour la clarté et l'efficacité :
 
 **Évolutivité** : Structures extensibles, support multi-tenant, adaptabilité aux besoins futurs.
 
+### Synthèse ciblée DEP-0261 à DEP-0270 (images, textes, synonymes)
+
+- Tailles et formats images : 4 formats carrés (`thumb` 150px, `medium` 400px, `full` 800px, `hero` 1200px), WebP prioritaire (75-90% selon taille), JPEG fallback.
+- Nommage et rendu : `product-<slug>-<variante>-<taille>.<ext>`, kebab-case, alt obligatoire, recadrage centré 70-85%, fond blanc `#FFFFFF` (fond contexte réservé aux secondaires).
+- Textes courts/longs : nom 25-40 car., description courte 50-80 car., badge ≤20 car. ; description longue 150-300 car. structurée (intro + puces).
+- Recherche : 5-15 mots-clés en minuscules couvrant marque, type, caractéristiques, usages, variantes singulier/pluriel.
+- Synonymes : assistant (5-20 formulations naturelles avec articles/quantités) ; téléphone (8-25 variantes phonétiques, syllabées, chiffres épelés).
+
 ---
 
 **Date de création** : 2026-03-13
