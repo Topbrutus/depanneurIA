@@ -1,0 +1,11 @@
+{
+  "name": "@depaneuria/utils",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "echo '[utils] build: not yet wired' && exit 0",
+    "lint": "echo '[utils] lint: not yet wired' && exit 0",
+    "typecheck": "echo '[utils] typecheck: not yet wired' && exit 0",
+    "test": "echo '[utils] test: not yet wired' && exit 0"
+  }
+}
