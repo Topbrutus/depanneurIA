@@ -4,6 +4,7 @@ import type { Address, CustomerData, CustomerSession } from '@depaneuria/types'
 
 import AddressesPage from './routes/addresses-page'
 import { CartPage } from './routes/cart-page'
+import { DriverPage } from './routes/driver-page'
 import LoginPage from './routes/login-page'
 import NotFoundPage from './routes/not-found-page'
 import { OrderFailurePage } from './routes/order-failure-page'
@@ -176,6 +177,7 @@ const AppShell = () => {
             <Route path="/commande/echec" element={<OrderFailurePage />} />
             <Route path="/commande/suivi" element={<OrderTrackingPage />} />
             <Route path="/operator" element={<StoreOpsPage />} />
+            <Route path="/driver" element={<DriverPage />} />
             <Route path="/home" element={<HomePage customer={customer} defaultAddress={defaultAddress} />} />
             <Route
               path="/signup"
