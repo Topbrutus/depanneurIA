@@ -1,6 +1,7 @@
 import express from 'express';
 import healthRouter from './routes/health';
 import catalogRouter from './routes/catalog';
+import adminCatalogRouter from './routes/admin-catalog';
 import customersRouter from './routes/customers';
 import addressesRouter from './routes/addresses';
 import ordersRouter from './routes/orders';
@@ -17,6 +18,7 @@ app.use(express.json());
 // --- Routes ---
 app.use('/', healthRouter);
 app.use('/api/v1/catalog', catalogRouter);
+app.use('/admin/catalog', adminCatalogRouter);
 app.use('/api/v1/customers', customersRouter);
 app.use('/api/v1/customers/:id/addresses', addressesRouter);
 app.use('/api/v1/orders', ordersRouter);

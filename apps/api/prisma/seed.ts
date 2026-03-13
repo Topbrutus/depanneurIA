@@ -5,6 +5,17 @@ const prisma = new PrismaClient();
 async function main() {
   console.log('🌱 Seeding database...');
 
+  const withInventory = <T extends Record<string, unknown>>(
+    data: T,
+    overrides?: Partial<{ availability: string; stock: number; minStock: number }>
+  ) => ({
+    availability: 'en_stock',
+    stock: 25,
+    minStock: 5,
+    ...data,
+    ...overrides,
+  });
+
   // Clean existing data
   await prisma.orderItem.deleteMany();
   await prisma.order.deleteMany();
@@ -53,7 +64,7 @@ async function main() {
   // --- Products: Boissons ---
   await prisma.product.createMany({
     data: [
-      {
+      withInventory({
         name: 'Eau Naya 1L',
         slug: 'eau-naya-1l',
         description: 'Eau de source naturelle 1 litre',
@@ -62,8 +73,8 @@ async function main() {
         categoryId: boissons.id,
         displayOrder: 1,
         popular: true,
-      },
-      {
+      }),
+      withInventory({
         name: 'Coca-Cola 355ml',
         slug: 'coca-cola-355ml',
         description: 'Canette de Coca-Cola classique',
@@ -72,8 +83,8 @@ async function main() {
         categoryId: boissons.id,
         displayOrder: 2,
         popular: true,
-      },
-      {
+      }),
+      withInventory({
         name: 'Jus d\'orange Tropicana 1L',
         slug: 'jus-orange-tropicana-1l',
         description: 'Jus d\'orange pur à 100%',
@@ -82,8 +93,8 @@ async function main() {
         categoryId: boissons.id,
         displayOrder: 3,
         popular: false,
-      },
-      {
+      }),
+      withInventory({
         name: 'Café filtre maison',
         slug: 'cafe-filtre-maison',
         description: 'Café fraîchement préparé',
@@ -92,14 +103,14 @@ async function main() {
         categoryId: boissons.id,
         displayOrder: 4,
         popular: false,
-      },
+      }),
     ],
   });
 
   // --- Products: Épicerie ---
   await prisma.product.createMany({
     data: [
-      {
+      withInventory({
         name: 'Pain blanc tranché',
         slug: 'pain-blanc-tranche',
         description: 'Pain de mie blanc classique',
@@ -108,8 +119,8 @@ async function main() {
         categoryId: epicerie.id,
         displayOrder: 1,
         popular: true,
-      },
-      {
+      }),
+      withInventory({
         name: 'Lait 2% 2L',
         slug: 'lait-2-pourcent-2l',
         description: 'Lait partiellement écrémé 2 litres',
@@ -118,8 +129,8 @@ async function main() {
         categoryId: epicerie.id,
         displayOrder: 2,
         popular: true,
-      },
-      {
+      }),
+      withInventory({
         name: 'Œufs gros calibre x12',
         slug: 'oeufs-gros-x12',
         description: 'Douzaine d\'œufs gros calibre',
@@ -128,8 +139,8 @@ async function main() {
         categoryId: epicerie.id,
         displayOrder: 3,
         popular: false,
-      },
-      {
+      }),
+      withInventory({
         name: 'Beurre salé 454g',
         slug: 'beurre-sale-454g',
         description: 'Beurre de laiterie salé',
@@ -138,14 +149,14 @@ async function main() {
         categoryId: epicerie.id,
         displayOrder: 4,
         popular: false,
-      },
+      }),
     ],
   });
 
   // --- Products: Collations ---
   await prisma.product.createMany({
     data: [
-      {
+      withInventory({
         name: 'Chips Lays Nature 235g',
         slug: 'chips-lays-nature-235g',
         description: 'Croustilles nature classiques',
@@ -154,8 +165,8 @@ async function main() {
         categoryId: snacks.id,
         displayOrder: 1,
         popular: true,
-      },
-      {
+      }),
+      withInventory({
         name: 'Barre Oh Henry!',
         slug: 'barre-oh-henry',
         description: 'Barre chocolatée Oh Henry! classique',
@@ -164,8 +175,8 @@ async function main() {
         categoryId: snacks.id,
         displayOrder: 2,
         popular: false,
-      },
-      {
+      }),
+      withInventory({
         name: 'Arachides salées 350g',
         slug: 'arachides-salees-350g',
         description: 'Arachides rôties salées',
@@ -174,14 +185,14 @@ async function main() {
         categoryId: snacks.id,
         displayOrder: 3,
         popular: false,
-      },
+      }, { stock: 8, availability: 'rupture' }),
     ],
   });
 
   // --- Products: Hygiène ---
   await prisma.product.createMany({
     data: [
-      {
+      withInventory({
         name: 'Papier hygiénique 12 rouleaux',
         slug: 'papier-hygienique-12-rouleaux',
         description: 'Papier hygiénique double épaisseur',
@@ -190,8 +201,8 @@ async function main() {
         categoryId: hygiene.id,
         displayOrder: 1,
         popular: true,
-      },
-      {
+      }, { minStock: 12 }),
+      withInventory({
         name: 'Savon à mains 500ml',
         slug: 'savon-mains-500ml',
         description: 'Savon liquide pour les mains',
@@ -200,7 +211,7 @@ async function main() {
         categoryId: hygiene.id,
         displayOrder: 2,
         popular: false,
-      },
+      }),
     ],
   });
 

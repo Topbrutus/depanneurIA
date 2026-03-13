@@ -10,7 +10,7 @@ router.get('/', async (_req, res, next) => {
     const categories = await prisma.category.findMany({
       include: {
         products: {
-          where: { status: 'active' },
+          where: { status: 'active', availability: { not: 'rupture' } },
           orderBy: { displayOrder: 'asc' },
         },
       },
@@ -30,7 +30,11 @@ router.get('/', async (_req, res, next) => {
 router.get('/top', async (_req, res, next) => {
   try {
     const products = await prisma.product.findMany({
-      where: { status: 'active', popular: true },
+      where: {
+        status: 'active',
+        popular: true,
+        availability: { not: 'rupture' },
+      },
       orderBy: { displayOrder: 'asc' },
     });
 

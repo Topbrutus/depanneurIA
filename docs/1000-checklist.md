@@ -655,14 +655,14 @@ Version convertie depuis le fichier source fourni par l’utilisateur.
 
 ## Bloc 0601–0640
 
-- [ ] DEP-0601 Définir l’interface admin produits du dépanneur.
-- [ ] DEP-0602 Définir les champs d’ajout d’un produit.
-- [ ] DEP-0603 Définir les champs d’édition d’un produit.
+- [x] DEP-0601 Définir l’interface admin produits du dépanneur.
+- [x] DEP-0602 Définir les champs d’ajout d’un produit.
+- [x] DEP-0603 Définir les champs d’édition d’un produit.
 - [ ] DEP-0604 Définir les champs d’archivage d’un produit.
-- [ ] DEP-0605 Définir les champs de catégorie d’un produit.
-- [ ] DEP-0606 Définir les champs d’image d’un produit.
-- [ ] DEP-0607 Définir les champs de disponibilité d’un produit.
-- [ ] DEP-0608 Définir les champs de prix interne d’un produit.
+- [x] DEP-0605 Définir les champs de catégorie d’un produit.
+- [x] DEP-0606 Définir les champs d’image d’un produit.
+- [x] DEP-0607 Définir les champs de disponibilité d’un produit.
+- [x] DEP-0608 Définir les champs de prix interne d’un produit.
 - [ ] DEP-0609 Définir les champs de mots-clés d’un produit.
 - [ ] DEP-0610 Définir les champs de synonymes d’un produit.
 - [ ] DEP-0611 Définir l’action d’ajout d’image par téléversement.
@@ -672,8 +672,8 @@ Version convertie depuis le fichier source fourni par l’utilisateur.
 - [ ] DEP-0615 Définir l’action de suppression d’image.
 - [ ] DEP-0616 Définir l’action de réorganisation des produits par glisser-déposer.
 - [ ] DEP-0617 Définir l’action de réorganisation des catégories par glisser-déposer.
-- [ ] DEP-0618 Définir l’action de marquage “vedette”.
-- [ ] DEP-0619 Définir l’action de marquage “indisponible”.
+- [x] DEP-0618 Définir l’action de marquage “vedette”.
+- [x] DEP-0619 Définir l’action de marquage “indisponible”.
 - [ ] DEP-0620 Définir l’action de duplication d’un produit.
 - [ ] DEP-0621 Définir l’action de duplication d’une catégorie.
 - [ ] DEP-0622 Définir l’action de clonage d’un catalogue vers un autre tenant si autorisé.
@@ -681,14 +681,14 @@ Version convertie depuis le fichier source fourni par l’utilisateur.
 - [ ] DEP-0624 Définir l’action d’export du catalogue.
 - [ ] DEP-0625 Définir l’action de sauvegarde brouillon.
 - [ ] DEP-0626 Définir l’action de publication d’un produit.
-- [ ] DEP-0627 Créer la page liste des produits admin.
-- [ ] DEP-0628 Créer la page ajout produit admin.
-- [ ] DEP-0629 Créer la page édition produit admin.
-- [ ] DEP-0630 Créer la page catégories admin.
+- [x] DEP-0627 Créer la page liste des produits admin.
+- [x] DEP-0628 Créer la page ajout produit admin.
+- [x] DEP-0629 Créer la page édition produit admin.
+- [x] DEP-0630 Créer la page catégories admin.
 - [ ] DEP-0631 Créer la zone glisser-déposer des images.
 - [ ] DEP-0632 Créer la zone glisser-déposer des produits.
 - [ ] DEP-0633 Créer la zone glisser-déposer des catégories.
-- [ ] DEP-0634 Créer la validation des champs produit.
+- [x] DEP-0634 Créer la validation des champs produit.
 - [ ] DEP-0635 Créer la validation des champs catégorie.
 - [ ] DEP-0636 Créer l’aperçu avant publication du catalogue.
 - [ ] DEP-0637 Tester l’ajout d’un produit complet.

@@ -49,7 +49,7 @@
 - Blocs téléphonie et rattachement API (`DEP-0441` à `DEP-0480`) terminés
 - Bloc réception dépanneur — base (`DEP-0481` à `DEP-0494`) terminé
 - Bloc réception dépanneur — actions et tableau de bord (`DEP-0495` à `DEP-0514`) terminé ✅
-- Prochain bloc recommandé : **DEP-0515 à DEP-0534** (fin réception dépanneur et interface livreur de base)
+- Prochain bloc recommandé : **DEP-0601 à DEP-0640** (admin catalogue V1 + inventaire minimal)
 
 ## Observation importante
 
@@ -220,10 +220,11 @@ La fondation technique (DEP-0121 à DEP-0160) est complète. Les blocs de docume
 ## Dernière tâche terminée
 
 - DEP-0495 à DEP-0514 — actions et tableau de réception dépanneur : 13 actions opérationnelles (marquer en préparation, marquer prête, assigner à un livreur, annuler, modifier avant départ, appeler le client, message automatique, signaler article manquant, proposer remplacement, marquer payé/non payé/problème livraison, rouvrir), logique de priorité (tri par statut + SLA + incidents), logique d'horodatage (12 champs timestamp par événement), journal d'activité (timeline immuable avec acteur/action/statuts avant-après), tableau de bord réception (bandeau KPI, filtres, onglets, split view), vue détaillée commande (chrono, contact, livraison, articles, paiement, journal), boutons acceptation et refus (UI + accessibilité clavier)
+- DEP-0601 à DEP-0640 — module admin catalogue V1 : vue admin catalogue, filtres catégorie/disponibilité/popularité/recherche, liste et création/édition produit, activation/désactivation, changement prix, stock et stock minimal, marquage populaire, validations API et stockage Prisma synchronisés avec le catalogue client
 
 ## En cours
 
-- Prochaine étape : **DEP-0515 à DEP-0534** (fin réception dépanneur et interface livreur de base)
+- Prochaine étape : **DEP-0641 à DEP-0680** (multi-tenant de base et gel admin catalogue)
 
 ## Bloqueurs
 

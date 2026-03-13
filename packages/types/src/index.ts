@@ -33,3 +33,14 @@ export type {
   Order,
   CreateOrderInput,
 } from './order';
+
+export type {
+  Product,
+  ProductStatus,
+  ProductAvailability,
+  Category,
+  CategoryWithProducts,
+  ProductFilters,
+  CreateProductPayload,
+  UpdateProductPayload,
+} from './catalog';

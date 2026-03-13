@@ -14,6 +14,7 @@ import ProfilePage from './routes/profile-page'
 import { ShopPage } from './routes/shop-page'
 import SignupPage from './routes/signup-page'
 import StoreOpsPage from './routes/store-ops-page'
+import AdminCatalogPage from './routes/admin-catalog-page'
 import { clearCustomer, endSession, loadCustomer, loadSession, saveCustomer, startSession } from './lib/customer-storage'
 import { normalizePhone } from './lib/validation'
 
@@ -37,6 +38,9 @@ const Navigation = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
       </Link>
       <Link className={linkClass('/addresses')} to="/addresses">
         Adresses
+      </Link>
+      <Link className={linkClass('/admin/catalog')} to="/admin/catalog">
+        Admin catalogue
       </Link>
       {isLoggedIn && (
         <span className="status-pill" aria-label="Session active">
@@ -178,6 +182,7 @@ const AppShell = () => {
             <Route path="/commande/suivi" element={<OrderTrackingPage />} />
             <Route path="/operator" element={<StoreOpsPage />} />
             <Route path="/driver" element={<DriverPage />} />
+            <Route path="/admin/catalog" element={<AdminCatalogPage />} />
             <Route path="/home" element={<HomePage customer={customer} defaultAddress={defaultAddress} />} />
             <Route
               path="/signup"
