@@ -35,7 +35,7 @@ remis la commande en mains propres au client.
 
 Bouton « Remise effectuée » dans l'écran « Livraison en cours »
 (DEP-0553), disponible uniquement lorsque le statut de la livraison est
-`en_cours_de_livraison`.
+`en_livraison`.
 
 ### Comportement
 
@@ -52,7 +52,7 @@ Bouton « Remise effectuée » dans l'écran « Livraison en cours »
 ### Conditions
 
 - L'action est disponible **uniquement** si le statut est
-  `en_cours_de_livraison`.
+  `en_livraison`.
 - Si le livreur n'a pas encore confirmé le paiement (DEP-0538), une invite
   s'affiche avant de finaliser.
 - L'action est **irréversible** en V1.
@@ -84,7 +84,7 @@ arrive à l'adresse de livraison et que le client ne répond pas.
 ### Déclencheur
 
 Bouton « Client absent » dans l'écran « Livraison en cours » (DEP-0553),
-disponible lorsque le statut est `en_cours_de_livraison`.
+disponible lorsque le statut est `en_livraison`.
 
 ### Comportement
 
@@ -113,6 +113,9 @@ disponible lorsque le statut est `en_cours_de_livraison`.
 
 ### Règles
 
+- Après **2 tentatives** maximum, si le client reste injoignable, le statut
+  livraison passe automatiquement à `echec_client_absent` et la commande à
+  `probleme` (DEP-0548).
 - Le nombre maximum de tentatives est de **2** avant que le retour soit
   obligatoire.
 - L'événement `client_absent` est horodaté et enregistré dans le journal
@@ -148,6 +151,7 @@ depuis le menu contextuel de la fiche livraison.
 
 - L'action est disponible uniquement après au moins une tentative de
   livraison.
+- Statut préalable requis : `en_livraison` ou `client_absent`.
 - Elle est irréversible une fois confirmée — la commande passe en logique
   de retour (DEP-0549).
 
@@ -186,7 +190,7 @@ visible uniquement si le mode de paiement de la commande est
 |-------|-------------------------------------------------------------------------------------|
 | 1     | Clic sur « Marquer payé »                                                           |
 | 2     | Confirmation rapide : affichage du montant total à encaisser                        |
-| 3     | Confirmation → statut paiement passe à `payé`                                      |
+| 3     | Confirmation → statut paiement passe à `paye`                                      |
 | 4     | Enregistrement de l'heure et du montant encaissé                                   |
 | 5     | Invitation à finaliser la remise (DEP-0535) si ce n'est pas encore fait            |
 
@@ -235,9 +239,10 @@ Bouton « Problème de paiement » dans l'écran « Livraison en cours »
 |-------|-------------------------------------------------------------------------------------|
 | 1     | Clic sur « Problème de paiement »                                                   |
 | 2     | Modal avec sélection du motif (obligatoire)                                         |
-| 3     | Confirmation → statut paiement passe à `incident_paiement`                         |
-| 4     | Notification envoyée au dépanneur : « Incident paiement — commande #[ID] »         |
-| 5     | Le livreur peut choisir de retourner au dépanneur (DEP-0537)                       |
+| 3     | Confirmation → statut paiement passe à `incident_paiement`; livraison passe à `echec_paiement` |
+| 4     | Commande bascule en statut `probleme` (file « Problèmes » — DEP-0490)               |
+| 5     | Notification envoyée au dépanneur : « Incident paiement — commande #[ID] »         |
+| 6     | Le livreur peut choisir de retourner au dépanneur (DEP-0537)                       |
 
 ### Motifs disponibles
 
@@ -319,8 +324,7 @@ l'écran « Livraison en cours » (DEP-0553).
 | Étape | Action                                                                              |
 |-------|-------------------------------------------------------------------------------------|
 | 1     | Clic sur « Naviguer »                                                               |
-| 2     | Sélecteur d'application GPS si plusieurs applications détectées (Google Maps,       |
-|       | Apple Plans, Waze, etc.), sinon ouverture directe dans l'application par défaut    |
+| 2     | Sélecteur d'application GPS si plusieurs applications détectées (Google Maps, Apple Plans, Waze), sinon ouverture directe dans l'application par défaut |
 | 3     | L'adresse complète de livraison est passée en paramètre de l'URL de navigation     |
 
 ### Format d'URL
@@ -505,8 +509,8 @@ un livreur disponible.
 
 ### Déclencheur
 
-Une commande passe au statut `prete_pour_livraison` (DEP-0487) et au
-moins un livreur est disponible.
+Une commande passe au statut `prete` (DEP-0487) et au moins un livreur
+est disponible.
 
 ### Algorithme V1
 
@@ -553,7 +557,7 @@ commande à un livreur.
 ### Déclencheur
 
 Le dépanneur clique sur « Assigner un livreur » dans la fiche commande
-(statut `prete_pour_livraison`).
+(statut `prete`).
 
 ### Comportement
 
@@ -891,10 +895,10 @@ de consulter l'historique de ses livraisons passées.
 | DEP      | Sujet                              | Décision clé                                                              |
 |----------|------------------------------------|---------------------------------------------------------------------------|
 | DEP-0535 | Action remise effectuée            | Irréversible, clôture livraison, notifie client, vérifie paiement         |
-| DEP-0536 | Action client absent               | Modal + chrono 2 min, 2 tentatives max, options retenter/retour           |
+| DEP-0536 | Action client absent               | Modal + chrono 2 min, 2 tentatives max puis bascule en échec si absent    |
 | DEP-0537 | Action retour au dépanneur         | Modal obligatoire, motif optionnel V1, notifie dépanneur et client        |
-| DEP-0538 | Action marquer payé à la livraison | Confirmation du montant exact, événement `paid_at` enregistré             |
-| DEP-0539 | Action marquer problème paiement   | Motif obligatoire, notifie dépanneur, incident enregistré                 |
+| DEP-0538 | Action marquer payé à la livraison | Confirmation du montant exact, statut paiement `paye`, événement `paid_at` |
+| DEP-0539 | Action marquer problème paiement   | Motif obligatoire, passe en `incident_paiement` + commande `probleme`     |
 | DEP-0540 | Action appeler le client           | Ouverture app téléphone native, numéro masqué à l'affichage               |
 | DEP-0541 | Action navigation externe          | Deep link vers GPS natif (Google Maps / Apple Plans / Waze)               |
 | DEP-0542 | Action preuve simple               | Photo optionnelle, compression 80 %, rétention 30 j, liée à la livraison  |
