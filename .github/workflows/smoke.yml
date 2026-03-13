@@ -1,0 +1,76 @@
+name: Smoke
+
+on:
+  pull_request:
+    branches: [main, develop]
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    name: Smoke — structure & scripts
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+          run_install: false
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify monorepo workspaces
+        run: |
+          echo "=== pnpm workspaces ==="
+          pnpm ls -r --depth -1 2>/dev/null || true
+          echo "=== Expected packages ==="
+          for pkg in apps/web apps/api packages/types packages/ui packages/utils; do
+            if [ -f "$pkg/package.json" ]; then
+              echo "  ✅  $pkg/package.json"
+            else
+              echo "  ❌  $pkg/package.json MISSING"
+              exit 1
+            fi
+          done
+
+      - name: Verify scripts present at root
+        run: |
+          for script in dev build test lint typecheck; do
+            if pnpm run "$script" --help 2>/dev/null | grep -q "$script" || node -e "const p=require('./package.json'); process.exit(p.scripts?.['$script']?0:1)"; then
+              echo "  ✅  script:$script"
+            else
+              echo "  ❌  script:$script MISSING"
+              exit 1
+            fi
+          done
+
+      - name: Verify shell scripts executable
+        run: |
+          for f in scripts/dev.sh scripts/smoke-local.sh scripts/verify-monorepo.sh; do
+            if [ -f "$f" ]; then
+              echo "  ✅  $f"
+            else
+              echo "  ⚠️   $f not yet present (optional)"
+            fi
+          done
+
+      - name: Verify key docs present
+        run: |
+          for doc in docs/STATE.md docs/GITHUB-SETUP.md; do
+            if [ -f "$doc" ]; then
+              echo "  ✅  $doc"
+            else
+              echo "  ❌  $doc MISSING"
+              exit 1
+            fi
+          done

@@ -1,0 +1,11 @@
+{
+  "name": "@depaneuria/ui",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "echo '[ui] build: not yet wired' && exit 0",
+    "lint": "echo '[ui] lint: not yet wired' && exit 0",
+    "typecheck": "echo '[ui] typecheck: not yet wired' && exit 0",
+    "test": "echo '[ui] test: not yet wired' && exit 0"
+  }
+}
