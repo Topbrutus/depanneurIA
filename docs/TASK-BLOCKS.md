@@ -69,21 +69,21 @@ Convention suggérée : une issue = un bloc.
 
 ## BLOCK-010 — DEP-0091 à DEP-0100
 
-- Statut : à faire
+- Statut : terminé
 - Première ligne : DEP-0091 — Créer un dossier scripts dans le dépôt.
 - Dernière ligne : DEP-0100 — Créer un modèle d’issue GitHub pour les idées produit.
 - Titre d’issue suggéré : `[TASK] DEP-0091 à DEP-0100`
 
 ## BLOCK-011 — DEP-0101 à DEP-0110
 
-- Statut : à faire
+- Statut : terminé
 - Première ligne : DEP-0101 — Créer un modèle de pull request GitHub.
 - Dernière ligne : DEP-0110 — Configurer le tableau GitHub Projects du projet.
 - Titre d’issue suggéré : `[TASK] DEP-0101 à DEP-0110`
 
 ## BLOCK-012 — DEP-0111 à DEP-0120
 
-- Statut : à faire
+- Statut : terminé
 - Première ligne : DEP-0111 — Créer les colonnes À faire, En cours, En revue, Terminé.
 - Dernière ligne : DEP-0120 — Faire le premier commit propre du projet.
 - Titre d’issue suggéré : `[TASK] DEP-0111 à DEP-0120`
