@@ -139,46 +139,46 @@ Version convertie depuis le fichier source fourni par l’utilisateur.
 
 ## Bloc 0121–0160
 
-- [ ] DEP-0121 Choisir officiellement TypeScript comme langage principal du projet.
-- [ ] DEP-0122 Choisir officiellement React pour l’interface web.
-- [ ] DEP-0123 Choisir officiellement Node.js pour le backend.
-- [ ] DEP-0124 Choisir officiellement un monorepo pour tout garder ensemble.
-- [ ] DEP-0125 Choisir officiellement un gestionnaire de paquets unique.
-- [ ] DEP-0126 Définir la version minimale de Node.js supportée.
-- [ ] DEP-0127 Définir la version minimale de TypeScript supportée.
-- [ ] DEP-0128 Définir les outils de formatage du code.
-- [ ] DEP-0129 Définir les outils de lint du code.
-- [ ] DEP-0130 Définir les règles de qualité minimales du code.
-- [ ] DEP-0131 Créer le fichier de configuration TypeScript racine.
-- [ ] DEP-0132 Créer la configuration de formatage du code.
-- [ ] DEP-0133 Créer la configuration de lint du code.
-- [ ] DEP-0134 Définir la structure des applications du monorepo.
-- [ ] DEP-0135 Définir la structure des bibliothèques partagées du monorepo.
-- [ ] DEP-0136 Définir la stratégie de variables d’environnement.
-- [ ] DEP-0137 Définir la stratégie des secrets.
-- [ ] DEP-0138 Définir la stratégie de fichiers .env locaux.
-- [ ] DEP-0139 Définir la stratégie de fichiers .env cloud.
-- [ ] DEP-0140 Définir la stratégie de scripts npm ou pnpm.
-- [ ] DEP-0141 Créer un script pour lancer tout le projet en local.
-- [ ] DEP-0142 Créer un script pour lancer seulement le front.
-- [ ] DEP-0143 Créer un script pour lancer seulement l’API.
-- [ ] DEP-0144 Créer un script pour exécuter les tests.
-- [ ] DEP-0145 Créer un script pour le lint.
-- [ ] DEP-0146 Créer un script pour le formatage.
-- [ ] DEP-0147 Créer un script pour le build complet.
-- [ ] DEP-0148 Créer un script pour les migrations de base de données.
-- [ ] DEP-0149 Créer un script pour charger des données de démonstration.
-- [ ] DEP-0150 Créer un script pour vider les données de démonstration.
-- [ ] DEP-0151 Définir les règles de nommage de fichiers.
-- [ ] DEP-0152 Définir les règles de nommage des composants.
-- [ ] DEP-0153 Définir les règles de nommage des routes.
-- [ ] DEP-0154 Définir les règles de nommage des tables de données.
-- [ ] DEP-0155 Définir les règles de nommage des événements de commande.
-- [ ] DEP-0156 Définir les règles de nommage des tenants clients.
-- [ ] DEP-0157 Définir les règles de nommage des langues.
-- [ ] DEP-0158 Définir les règles de nommage des médias produits.
-- [ ] DEP-0159 Vérifier que l’environnement local peut cloner et exécuter le dépôt.
-- [ ] DEP-0160 Faire un commit de stabilisation de l’ossature locale.
+- [x] DEP-0121 Choisir officiellement TypeScript comme langage principal du projet.
+- [x] DEP-0122 Choisir officiellement React pour l'interface web.
+- [x] DEP-0123 Choisir officiellement Node.js pour le backend.
+- [x] DEP-0124 Choisir officiellement un monorepo pour tout garder ensemble.
+- [x] DEP-0125 Choisir officiellement un gestionnaire de paquets unique.
+- [x] DEP-0126 Définir la version minimale de Node.js supportée.
+- [x] DEP-0127 Définir la version minimale de TypeScript supportée.
+- [x] DEP-0128 Définir les outils de formatage du code.
+- [x] DEP-0129 Définir les outils de lint du code.
+- [x] DEP-0130 Définir les règles de qualité minimales du code.
+- [x] DEP-0131 Créer le fichier de configuration TypeScript racine.
+- [x] DEP-0132 Créer la configuration de formatage du code.
+- [x] DEP-0133 Créer la configuration de lint du code.
+- [x] DEP-0134 Définir la structure des applications du monorepo.
+- [x] DEP-0135 Définir la structure des bibliothèques partagées du monorepo.
+- [x] DEP-0136 Définir la stratégie de variables d'environnement.
+- [x] DEP-0137 Définir la stratégie des secrets.
+- [x] DEP-0138 Définir la stratégie de fichiers .env locaux.
+- [x] DEP-0139 Définir la stratégie de fichiers .env cloud.
+- [x] DEP-0140 Définir la stratégie de scripts npm ou pnpm.
+- [x] DEP-0141 Créer un script pour lancer tout le projet en local.
+- [x] DEP-0142 Créer un script pour lancer seulement le front.
+- [x] DEP-0143 Créer un script pour lancer seulement l'API.
+- [x] DEP-0144 Créer un script pour exécuter les tests.
+- [x] DEP-0145 Créer un script pour le lint.
+- [x] DEP-0146 Créer un script pour le formatage.
+- [x] DEP-0147 Créer un script pour le build complet.
+- [x] DEP-0148 Créer un script pour les migrations de base de données.
+- [x] DEP-0149 Créer un script pour charger des données de démonstration.
+- [x] DEP-0150 Créer un script pour vider les données de démonstration.
+- [x] DEP-0151 Définir les règles de nommage de fichiers.
+- [x] DEP-0152 Définir les règles de nommage des composants.
+- [x] DEP-0153 Définir les règles de nommage des routes.
+- [x] DEP-0154 Définir les règles de nommage des tables de données.
+- [x] DEP-0155 Définir les règles de nommage des événements de commande.
+- [x] DEP-0156 Définir les règles de nommage des tenants clients.
+- [x] DEP-0157 Définir les règles de nommage des langues.
+- [x] DEP-0158 Définir les règles de nommage des médias produits.
+- [x] DEP-0159 Vérifier que l'environnement local peut cloner et exécuter le dépôt.
+- [x] DEP-0160 Faire un commit de stabilisation de l'ossature locale.
 
 ## Bloc 0161–0200
 

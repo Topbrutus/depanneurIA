@@ -90,31 +90,31 @@ Convention suggérée : une issue = un bloc.
 
 ## BLOCK-013 — DEP-0121 à DEP-0130
 
-- Statut : à faire
+- Statut : terminé
 - Première ligne : DEP-0121 — Choisir officiellement TypeScript comme langage principal du projet.
 - Dernière ligne : DEP-0130 — Définir les règles de qualité minimales du code.
-- Titre d’issue suggéré : `[TASK] DEP-0121 à DEP-0130`
+- Titre d'issue suggéré : `[TASK] DEP-0121 à DEP-0130`
 
 ## BLOCK-014 — DEP-0131 à DEP-0140
 
-- Statut : à faire
+- Statut : terminé
 - Première ligne : DEP-0131 — Créer le fichier de configuration TypeScript racine.
 - Dernière ligne : DEP-0140 — Définir la stratégie de scripts npm ou pnpm.
-- Titre d’issue suggéré : `[TASK] DEP-0131 à DEP-0140`
+- Titre d'issue suggéré : `[TASK] DEP-0131 à DEP-0140`
 
 ## BLOCK-015 — DEP-0141 à DEP-0150
 
-- Statut : à faire
+- Statut : terminé
 - Première ligne : DEP-0141 — Créer un script pour lancer tout le projet en local.
 - Dernière ligne : DEP-0150 — Créer un script pour vider les données de démonstration.
-- Titre d’issue suggéré : `[TASK] DEP-0141 à DEP-0150`
+- Titre d'issue suggéré : `[TASK] DEP-0141 à DEP-0150`
 
 ## BLOCK-016 — DEP-0151 à DEP-0160
 
-- Statut : à faire
+- Statut : terminé
 - Première ligne : DEP-0151 — Définir les règles de nommage de fichiers.
-- Dernière ligne : DEP-0160 — Faire un commit de stabilisation de l’ossature locale.
-- Titre d’issue suggéré : `[TASK] DEP-0151 à DEP-0160`
+- Dernière ligne : DEP-0160 — Faire un commit de stabilisation de l'ossature locale.
+- Titre d'issue suggéré : `[TASK] DEP-0151 à DEP-0160`
 
 ## BLOCK-017 — DEP-0161 à DEP-0170
 

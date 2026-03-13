@@ -17,7 +17,8 @@
 ## Bloc actif recommandé
 
 - Blocs GitHub de fondation (`DEP-0084` à `DEP-0120`) terminés
-- Prochain bloc recommandé : `DEP-0121` à `DEP-0130` (choix stack, outils de qualité, règles de code)
+- Blocs fondation technique (`DEP-0121` à `DEP-0160`) terminés
+- Prochain bloc recommandé : `DEP-0161` à `DEP-0200` (définition des interfaces et parcours utilisateur)
 
 ## Observation importante
 
@@ -27,40 +28,46 @@ Le bloc 0001 (DEP-0001 à DEP-0010) reste complet. Le bloc GitHub de fondation (
 
 **Terminé concrètement :**
 - DEP-0084 à DEP-0120 — fondation GitHub complète
-- Structure de dossiers de base : `apps/`, `packages/`, `scripts/`, `infra/`, `assets/`, `docs/`
+- DEP-0121 à DEP-0127 — décisions techniques stack documentées (TypeScript, React, Node.js, monorepo pnpm)
+- DEP-0128 à DEP-0133 — outils qualité configurés (Prettier, ESLint, TypeScript strict)
+- DEP-0134 à DEP-0135 — structure monorepo définie (`apps/`, `packages/` avec workspaces)
+- DEP-0136 à DEP-0140 — stratégies env et scripts documentées et implémentées
+- DEP-0141 à DEP-0160 — scripts npm/pnpm créés, règles de nommage établies, ossature locale stabilisée
 
-**Non commencé (aucun fichier concret) :**
-- DEP-0121 à DEP-0127 — décisions techniques (pas de documentation des choix stack)
-- DEP-0128 à DEP-0133 — formatage, lint, qualité (aucun fichier tsconfig.json, .eslintrc, .prettierrc, package.json)
-- DEP-0134 à DEP-0141 — configuration monorepo, env, scripts (dossiers créés mais vides, aucune config)
+**Fichiers de configuration créés :**
+- `tsconfig.json` — configuration TypeScript 5.3+ strict
+- `.eslintrc.json` — configuration ESLint avec règles React et TypeScript
+- `.prettierrc` — configuration Prettier pour formatage uniforme
+- `package.json` — monorepo avec workspaces pnpm et scripts dev/build/test/lint/format
+- `.env.example` — modèle de variables d'environnement
+- Docs decisions : DEP-0121-0127, DEP-0136-0140
+
+**Non commencé :**
+- DEP-0161 à DEP-0200 — définition des parcours utilisateur et interfaces
 
 ## Manques publics actuels
 
-- DEP-0121 à DEP-0127 — documenter officiellement les choix de stack (TypeScript, React, Node.js, monorepo, npm workspaces)
-- DEP-0128 à DEP-0133 — créer les fichiers de configuration qualité (Prettier, ESLint, TypeScript)
-- DEP-0134 à DEP-0141 — définir et implémenter la structure monorepo concrète
+Aucun manque identifié dans les blocs DEP-0084 à DEP-0160. La fondation technique est complète.
 
 ## Prochaines actions suggérées
 
-**Bloc prioritaire : DEP-0121 à DEP-0130**
+**Bloc prioritaire : DEP-0161 à DEP-0200**
 
-1. **DEP-0121 à DEP-0127** — Documenter les décisions techniques :
-   - Créer `docs/decisions/DEP-0121-DEP-0127.md` pour acter les choix de stack
-   - Documenter : TypeScript (langage principal), React (frontend), Node.js (backend)
-   - Documenter : monorepo npm workspaces, versions minimales requises
+1. **DEP-0161 à DEP-0170** — Définir les parcours utilisateur :
+   - Écrire la carte complète du site côté client
+   - Écrire la carte complète du site côté dépanneur
+   - Écrire la carte complète du site côté livreur
+   - Définir les pages principales (accueil, boutique, mode assisté, connexion, profil)
 
-2. **DEP-0128 à DEP-0130** — Définir les outils qualité :
-   - Documenter : Prettier pour formatage, ESLint pour lint, règles TypeScript strictes
-   - Ces décisions serviront de base pour DEP-0131 à DEP-0133 (création des configs)
+2. **DEP-0171 à DEP-0180** — Définir les pages secondaires :
+   - Pages d'adresses client, historique commandes, suivi de commande
+   - Pages de contact, conditions d'utilisation, confidentialité
+   - Pages d'aide vocale et d'accessibilité
 
-3. **DEP-0131 à DEP-0133** — Créer les configurations :
-   - Créer tsconfig.json, .prettierrc, .eslintrc.json
-   - Implémenter les décisions prises en DEP-0128 à DEP-0130
-
-4. **DEP-0134 à DEP-0141** — Structurer le monorepo :
-   - Créer package.json racine avec workspaces
-   - Définir scripts npm pour dev, build, lint, format
-   - Définir stratégie .env et secrets
+3. **DEP-0181 à DEP-0200** — Définir les comportements UX :
+   - Dispositions desktop et mobile (3 sections vs empilée)
+   - Comportements du panier, du chat assistant, des suggestions
+   - Comportements de l'assistant selon différents contextes utilisateur
 
 ## Vérifications à faire dans GitHub UI (admin requis)
 
@@ -102,17 +109,17 @@ Le bloc 0001 (DEP-0001 à DEP-0010) reste complet. Le bloc GitHub de fondation (
 
 ## Dernière tâche terminée
 
-- DEP-0084 à DEP-0120 — gouvernance GitHub finalisée (README, LICENSE, .gitignore, structure de dossiers, CONTRIBUTING, CODEOWNERS, templates, protection `main`, revues/checks requis, projet `DépannVite`, labels personnalisés, premier commit propre)
+- DEP-0121 à DEP-0160 — fondation technique complète (stack TypeScript/React/Node.js, configs qualité, monorepo pnpm, scripts dev/build/test, stratégies env/secrets, règles de nommage, ossature locale stabilisée)
 
 ## En cours
 
 - Aucune tâche actuellement en cours
-- Prochaine étape : DEP-0121 à DEP-0130 (documenter et définir les décisions techniques et outils qualité)
+- Prochaine étape : DEP-0161 à DEP-0200 (définition des parcours utilisateur et interfaces)
 
 ## Bloqueurs
 
 - Aucun bloqueur technique identifié
-- Les blocs DEP-0121 à DEP-0141 peuvent être réalisés entièrement via documentation et fichiers de configuration
+- Les blocs DEP-0161+ peuvent être réalisés en se concentrant sur la documentation des interfaces et parcours utilisateur
 
 ## Convention d'ID
 
