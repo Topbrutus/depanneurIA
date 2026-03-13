@@ -1,5 +1,25 @@
 # STATE — depaneurIA
 
+## Mise à jour — 2026-03-13 (DEP-0103, DEP-0107 à DEP-0119)
+
+**CI et gardes de merge installés sur `copilot/r5-ci-smoke-guards` :**
+
+- `.github/workflows/ci.yml` — Install → Lint → Typecheck → Test → Build sur chaque PR
+- `.github/workflows/smoke.yml` — vérification structure monorepo + scripts + docs sur chaque PR
+- `scripts/smoke-local.sh` — validation locale complète avant push
+- `scripts/verify-monorepo.sh` — intégrité monorepo (workspaces, scripts, fichiers clés)
+- `apps/web/package.json`, `apps/api/package.json` — stubs workspace créés
+- `packages/types/package.json`, `packages/ui/package.json`, `packages/utils/package.json` — stubs workspace créés
+- `docs/GITHUB-SETUP.md` — checklist manuelle GitHub (branche develop, protection main, labels, project board)
+- `docs/RELEASE-CHECKLIST.md` — checklist release et merge
+
+**Reste manuel (voir docs/GITHUB-SETUP.md) :**
+- Créer branche `develop`
+- Activer protection de `main` avec checks CI obligatoires
+- Activer protection de `develop`
+- Créer les 16 labels personnalisés
+- Créer le project board `DépannVite`
+
 ## Situation actuelle
 
 - Dépôt créé : oui
