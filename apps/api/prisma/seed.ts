@@ -1,6 +1,34 @@
 import { PrismaClient } from '@prisma/client';
+import type { OrderStatus } from '@depaneuria/types';
+import { applyTransition, buildInitialHistory } from '../src/lib/order-state-machine';
 
 const prisma = new PrismaClient();
+
+const addMinutes = (date: Date, minutes: number) =>
+  new Date(date.getTime() + minutes * 60000);
+
+function buildDriverHistory(path: OrderStatus[], start: Date) {
+  if (path.length === 0) {
+    throw new Error('Le chemin de statut est vide');
+  }
+
+  let currentStatus = path[0];
+  let history = buildInitialHistory(currentStatus, start.toISOString());
+  let cursor = start;
+
+  for (const nextStatus of path.slice(1)) {
+    cursor = addMinutes(cursor, 5);
+    const transition = applyTransition(
+      { status: currentStatus, statusHistory: history },
+      nextStatus,
+      { at: cursor.toISOString() }
+    );
+    currentStatus = transition.nextStatus;
+    history = transition.statusHistory;
+  }
+
+  return { status: currentStatus, statusHistory: history };
+}
 
 async function main() {
   console.log('🌱 Seeding database...');
@@ -225,7 +253,7 @@ async function main() {
     },
   });
 
-  await prisma.address.create({
+  const address = await prisma.address.create({
     data: {
       customerId: customer.id,
       label: 'Domicile',
@@ -237,9 +265,104 @@ async function main() {
     },
   });
 
+  // --- Demo orders for driver flow ---
+  const demoProductSlugs = [
+    'coca-cola-355ml',
+    'chips-lays-nature-235g',
+    'lait-2-pourcent-2l',
+    'papier-hygienique-12-rouleaux',
+  ];
+
+  const demoProducts = await prisma.product.findMany({
+    where: { slug: { in: demoProductSlugs } },
+  });
+
+  const productBySlug = new Map(demoProducts.map((p) => [p.slug, p]));
+
+  const buildOrderItems = (entries: Array<{ slug: string; quantity: number }>) => {
+    let total = 0;
+    const items = entries.map(({ slug, quantity }) => {
+      const product = productBySlug.get(slug);
+      if (!product) {
+        throw new Error(`Produit manquant pour le seed: ${slug}`);
+      }
+      total += product.price * quantity;
+      return {
+        productId: product.id,
+        quantity,
+        unitPrice: product.price,
+      };
+    });
+
+    return {
+      total: Math.round(total * 100) / 100,
+      items,
+    };
+  };
+
+  const now = new Date();
+
+  const readyHistory = buildDriverHistory(
+    ['draft', 'submitted', 'accepted', 'preparing', 'ready_for_delivery'],
+    addMinutes(now, -30)
+  );
+  const readyItems = buildOrderItems([
+    { slug: 'coca-cola-355ml', quantity: 2 },
+    { slug: 'chips-lays-nature-235g', quantity: 1 },
+  ]);
+
+  await prisma.order.create({
+    data: {
+      customerId: customer.id,
+      addressId: address.id,
+      status: readyHistory.status,
+      statusHistory: readyHistory.statusHistory,
+      totalAmount: readyItems.total,
+      notes: 'Livrer à la porte arrière si possible.',
+      items: {
+        create: readyItems.items,
+      },
+    },
+  });
+
+  const deliveredHistory = buildDriverHistory(
+    [
+      'draft',
+      'submitted',
+      'accepted',
+      'preparing',
+      'ready_for_delivery',
+      'assigned_to_driver',
+      'out_for_delivery',
+      'delivered',
+    ],
+    addMinutes(now, -90)
+  );
+  const deliveredItems = buildOrderItems([
+    { slug: 'lait-2-pourcent-2l', quantity: 1 },
+    { slug: 'papier-hygienique-12-rouleaux', quantity: 1 },
+  ]);
+
+  await prisma.order.create({
+    data: {
+      customerId: customer.id,
+      addressId: address.id,
+      status: deliveredHistory.status,
+      statusHistory: deliveredHistory.statusHistory,
+      totalAmount: deliveredItems.total,
+      notes: 'Laisser au concierge si personne ne répond.',
+      items: {
+        create: deliveredItems.items,
+      },
+    },
+  });
+
   const productCount = await prisma.product.count();
   const categoryCount = await prisma.category.count();
-  console.log(`✅ Seed terminé: ${categoryCount} catégories, ${productCount} produits, 1 client démo.`);
+  const orderCount = await prisma.order.count();
+  console.log(
+    `✅ Seed terminé: ${categoryCount} catégories, ${productCount} produits, ${orderCount} commandes démo, 1 client démo.`
+  );
 }
 
 main()

@@ -72,7 +72,9 @@ router.get('/:tenantId/orders', async (req, res, next) => {
       include: {
         items: { include: { product: { select: { name: true } } } },
         customer: { select: { firstName: true, lastName: true, phone: true } },
-        address: { select: { street: true, city: true, postalCode: true } },
+        address: {
+          select: { street: true, city: true, postalCode: true, notes: true },
+        },
       },
       orderBy: { createdAt: 'desc' },
     });

@@ -7,20 +7,34 @@ import { TenantFilter } from '../components/driver/tenant-filter';
 import { useTenant } from '../lib/use-tenant';
 import '../styles/driver.css';
 
-type StatusFilter = 'all' | 'ready_for_delivery' | 'assigned_to_driver' | 'out_for_delivery';
+type StatusFilter =
+  | 'open'
+  | 'ready_for_delivery'
+  | 'assigned_to_driver'
+  | 'out_for_delivery'
+  | 'delivered'
+  | 'delivery_failed';
 
 const STATUS_FILTERS: Array<{ value: StatusFilter; label: string }> = [
-  { value: 'all', label: 'Toutes' },
+  { value: 'open', label: 'En cours' },
   { value: 'ready_for_delivery', label: 'Prêtes' },
   { value: 'assigned_to_driver', label: 'Assignées' },
   { value: 'out_for_delivery', label: 'En route' },
+  { value: 'delivered', label: 'Livrées' },
+  { value: 'delivery_failed', label: 'Échecs' },
+];
+
+const OPEN_STATUSES: OrderStatus[] = [
+  'ready_for_delivery',
+  'assigned_to_driver',
+  'out_for_delivery',
 ];
 
 export function DriverPage() {
   const [orders, setOrders] = useState<OrderWithDetails[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [statusFilter, setStatusFilter] = useState<StatusFilter>('all');
+  const [statusFilter, setStatusFilter] = useState<StatusFilter>('open');
   const { currentTenantId } = useTenant();
 
   const loadOrders = async (filter: StatusFilter) => {
@@ -28,21 +42,20 @@ export function DriverPage() {
     setError(null);
     try {
       let data: OrderWithDetails[];
-      if (filter === 'all') {
-        // Charger toutes les commandes pertinentes pour le livreur
-        const [ready, assigned, outForDelivery] = await Promise.all([
-          fetchDeliveryOrders('ready_for_delivery'),
-          fetchDeliveryOrders('assigned_to_driver'),
-          fetchDeliveryOrders('out_for_delivery'),
-        ]);
-        data = [...ready, ...assigned, ...outForDelivery].sort(
-          (a, b) =>
-            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+      if (filter === 'open') {
+        const lists = await Promise.all(
+          OPEN_STATUSES.map((status) => fetchDeliveryOrders(status))
         );
+        data = lists.flat();
       } else {
-        data = await fetchDeliveryOrders(filter as OrderStatus);
+        data = await fetchDeliveryOrders(filter);
       }
-      setOrders(data);
+      const sortedByRecent = [...data].sort(
+        (a, b) =>
+          new Date(b.statusChangedAt ?? b.updatedAt ?? b.createdAt).getTime() -
+          new Date(a.statusChangedAt ?? a.updatedAt ?? a.createdAt).getTime()
+      );
+      setOrders(sortedByRecent);
     } catch (err) {
       setError(
         err instanceof Error ? err.message : 'Erreur lors du chargement'
@@ -61,6 +74,7 @@ export function DriverPage() {
     newStatus: OrderStatus
   ) => {
     try {
+      setError(null);
       await updateOrderStatus(orderId, newStatus);
       // Recharger les commandes après mise à jour
       await loadOrders(statusFilter);

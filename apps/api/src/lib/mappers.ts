@@ -98,7 +98,14 @@ export function mapOrder(
   o: PrismaOrder & {
     items: (PrismaOrderItem & { product: { name: string } })[];
     customer?: { firstName: string; lastName: string; phone: string | null } | null;
-    address?: { street: string; city: string; postalCode: string } | null;
+    address?:
+      | {
+          street: string;
+          city: string;
+          postalCode: string;
+          notes?: string | null;
+        }
+      | null;
   }
 ) {
   const status = ensureStatus(o.status);
@@ -124,7 +131,14 @@ export function mapOrder(
     notes: o.notes,
     items: o.items.map(mapOrderItem),
     customer: o.customer || undefined,
-    address: o.address || undefined,
+    address: o.address
+      ? {
+          street: o.address.street,
+          city: o.address.city,
+          postalCode: o.address.postalCode,
+          deliveryInstructions: o.address.notes ?? null,
+        }
+      : undefined,
     createdAt: o.createdAt.toISOString(),
     updatedAt: o.updatedAt.toISOString(),
   };

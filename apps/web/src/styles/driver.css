@@ -259,6 +259,61 @@
   font-style: italic;
 }
 
+.delivery-card-history {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background-color: #f9fafb;
+  border: 1px dashed #e5e7eb;
+  border-radius: 6px;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.history-last-update {
+  color: #6b7280;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.history-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.history-step {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.history-step:last-child {
+  border-bottom: none;
+}
+
+.history-step-label {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.history-step-time {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.history-empty {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
 .delivery-card-footer {
   display: flex;
   justify-content: space-between;
@@ -399,6 +454,11 @@
   .delivery-card-footer {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .history-header {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .delivery-actions {

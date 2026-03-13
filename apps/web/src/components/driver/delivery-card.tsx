@@ -1,11 +1,44 @@
 import type { OrderStatus } from '@depaneuria/types';
 import type { OrderWithDetails } from '../../lib/driver-api';
 import { DeliveryStatusBadge } from './delivery-status-badge';
+import { STATUS_LABELS } from './status-labels';
 import { DeliveryActions } from './delivery-actions';
 
 interface DeliveryCardProps {
   order: OrderWithDetails;
   onStatusChange: (orderId: string, newStatus: OrderStatus) => Promise<void>;
+}
+
+const DRIVER_STATUSES: OrderStatus[] = [
+  'ready_for_delivery',
+  'assigned_to_driver',
+  'out_for_delivery',
+  'delivered',
+  'delivery_failed',
+];
+
+function buildStatusTimeline(order: OrderWithDetails) {
+  const statusHistory = order.statusHistory ?? {};
+  const entries: Array<{ status: OrderStatus; at: string }> = DRIVER_STATUSES.flatMap(
+    (status) => {
+      const at = statusHistory[status];
+      return at ? [{ status, at }] : [];
+    }
+  );
+
+  const currentTimestamp =
+    order.statusChangedAt ??
+    statusHistory[order.status] ??
+    order.updatedAt ??
+    order.createdAt;
+
+  if (currentTimestamp && !entries.some((entry) => entry.status === order.status)) {
+    entries.push({ status: order.status, at: currentTimestamp });
+  }
+
+  return entries.sort(
+    (a, b) => new Date(a.at).getTime() - new Date(b.at).getTime()
+  );
 }
 
 export function DeliveryCard({ order, onStatusChange }: DeliveryCardProps) {
@@ -26,6 +59,13 @@ export function DeliveryCard({ order, onStatusChange }: DeliveryCardProps) {
       currency: 'EUR',
     }).format(amount);
   };
+
+  const historyEntries = buildStatusTimeline(order);
+  const lastUpdate =
+    historyEntries[historyEntries.length - 1]?.at ??
+    order.statusChangedAt ??
+    order.updatedAt ??
+    order.createdAt;
 
   return (
     <div className="delivery-card">
@@ -81,6 +121,34 @@ export function DeliveryCard({ order, onStatusChange }: DeliveryCardProps) {
           <p>{order.notes}</p>
         </div>
       )}
+
+      <div className="delivery-card-history">
+        <div className="history-header">
+          <h4>Suivi livraison</h4>
+          <span className="history-last-update">
+            Dernière mise à jour : {formatDate(lastUpdate)}
+          </span>
+        </div>
+        <div className="history-steps">
+          {historyEntries.length === 0 ? (
+            <span className="history-empty">Historique indisponible.</span>
+          ) : (
+            historyEntries.map((entry) => (
+              <div
+                key={`${entry.status}-${entry.at}`}
+                className="history-step"
+              >
+                <span className="history-step-label">
+                  {STATUS_LABELS[entry.status]}
+                </span>
+                <span className="history-step-time">
+                  {formatDate(entry.at)}
+                </span>
+              </div>
+            ))
+          )}
+        </div>
+      </div>
 
       <div className="delivery-card-footer">
         <DeliveryStatusBadge status={order.status} />

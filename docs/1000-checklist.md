@@ -569,15 +569,15 @@ Version convertie depuis le fichier source fourni par l’utilisateur.
 
 ## Bloc 0521–0560
 
-- [ ] DEP-0521 Définir l’interface minimale du livreur.
-- [ ] DEP-0522 Définir la liste des livraisons disponibles.
-- [ ] DEP-0523 Définir la liste des livraisons assignées.
-- [ ] DEP-0524 Définir la liste des livraisons terminées.
-- [ ] DEP-0525 Définir la fiche d’une livraison côté livreur.
-- [ ] DEP-0526 Définir l’affichage de l’adresse complète côté livreur.
-- [ ] DEP-0527 Définir l’affichage du téléphone client côté livreur.
-- [ ] DEP-0528 Définir l’affichage des notes de livraison côté livreur.
-- [ ] DEP-0529 Définir l’affichage du contenu de la commande côté livreur.
+- [x] DEP-0521 Définir l’interface minimale du livreur.
+- [x] DEP-0522 Définir la liste des livraisons disponibles.
+- [x] DEP-0523 Définir la liste des livraisons assignées.
+- [x] DEP-0524 Définir la liste des livraisons terminées.
+- [x] DEP-0525 Définir la fiche d’une livraison côté livreur.
+- [x] DEP-0526 Définir l’affichage de l’adresse complète côté livreur.
+- [x] DEP-0527 Définir l’affichage du téléphone client côté livreur.
+- [x] DEP-0528 Définir l’affichage des notes de livraison côté livreur.
+- [x] DEP-0529 Définir l’affichage du contenu de la commande côté livreur.
 - [ ] DEP-0530 Définir l’affichage du mode de paiement attendu côté livreur.
 - [ ] DEP-0531 Définir l’action accepter une livraison.
 - [ ] DEP-0532 Définir l’action refuser une livraison.
@@ -599,14 +599,14 @@ Version convertie depuis le fichier source fourni par l’utilisateur.
 - [ ] DEP-0548 Définir la logique d’échec de livraison.
 - [ ] DEP-0549 Définir la logique de retour de commande.
 - [ ] DEP-0550 Définir la logique de remise réussie.
-- [ ] DEP-0551 Créer l’application ou la vue mobile du livreur.
-- [ ] DEP-0552 Créer l’écran “livraisons à faire”.
-- [ ] DEP-0553 Créer l’écran “livraison en cours”.
-- [ ] DEP-0554 Créer l’écran “historique du livreur”.
-- [ ] DEP-0555 Créer le bouton “j’accepte”.
-- [ ] DEP-0556 Créer le bouton “je pars”.
-- [ ] DEP-0557 Créer le bouton “livré”.
-- [ ] DEP-0558 Créer le bouton “problème”.
+- [x] DEP-0551 Créer l’application ou la vue mobile du livreur.
+- [x] DEP-0552 Créer l’écran “livraisons à faire”.
+- [x] DEP-0553 Créer l’écran “livraison en cours”.
+- [x] DEP-0554 Créer l’écran “historique du livreur”.
+- [x] DEP-0555 Créer le bouton “j’accepte”.
+- [x] DEP-0556 Créer le bouton “je pars”.
+- [x] DEP-0557 Créer le bouton “livré”.
+- [x] DEP-0558 Créer le bouton “problème”.
 - [ ] DEP-0559 Tester une tournée simple du livreur.
 - [ ] DEP-0560 Geler la V1 du livreur.
 

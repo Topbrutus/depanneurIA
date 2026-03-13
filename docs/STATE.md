@@ -25,7 +25,7 @@
 - Dépôt créé : oui
 - Base projet installée : oui
 - `.github/copilot-instructions.md` : créé
-- Code produit : pas commencé
+- Code produit : parcours web/API en cours (réception dépanneur, assistant voix, livreur V1)
 - Système de suivi à trois : en place
 - Saisie vocale web V1 : bouton micro start/stop, statuts écoute/transcription/erreur et fallback si non support (branche `copilot/r6-voice-web-v1`)
 - Problème principal client formulé : commande lente et incertaine (infos répétées, disponibilité inconnue)
@@ -49,7 +49,8 @@
 - Blocs téléphonie et rattachement API (`DEP-0441` à `DEP-0480`) terminés
 - Bloc réception dépanneur — base (`DEP-0481` à `DEP-0494`) terminé
 - Bloc réception dépanneur — actions et tableau de bord (`DEP-0495` à `DEP-0514`) terminé ✅
-- Prochain bloc recommandé : **DEP-0601 à DEP-0640** (admin catalogue V1 + inventaire minimal)
+- Bloc livreur V1 (`DEP-0515` à `DEP-0560`) en cours — interface livreur simple + tournée
+- Prochain bloc recommandé : **DEP-0581 à DEP-0600** (moteur d'états central + suivi client)
 
 ## Observation importante
 
@@ -219,6 +220,7 @@ La fondation technique (DEP-0121 à DEP-0160) est complète. Les blocs de docume
 
 ## Dernière tâche terminée
 
+- DEP-0515 à DEP-0560 — interface livreur V1 : file livraisons prêtes/assignées/en route, actions prendre/en route/livrée/échec, horodatages et historique minimal, commandes démo seed pour tests
 - DEP-0495 à DEP-0514 — actions et tableau de réception dépanneur : 13 actions opérationnelles (marquer en préparation, marquer prête, assigner à un livreur, annuler, modifier avant départ, appeler le client, message automatique, signaler article manquant, proposer remplacement, marquer payé/non payé/problème livraison, rouvrir), logique de priorité (tri par statut + SLA + incidents), logique d'horodatage (12 champs timestamp par événement), journal d'activité (timeline immuable avec acteur/action/statuts avant-après), tableau de bord réception (bandeau KPI, filtres, onglets, split view), vue détaillée commande (chrono, contact, livraison, articles, paiement, journal), boutons acceptation et refus (UI + accessibilité clavier)
 - DEP-0601 à DEP-0640 — module admin catalogue V1 : vue admin catalogue, filtres catégorie/disponibilité/popularité/recherche, liste et création/édition produit, activation/désactivation, changement prix, stock et stock minimal, marquage populaire, validations API et stockage Prisma synchronisés avec le catalogue client
 - DEP-0641 à DEP-0680 — multi-tenant V1 : système de tenant complet avec store mémoire, middleware de résolution, routes API scoped par tenant, contexte React, sélecteurs UI pour admin/opérateur/livreur, compatibilité rétro avec tenant par défaut
@@ -226,7 +228,7 @@ La fondation technique (DEP-0121 à DEP-0160) est complète. Les blocs de docume
 
 ## En cours
 
-- Prochaine étape : **DEP-0761 à DEP-0800** (bloc suivant après cloud deployment V1)
+- Prochaine étape : **DEP-0581 à DEP-0600** (moteur d'états central et suivi client/livreur)
 
 ## Multi-tenant V1 — DEP-0641 à DEP-0680
 
