@@ -44,5 +44,9 @@ coverage/
 .turbo/
 .eslintcache
 
+# Prisma / SQLite
+*.db
+*.db-journal
+
 # Divers
 *.tsbuildinfo

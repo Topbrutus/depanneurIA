@@ -1,31 +1,40 @@
-export interface CustomerProfile {
-  id: string
-  name: string
-  phone: string
-  deliveryNotes?: string
+export interface Customer {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string | null;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface CreateCustomerInput {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone?: string;
 }
 
 export interface Address {
-  id: string
-  label: string
-  line1: string
-  line2?: string
-  city: string
-  postalCode: string
-  country?: string
-  instructions?: string
+  id: string;
+  customerId: string;
+  label: string;
+  street: string;
+  city: string;
+  postalCode: string;
+  country: string;
+  isDefault: boolean;
+  notes: string | null;
+  createdAt: string;
+  updatedAt: string;
 }
 
-export interface CustomerData {
-  profile: CustomerProfile
-  addresses: Address[]
-  defaultAddressId?: string
-  createdAt: string
-  updatedAt: string
-}
-
-export interface CustomerSession {
-  loggedIn: boolean
-  phone: string
-  lastLoginAt: string
+export interface CreateAddressInput {
+  label?: string;
+  street: string;
+  city: string;
+  postalCode: string;
+  country?: string;
+  isDefault?: boolean;
+  notes?: string;
 }

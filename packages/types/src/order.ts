@@ -1,76 +1,49 @@
-/**
- * Types pour les commandes
- * Basé sur DEP-0555 à DEP-0594
- */
+/** Statuts de commande V1 — DEP-0561 */
+export const ORDER_STATUSES = [
+  'panier',
+  'soumise',
+  'confirmee',
+  'en_preparation',
+  'prete',
+  'acceptee',
+  'en_route',
+  'livree',
+  'payee',
+  'annulee',
+  'probleme',
+  'archivee',
+] as const;
 
-export type OrderStatus =
-  | 'panier'
-  | 'soumise'
-  | 'confirmée'
-  | 'en_préparation'
-  | 'prête'
-  | 'acceptée'
-  | 'en_route'
-  | 'livrée'
-  | 'payée'
-  | 'annulée'
-  | 'problème'
-  | 'archivée';
+export type OrderStatus = (typeof ORDER_STATUSES)[number];
 
-export interface OrderLine {
+export interface OrderItem {
   id: string;
   orderId: string;
   productId: string;
-  variantId: string;
-  productLabel: string;
-  variantLabel: string;
+  productName: string;
   quantity: number;
   unitPrice: number;
-  currency: string;
-  totalPrice: number;
-  imageUrl?: string;
-}
-
-export interface DeliveryAddress {
-  street: string;
-  city: string;
-  postalCode: string;
-  country: string;
-  notes?: string;
+  createdAt: string;
 }
 
 export interface Order {
   id: string;
-  orderNumber: string;
   customerId: string;
-  customerPhone: string;
-  deliveryAddress: DeliveryAddress;
+  addressId: string;
   status: OrderStatus;
-  lines: OrderLine[];
-  subtotal: number;
-  deliveryFee: number;
-  total: number;
-  currency: string;
+  totalAmount: number;
+  notes: string | null;
+  items: OrderItem[];
   createdAt: string;
-  acceptedAt?: string;
-  departedAt?: string;
-  deliveredAt?: string;
-  paidAt?: string;
-}
-
-export interface CartItem {
-  productId: string;
-  variantId: string;
-  productLabel: string;
-  variantLabel: string;
-  quantity: number;
-  unitPrice: number;
-  currency: string;
-  imageUrl?: string;
-  addedAt: string;
-}
-
-export interface Cart {
-  items: CartItem[];
   updatedAt: string;
+}
+
+export interface CreateOrderInput {
+  customerId: string;
+  addressId: string;
+  notes?: string;
+  items: {
+    productId: string;
+    quantity: number;
+  }[];
 }
