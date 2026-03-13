@@ -4,7 +4,7 @@ import type { OrderWithDetails } from '../lib/driver-api';
 import { fetchDeliveryOrders, updateOrderStatus } from '../lib/driver-api';
 import { DeliveryQueue } from '../components/driver/delivery-queue';
 import { TenantFilter } from '../components/driver/tenant-filter';
-import { useTenant } from '../lib/tenant-context';
+import { useTenant } from '../lib/use-tenant';
 import '../styles/driver.css';
 
 type StatusFilter = 'all' | 'ready_for_delivery' | 'assigned_to_driver' | 'out_for_delivery';

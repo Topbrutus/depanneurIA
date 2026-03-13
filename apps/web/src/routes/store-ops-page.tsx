@@ -3,7 +3,7 @@ import type { OrderStatus } from '@depaneuria/types';
 import { fetchOrders, updateOrderStatus, type OrderWithDetails } from '../lib/store-api';
 import { OrderQueue } from '../components/store/order-queue';
 import { TenantFilter } from '../components/store/tenant-filter';
-import { useTenant } from '../lib/tenant-context';
+import { useTenant } from '../lib/use-tenant';
 import '../styles/store.css';
 
 type StatusFilter = OrderStatus | 'all';

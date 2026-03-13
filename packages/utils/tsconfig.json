@@ -1,12 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "rootDir": "./src",
-    "outDir": "./dist",
-    "composite": true,
-    "paths": {
-      "@depaneuria/types": ["../../packages/types/src/index.ts"]
-    }
+    "outDir": "./dist"
   },
   "include": ["src/**/*"]
 }

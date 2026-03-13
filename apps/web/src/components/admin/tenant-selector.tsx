@@ -1,4 +1,4 @@
-import { useTenant } from '../../lib/tenant-context';
+import { useTenant } from '../../lib/use-tenant';
 
 export function TenantSelector() {
   const { tenants, currentTenantId, setCurrentTenantId, loading } = useTenant();

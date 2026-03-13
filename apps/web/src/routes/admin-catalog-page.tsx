@@ -14,7 +14,7 @@ import { CategoryList } from '../components/admin/category-list';
 import { ProductList } from '../components/admin/product-list';
 import { ProductForm } from '../components/admin/product-form';
 import { TenantSelector } from '../components/admin/tenant-selector';
-import { useTenant } from '../lib/tenant-context';
+import { useTenant } from '../lib/use-tenant';
 import '../styles/admin-catalog.css';
 
 type AvailabilityFilter = ProductAvailability | 'all';
@@ -67,6 +67,8 @@ export default function AdminCatalogPage() {
     } finally {
       setLoading(false);
     }
+    // currentTenantId is needed to reload data when tenant changes
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filtersForApi, currentTenantId]);
 
   useEffect(() => {

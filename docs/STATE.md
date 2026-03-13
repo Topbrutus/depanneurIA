@@ -221,10 +221,12 @@ La fondation technique (DEP-0121 à DEP-0160) est complète. Les blocs de docume
 
 - DEP-0495 à DEP-0514 — actions et tableau de réception dépanneur : 13 actions opérationnelles (marquer en préparation, marquer prête, assigner à un livreur, annuler, modifier avant départ, appeler le client, message automatique, signaler article manquant, proposer remplacement, marquer payé/non payé/problème livraison, rouvrir), logique de priorité (tri par statut + SLA + incidents), logique d'horodatage (12 champs timestamp par événement), journal d'activité (timeline immuable avec acteur/action/statuts avant-après), tableau de bord réception (bandeau KPI, filtres, onglets, split view), vue détaillée commande (chrono, contact, livraison, articles, paiement, journal), boutons acceptation et refus (UI + accessibilité clavier)
 - DEP-0601 à DEP-0640 — module admin catalogue V1 : vue admin catalogue, filtres catégorie/disponibilité/popularité/recherche, liste et création/édition produit, activation/désactivation, changement prix, stock et stock minimal, marquage populaire, validations API et stockage Prisma synchronisés avec le catalogue client
+- DEP-0641 à DEP-0680 — multi-tenant V1 : système de tenant complet avec store mémoire, middleware de résolution, routes API scoped par tenant, contexte React, sélecteurs UI pour admin/opérateur/livreur, compatibilité rétro avec tenant par défaut
+- DEP-0921 à DEP-1000 — cloud deployment V1 : fichiers .env.example (API/web), gestion variables environnement (env.ts), logger structuré JSON (logger.ts), middleware erreurs HTTP (http-errors.ts), endpoint /health pour monitoring, runtime-config.ts pour web, documentation complète (DEPLOY.md, ENVIRONMENTS.md, RUNBOOK.md), CI verte avec toutes corrections ESLint et TypeScript appliquées
 
 ## En cours
 
-- Prochaine étape : **DEP-0761 à DEP-0800** (bloc suivant après multi-tenant V1)
+- Prochaine étape : **DEP-0761 à DEP-0800** (bloc suivant après cloud deployment V1)
 
 ## Multi-tenant V1 — DEP-0641 à DEP-0680
 

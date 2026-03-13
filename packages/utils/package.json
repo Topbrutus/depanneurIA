@@ -10,7 +10,9 @@
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "lint": "echo '[utils] lint: not yet wired' && exit 0",
+    "format": "echo '[utils] format: not yet wired' && exit 0"
   },
   "dependencies": {
     "@depaneuria/types": "workspace:*"
