@@ -92,6 +92,8 @@ export function mapOrderItem(
 export function mapOrder(
   o: PrismaOrder & {
     items: (PrismaOrderItem & { product: { name: string } })[];
+    customer?: { firstName: string; lastName: string; phone: string | null } | null;
+    address?: { street: string; city: string; postalCode: string } | null;
   }
 ) {
   return {
@@ -102,6 +104,8 @@ export function mapOrder(
     totalAmount: o.totalAmount,
     notes: o.notes,
     items: o.items.map(mapOrderItem),
+    customer: o.customer || undefined,
+    address: o.address || undefined,
     createdAt: o.createdAt.toISOString(),
     updatedAt: o.updatedAt.toISOString(),
   };

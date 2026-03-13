@@ -3,8 +3,40 @@ import { prisma } from '../lib/prisma';
 import { mapOrder } from '../lib/mappers';
 import { requireString, requireArray, requirePositiveInt, optionalString } from '../lib/validators';
 import { NotFoundError, ValidationError } from '../lib/errors';
+import { ORDER_STATUSES } from '@depaneuria/types';
 
 const router = Router();
+
+/** GET /api/v1/orders — Liste des commandes avec filtre optionnel par statut */
+router.get('/', async (req, res, next) => {
+  try {
+    const statusFilter = req.query['status'] as string | undefined;
+
+    // Valider le statut si fourni
+    if (statusFilter && !ORDER_STATUSES.includes(statusFilter as any)) {
+      throw new ValidationError(`Statut invalide: ${statusFilter}`);
+    }
+
+    const orders = await prisma.order.findMany({
+      where: statusFilter ? { status: statusFilter } : undefined,
+      include: {
+        items: {
+          include: { product: { select: { name: true } } },
+        },
+        customer: { select: { firstName: true, lastName: true, phone: true } },
+        address: { select: { street: true, city: true, postalCode: true } },
+      },
+      orderBy: { createdAt: 'desc' },
+    });
+
+    res.json({
+      success: true,
+      data: orders.map(mapOrder),
+    });
+  } catch (err) {
+    next(err);
+  }
+});
 
 /** POST /api/v1/orders — Créer une commande */
 router.post('/', async (req, res, next) => {
@@ -117,6 +149,46 @@ router.get('/:id', async (req, res, next) => {
     res.json({
       success: true,
       data: mapOrder(order),
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
+/** PATCH /api/v1/orders/:id — Mettre à jour le statut d'une commande */
+router.patch('/:id', async (req, res, next) => {
+  try {
+    const orderId = req.params['id'];
+    const status = requireString(req.body.status, 'status');
+
+    // Valider que le statut est valide
+    if (!ORDER_STATUSES.includes(status as any)) {
+      throw new ValidationError(`Statut invalide: ${status}`);
+    }
+
+    // Vérifier que la commande existe
+    const existing = await prisma.order.findUnique({
+      where: { id: orderId },
+    });
+
+    if (!existing) {
+      throw new NotFoundError('Commande');
+    }
+
+    // Mettre à jour le statut
+    const updated = await prisma.order.update({
+      where: { id: orderId },
+      data: { status },
+      include: {
+        items: {
+          include: { product: { select: { name: true } } },
+        },
+      },
+    });
+
+    res.json({
+      success: true,
+      data: mapOrder(updated),
     });
   } catch (err) {
     next(err);

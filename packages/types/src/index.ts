@@ -24,3 +24,6 @@ export type {
   CallHistoryQuery,
   CallHistoryResponse,
 } from './telephony';
+
+export { ORDER_STATUSES } from './order';
+export type { OrderStatus, OrderItem, Order, CreateOrderInput } from './order';

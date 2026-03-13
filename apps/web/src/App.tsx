@@ -12,6 +12,7 @@ import { OrderTrackingPage } from './routes/order-tracking-page'
 import ProfilePage from './routes/profile-page'
 import { ShopPage } from './routes/shop-page'
 import SignupPage from './routes/signup-page'
+import StoreOpsPage from './routes/store-ops-page'
 import { clearCustomer, endSession, loadCustomer, loadSession, saveCustomer, startSession } from './lib/customer-storage'
 import { normalizePhone } from './lib/validation'
 
@@ -174,6 +175,7 @@ const AppShell = () => {
             <Route path="/commande/succes" element={<OrderSuccessPage />} />
             <Route path="/commande/echec" element={<OrderFailurePage />} />
             <Route path="/commande/suivi" element={<OrderTrackingPage />} />
+            <Route path="/operator" element={<StoreOpsPage />} />
             <Route path="/home" element={<HomePage customer={customer} defaultAddress={defaultAddress} />} />
             <Route
               path="/signup"
