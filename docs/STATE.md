@@ -22,6 +22,7 @@
 - Blocs comportements UX et dispositions (`DEP-0181` à `DEP-0200`) terminés
 - Blocs système visuel de base (`DEP-0201` à `DEP-0240`) terminés
 - Blocs structure catalogue et conventions (`DEP-0241` à `DEP-0280`) terminés
+- Blocs assistant texte — compréhension, interface chat et gel V1 (`DEP-0377` à `DEP-0400`) — spécifications documentées
 - Prochain bloc recommandé : `DEP-0281` à `DEP-0320` (inscription, connexion et gestion client)
 
 ## Observation importante
@@ -96,6 +97,9 @@ Le bloc 0001 (DEP-0001 à DEP-0010) reste complet. Le bloc GitHub de fondation (
   - Validations : catégorie valide, ≥1 image, nom ≤80 car., état disponibilité valide
   - Procédure de premier chargement catalogue avec toutes validations appliquées
 
+**Spécifications documentées (doc de décision créé) :**
+- DEP-0377 à DEP-0400 — logique compréhension intents, interface chat et gel comportement V1 assistant texte
+
 **Non commencé :**
 - DEP-0281 à DEP-0320 — inscription, connexion et gestion client
 
@@ -156,7 +160,7 @@ Aucun manque identifié dans les blocs DEP-0084 à DEP-0160. La fondation techni
 
 ## Dernière tâche terminée
 
-- DEP-0241 à DEP-0280 — structure catalogue produits et conventions : modèle catalogue de base (catégories, produits, variantes, photos, mots-clés, synonymes, disponibilité, vedettes, populaires, archivés, surcharges tenant, zones de livraison, prix internes), conventions contenu et médias (unités de vente, images principale/secondaires, ordre d'affichage, tailles/nommage/compression/recadrage images, textes courts/longs, mots-clés recherche, synonymes parlés/téléphoniques), jeu de démonstration (8 catégories, 12 produits, 15 images, synonymes, top 5 populaires), validations catalogue (catégorie valide, ≥1 image, nom ≤80 car., état disponibilité valide, procédure de chargement)
+- DEP-0377 à DEP-0400 — compréhension des intents clients (catégorie, marque, parfum, quantité, correction, retrait, remplacement, commande incomplète, ambiguïtés chips/Pepsi/lait), interface chat (boîte, entrée texte, bouton envoi, bouton micro, suggestions, clic, réduction, fermeture), garde-fous (zéro produit inventé, zéro prix inventé, assistant pilote la boutique, appels de fonctions typées), gel du comportement V1 de l'assistant texte
 
 ## En cours
 

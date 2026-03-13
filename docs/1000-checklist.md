@@ -413,30 +413,30 @@ Version convertie depuis le fichier source fourni par l’utilisateur.
 - [ ] DEP-0374 Définir la phrase de transition vers les produits populaires.
 - [ ] DEP-0375 Définir la phrase de confirmation de commande.
 - [ ] DEP-0376 Définir la phrase de fin de conversation.
-- [ ] DEP-0377 Définir la logique de compréhension d’une catégorie simple.
-- [ ] DEP-0378 Définir la logique de compréhension d’une marque simple.
-- [ ] DEP-0379 Définir la logique de compréhension d’un parfum simple.
-- [ ] DEP-0380 Définir la logique de compréhension d’une quantité simple.
-- [ ] DEP-0381 Définir la logique de compréhension d’une correction client.
-- [ ] DEP-0382 Définir la logique de compréhension d’un retrait de produit.
-- [ ] DEP-0383 Définir la logique de compréhension d’un remplacement de produit.
-- [ ] DEP-0384 Définir la logique de compréhension d’une commande incomplète.
-- [ ] DEP-0385 Définir la logique d’ambiguïté “chips ketchup” avec plusieurs marques.
-- [ ] DEP-0386 Définir la logique d’ambiguïté “Pepsi” avec plusieurs formats si un jour il y en a.
-- [ ] DEP-0387 Définir la logique d’ambiguïté “du lait” avec plusieurs sortes si un jour il y en a.
-- [ ] DEP-0388 Créer la boîte de chat de l’assistant.
-- [ ] DEP-0389 Créer l’entrée texte du client.
-- [ ] DEP-0390 Créer le bouton d’envoi texte.
-- [ ] DEP-0391 Créer le bouton micro du mode assisté écran.
-- [ ] DEP-0392 Créer l’affichage des suggestions produits de l’assistant.
-- [ ] DEP-0393 Créer l’action de clic sur une suggestion proposée par l’assistant.
-- [ ] DEP-0394 Créer la réduction des suggestions après sélection d’un produit.
-- [ ] DEP-0395 Créer la fermeture des suggestions quand le panier se met à jour.
-- [ ] DEP-0396 Vérifier que l’assistant n’invente jamais un produit absent du catalogue.
-- [ ] DEP-0397 Vérifier que l’assistant n’invente jamais un prix public non prévu.
-- [ ] DEP-0398 Vérifier que l’assistant pilote la boutique au lieu de remplacer la boutique.
-- [ ] DEP-0399 Vérifier que l’assistant appelle bien les fonctions du site plutôt que du texte libre non contrôlé.
-- [ ] DEP-0400 Geler le comportement V1 de l’assistant texte.
+- [x] DEP-0377 Définir la logique de compréhension d’une catégorie simple.
+- [x] DEP-0378 Définir la logique de compréhension d’une marque simple.
+- [x] DEP-0379 Définir la logique de compréhension d’un parfum simple.
+- [x] DEP-0380 Définir la logique de compréhension d’une quantité simple.
+- [x] DEP-0381 Définir la logique de compréhension d’une correction client.
+- [x] DEP-0382 Définir la logique de compréhension d’un retrait de produit.
+- [x] DEP-0383 Définir la logique de compréhension d’un remplacement de produit.
+- [x] DEP-0384 Définir la logique de compréhension d’une commande incomplète.
+- [x] DEP-0385 Définir la logique d’ambiguïté “chips ketchup” avec plusieurs marques.
+- [x] DEP-0386 Définir la logique d’ambiguïté “Pepsi” avec plusieurs formats si un jour il y en a.
+- [x] DEP-0387 Définir la logique d’ambiguïté “du lait” avec plusieurs sortes si un jour il y en a.
+- [x] DEP-0388 Créer la boîte de chat de l’assistant.
+- [x] DEP-0389 Créer l’entrée texte du client.
+- [x] DEP-0390 Créer le bouton d’envoi texte.
+- [x] DEP-0391 Créer le bouton micro du mode assisté écran.
+- [x] DEP-0392 Créer l’affichage des suggestions produits de l’assistant.
+- [x] DEP-0393 Créer l’action de clic sur une suggestion proposée par l’assistant.
+- [x] DEP-0394 Créer la réduction des suggestions après sélection d’un produit.
+- [x] DEP-0395 Créer la fermeture des suggestions quand le panier se met à jour.
+- [x] DEP-0396 Vérifier que l’assistant n’invente jamais un produit absent du catalogue.
+- [x] DEP-0397 Vérifier que l’assistant n’invente jamais un prix public non prévu.
+- [x] DEP-0398 Vérifier que l’assistant pilote la boutique au lieu de remplacer la boutique.
+- [x] DEP-0399 Vérifier que l’assistant appelle bien les fonctions du site plutôt que du texte libre non contrôlé.
+- [x] DEP-0400 Geler le comportement V1 de l’assistant texte.
 
 ## Bloc 0401–0440
 
