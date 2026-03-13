@@ -72,6 +72,14 @@ Le bloc 0001 (DEP-0001 à DEP-0010) est complet. Le bloc GitHub de fondation (DE
 - DEP-0256 à DEP-0270 — conventions contenu et médias catalogue : unité de vente, image principale (1:1, CDN, alt obligatoire), images secondaires (≤4), ordre d'affichage catégories et produits, tailles images (thumb 150px, medium 400px, full 800px, hero 1200px), nommage images (`product-<slug>-<variant>-<size>.<ext>`), compression (WebP 75-90%, JPEG fallback), recadrage (produit centré, 70-85%), fond blanc #FFFFFF, textes courts (nom 25-40 car., description 50-80), descriptions longues (150-300 car.), mots-clés recherche (5-15 par produit), synonymes parlés assistant (5-20), synonymes téléphoniques agent vocal (8-25)
 - DEP-0271 à DEP-0280 — jeu de démonstration et validations : 8 catégories démo (Freins, Filtres, Éclairage…), 12 produits répartis sur toutes catégories, 15 images WebP 800×800px, synonymes recherche pour 11 produits, top 5 produits populaires, validations (catégorie valide, ≥1 image, nom ≤80 car., état disponibilité valide), procédure de premier chargement catalogue
 
+## Parcours client gelé (DEP-0281 à DEP-0320)
+
+- Front local `apps/web` (Vite + React Router) avec routes `/signup`, `/login`, `/profile`, `/addresses` et 404.
+- Stockage local (localStorage) du profil client (nom, téléphone, notes) et des adresses multiples avec sélection d’adresse par défaut et consignes.
+- Validations côté front : téléphone 10–15 chiffres, adresse complète, zone desservie (75/92/93/94) avec messages d’erreur dédiés (adresse incomplète, téléphone invalide, zone non desservie, compte incomplet).
+- Connexion simple par téléphone avec session locale et redirection immédiate vers la boutique (`/`).
+- Réinitialisation locale possible (reset session ou suppression de compte) et persistance du profil/adresses à la réouverture.
+
 **Fichiers de configuration créés :**
 - `tsconfig.json` — configuration TypeScript 5.3+ strict
 - `.eslintrc.json` — configuration ESLint avec règles React et TypeScript

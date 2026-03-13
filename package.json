@@ -17,9 +17,9 @@
     "lint": "pnpm -r lint",
     "format": "pnpm -r format",
     "typecheck": "pnpm -r typecheck",
-    "db:migrate": "echo '[depaneurIA] db:migrate — pas encore configuré (Prisma requis)' && exit 0",
-    "db:seed": "echo '[depaneurIA] db:seed — pas encore configuré (Prisma requis)' && exit 0",
-    "db:seed:reset": "echo '[depaneurIA] db:seed:reset — pas encore configuré (Prisma requis)' && exit 0"
+    "db:migrate": "pnpm --filter @depaneuria/api db:push",
+    "db:seed": "pnpm --filter @depaneuria/api db:seed",
+    "db:seed:reset": "pnpm --filter @depaneuria/api db:seed:reset"
   },
   "devDependencies": {},
   "workspaces": [

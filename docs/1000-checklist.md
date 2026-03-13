@@ -311,86 +311,86 @@ Version convertie depuis le fichier source fourni par l’utilisateur.
 
 ## Bloc 0281–0320
 
-- [ ] DEP-0281 Définir le parcours d’inscription client à la première réouverture du site ou de l’application.
-- [ ] DEP-0282 Définir les champs obligatoires à l’inscription : nom, téléphone, adresse.
-- [ ] DEP-0283 Définir les champs optionnels à l’inscription.
-- [ ] DEP-0284 Définir la logique de vérification du numéro de téléphone.
-- [ ] DEP-0285 Définir la logique de vérification d’adresse.
-- [ ] DEP-0286 Définir la logique de connexion simple du client.
-- [ ] DEP-0287 Définir la logique de reconnexion du client.
-- [ ] DEP-0288 Définir la logique de réinitialisation d’accès.
-- [ ] DEP-0289 Définir la logique de gestion de plusieurs adresses client.
-- [ ] DEP-0290 Définir la logique d’adresse par défaut.
-- [ ] DEP-0291 Définir la logique de notes de livraison client.
-- [ ] DEP-0292 Définir la logique de suppression de compte client.
-- [ ] DEP-0293 Définir la logique de mise à jour du téléphone client.
-- [ ] DEP-0294 Définir la logique de mise à jour de l’adresse client.
+- [x] DEP-0281 Définir le parcours d’inscription client à la première réouverture du site ou de l’application.
+- [x] DEP-0282 Définir les champs obligatoires à l’inscription : nom, téléphone, adresse.
+- [x] DEP-0283 Définir les champs optionnels à l’inscription.
+- [x] DEP-0284 Définir la logique de vérification du numéro de téléphone.
+- [x] DEP-0285 Définir la logique de vérification d’adresse.
+- [x] DEP-0286 Définir la logique de connexion simple du client.
+- [x] DEP-0287 Définir la logique de reconnexion du client.
+- [x] DEP-0288 Définir la logique de réinitialisation d’accès.
+- [x] DEP-0289 Définir la logique de gestion de plusieurs adresses client.
+- [x] DEP-0290 Définir la logique d’adresse par défaut.
+- [x] DEP-0291 Définir la logique de notes de livraison client.
+- [x] DEP-0292 Définir la logique de suppression de compte client.
+- [x] DEP-0293 Définir la logique de mise à jour du téléphone client.
+- [x] DEP-0294 Définir la logique de mise à jour de l’adresse client.
 - [ ] DEP-0295 Définir la logique de consentement minimal aux notifications.
 - [ ] DEP-0296 Définir la logique de consentement minimal à l’assistant vocal.
 - [ ] DEP-0297 Définir la logique de choix initial entre mode manuel et mode assisté.
 - [ ] DEP-0298 Définir la logique de changement de mode pendant la navigation.
 - [ ] DEP-0299 Définir la logique de mémorisation du mode préféré du client.
-- [ ] DEP-0300 Définir la logique d’ouverture directe sur la boutique après connexion.
-- [ ] DEP-0301 Créer l’écran d’inscription client.
-- [ ] DEP-0302 Créer l’écran de connexion client.
-- [ ] DEP-0303 Créer l’écran de profil client.
-- [ ] DEP-0304 Créer l’écran de gestion d’adresses.
+- [x] DEP-0300 Définir la logique d’ouverture directe sur la boutique après connexion.
+- [x] DEP-0301 Créer l’écran d’inscription client.
+- [x] DEP-0302 Créer l’écran de connexion client.
+- [x] DEP-0303 Créer l’écran de profil client.
+- [x] DEP-0304 Créer l’écran de gestion d’adresses.
 - [ ] DEP-0305 Créer l’écran de choix manuel ou assisté.
 - [ ] DEP-0306 Créer l’écran de récupération d’accès.
 - [ ] DEP-0307 Créer le message de bienvenue du mode manuel.
 - [ ] DEP-0308 Créer le message de bienvenue du mode assisté.
 - [ ] DEP-0309 Créer le message de bienvenue du mode téléphone.
-- [ ] DEP-0310 Créer le message d’erreur pour adresse incomplète.
-- [ ] DEP-0311 Créer le message d’erreur pour téléphone invalide.
-- [ ] DEP-0312 Créer le message d’erreur pour zone non desservie.
-- [ ] DEP-0313 Créer le message d’erreur pour compte incomplet.
+- [x] DEP-0310 Créer le message d’erreur pour adresse incomplète.
+- [x] DEP-0311 Créer le message d’erreur pour téléphone invalide.
+- [x] DEP-0312 Créer le message d’erreur pour zone non desservie.
+- [x] DEP-0313 Créer le message d’erreur pour compte incomplet.
 - [ ] DEP-0314 Créer la logique de sauvegarde du panier lié au compte.
 - [ ] DEP-0315 Créer la logique de sauvegarde des préférences de recherche.
 - [ ] DEP-0316 Créer la logique de sauvegarde de la dernière commande.
 - [ ] DEP-0317 Créer la logique de sauvegarde des produits favoris si utile plus tard.
-- [ ] DEP-0318 Valider que le client peut s’inscrire et revenir sans friction.
-- [ ] DEP-0319 Valider que les données minimales du client sont suffisantes pour livrer.
-- [ ] DEP-0320 Geler le parcours client de base avant d’ajouter plus de complexité.
+- [x] DEP-0318 Valider que le client peut s’inscrire et revenir sans friction.
+- [x] DEP-0319 Valider que les données minimales du client sont suffisantes pour livrer.
+- [x] DEP-0320 Geler le parcours client de base avant d’ajouter plus de complexité.
 
 ## Bloc 0321–0360
 
-- [ ] DEP-0321 Créer la page boutique manuelle avec grille de produits.
-- [ ] DEP-0322 Créer la navigation par catégories.
+- [x] DEP-0321 Créer la page boutique manuelle avec grille de produits.
+- [x] DEP-0322 Créer la navigation par catégories.
 - [ ] DEP-0323 Créer la navigation par sous-catégories si nécessaire.
-- [ ] DEP-0324 Créer le champ de recherche de produits.
-- [ ] DEP-0325 Créer le filtre par catégorie.
-- [ ] DEP-0326 Créer le filtre par disponibilité.
-- [ ] DEP-0327 Créer le filtre par produits populaires.
+- [x] DEP-0324 Créer le champ de recherche de produits.
+- [x] DEP-0325 Créer le filtre par catégorie.
+- [x] DEP-0326 Créer le filtre par disponibilité.
+- [x] DEP-0327 Créer le filtre par produits populaires.
 - [ ] DEP-0328 Créer le filtre par dernière commande.
 - [ ] DEP-0329 Créer le tri simple de produits.
-- [ ] DEP-0330 Créer la carte produit de base.
-- [ ] DEP-0331 Créer l’action ajouter au panier depuis une carte produit.
-- [ ] DEP-0332 Créer l’action voir détail d’un produit.
-- [ ] DEP-0333 Créer l’action fermer le détail d’un produit.
-- [ ] DEP-0334 Créer la vue panier toujours visible sur ordinateur.
-- [ ] DEP-0335 Créer la vue panier repliable sur téléphone.
-- [ ] DEP-0336 Créer l’action modifier quantité dans le panier.
-- [ ] DEP-0337 Créer l’action retirer un produit du panier.
-- [ ] DEP-0338 Créer l’action vider le panier.
-- [ ] DEP-0339 Créer l’action confirmer le panier.
-- [ ] DEP-0340 Créer l’action recommander la dernière commande.
-- [ ] DEP-0341 Créer l’animation de translation d’un produit vers le panier.
-- [ ] DEP-0342 Créer la persistance du panier au rechargement de la page.
-- [ ] DEP-0343 Créer la persistance du panier au changement de mode.
-- [ ] DEP-0344 Créer la persistance du panier au changement de catégorie.
+- [x] DEP-0330 Créer la carte produit de base.
+- [x] DEP-0331 Créer l'action ajouter au panier depuis une carte produit.
+- [ ] DEP-0332 Créer l'action voir détail d'un produit.
+- [ ] DEP-0333 Créer l'action fermer le détail d'un produit.
+- [x] DEP-0334 Créer la vue panier toujours visible sur ordinateur.
+- [x] DEP-0335 Créer la vue panier repliable sur téléphone.
+- [x] DEP-0336 Créer l'action modifier quantité dans le panier.
+- [x] DEP-0337 Créer l'action retirer un produit du panier.
+- [x] DEP-0338 Créer l'action vider le panier.
+- [x] DEP-0339 Créer l'action confirmer le panier.
+- [x] DEP-0340 Créer l'action recommander la dernière commande.
+- [ ] DEP-0341 Créer l'animation de translation d'un produit vers le panier.
+- [x] DEP-0342 Créer la persistance du panier au rechargement de la page.
+- [x] DEP-0343 Créer la persistance du panier au changement de mode.
+- [x] DEP-0344 Créer la persistance du panier au changement de catégorie.
 - [ ] DEP-0345 Créer la persistance du panier pendant une micro-coupure réseau.
-- [ ] DEP-0346 Créer la logique “commande en cours de traitement”.
-- [ ] DEP-0347 Créer l’écran récapitulatif avant envoi de commande.
-- [ ] DEP-0348 Créer l’écran confirmation de commande envoyée.
-- [ ] DEP-0349 Créer l’écran suivi de commande.
-- [ ] DEP-0350 Créer l’écran échec d’envoi de commande.
-- [ ] DEP-0351 Ajouter la section “dernière commande”.
-- [ ] DEP-0352 Ajouter la section “top 10 des plus commandés”.
-- [ ] DEP-0353 Ajouter la section “recommandé pour vous” seulement si simple.
-- [ ] DEP-0354 Vérifier que le panier reste visible pendant la navigation principale.
-- [ ] DEP-0355 Vérifier que le panier reste visible pendant l’assistance texte.
-- [ ] DEP-0356 Vérifier que le panier reste visible pendant l’assistance vocale.
-- [ ] DEP-0357 Vérifier que la boutique fonctionne sans assistant.
+- [ ] DEP-0346 Créer la logique "commande en cours de traitement".
+- [x] DEP-0347 Créer l'écran récapitulatif avant envoi de commande.
+- [x] DEP-0348 Créer l'écran confirmation de commande envoyée.
+- [x] DEP-0349 Créer l'écran suivi de commande.
+- [x] DEP-0350 Créer l'écran échec d'envoi de commande.
+- [x] DEP-0351 Ajouter la section "dernière commande".
+- [x] DEP-0352 Ajouter la section "top 10 des plus commandés".
+- [ ] DEP-0353 Ajouter la section "recommandé pour vous" seulement si simple.
+- [x] DEP-0354 Vérifier que le panier reste visible pendant la navigation principale.
+- [ ] DEP-0355 Vérifier que le panier reste visible pendant l'assistance texte.
+- [ ] DEP-0356 Vérifier que le panier reste visible pendant l'assistance vocale.
+- [x] DEP-0357 Vérifier que la boutique fonctionne sans assistant.
 - [ ] DEP-0358 Vérifier que la boutique fonctionne avec assistant.
 - [ ] DEP-0359 Vérifier que le même moteur panier sert les trois modes.
 - [ ] DEP-0360 Geler le mode manuel comme base de vérité visuelle.
