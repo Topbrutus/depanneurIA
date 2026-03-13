@@ -118,14 +118,14 @@ Convention suggérée : une issue = un bloc.
 
 ## BLOCK-017 — DEP-0161 à DEP-0170
 
-- Statut : à faire
+- Statut : terminé
 - Première ligne : DEP-0161 — Écrire la carte complète du site côté client.
 - Dernière ligne : DEP-0170 — Définir la page de profil client.
 - Titre d’issue suggéré : `[TASK] DEP-0161 à DEP-0170`
 
 ## BLOCK-018 — DEP-0171 à DEP-0180
 
-- Statut : à faire
+- Statut : terminé
 - Première ligne : DEP-0171 — Définir la page d’adresses client.
 - Dernière ligne : DEP-0180 — Définir la page d’aide vocale.
 - Titre d’issue suggéré : `[TASK] DEP-0171 à DEP-0180`

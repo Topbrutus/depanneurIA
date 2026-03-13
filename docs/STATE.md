@@ -18,7 +18,8 @@
 
 - Blocs GitHub de fondation (`DEP-0084` à `DEP-0120`) terminés
 - Blocs fondation technique (`DEP-0121` à `DEP-0160`) terminés
-- Prochain bloc recommandé : `DEP-0161` à `DEP-0200` (définition des interfaces et parcours utilisateur)
+- Blocs parcours utilisateur et pages (`DEP-0161` à `DEP-0180`) terminés
+- Prochain bloc recommandé : `DEP-0181` à `DEP-0200` (comportements UX et dispositions)
 
 ## Observation importante
 
@@ -34,6 +35,8 @@ Le bloc 0001 (DEP-0001 à DEP-0010) reste complet. Le bloc GitHub de fondation (
 - DEP-0134 à DEP-0135 — structure monorepo définie (`apps/`, `packages/` avec workspaces)
 - DEP-0136 à DEP-0140 — stratégies env et scripts documentées et implémentées
 - DEP-0141 à DEP-0160 — scripts npm/pnpm créés, règles de nommage établies, ossature locale stabilisée
+- DEP-0161 à DEP-0170 — cartes du site (client, dépanneur, livreur, admin) et pages principales définies
+- DEP-0171 à DEP-0180 — pages secondaires définies (adresses, historique, suivi, contact, légal, accessibilité, aide vocale)
 
 **Fichiers de configuration créés :**
 - `tsconfig.json` — configuration TypeScript 5.3+ strict
@@ -41,10 +44,10 @@ Le bloc 0001 (DEP-0001 à DEP-0010) reste complet. Le bloc GitHub de fondation (
 - `.prettierrc` — configuration Prettier pour formatage uniforme
 - `package.json` — monorepo avec workspaces pnpm et scripts dev/build/test/lint/format
 - `.env.example` — modèle de variables d'environnement
-- Docs decisions : DEP-0121-0127, DEP-0136-0140
+- Docs decisions : DEP-0121-0127, DEP-0136-0140, DEP-0161-0170, DEP-0171-0180
 
 **Non commencé :**
-- DEP-0161 à DEP-0200 — définition des parcours utilisateur et interfaces
+- DEP-0181 à DEP-0200 — comportements UX et dispositions desktop/mobile
 
 ## Manques publics actuels
 
@@ -52,22 +55,14 @@ Aucun manque identifié dans les blocs DEP-0084 à DEP-0160. La fondation techni
 
 ## Prochaines actions suggérées
 
-**Bloc prioritaire : DEP-0161 à DEP-0200**
+**Bloc prioritaire : DEP-0181 à DEP-0200**
 
-1. **DEP-0161 à DEP-0170** — Définir les parcours utilisateur :
-   - Écrire la carte complète du site côté client
-   - Écrire la carte complète du site côté dépanneur
-   - Écrire la carte complète du site côté livreur
-   - Définir les pages principales (accueil, boutique, mode assisté, connexion, profil)
-
-2. **DEP-0171 à DEP-0180** — Définir les pages secondaires :
-   - Pages d'adresses client, historique commandes, suivi de commande
-   - Pages de contact, conditions d'utilisation, confidentialité
-   - Pages d'aide vocale et d'accessibilité
-
-3. **DEP-0181 à DEP-0200** — Définir les comportements UX :
+1. **DEP-0181 à DEP-0190** — Définir les dispositions et emplacements :
    - Dispositions desktop et mobile (3 sections vs empilée)
-   - Comportements du panier, du chat assistant, des suggestions
+   - Emplacements exacts du panier, du chat et des suggestions sur chaque format
+
+2. **DEP-0191 à DEP-0200** — Définir les comportements UX :
+   - Comportements de la grille produits, du panier, du chat assistant
    - Comportements de l'assistant selon différents contextes utilisateur
 
 ## Vérifications à faire dans GitHub UI (admin requis)
@@ -110,17 +105,17 @@ Aucun manque identifié dans les blocs DEP-0084 à DEP-0160. La fondation techni
 
 ## Dernière tâche terminée
 
-- DEP-0121 à DEP-0160 — fondation technique complète (stack TypeScript/React/Node.js, configs qualité, monorepo pnpm, scripts dev/build/test, stratégies env/secrets, règles de nommage, ossature locale stabilisée)
+- DEP-0161 à DEP-0180 — cartes du site (client, dépanneur, livreur, admin), pages principales (accueil, boutique, mode assisté, connexion, inscription, profil) et pages secondaires (adresses, historique, suivi, produits populaires, contact, conditions, confidentialité, accessibilité, aide vocale)
 
 ## En cours
 
 - Aucune tâche actuellement en cours
-- Prochaine étape : DEP-0161 à DEP-0200 (définition des parcours utilisateur et interfaces)
+- Prochaine étape : DEP-0181 à DEP-0200 (comportements UX et dispositions desktop/mobile)
 
 ## Bloqueurs
 
 - Aucun bloqueur technique identifié
-- Les blocs DEP-0161+ peuvent être réalisés en se concentrant sur la documentation des interfaces et parcours utilisateur
+- Les blocs DEP-0181+ peuvent être réalisés en se concentrant sur les comportements UX et les dispositions desktop/mobile
 
 ## Convention d'ID
 

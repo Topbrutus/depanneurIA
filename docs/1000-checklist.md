@@ -182,26 +182,26 @@ Version convertie depuis le fichier source fourni par l’utilisateur.
 
 ## Bloc 0161–0200
 
-- [ ] DEP-0161 Écrire la carte complète du site côté client.
-- [ ] DEP-0162 Écrire la carte complète du site côté dépanneur.
-- [ ] DEP-0163 Écrire la carte complète du site côté livreur.
-- [ ] DEP-0164 Écrire la carte complète du portail super administrateur.
-- [ ] DEP-0165 Définir la page d’accueil publique.
-- [ ] DEP-0166 Définir la page boutique manuelle.
-- [ ] DEP-0167 Définir la page mode assisté.
-- [ ] DEP-0168 Définir la page de connexion.
-- [ ] DEP-0169 Définir la page d’inscription.
-- [ ] DEP-0170 Définir la page de profil client.
-- [ ] DEP-0171 Définir la page d’adresses client.
-- [ ] DEP-0172 Définir la page d’historique des commandes.
-- [ ] DEP-0173 Définir la page de dernière commande.
-- [ ] DEP-0174 Définir la page des produits populaires.
-- [ ] DEP-0175 Définir la page de suivi de commande.
-- [ ] DEP-0176 Définir la page de contact du dépanneur.
-- [ ] DEP-0177 Définir la page de conditions d’utilisation.
-- [ ] DEP-0178 Définir la page de confidentialité.
-- [ ] DEP-0179 Définir la page d’accessibilité.
-- [ ] DEP-0180 Définir la page d’aide vocale.
+- [x] DEP-0161 Écrire la carte complète du site côté client.
+- [x] DEP-0162 Écrire la carte complète du site côté dépanneur.
+- [x] DEP-0163 Écrire la carte complète du site côté livreur.
+- [x] DEP-0164 Écrire la carte complète du portail super administrateur.
+- [x] DEP-0165 Définir la page d’accueil publique.
+- [x] DEP-0166 Définir la page boutique manuelle.
+- [x] DEP-0167 Définir la page mode assisté.
+- [x] DEP-0168 Définir la page de connexion.
+- [x] DEP-0169 Définir la page d’inscription.
+- [x] DEP-0170 Définir la page de profil client.
+- [x] DEP-0171 Définir la page d’adresses client.
+- [x] DEP-0172 Définir la page d’historique des commandes.
+- [x] DEP-0173 Définir la page de dernière commande.
+- [x] DEP-0174 Définir la page des produits populaires.
+- [x] DEP-0175 Définir la page de suivi de commande.
+- [x] DEP-0176 Définir la page de contact du dépanneur.
+- [x] DEP-0177 Définir la page de conditions d’utilisation.
+- [x] DEP-0178 Définir la page de confidentialité.
+- [x] DEP-0179 Définir la page d’accessibilité.
+- [x] DEP-0180 Définir la page d’aide vocale.
 - [ ] DEP-0181 Définir la disposition ordinateur à trois sections.
 - [ ] DEP-0182 Définir la disposition téléphone empilée.
 - [ ] DEP-0183 Définir l’emplacement exact du panier sur ordinateur.
