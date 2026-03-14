@@ -1,6 +1,7 @@
 import { type ChangeEvent, type FormEvent, useEffect, useState } from 'react'
 import type { AddressValidationErrors } from '../../lib/validation'
 import { FormError } from './form-error'
+import { useI18n } from '../../lib/i18n-context'
 
 export type AddressFormValues = {
   label: string
@@ -41,6 +42,7 @@ export const AddressForm = ({
   onSubmit,
   onChange,
 }: AddressFormProps) => {
+  const { translations: t } = useI18n()
   const [values, setValues] = useState<AddressFormValues>(initialValues)
 
   useEffect(() => {
@@ -64,32 +66,32 @@ export const AddressForm = ({
     <form className="card form-card" onSubmit={handleSubmit}>
       <div className="field-row">
         <div className="field">
-          <label htmlFor="label">Libellé *</label>
-          <input id="label" name="label" value={values.label} onChange={handleChange('label')} placeholder="Maison, Bureau…" />
+          <label htmlFor="label">{t.addresses.label} *</label>
+          <input id="label" name="label" value={values.label} onChange={handleChange('label')} placeholder={t.addresses.labelPlaceholder} />
           <FormError message={errors?.label} />
         </div>
         <div className="field">
-          <label htmlFor="postalCode">Code postal *</label>
-          <input id="postalCode" name="postalCode" value={values.postalCode} onChange={handleChange('postalCode')} placeholder="75000" />
+          <label htmlFor="postalCode">{t.addresses.postalCode} *</label>
+          <input id="postalCode" name="postalCode" value={values.postalCode} onChange={handleChange('postalCode')} placeholder={t.addresses.postalCodePlaceholder} />
           <FormError message={errors?.postalCode} />
         </div>
       </div>
 
       <div className="field">
-        <label htmlFor="line1">Adresse *</label>
-        <input id="line1" name="line1" value={values.line1} onChange={handleChange('line1')} placeholder="12 rue des Mécanos" />
+        <label htmlFor="line1">{t.addresses.line1} *</label>
+        <input id="line1" name="line1" value={values.line1} onChange={handleChange('line1')} placeholder={t.addresses.line1Placeholder} />
         <FormError message={errors?.line1} />
       </div>
 
       <div className="field">
-        <label htmlFor="line2">Complément</label>
-        <input id="line2" name="line2" value={values.line2} onChange={handleChange('line2')} placeholder="Bâtiment B, étage 3" />
+        <label htmlFor="line2">{t.addresses.line2}</label>
+        <input id="line2" name="line2" value={values.line2} onChange={handleChange('line2')} placeholder={t.addresses.line2Placeholder} />
       </div>
 
       <div className="field-row">
         <div className="field">
-          <label htmlFor="city">Ville *</label>
-          <input id="city" name="city" value={values.city} onChange={handleChange('city')} placeholder="Paris" />
+          <label htmlFor="city">{t.addresses.city} *</label>
+          <input id="city" name="city" value={values.city} onChange={handleChange('city')} placeholder={t.addresses.cityPlaceholder} />
           <FormError message={errors?.city} />
         </div>
         <div className="field">
@@ -99,14 +101,14 @@ export const AddressForm = ({
       </div>
 
       <div className="field">
-        <label htmlFor="instructions">Consignes de livraison</label>
+        <label htmlFor="instructions">{t.addresses.deliveryNotes}</label>
         <textarea
           id="instructions"
           name="instructions"
           rows={3}
           value={values.instructions}
           onChange={handleChange('instructions')}
-          placeholder="Digicode, appel avant d’arriver, laisser à la loge…"
+          placeholder={t.addresses.deliveryNotesPlaceholder}
         />
         <FormError message={errors?.instructions} />
       </div>
@@ -114,7 +116,7 @@ export const AddressForm = ({
       {showDefaultToggle && (
         <label className="checkbox">
           <input type="checkbox" name="makeDefault" checked={Boolean(values.makeDefault)} onChange={handleChange('makeDefault')} />
-          <span>Définir comme adresse par défaut</span>
+          <span>{t.addresses.setDefault}</span>
         </label>
       )}
 

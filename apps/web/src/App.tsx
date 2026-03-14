@@ -19,46 +19,47 @@ import AdminCatalogPage from './routes/admin-catalog-page'
 import { clearCustomer, endSession, loadCustomer, loadSession, saveCustomer, startSession } from './lib/customer-storage'
 import { normalizePhone } from './lib/validation'
 import { TenantProvider } from './lib/tenant-context'
-import { I18nProvider } from './lib/i18n-context'
+import { I18nProvider, useI18n } from './lib/i18n-context'
 import { ProtectedRoute } from './components/common/protected-route'
 import { LanguageSwitcher } from './components/common/language-switcher'
 
 const Navigation = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
   const { pathname } = useLocation()
+  const { translations: t } = useI18n()
   const linkClass = (target: string) => (pathname === target ? 'nav-link active' : 'nav-link')
 
   return (
     <nav className="nav">
       <Link className={linkClass('/')} to="/">
-        Boutique
+        {t.common.shop}
       </Link>
       <Link className={linkClass('/signup')} to="/signup">
-        Inscription
+        {t.common.signup}
       </Link>
       <Link className={linkClass('/login')} to="/login">
-        Connexion
+        {t.common.login}
       </Link>
       <Link className={linkClass('/profile')} to="/profile">
-        Profil
+        {t.common.profile}
       </Link>
       <Link className={linkClass('/addresses')} to="/addresses">
-        Adresses
+        {t.common.addresses}
       </Link>
       <Link className={linkClass('/mock-login')} to="/mock-login">
         Login Mock
       </Link>
       <Link className={linkClass('/admin/catalog')} to="/admin/catalog">
-        Admin catalogue
+        {t.common.admin}
       </Link>
       <Link className={linkClass('/store-ops')} to="/store-ops">
-        Store Ops
+        {t.common.storeOps}
       </Link>
       <Link className={linkClass('/driver')} to="/driver">
-        Driver
+        {t.common.driver}
       </Link>
       {isLoggedIn && (
         <span className="status-pill" aria-label="Session active">
-          Connecté
+          {t.common.connected}
         </span>
       )}
       <LanguageSwitcher />

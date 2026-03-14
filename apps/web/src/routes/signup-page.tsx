@@ -6,6 +6,7 @@ import { CustomerForm, type CustomerFormValues } from '../components/customer/cu
 import { FormError } from '../components/customer/form-error'
 import { startSession } from '../lib/customer-storage'
 import { normalizePhone, validateAddress, validateProfile, type AddressInput, type AddressValidationErrors, type ProfileValidationErrors } from '../lib/validation'
+import { useI18n } from '../lib/i18n-context'
 
 type SignupPageProps = {
   customer: CustomerData | null
@@ -27,6 +28,7 @@ const buildAddress = (values: AddressFormValues, id?: string): Address => ({
 
 const SignupPage = ({ customer, onCustomerChange, onSessionChange }: SignupPageProps) => {
   const navigate = useNavigate()
+  const { translations: t } = useI18n()
   const [profileValues, setProfileValues] = useState<CustomerFormValues>({
     name: customer?.profile.name ?? '',
     phone: customer?.profile.phone ?? '',
@@ -92,8 +94,8 @@ const SignupPage = ({ customer, onCustomerChange, onSessionChange }: SignupPageP
     <div className="page">
       <div className="page-header">
         <div>
-          <p className="eyebrow">Inscription</p>
-          <h1>Créez votre profil client</h1>
+          <p className="eyebrow">{t.auth.signupTitle}</p>
+          <h1>{t.auth.signupDescription}</h1>
           <p className="muted">
             Enregistrez un profil minimal avec nom, téléphone et une adresse complète. Toutes les données restent en local pour ce premier
             parcours V1.
@@ -104,14 +106,14 @@ const SignupPage = ({ customer, onCustomerChange, onSessionChange }: SignupPageP
       <div className="stack">
         <CustomerForm
           initialValues={profileValues}
-          submitLabel="Enregistrer le profil"
+          submitLabel={t.common.save}
           onSubmit={handleProfileSubmit}
           errors={profileErrors}
           onChange={setProfileValues}
         />
         <AddressForm
           initialValues={addressValues}
-          submitLabel="Enregistrer l’adresse"
+          submitLabel={t.common.save}
           onSubmit={handleAddressSubmit}
           onChange={setAddressValues}
           errors={addressErrors}
@@ -119,10 +121,10 @@ const SignupPage = ({ customer, onCustomerChange, onSessionChange }: SignupPageP
         />
         <FormError message={formError} />
         <button className="btn btn-primary" type="button" onClick={handleCreateProfile}>
-          Valider l’inscription
+          {t.auth.signupButton}
         </button>
         <p className="muted small">
-          Les validations vérifient le téléphone (10-15 chiffres), l’adresse complète et la zone desservie (75/92/93/94).
+          Les validations vérifient le téléphone (10-15 chiffres), l'adresse complète et la zone desservie (75/92/93/94).
         </p>
       </div>
     </div>
