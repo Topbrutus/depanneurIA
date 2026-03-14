@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import type { CustomerData, CustomerSession } from '@depaneuria/types'
 import { CustomerForm, type CustomerFormValues } from '../components/customer/customer-form'
 import { startSession } from '../lib/customer-storage'
+import { useI18n } from '../lib/i18n-context'
 import { normalizePhone, validateProfile, type ProfileValidationErrors } from '../lib/validation'
 
 type ProfilePageProps = {
@@ -15,6 +16,7 @@ type ProfilePageProps = {
 
 const ProfilePage = ({ customer, session, onCustomerChange, onSessionChange, onLogout }: ProfilePageProps) => {
   const navigate = useNavigate()
+  const { t } = useI18n()
   const [errors, setErrors] = useState<ProfileValidationErrors>({})
   const [info, setInfo] = useState<string>('')
 
@@ -22,10 +24,10 @@ const ProfilePage = ({ customer, session, onCustomerChange, onSessionChange, onL
     return (
       <div className="page">
         <div className="card">
-          <h2>Aucun profil trouvé</h2>
-          <p className="muted">Créez un profil avant de modifier vos informations.</p>
+          <h2>{t('profile.empty.title')}</h2>
+          <p className="muted">{t('profile.empty.description')}</p>
           <Link className="btn btn-primary" to="/signup">
-            Créer mon profil
+            {t('profile.empty.cta')}
           </Link>
         </div>
       </div>
@@ -34,7 +36,7 @@ const ProfilePage = ({ customer, session, onCustomerChange, onSessionChange, onL
 
   const handleSubmit = (values: CustomerFormValues) => {
     setInfo('')
-    const validation = validateProfile(values)
+    const validation = validateProfile(values, t)
     setErrors(validation)
     if (Object.keys(validation).length > 0) {
       return
@@ -55,7 +57,7 @@ const ProfilePage = ({ customer, session, onCustomerChange, onSessionChange, onL
     if (session?.loggedIn) {
       onSessionChange(startSession(updated.profile.phone))
     }
-    setInfo('Profil mis à jour.')
+    setInfo(t('profile.update.success'))
   }
 
   const handleDeleteAccount = () => {
@@ -69,9 +71,9 @@ const ProfilePage = ({ customer, session, onCustomerChange, onSessionChange, onL
     <div className="page">
       <div className="page-header">
         <div>
-          <p className="eyebrow">Profil</p>
-          <h1>Vos informations client</h1>
-          <p className="muted">Mettez à jour votre nom, téléphone et notes de livraison. Les changements restent en local.</p>
+          <p className="eyebrow">{t('profile.eyebrow')}</p>
+          <h1>{t('profile.title')}</h1>
+          <p className="muted">{t('profile.description')}</p>
         </div>
       </div>
 
@@ -82,7 +84,7 @@ const ProfilePage = ({ customer, session, onCustomerChange, onSessionChange, onL
             phone: customer.profile.phone,
             deliveryNotes: customer.profile.deliveryNotes ?? '',
           }}
-          submitLabel="Mettre à jour"
+          submitLabel={t('profile.submit')}
           onSubmit={handleSubmit}
           errors={errors}
         />
@@ -91,11 +93,11 @@ const ProfilePage = ({ customer, session, onCustomerChange, onSessionChange, onL
 
         <div className="card danger-card">
           <div>
-            <h3>Supprimer le compte</h3>
-            <p className="muted">Réinitialise le profil, les adresses et la session locales.</p>
+            <h3>{t('profile.delete.title')}</h3>
+            <p className="muted">{t('profile.delete.description')}</p>
           </div>
           <button className="btn btn-danger" type="button" onClick={handleDeleteAccount}>
-            Supprimer et repartir de zéro
+            {t('profile.delete.confirm')}
           </button>
         </div>
       </div>

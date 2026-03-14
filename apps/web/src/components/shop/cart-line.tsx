@@ -7,6 +7,7 @@ import React from 'react';
 import { Minus, Plus, X } from 'lucide-react';
 import type { CartItem } from '@depaneuria/types';
 import { useCartStore } from '@/lib/cart-store';
+import { useI18n } from '@/lib/i18n-context';
 
 interface CartLineProps {
   item: CartItem;
@@ -15,6 +16,7 @@ interface CartLineProps {
 export function CartLine({ item }: CartLineProps) {
   const updateQuantity = useCartStore((state) => state.updateQuantity);
   const removeItem = useCartStore((state) => state.removeItem);
+  const { t } = useI18n();
 
   const handleDecrement = () => {
     if (item.quantity > 1) {
@@ -49,7 +51,7 @@ export function CartLine({ item }: CartLineProps) {
             className="cart-quantity-button"
             onClick={handleDecrement}
             disabled={item.quantity <= 1}
-            aria-label="Diminuer la quantité"
+            aria-label={t('cart.aria.decrease')}
           >
             <Minus size={16} />
           </button>
@@ -59,7 +61,7 @@ export function CartLine({ item }: CartLineProps) {
           <button
             className="cart-quantity-button"
             onClick={handleIncrement}
-            aria-label="Augmenter la quantité"
+            aria-label={t('cart.aria.increase')}
           >
             <Plus size={16} />
           </button>
@@ -73,7 +75,7 @@ export function CartLine({ item }: CartLineProps) {
       <button
         className="cart-item-remove"
         onClick={handleRemove}
-        aria-label={`Retirer ${item.productLabel} du panier`}
+        aria-label={t('cart.aria.remove', { product: item.productLabel })}
       >
         <X size={20} />
       </button>

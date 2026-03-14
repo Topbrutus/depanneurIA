@@ -1,6 +1,7 @@
 import type { OrderWithDetails } from '../../lib/store-api';
 import { OrderCard } from './order-card';
 import type { OrderStatus } from '@depaneuria/types';
+import { useI18n } from '../../lib/i18n-context';
 
 interface OrderQueueProps {
   orders: OrderWithDetails[];
@@ -10,6 +11,7 @@ interface OrderQueueProps {
 }
 
 export function OrderQueue({ orders, isLoading, error, onStatusChange }: OrderQueueProps) {
+  const { t } = useI18n();
   if (isLoading) {
     return (
       <div className="loading-spinner">
@@ -25,7 +27,7 @@ export function OrderQueue({ orders, isLoading, error, onStatusChange }: OrderQu
   if (orders.length === 0) {
     return (
       <div className="order-queue-empty">
-        <p>Aucune commande pour le moment</p>
+        <p>{t('store.empty')}</p>
       </div>
     );
   }

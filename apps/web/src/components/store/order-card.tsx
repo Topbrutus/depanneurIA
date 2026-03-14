@@ -2,6 +2,7 @@ import type { OrderWithDetails } from '../../lib/store-api';
 import { OrderStatusBadge } from './order-status-badge';
 import { OrderActions } from './order-actions';
 import type { OrderStatus } from '@depaneuria/types';
+import { useI18n } from '../../lib/i18n-context';
 
 interface OrderCardProps {
   order: OrderWithDetails;
@@ -9,9 +10,10 @@ interface OrderCardProps {
 }
 
 export function OrderCard({ order, onStatusChange }: OrderCardProps) {
+  const { t, locale } = useI18n();
   const formatTime = (dateString: string) => {
     const date = new Date(dateString);
-    return new Intl.DateTimeFormat('fr-FR', {
+    return new Intl.DateTimeFormat(locale, {
       hour: '2-digit',
       minute: '2-digit',
       day: '2-digit',
@@ -21,13 +23,13 @@ export function OrderCard({ order, onStatusChange }: OrderCardProps) {
 
   const customerName = order.customer
     ? `${order.customer.firstName} ${order.customer.lastName}`
-    : 'Client inconnu';
+    : t('store.unknown.customer');
 
   const customerPhone = order.customer?.phone || '';
 
   const deliveryAddress = order.address
     ? `${order.address.street}, ${order.address.postalCode} ${order.address.city}`
-    : 'Adresse non disponible';
+    : t('store.unknown.address');
 
   return (
     <div className="order-card">
@@ -40,11 +42,11 @@ export function OrderCard({ order, onStatusChange }: OrderCardProps) {
         <h3>{customerName}</h3>
         {customerPhone && <p>{customerPhone}</p>}
         <p>{deliveryAddress}</p>
-        {order.notes && <p className="order-card-notes">Note: {order.notes}</p>}
+        {order.notes && <p className="order-card-notes">{t('store.notes', { note: order.notes })}</p>}
       </div>
 
       <div className="order-card-items">
-        <h4>Articles ({order.items.length})</h4>
+        <h4>{t('store.items.title', { count: order.items.length })}</h4>
         <ul className="order-items-list">
           {order.items.map((item) => (
             <li key={item.id}>
@@ -59,7 +61,7 @@ export function OrderCard({ order, onStatusChange }: OrderCardProps) {
       </div>
 
       <div className="order-card-total">
-        <span>Total</span>
+        <span>{t('store.total')}</span>
         <span>{order.totalAmount.toFixed(2)} $</span>
       </div>
 

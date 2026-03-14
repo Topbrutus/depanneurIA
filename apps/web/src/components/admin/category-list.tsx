@@ -1,4 +1,5 @@
 import type { Category } from '@depaneuria/types';
+import { useI18n } from '../../lib/i18n-context';
 
 interface CategoryListProps {
   categories: Category[];
@@ -11,17 +12,18 @@ export function CategoryList({
   selectedCategoryId,
   onSelect,
 }: CategoryListProps) {
+  const { t } = useI18n();
   return (
     <div className="admin-panel">
-      <h3>Catégories</h3>
-      <p className="muted">Filtrez la liste des produits par catégorie.</p>
+      <h3>{t('shop.categories.title')}</h3>
+      <p className="muted">{t('admin.categories.helper')}</p>
       <div className="divider" />
       <ul className="category-list">
         <li
           className={`category-item ${selectedCategoryId === null ? 'active' : ''}`}
           onClick={() => onSelect(null)}
         >
-          Toutes
+          {t('store.filter.all')}
         </li>
         {categories.map((category) => (
           <li

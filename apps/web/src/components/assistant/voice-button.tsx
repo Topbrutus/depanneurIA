@@ -1,6 +1,7 @@
 import { Mic, MicOff, Square } from 'lucide-react';
 
 import type { VoiceStatus } from '../../lib/voice-adapter';
+import { useI18n } from '../../lib/i18n-context';
 
 interface Props {
   status: VoiceStatus;
@@ -10,16 +11,17 @@ interface Props {
 }
 
 export function VoiceButton({ status, onStart, onStop, disabled = false }: Props) {
+  const { t } = useI18n();
   const isListening = status === 'listening';
   const isUnsupported = status === 'unsupported';
   const isBusy = status === 'transcribing';
   const isDisabled = disabled || isUnsupported || isBusy;
 
   const label = (() => {
-    if (isUnsupported) return 'Micro indisponible';
-    if (isListening) return 'Arrêter';
-    if (isBusy) return 'Transcription…';
-    return 'Micro';
+    if (isUnsupported) return t('assistant.button.unsupported');
+    if (isListening) return t('assistant.button.stop');
+    if (isBusy) return t('assistant.button.busy');
+    return t('assistant.button.start');
   })();
 
   const handleClick = () => {

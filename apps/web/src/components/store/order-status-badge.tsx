@@ -1,22 +1,10 @@
 import type { OrderStatus } from '@depaneuria/types';
+import { useI18n } from '../../lib/i18n-context';
+import type { TranslationKey } from '../../lib/i18n';
 
 interface OrderStatusBadgeProps {
   status: OrderStatus;
 }
-
-const STATUS_LABELS: Record<OrderStatus, string> = {
-  draft: 'Brouillon',
-  submitted: 'Soumise',
-  accepted: 'Acceptée',
-  rejected: 'Rejetée',
-  preparing: 'En préparation',
-  ready_for_delivery: 'Prête',
-  assigned_to_driver: 'Assignée au livreur',
-  out_for_delivery: 'En livraison',
-  delivered: 'Livrée',
-  delivery_failed: 'Échec de livraison',
-  cancelled: 'Annulée',
-};
 
 const STATUS_CLASSNAMES: Record<OrderStatus, string> = {
   draft: 'draft',
@@ -33,9 +21,10 @@ const STATUS_CLASSNAMES: Record<OrderStatus, string> = {
 };
 
 export function OrderStatusBadge({ status }: OrderStatusBadgeProps) {
+  const { t } = useI18n();
   return (
     <span className={`status-badge ${STATUS_CLASSNAMES[status]}`}>
-      {STATUS_LABELS[status]}
+      {t(`status.${status}` as TranslationKey)}
     </span>
   );
 }

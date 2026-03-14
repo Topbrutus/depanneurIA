@@ -1,6 +1,7 @@
 import { type ChangeEvent, type FormEvent, useEffect, useState } from 'react'
 import type { AddressValidationErrors } from '../../lib/validation'
 import { FormError } from './form-error'
+import { useI18n } from '../../lib/i18n-context'
 
 export type AddressFormValues = {
   label: string
@@ -41,6 +42,7 @@ export const AddressForm = ({
   onSubmit,
   onChange,
 }: AddressFormProps) => {
+  const { t } = useI18n()
   const [values, setValues] = useState<AddressFormValues>(initialValues)
 
   useEffect(() => {
@@ -64,49 +66,79 @@ export const AddressForm = ({
     <form className="card form-card" onSubmit={handleSubmit}>
       <div className="field-row">
         <div className="field">
-          <label htmlFor="label">Libellé *</label>
-          <input id="label" name="label" value={values.label} onChange={handleChange('label')} placeholder="Maison, Bureau…" />
+          <label htmlFor="label">{t('address.label')}</label>
+          <input
+            id="label"
+            name="label"
+            value={values.label}
+            onChange={handleChange('label')}
+            placeholder={t('address.label.placeholder')}
+          />
           <FormError message={errors?.label} />
         </div>
         <div className="field">
-          <label htmlFor="postalCode">Code postal *</label>
-          <input id="postalCode" name="postalCode" value={values.postalCode} onChange={handleChange('postalCode')} placeholder="75000" />
+          <label htmlFor="postalCode">{t('address.postal')}</label>
+          <input
+            id="postalCode"
+            name="postalCode"
+            value={values.postalCode}
+            onChange={handleChange('postalCode')}
+            placeholder={t('address.postal.placeholder')}
+          />
           <FormError message={errors?.postalCode} />
         </div>
       </div>
 
       <div className="field">
-        <label htmlFor="line1">Adresse *</label>
-        <input id="line1" name="line1" value={values.line1} onChange={handleChange('line1')} placeholder="12 rue des Mécanos" />
+        <label htmlFor="line1">{t('address.line1')}</label>
+        <input
+          id="line1"
+          name="line1"
+          value={values.line1}
+          onChange={handleChange('line1')}
+          placeholder={t('address.line1.placeholder')}
+        />
         <FormError message={errors?.line1} />
       </div>
 
       <div className="field">
-        <label htmlFor="line2">Complément</label>
-        <input id="line2" name="line2" value={values.line2} onChange={handleChange('line2')} placeholder="Bâtiment B, étage 3" />
+        <label htmlFor="line2">{t('address.line2')}</label>
+        <input
+          id="line2"
+          name="line2"
+          value={values.line2}
+          onChange={handleChange('line2')}
+          placeholder={t('address.line2.placeholder')}
+        />
       </div>
 
       <div className="field-row">
         <div className="field">
-          <label htmlFor="city">Ville *</label>
-          <input id="city" name="city" value={values.city} onChange={handleChange('city')} placeholder="Paris" />
+          <label htmlFor="city">{t('address.city')}</label>
+          <input id="city" name="city" value={values.city} onChange={handleChange('city')} placeholder={t('address.city.placeholder')} />
           <FormError message={errors?.city} />
         </div>
         <div className="field">
-          <label htmlFor="country">Pays</label>
-          <input id="country" name="country" value={values.country} onChange={handleChange('country')} placeholder="France" />
+          <label htmlFor="country">{t('address.country')}</label>
+          <input
+            id="country"
+            name="country"
+            value={values.country}
+            onChange={handleChange('country')}
+            placeholder={t('address.country.placeholder')}
+          />
         </div>
       </div>
 
       <div className="field">
-        <label htmlFor="instructions">Consignes de livraison</label>
+        <label htmlFor="instructions">{t('address.instructions')}</label>
         <textarea
           id="instructions"
           name="instructions"
           rows={3}
           value={values.instructions}
           onChange={handleChange('instructions')}
-          placeholder="Digicode, appel avant d’arriver, laisser à la loge…"
+          placeholder={t('address.instructions.placeholder')}
         />
         <FormError message={errors?.instructions} />
       </div>
@@ -114,7 +146,7 @@ export const AddressForm = ({
       {showDefaultToggle && (
         <label className="checkbox">
           <input type="checkbox" name="makeDefault" checked={Boolean(values.makeDefault)} onChange={handleChange('makeDefault')} />
-          <span>Définir comme adresse par défaut</span>
+          <span>{t('address.default.toggle')}</span>
         </label>
       )}
 

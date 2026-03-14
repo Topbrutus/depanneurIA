@@ -4,19 +4,16 @@ import { fetchOrders, updateOrderStatus, type OrderWithDetails } from '../lib/st
 import { OrderQueue } from '../components/store/order-queue';
 import { TenantFilter } from '../components/store/tenant-filter';
 import { useTenant } from '../lib/use-tenant';
+import { useI18n } from '../lib/i18n-context';
+import type { TranslationKey } from '../lib/i18n';
 import '../styles/store.css';
 
 type StatusFilter = OrderStatus | 'all';
 
-const FILTER_OPTIONS: { value: StatusFilter; label: string }[] = [
-  { value: 'all', label: 'Toutes' },
-  { value: 'submitted', label: 'Soumises' },
-  { value: 'accepted', label: 'Acceptées' },
-  { value: 'preparing', label: 'En préparation' },
-  { value: 'ready_for_delivery', label: 'Prêtes' },
-];
+const FILTER_OPTIONS: StatusFilter[] = ['all', 'submitted', 'accepted', 'preparing', 'ready_for_delivery'];
 
 export default function StoreOpsPage() {
+  const { t } = useI18n();
   const [orders, setOrders] = useState<OrderWithDetails[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -30,11 +27,11 @@ export default function StoreOpsPage() {
       const data = await fetchOrders(filter === 'all' ? undefined : filter, currentTenantId);
       setOrders(data);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Erreur lors du chargement des commandes');
+      setError(err instanceof Error ? err.message : t('store.error.load'));
     } finally {
       setIsLoading(false);
     }
-  }, [currentTenantId]);
+  }, [currentTenantId, t]);
 
   useEffect(() => {
     loadOrders(statusFilter);
@@ -46,26 +43,26 @@ export default function StoreOpsPage() {
       // Recharger les commandes après la mise à jour
       await loadOrders(statusFilter);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Erreur lors de la mise à jour du statut');
+      setError(err instanceof Error ? err.message : t('store.error.update'));
     }
   };
 
   return (
     <div className="store-ops-page">
       <div className="store-ops-header">
-        <h1>Gestion des commandes</h1>
-        <p>Acceptez, préparez et gérez les commandes entrantes</p>
+        <h1>{t('store.header.title')}</h1>
+        <p>{t('store.header.subtitle')}</p>
         <TenantFilter />
       </div>
 
       <div className="status-filters">
         {FILTER_OPTIONS.map((option) => (
           <button
-            key={option.value}
-            className={`filter-btn ${statusFilter === option.value ? 'active' : ''}`}
-            onClick={() => setStatusFilter(option.value)}
+            key={option}
+            className={`filter-btn ${statusFilter === option ? 'active' : ''}`}
+            onClick={() => setStatusFilter(option)}
           >
-            {option.label}
+            {option === 'all' ? t('store.filter.all') : t(`status.${option}` as TranslationKey)}
           </button>
         ))}
       </div>

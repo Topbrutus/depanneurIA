@@ -7,6 +7,7 @@ import React from 'react';
 import { Plus } from 'lucide-react';
 import type { Product } from '@depaneuria/types';
 import { useCartStore } from '@/lib/cart-store';
+import { useI18n } from '@/lib/i18n-context';
 
 interface ProductCardProps {
   product: Product;
@@ -16,6 +17,7 @@ interface ProductCardProps {
 export function ProductCard({ product, onClick }: ProductCardProps) {
   const addItem = useCartStore((state) => state.addItem);
   const getItem = useCartStore((state) => state.getItem);
+  const { t } = useI18n();
 
   // Variante par défaut
   const defaultVariant = product.variants.find((v) => v.isDefault) || product.variants[0];
@@ -70,13 +72,13 @@ export function ProductCard({ product, onClick }: ProductCardProps) {
 
         <div className="product-badges">
           {product.isPopular && (
-            <span className="product-badge popular">Populaire</span>
+            <span className="product-badge popular">{t('shop.badge.popular')}</span>
           )}
           {isLowStock && (
-            <span className="product-badge low-stock">Faible stock</span>
+            <span className="product-badge low-stock">{t('shop.badge.lowStock')}</span>
           )}
           {isOutOfStock && (
-            <span className="product-badge out-of-stock">Rupture</span>
+            <span className="product-badge out-of-stock">{t('shop.badge.outOfStock')}</span>
           )}
         </div>
 
@@ -84,10 +86,10 @@ export function ProductCard({ product, onClick }: ProductCardProps) {
           className="product-add-button"
           onClick={handleAddToCart}
           disabled={isOutOfStock}
-          aria-label={`Ajouter ${product.label} au panier`}
+          aria-label={t('shop.aria.addToCart', { product: product.label })}
         >
           <Plus size={20} style={{ display: 'inline', marginRight: '4px' }} />
-          {isInCart ? `Dans le panier (×${cartItem.quantity})` : 'Ajouter'}
+          {isInCart ? t('shop.inCart', { count: cartItem.quantity }) : t('shop.addToCart')}
         </button>
       </div>
     </div>

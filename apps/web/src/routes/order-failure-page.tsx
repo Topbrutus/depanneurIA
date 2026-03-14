@@ -6,9 +6,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AlertTriangle, RotateCcw, X } from 'lucide-react';
+import { useI18n } from '@/lib/i18n-context';
 
 export function OrderFailurePage() {
   const navigate = useNavigate();
+  const { t } = useI18n();
 
   const handleRetry = () => {
     // En production, cela relancerait la tentative d'envoi
@@ -46,11 +48,11 @@ export function OrderFailurePage() {
             color: '#111827',
           }}
         >
-          Échec d'envoi de commande
+          {t('order.failure.title')}
         </h1>
 
         <p style={{ fontSize: '16px', color: '#6b7280', marginBottom: '32px' }}>
-          Ta commande n'a pas pu être envoyée. Réessaie dans quelques instants.
+          {t('order.failure.subtitle')}
         </p>
 
         <div
@@ -63,10 +65,10 @@ export function OrderFailurePage() {
           }}
         >
           <div style={{ fontSize: '14px', fontWeight: '600', color: '#991b1b', marginBottom: '8px' }}>
-            Code erreur : ERR_NETWORK
+            {t('order.failure.errorCode')}
           </div>
           <div style={{ fontSize: '14px', color: '#7f1d1d' }}>
-            Problème de connexion. Vérifie ta connexion internet et réessaie.
+            {t('order.failure.errorMessage')}
           </div>
         </div>
 
@@ -88,7 +90,7 @@ export function OrderFailurePage() {
             }}
           >
             <RotateCcw size={20} />
-            Réessayer
+            {t('order.failure.retry')}
           </button>
 
           <button
@@ -108,7 +110,7 @@ export function OrderFailurePage() {
             }}
           >
             <X size={20} />
-            Annuler
+            {t('order.failure.cancel')}
           </button>
         </div>
       </div>

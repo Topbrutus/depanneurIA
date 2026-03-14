@@ -51,6 +51,7 @@
 - Bloc réception dépanneur — actions et tableau de bord (`DEP-0495` à `DEP-0514`) terminé ✅
 - Bloc livreur V1 (`DEP-0515` à `DEP-0560`) en cours — interface livreur simple + tournée
 - Prochain bloc recommandé : **DEP-0581 à DEP-0600** (moteur d'états central + suivi client)
+- Multilingue V1 (DEP-0681 à DEP-0712) ajouté : FR par défaut avec bascule EN, sélecteur persistant côté front/assistant, écrans client/dépanneur/livreur/admin, statuts et erreurs traduits, fichiers de locales FR/EN créés.
 
 ## Observation importante
 

@@ -1,9 +1,15 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "baseUrl": ".",
+    "moduleResolution": "node",
+    "composite": false,
+    "paths": {
+      "@depaneuria/types": ["../types/src"],
+      "@depaneuria/types/*": ["../types/src/*"]
+    },
     "outDir": "./dist",
-    "rootDir": "./src"
+    "rootDir": "../.."
   },
-  "include": ["src/**/*"],
-  "references": [{ "path": "../types" }]
+  "include": ["src/**/*"]
 }

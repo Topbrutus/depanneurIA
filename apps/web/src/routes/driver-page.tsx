@@ -5,6 +5,8 @@ import { fetchDeliveryOrders, updateOrderStatus } from '../lib/driver-api';
 import { DeliveryQueue } from '../components/driver/delivery-queue';
 import { TenantFilter } from '../components/driver/tenant-filter';
 import { useTenant } from '../lib/use-tenant';
+import { useI18n } from '../lib/i18n-context';
+import type { TranslationKey } from '../lib/i18n';
 import '../styles/driver.css';
 
 type StatusFilter =
@@ -15,13 +17,13 @@ type StatusFilter =
   | 'delivered'
   | 'delivery_failed';
 
-const STATUS_FILTERS: Array<{ value: StatusFilter; label: string }> = [
-  { value: 'open', label: 'En cours' },
-  { value: 'ready_for_delivery', label: 'Prêtes' },
-  { value: 'assigned_to_driver', label: 'Assignées' },
-  { value: 'out_for_delivery', label: 'En route' },
-  { value: 'delivered', label: 'Livrées' },
-  { value: 'delivery_failed', label: 'Échecs' },
+const STATUS_FILTERS: StatusFilter[] = [
+  'open',
+  'ready_for_delivery',
+  'assigned_to_driver',
+  'out_for_delivery',
+  'delivered',
+  'delivery_failed',
 ];
 
 const OPEN_STATUSES: OrderStatus[] = [
@@ -31,6 +33,7 @@ const OPEN_STATUSES: OrderStatus[] = [
 ];
 
 export function DriverPage() {
+  const { t } = useI18n();
   const [orders, setOrders] = useState<OrderWithDetails[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -58,12 +61,12 @@ export function DriverPage() {
       setOrders(sortedByRecent);
     } catch (err) {
       setError(
-        err instanceof Error ? err.message : 'Erreur lors du chargement'
+        err instanceof Error ? err.message : t('driver.error.load')
       );
     } finally {
       setIsLoading(false);
     }
-  }, [currentTenantId]);
+  }, [currentTenantId, t]);
 
   useEffect(() => {
     loadOrders(statusFilter);
@@ -82,7 +85,7 @@ export function DriverPage() {
       setError(
         err instanceof Error
           ? err.message
-          : 'Erreur lors de la mise à jour du statut'
+          : t('driver.error.update')
       );
     }
   };
@@ -90,18 +93,20 @@ export function DriverPage() {
   return (
     <div className="driver-page">
       <header className="driver-header">
-        <h1>Interface Livreur</h1>
+        <h1>{t('driver.header.title')}</h1>
         <TenantFilter />
       </header>
 
       <div className="status-filters">
         {STATUS_FILTERS.map((filter) => (
           <button
-            key={filter.value}
-            className={`filter-btn ${statusFilter === filter.value ? 'active' : ''}`}
-            onClick={() => setStatusFilter(filter.value)}
+            key={filter}
+            className={`filter-btn ${statusFilter === filter ? 'active' : ''}`}
+            onClick={() => setStatusFilter(filter)}
           >
-            {filter.label}
+            {filter === 'open'
+              ? t('driver.filter.open')
+              : t(`status.${filter}` as TranslationKey)}
           </button>
         ))}
       </div>

@@ -1,4 +1,5 @@
 import type { ProductAvailability, ProductStatus } from '@depaneuria/types';
+import { useI18n } from '../../lib/i18n-context';
 
 interface CatalogToolbarProps {
   search: string;
@@ -22,11 +23,12 @@ export function CatalogToolbar({
   onChange,
   onRefresh,
 }: CatalogToolbarProps) {
+  const { t } = useI18n();
   return (
     <div className="catalog-toolbar">
       <input
         type="search"
-        placeholder="Rechercher par nom, description, slug…"
+        placeholder={t('admin.search.placeholder')}
         value={search}
         onChange={(e) => onChange({ search: e.target.value })}
       />
@@ -37,19 +39,19 @@ export function CatalogToolbar({
           onChange({ availability: e.target.value as ProductAvailability | 'all' })
         }
       >
-        <option value="all">Toutes les disponibilités</option>
-        <option value="en_stock">En stock</option>
-        <option value="sur_commande">Sur commande</option>
-        <option value="rupture">Rupture</option>
+        <option value="all">{t('admin.filter.availability.all')}</option>
+        <option value="en_stock">{t('product.availability.en_stock')}</option>
+        <option value="sur_commande">{t('product.availability.sur_commande')}</option>
+        <option value="rupture">{t('product.availability.rupture')}</option>
       </select>
 
       <select
         value={status}
         onChange={(e) => onChange({ status: e.target.value as ProductStatus | 'all' })}
       >
-        <option value="all">Tous les statuts</option>
-        <option value="active">Actif</option>
-        <option value="draft">Brouillon</option>
+        <option value="all">{t('admin.filter.status.all')}</option>
+        <option value="active">{t('product.status.active')}</option>
+        <option value="draft">{t('product.status.draft')}</option>
       </select>
 
       <div className="toolbar-actions">
@@ -59,11 +61,11 @@ export function CatalogToolbar({
             checked={popularOnly}
             onChange={(e) => onChange({ popularOnly: e.target.checked })}
           />
-          Populaires
+          {t('admin.filter.popular')}
         </label>
 
         <button className="admin-btn secondary" type="button" onClick={onRefresh}>
-          Rafraîchir
+          {t('common.refresh')}
         </button>
       </div>
     </div>

@@ -1,23 +1,29 @@
 import type { Address, CustomerProfile } from '@depaneuria/types'
+import type { TranslationKey, TranslationParams } from './i18n'
 
 export type ProfileValidationErrors = Partial<Record<'name' | 'phone' | 'deliveryNotes' | 'base', string>>
 export type AddressValidationErrors = Partial<Record<'label' | 'line1' | 'city' | 'postalCode' | 'instructions' | 'base', string>>
+
+type Translator = (key: TranslationKey, params?: TranslationParams) => string
 
 export const SERVICE_AREA_PREFIXES = ['75', '92', '93', '94']
 
 export const normalizePhone = (phone: string): string => phone.replace(/[^\d+]/g, '')
 
-export const validateProfile = (profile: Pick<CustomerProfile, 'name' | 'phone' | 'deliveryNotes'>): ProfileValidationErrors => {
+export const validateProfile = (
+  profile: Pick<CustomerProfile, 'name' | 'phone' | 'deliveryNotes'>,
+  t: Translator
+): ProfileValidationErrors => {
   const errors: ProfileValidationErrors = {}
   const trimmedName = profile.name.trim()
   const cleanedPhone = normalizePhone(profile.phone)
 
   if (!trimmedName) {
-    errors.name = 'Nom requis.'
+    errors.name = t('validation.nameRequired')
   }
 
   if (!cleanedPhone || cleanedPhone.length < 10 || cleanedPhone.length > 15 || !/^[+]?\d+$/.test(cleanedPhone)) {
-    errors.phone = 'Téléphone invalide : merci d’utiliser 10 à 15 chiffres.'
+    errors.phone = t('validation.phoneInvalid')
   }
 
   return errors
@@ -25,32 +31,32 @@ export const validateProfile = (profile: Pick<CustomerProfile, 'name' | 'phone' 
 
 export type AddressInput = Omit<Address, 'id'> & { id?: string }
 
-export const validateAddress = (address: AddressInput): AddressValidationErrors => {
+export const validateAddress = (address: AddressInput, t: Translator): AddressValidationErrors => {
   const errors: AddressValidationErrors = {}
 
   if (!address.label.trim()) {
-    errors.label = 'Libellé requis (ex : Maison, Bureau).'
+    errors.label = t('validation.addressLabelRequired')
   }
   if (!address.line1.trim()) {
-    errors.line1 = 'Rue ou numéro requis.'
+    errors.line1 = t('validation.addressLineRequired')
   }
   if (!address.city.trim()) {
-    errors.city = 'Ville requise.'
+    errors.city = t('validation.cityRequired')
   }
   if (!address.postalCode.trim()) {
-    errors.postalCode = 'Code postal requis.'
+    errors.postalCode = t('validation.postalRequired')
   }
 
   if (!address.line1.trim() || !address.city.trim() || !address.postalCode.trim()) {
-    errors.base = 'Adresse incomplète : précisez rue, ville et code postal.'
+    errors.base = t('validation.addressIncomplete')
   }
 
   const sanitizedPostal = address.postalCode.replace(/\s+/g, '')
   if (sanitizedPostal && sanitizedPostal.length < 4) {
-    errors.postalCode = 'Code postal incomplet.'
+    errors.postalCode = t('validation.postalIncomplete')
   }
   if (sanitizedPostal && !SERVICE_AREA_PREFIXES.some((prefix) => sanitizedPostal.startsWith(prefix))) {
-    errors.postalCode = 'Zone non desservie pour l’instant.'
+    errors.postalCode = t('validation.postalUnsupported')
   }
 
   return errors

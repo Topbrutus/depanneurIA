@@ -5,6 +5,7 @@ import { AddressForm, type AddressFormValues } from '../components/customer/addr
 import { CustomerForm, type CustomerFormValues } from '../components/customer/customer-form'
 import { FormError } from '../components/customer/form-error'
 import { startSession } from '../lib/customer-storage'
+import { useI18n } from '../lib/i18n-context'
 import { normalizePhone, validateAddress, validateProfile, type AddressInput, type AddressValidationErrors, type ProfileValidationErrors } from '../lib/validation'
 
 type SignupPageProps = {
@@ -27,6 +28,7 @@ const buildAddress = (values: AddressFormValues, id?: string): Address => ({
 
 const SignupPage = ({ customer, onCustomerChange, onSessionChange }: SignupPageProps) => {
   const navigate = useNavigate()
+  const { t } = useI18n()
   const [profileValues, setProfileValues] = useState<CustomerFormValues>({
     name: customer?.profile.name ?? '',
     phone: customer?.profile.phone ?? '',
@@ -56,14 +58,14 @@ const SignupPage = ({ customer, onCustomerChange, onSessionChange }: SignupPageP
   }
 
   const handleCreateProfile = () => {
-    const profileValidation = validateProfile(profileValues)
-    const addressValidation = validateAddress(addressValues as AddressInput)
+    const profileValidation = validateProfile(profileValues, t)
+    const addressValidation = validateAddress(addressValues as AddressInput, t)
 
     setProfileErrors(profileValidation)
     setAddressErrors(addressValidation)
 
     if (Object.keys(profileValidation).length > 0 || Object.keys(addressValidation).length > 0) {
-      setFormError('Veuillez corriger les erreurs avant de continuer.')
+      setFormError(t('signup.formError'))
       return
     }
 
@@ -92,26 +94,23 @@ const SignupPage = ({ customer, onCustomerChange, onSessionChange }: SignupPageP
     <div className="page">
       <div className="page-header">
         <div>
-          <p className="eyebrow">Inscription</p>
-          <h1>Créez votre profil client</h1>
-          <p className="muted">
-            Enregistrez un profil minimal avec nom, téléphone et une adresse complète. Toutes les données restent en local pour ce premier
-            parcours V1.
-          </p>
+          <p className="eyebrow">{t('signup.eyebrow')}</p>
+          <h1>{t('signup.title')}</h1>
+          <p className="muted">{t('signup.description')}</p>
         </div>
       </div>
 
       <div className="stack">
         <CustomerForm
           initialValues={profileValues}
-          submitLabel="Enregistrer le profil"
+          submitLabel={t('signup.profile.submit')}
           onSubmit={handleProfileSubmit}
           errors={profileErrors}
           onChange={setProfileValues}
         />
         <AddressForm
           initialValues={addressValues}
-          submitLabel="Enregistrer l’adresse"
+          submitLabel={t('signup.address.submit')}
           onSubmit={handleAddressSubmit}
           onChange={setAddressValues}
           errors={addressErrors}
@@ -119,10 +118,10 @@ const SignupPage = ({ customer, onCustomerChange, onSessionChange }: SignupPageP
         />
         <FormError message={formError} />
         <button className="btn btn-primary" type="button" onClick={handleCreateProfile}>
-          Valider l’inscription
+          {t('signup.submit')}
         </button>
         <p className="muted small">
-          Les validations vérifient le téléphone (10-15 chiffres), l’adresse complète et la zone desservie (75/92/93/94).
+          {t('signup.validationNote')}
         </p>
       </div>
     </div>

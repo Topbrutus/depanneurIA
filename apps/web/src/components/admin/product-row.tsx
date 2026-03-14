@@ -1,5 +1,6 @@
 import type { Product, ProductAvailability } from '@depaneuria/types';
 import { StockBadge } from './stock-badge';
+import { useI18n } from '../../lib/i18n-context';
 
 interface ProductRowProps {
   product: Product;
@@ -22,6 +23,7 @@ export function ProductRow({
   onPriceChange,
   onStockChange,
 }: ProductRowProps) {
+  const { t } = useI18n();
   const nextAvailability =
     product.availability === 'rupture' ? 'en_stock' : 'rupture';
 
@@ -41,9 +43,9 @@ export function ProductRow({
       <td>
         <div className="product-actions-inline">
           <span className={`status-pill ${product.status === 'active' ? 'active' : 'draft'}`}>
-            {product.status === 'active' ? 'Actif' : 'Brouillon'}
+            {product.status === 'active' ? t('product.status.active') : t('product.status.draft')}
           </span>
-          {product.popular && <span className="badge muted">Populaire</span>}
+          {product.popular && <span className="badge muted">{t('product.popular')}</span>}
         </div>
       </td>
       <td>
@@ -56,25 +58,25 @@ export function ProductRow({
       <td>
         <div className="product-row-actions">
           <button className="admin-btn ghost" onClick={() => onToggleStatus(product)}>
-            {product.status === 'active' ? 'Désactiver' : 'Activer'}
+            {product.status === 'active' ? t('admin.action.deactivate') : t('admin.action.activate')}
           </button>
           <button
             className="admin-btn ghost"
             onClick={() => onAvailabilityChange(product, nextAvailability)}
           >
-            {product.availability === 'rupture' ? 'Remettre en stock' : 'Rupture'}
+            {product.availability === 'rupture' ? t('admin.action.restock') : t('admin.action.markOut')}
           </button>
           <button className="admin-btn ghost" onClick={() => onTogglePopular(product)}>
-            {product.popular ? 'Retirer Top' : 'Marquer Top'}
+            {product.popular ? t('admin.action.removeTop') : t('admin.action.markTop')}
           </button>
           <button className="admin-btn ghost" onClick={() => onPriceChange(product)}>
-            Prix
+            {t('admin.action.editPrice')}
           </button>
           <button className="admin-btn ghost" onClick={() => onStockChange(product)}>
-            Stock
+            {t('admin.action.editStock')}
           </button>
           <button className="admin-btn secondary" onClick={() => onEdit(product)}>
-            Modifier
+            {t('admin.action.edit')}
           </button>
         </div>
       </td>

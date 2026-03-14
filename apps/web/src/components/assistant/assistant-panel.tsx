@@ -1,7 +1,7 @@
 'use client';
 
 import type { AssistantMessage } from '@depaneuria/types';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { processMessage } from '../../lib/assistant-adapter';
 import {
@@ -14,20 +14,28 @@ import { AssistantMessageBubble } from './assistant-message';
 import { VoiceButton } from './voice-button';
 import { VoiceStatus } from './voice-status';
 import '../../styles/assistant.css';
-
-const WELCOME: AssistantMessage = {
-  id: 'welcome',
-  role: 'assistant',
-  text: '👋 Bonjour ! Dites-moi ce que vous voulez — par exemple "je veux du lait", "mets 2 coke" ou "je veux des chips ketchup".',
-  timestamp: 0,
-};
+import { useI18n } from '../../lib/i18n-context';
 
 export function AssistantPanel() {
-  const [messages, setMessages] = useState<AssistantMessage[]>([WELCOME]);
+  const { t } = useI18n();
+  const welcomeMessage: AssistantMessage = useMemo(
+    () => ({
+      id: 'welcome',
+      role: 'assistant',
+      text: t('assistant.welcome'),
+      timestamp: 0,
+    }),
+    [t]
+  );
+  const [messages, setMessages] = useState<AssistantMessage[]>([welcomeMessage]);
   const [isLoading, setIsLoading] = useState(false);
   const [voiceState, setVoiceState] = useState<VoiceState>({ status: 'ready' });
   const bottomRef = useRef<HTMLDivElement>(null);
   const voiceRef = useRef<VoiceAdapter | null>(null);
+
+  useEffect(() => {
+    setMessages((prev) => [welcomeMessage, ...prev.slice(1)]);
+  }, [welcomeMessage]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -83,7 +91,7 @@ export function AssistantPanel() {
 
   return (
     <section
-      aria-label="Assistant de commande"
+      aria-label={t('assistant.aria.panel')}
       style={{
         border: '1px solid #e0e0e0',
         borderRadius: '12px',
@@ -109,7 +117,7 @@ export function AssistantPanel() {
       >
         <span style={{ fontSize: '1.1rem' }}>🤖</span>
         <span style={{ fontWeight: 600, fontSize: '0.95rem' }}>
-          Assistant depaneurIA
+          {t('assistant.title')}
         </span>
       </div>
 
@@ -117,7 +125,7 @@ export function AssistantPanel() {
       <div
         role="log"
         aria-live="polite"
-        aria-label="Historique de la conversation"
+        aria-label={t('assistant.aria.log')}
         style={{
           flex: 1,
           overflowY: 'auto',
@@ -141,7 +149,7 @@ export function AssistantPanel() {
               paddingLeft: '0.25rem',
             }}
           >
-            En train de répondre…
+            {t('assistant.typing')}
           </div>
         )}
 

@@ -741,38 +741,38 @@ Version convertie depuis le fichier source fourni par l’utilisateur.
 
 ## Bloc 0681–0720
 
-- [ ] DEP-0681 Définir les langues supportées au lancement.
-- [ ] DEP-0682 Définir la langue par défaut de la plateforme.
+- [x] DEP-0681 Définir les langues supportées au lancement.
+- [x] DEP-0682 Définir la langue par défaut de la plateforme.
 - [ ] DEP-0683 Définir la langue par défaut pour le Québec si cible initiale.
-- [ ] DEP-0684 Définir la logique de changement de langue côté client.
-- [ ] DEP-0685 Définir la logique de changement de langue côté dépanneur.
-- [ ] DEP-0686 Définir la logique de changement de langue côté livreur.
+- [x] DEP-0684 Définir la logique de changement de langue côté client.
+- [x] DEP-0685 Définir la logique de changement de langue côté dépanneur.
+- [x] DEP-0686 Définir la logique de changement de langue côté livreur.
 - [ ] DEP-0687 Définir la logique de changement de langue côté téléphone vocal.
 - [ ] DEP-0688 Définir la logique de changement de langue par tenant client.
 - [ ] DEP-0689 Définir la logique de langue préférée par compte.
 - [ ] DEP-0690 Définir la logique de langue préférée par navigateur.
 - [ ] DEP-0691 Définir la logique de langue préférée par téléphone.
-- [ ] DEP-0692 Définir la convention de clés de traduction.
-- [ ] DEP-0693 Définir la convention des textes traduisibles.
+- [x] DEP-0692 Définir la convention de clés de traduction.
+- [x] DEP-0693 Définir la convention des textes traduisibles.
 - [ ] DEP-0694 Définir la convention des catégories traduisibles.
 - [ ] DEP-0695 Définir la convention des produits traduisibles.
 - [ ] DEP-0696 Définir la convention des synonymes par langue.
 - [ ] DEP-0697 Définir la convention des prompts de l’assistant par langue.
 - [ ] DEP-0698 Définir la convention des phrases téléphoniques par langue.
-- [ ] DEP-0699 Créer le fichier de traduction français.
-- [ ] DEP-0700 Créer le fichier de traduction anglais.
-- [ ] DEP-0701 Créer le mécanisme de sélection de langue dans le front.
+- [x] DEP-0699 Créer le fichier de traduction français.
+- [x] DEP-0700 Créer le fichier de traduction anglais.
+- [x] DEP-0701 Créer le mécanisme de sélection de langue dans le front.
 - [ ] DEP-0702 Créer le mécanisme de sélection de langue dans le back.
-- [ ] DEP-0703 Créer le mécanisme de sélection de langue pour l’assistant texte.
-- [ ] DEP-0704 Créer le mécanisme de sélection de langue pour l’assistant voix web.
+- [x] DEP-0703 Créer le mécanisme de sélection de langue pour l’assistant texte.
+- [x] DEP-0704 Créer le mécanisme de sélection de langue pour l’assistant voix web.
 - [ ] DEP-0705 Créer le mécanisme de sélection de langue pour le téléphone.
-- [ ] DEP-0706 Traduire les écrans client principaux.
-- [ ] DEP-0707 Traduire les écrans dépanneur principaux.
-- [ ] DEP-0708 Traduire les écrans livreur principaux.
-- [ ] DEP-0709 Traduire les messages système principaux.
-- [ ] DEP-0710 Traduire les messages d’erreur principaux.
-- [ ] DEP-0711 Traduire les confirmations de commande principales.
-- [ ] DEP-0712 Traduire les états de livraison principaux.
+- [x] DEP-0706 Traduire les écrans client principaux.
+- [x] DEP-0707 Traduire les écrans dépanneur principaux.
+- [x] DEP-0708 Traduire les écrans livreur principaux.
+- [x] DEP-0709 Traduire les messages système principaux.
+- [x] DEP-0710 Traduire les messages d’erreur principaux.
+- [x] DEP-0711 Traduire les confirmations de commande principales.
+- [x] DEP-0712 Traduire les états de livraison principaux.
 - [ ] DEP-0713 Traduire les catégories de démonstration.
 - [ ] DEP-0714 Traduire les produits de démonstration.
 - [ ] DEP-0715 Tester le basculement de langue sans perdre le panier.

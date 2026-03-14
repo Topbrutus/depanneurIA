@@ -6,6 +6,7 @@
 import React from 'react';
 import type { Product } from '@depaneuria/types';
 import { ProductCard } from './product-card';
+import { useI18n } from '@/lib/i18n-context';
 
 interface ProductGridProps {
   products: Product[];
@@ -13,10 +14,11 @@ interface ProductGridProps {
 }
 
 export function ProductGrid({ products, onProductClick }: ProductGridProps) {
+  const { t } = useI18n();
   if (products.length === 0) {
     return (
       <div className="cart-empty">
-        <p>Aucun produit disponible pour le moment.</p>
+        <p>{t('shop.product.none')}</p>
       </div>
     );
   }

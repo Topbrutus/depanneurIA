@@ -5,6 +5,7 @@
 
 import React from 'react';
 import type { CartItem } from '@depaneuria/types';
+import { useI18n } from '@/lib/i18n-context';
 
 interface OrderSummaryProps {
   items: CartItem[];
@@ -17,18 +18,17 @@ interface OrderSummaryProps {
 }
 
 export function OrderSummary({ items, deliveryAddress, customerPhone }: OrderSummaryProps) {
+  const { t } = useI18n();
   const subtotal = items.reduce((sum, item) => sum + item.unitPrice * item.quantity, 0);
   const deliveryFee = 4.0; // Frais de livraison fixes pour la V1
   const total = subtotal + deliveryFee;
 
   return (
     <div style={{ backgroundColor: 'white', padding: '24px', borderRadius: '8px' }}>
-      <h2 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '24px' }}>
-        Récapitulatif de ta commande
-      </h2>
+      <h2 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '24px' }}>{t('order.summary.title')}</h2>
 
       <section style={{ marginBottom: '24px' }}>
-        <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '16px' }}>Produits</h3>
+        <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '16px' }}>{t('order.summary.products')}</h3>
         {items.map((item) => (
           <div
             key={item.variantId}
@@ -61,12 +61,12 @@ export function OrderSummary({ items, deliveryAddress, customerPhone }: OrderSum
             borderTop: '1px solid #e5e7eb',
           }}
         >
-          <span>Total produits :</span>
+          <span>{t('order.summary.productsTotal')}</span>
           <span style={{ fontWeight: '600' }}>{subtotal.toFixed(2)} EUR</span>
         </div>
 
         <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '8px' }}>
-          <span>Livraison :</span>
+          <span>{t('order.summary.delivery')}</span>
           <span style={{ fontWeight: '600' }}>{deliveryFee.toFixed(2)} EUR</span>
         </div>
 
@@ -81,7 +81,7 @@ export function OrderSummary({ items, deliveryAddress, customerPhone }: OrderSum
             fontWeight: 'bold',
           }}
         >
-          <span>Total à payer :</span>
+          <span>{t('order.summary.total')}</span>
           <span style={{ color: '#2563eb' }}>{total.toFixed(2)} EUR</span>
         </div>
       </section>
@@ -89,7 +89,7 @@ export function OrderSummary({ items, deliveryAddress, customerPhone }: OrderSum
       {deliveryAddress && (
         <section style={{ marginBottom: '24px' }}>
           <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '16px' }}>
-            Adresse de livraison
+            {t('order.summary.deliveryAddress')}
           </h3>
           <div style={{ fontSize: '14px', color: '#374151' }}>
             <div>{deliveryAddress.street}</div>
@@ -103,7 +103,7 @@ export function OrderSummary({ items, deliveryAddress, customerPhone }: OrderSum
       {customerPhone && (
         <section>
           <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '16px' }}>
-            Téléphone de contact
+            {t('order.summary.contactPhone')}
           </h3>
           <div style={{ fontSize: '14px', color: '#374151' }}>{customerPhone}</div>
         </section>

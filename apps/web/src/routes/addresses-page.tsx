@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import type { Address, CustomerData, CustomerSession } from '@depaneuria/types'
 import { AddressForm, type AddressFormValues } from '../components/customer/address-form'
 import { FormError } from '../components/customer/form-error'
+import { useI18n } from '../lib/i18n-context'
 import { validateAddress, type AddressInput, type AddressValidationErrors } from '../lib/validation'
 
 type AddressesPageProps = {
@@ -24,6 +25,7 @@ const emptyAddress: AddressFormValues = {
 }
 
 const AddressesPage = ({ customer, onCustomerChange }: AddressesPageProps) => {
+  const { t } = useI18n()
   const [editingId, setEditingId] = useState<string | null>(null)
   const [values, setValues] = useState<AddressFormValues>(emptyAddress)
   const [errors, setErrors] = useState<AddressValidationErrors>({})
@@ -40,10 +42,10 @@ const AddressesPage = ({ customer, onCustomerChange }: AddressesPageProps) => {
     return (
       <div className="page">
         <div className="card">
-          <h2>Aucune adresse</h2>
-          <p className="muted">Commencez par créer un profil pour ajouter vos adresses.</p>
+          <h2>{t('addresses.empty.title')}</h2>
+          <p className="muted">{t('addresses.empty.description')}</p>
           <Link className="btn btn-primary" to="/signup">
-            Créer un profil
+            {t('addresses.empty.cta')}
           </Link>
         </div>
       </div>
@@ -57,7 +59,7 @@ const AddressesPage = ({ customer, onCustomerChange }: AddressesPageProps) => {
   }
 
   const handleSubmit = (formValues: AddressFormValues) => {
-    const validation = validateAddress(formValues as AddressInput)
+    const validation = validateAddress(formValues as AddressInput, t)
     setErrors(validation)
     setInfo('')
 
@@ -93,7 +95,7 @@ const AddressesPage = ({ customer, onCustomerChange }: AddressesPageProps) => {
     }
 
     onCustomerChange(updatedCustomer)
-    setInfo(editingId ? 'Adresse mise à jour.' : 'Adresse ajoutée.')
+    setInfo(editingId ? t('addresses.info.updated') : t('addresses.info.added'))
     resetForm()
   }
 
@@ -105,7 +107,7 @@ const AddressesPage = ({ customer, onCustomerChange }: AddressesPageProps) => {
       updatedAt: new Date().toISOString(),
     }
     onCustomerChange(updatedCustomer)
-    setInfo('Adresse par défaut mise à jour.')
+    setInfo(t('addresses.info.defaultSet'))
   }
 
   const handleEdit = (address: Address) => {
@@ -132,7 +134,7 @@ const AddressesPage = ({ customer, onCustomerChange }: AddressesPageProps) => {
       updatedAt: new Date().toISOString(),
     }
     onCustomerChange(updatedCustomer)
-    setInfo('Adresse supprimée.')
+    setInfo(t('addresses.info.deleted'))
     if (editingId === addressId) {
       resetForm()
     }
@@ -142,19 +144,19 @@ const AddressesPage = ({ customer, onCustomerChange }: AddressesPageProps) => {
     <div className="page">
       <div className="page-header">
         <div>
-          <p className="eyebrow">Adresses</p>
-          <h1>Gérez vos adresses de livraison</h1>
-          <p className="muted">Ajoutez-en plusieurs, choisissez une adresse par défaut et conservez vos consignes.</p>
+          <p className="eyebrow">{t('addresses.eyebrow')}</p>
+          <h1>{t('addresses.title')}</h1>
+          <p className="muted">{t('addresses.description')}</p>
         </div>
       </div>
 
       <div className="grid">
         <div className="card">
           <div className="card-header">
-            <h3>{editingId ? 'Modifier une adresse' : 'Ajouter une adresse'}</h3>
+            <h3>{editingId ? t('addresses.form.editTitle') : t('addresses.form.addTitle')}</h3>
             {editingId && (
               <button className="link" type="button" onClick={resetForm}>
-                Annuler l’édition
+                {t('addresses.cancelEdit')}
               </button>
             )}
           </div>
@@ -163,15 +165,15 @@ const AddressesPage = ({ customer, onCustomerChange }: AddressesPageProps) => {
             onChange={setValues}
             onSubmit={handleSubmit}
             errors={errors}
-            submitLabel={editingId ? 'Mettre à jour' : 'Ajouter'}
+            submitLabel={editingId ? t('addresses.submit.update') : t('addresses.submit.add')}
           />
           <FormError message={errors.base} />
           {info && <div className="inline-success">{info}</div>}
         </div>
 
         <div className="card">
-          <h3>Mes adresses</h3>
-          {customer.addresses.length === 0 && <p className="muted">Aucune adresse encore enregistrée.</p>}
+          <h3>{t('addresses.list.title')}</h3>
+          {customer.addresses.length === 0 && <p className="muted">{t('addresses.list.empty')}</p>}
           <ul className="address-list">
             {customer.addresses.map((address) => (
               <li key={address.id} className={customer.defaultAddressId === address.id ? 'address-card default' : 'address-card'}>
@@ -184,19 +186,19 @@ const AddressesPage = ({ customer, onCustomerChange }: AddressesPageProps) => {
                   <p className="muted">
                     {address.postalCode} {address.city} — {address.country ?? 'France'}
                   </p>
-                  {address.instructions && <p className="note">Notes : {address.instructions}</p>}
+                  {address.instructions && <p className="note">{t('addresses.notes', { notes: address.instructions })}</p>}
                 </div>
                 <div className="actions">
                   <button className="btn btn-secondary" type="button" onClick={() => handleEdit(address)}>
-                    Modifier
+                    {t('addresses.actions.edit')}
                   </button>
                   {customer.defaultAddressId !== address.id && (
                     <button className="btn btn-ghost" type="button" onClick={() => handleSetDefault(address.id)}>
-                      Définir par défaut
+                      {t('addresses.actions.setDefault')}
                     </button>
                   )}
                   <button className="btn btn-ghost" type="button" onClick={() => handleDelete(address.id)}>
-                    Supprimer
+                    {t('addresses.actions.delete')}
                   </button>
                 </div>
               </li>
@@ -205,7 +207,7 @@ const AddressesPage = ({ customer, onCustomerChange }: AddressesPageProps) => {
 
           {defaultAddress && (
             <div className="pill-stack">
-              <span className="pill primary">Par défaut</span>
+              <span className="pill primary">{t('addresses.default.pill')}</span>
               <p className="muted">
                 {defaultAddress.label} — {defaultAddress.line1}, {defaultAddress.postalCode} {defaultAddress.city}
               </p>

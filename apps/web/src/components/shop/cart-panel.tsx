@@ -8,6 +8,7 @@ import { ShoppingCart, Trash2, ArrowRight, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useCartStore } from '@/lib/cart-store';
 import { CartLine } from './cart-line';
+import { useI18n } from '@/lib/i18n-context';
 
 interface CartPanelProps {
   isMobile?: boolean;
@@ -15,6 +16,7 @@ interface CartPanelProps {
 
 export function CartPanel({ isMobile = false }: CartPanelProps) {
   const navigate = useNavigate();
+  const { t } = useI18n();
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   const items = useCartStore((state) => state.items);
@@ -26,7 +28,7 @@ export function CartPanel({ isMobile = false }: CartPanelProps) {
   const total = getTotal();
 
   const handleClearCart = () => {
-    if (window.confirm('Vider le panier ? Tous les produits seront retirés.')) {
+    if (window.confirm(t('cart.clear.confirm'))) {
       clearCart();
     }
   };
@@ -43,7 +45,7 @@ export function CartPanel({ isMobile = false }: CartPanelProps) {
         <button
           className="cart-mobile-button"
           onClick={() => setIsMobileOpen(true)}
-          aria-label={`Ouvrir le panier (${itemCount} articles)`}
+          aria-label={t('shop.cart.mobileOpen', { count: itemCount })}
         >
           <ShoppingCart size={24} />
           {itemCount > 0 && (
@@ -72,7 +74,7 @@ export function CartPanel({ isMobile = false }: CartPanelProps) {
               right: '16px',
               padding: '8px',
             }}
-            aria-label="Fermer le panier"
+            aria-label={t('shop.cart.close')}
           >
             <X size={24} />
           </button>
@@ -91,7 +93,7 @@ export function CartPanel({ isMobile = false }: CartPanelProps) {
 
   // Panneau desktop (colonne latérale)
   return (
-    <div className="cart-panel" role="complementary" aria-label="Panier">
+    <div className="cart-panel" role="complementary" aria-label={t('cart.title')}>
       <CartPanelContent
         items={items}
         itemCount={itemCount}
@@ -118,18 +120,18 @@ function CartPanelContent({
   onClearCart,
   onConfirmCart,
 }: CartPanelContentProps) {
+  const { t } = useI18n();
+  const countLabel = itemCount > 1 ? t('cart.count.plural', { count: itemCount }) : t('cart.count.single', { count: itemCount });
   return (
     <>
       <div className="cart-header">
-        <h2 className="cart-title">Mon panier</h2>
-        <div className="cart-count">
-          {itemCount} {itemCount > 1 ? 'articles' : 'article'}
-        </div>
+        <h2 className="cart-title">{t('cart.title')}</h2>
+        <div className="cart-count">{countLabel}</div>
       </div>
 
       {items.length === 0 ? (
         <div className="cart-empty">
-          <p>Ton panier est vide.</p>
+          <p>{t('cart.empty')}</p>
         </div>
       ) : (
         <>
@@ -141,26 +143,26 @@ function CartPanelContent({
 
           <div className="cart-footer">
             <div className="cart-total">
-              <span className="cart-total-label">Total :</span>
+              <span className="cart-total-label">{t('cart.total.label')}</span>
               <span className="cart-total-value">{total.toFixed(2)} EUR</span>
             </div>
 
             <button
               className="cart-clear-button"
               onClick={onClearCart}
-              aria-label="Vider le panier"
+              aria-label={t('cart.clear')}
             >
               <Trash2 size={16} style={{ display: 'inline', marginRight: '4px' }} />
-              Vider le panier
+              {t('cart.clear')}
             </button>
 
             <button
               className="cart-confirm-button"
               onClick={onConfirmCart}
               disabled={items.length === 0}
-              aria-label="Confirmer le panier et passer commande"
+              aria-label={t('cart.confirm.aria')}
             >
-              Confirmer le panier
+              {t('cart.confirm')}
               <ArrowRight size={16} style={{ display: 'inline', marginLeft: '4px' }} />
             </button>
           </div>

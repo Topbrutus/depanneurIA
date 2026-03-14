@@ -15,12 +15,14 @@ import { ProductList } from '../components/admin/product-list';
 import { ProductForm } from '../components/admin/product-form';
 import { TenantSelector } from '../components/admin/tenant-selector';
 import { useTenant } from '../lib/use-tenant';
+import { useI18n } from '../lib/i18n-context';
 import '../styles/admin-catalog.css';
 
 type AvailabilityFilter = ProductAvailability | 'all';
 type StatusFilter = ProductStatus | 'all';
 
 export default function AdminCatalogPage() {
+  const { t } = useI18n();
   const [categories, setCategories] = useState<Category[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
@@ -63,11 +65,11 @@ export default function AdminCatalogPage() {
       setCategories(cats);
       setProducts(prods);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Impossible de charger le catalogue.');
+      setError(err instanceof Error ? err.message : t('admin.error.loadCatalog'));
     } finally {
       setLoading(false);
     }
-  }, [filtersForApi, currentTenantId]);
+  }, [filtersForApi, currentTenantId, t]);
 
   useEffect(() => {
     void loadData();
@@ -78,9 +80,9 @@ export default function AdminCatalogPage() {
       const updated = await fetchProducts(filtersForApi, currentTenantId);
       setProducts(updated);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Erreur lors du rafraîchissement.');
+      setError(err instanceof Error ? err.message : t('admin.error.refresh'));
     }
-  }, [filtersForApi, currentTenantId]);
+  }, [filtersForApi, currentTenantId, t]);
 
   const handleSubmit = async (payload: Parameters<typeof createProduct>[0], productId?: string) => {
     setSubmitting(true);
@@ -94,7 +96,7 @@ export default function AdminCatalogPage() {
       setEditingProduct(null);
       await refreshProducts();
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Erreur lors de la sauvegarde.');
+      setError(err instanceof Error ? err.message : t('admin.error.save'));
     } finally {
       setSubmitting(false);
     }
@@ -106,7 +108,7 @@ export default function AdminCatalogPage() {
       await updateProduct(product.id, { status: nextStatus }, currentTenantId);
       await refreshProducts();
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Impossible de changer le statut.');
+      setError(err instanceof Error ? err.message : t('admin.error.status'));
     }
   };
 
@@ -118,7 +120,7 @@ export default function AdminCatalogPage() {
       await updateProductAvailability(product.id, availability, currentTenantId);
       await refreshProducts();
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Impossible de changer la disponibilité.');
+      setError(err instanceof Error ? err.message : t('admin.error.availability'));
     }
   };
 
@@ -127,42 +129,42 @@ export default function AdminCatalogPage() {
       await updateProductPopularity(product.id, !product.popular, currentTenantId);
       await refreshProducts();
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Impossible de mettre à jour la popularité.');
+      setError(err instanceof Error ? err.message : t('admin.error.popularity'));
     }
   };
 
   const handlePriceChange = async (product: Product) => {
-    const input = window.prompt('Nouveau prix', product.price.toFixed(2));
+    const input = window.prompt(t('admin.error.pricePrompt'), product.price.toFixed(2));
     if (input === null) return;
     const nextPrice = Number(input);
     if (!Number.isFinite(nextPrice) || nextPrice < 0) {
-      setError('Prix invalide');
+      setError(t('admin.error.priceInvalid'));
       return;
     }
     try {
       await updateProduct(product.id, { price: nextPrice }, currentTenantId);
       await refreshProducts();
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Impossible de mettre à jour le prix.');
+      setError(err instanceof Error ? err.message : t('admin.error.priceUpdate'));
     }
   };
 
   const handleStockChange = async (product: Product) => {
-    const stockInput = window.prompt('Stock actuel', String(product.stock));
+    const stockInput = window.prompt(t('admin.error.stockPrompt'), String(product.stock));
     if (stockInput === null) return;
     const minStockInput = window.prompt(
-      'Stock minimal',
+      t('admin.error.stockMinPrompt'),
       product.minStock ? String(product.minStock) : '0'
     );
     const nextStock = Number(stockInput);
     const nextMinStock =
       minStockInput !== null && minStockInput !== '' ? Number(minStockInput) : undefined;
     if (!Number.isInteger(nextStock) || nextStock < 0) {
-      setError('Stock invalide');
+      setError(t('admin.error.stockInvalid'));
       return;
     }
     if (nextMinStock !== undefined && (!Number.isInteger(nextMinStock) || nextMinStock < 0)) {
-      setError('Stock minimal invalide');
+      setError(t('admin.error.stockMinInvalid'));
       return;
     }
 
@@ -170,7 +172,7 @@ export default function AdminCatalogPage() {
       await updateProductStock(product.id, nextStock, nextMinStock, currentTenantId);
       await refreshProducts();
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Impossible de mettre à jour le stock.');
+      setError(err instanceof Error ? err.message : t('admin.error.stockUpdate'));
     }
   };
 
@@ -178,16 +180,13 @@ export default function AdminCatalogPage() {
     <div className="admin-catalog-page">
       <div className="admin-header">
         <div>
-          <p className="eyebrow">DEP-0601 à DEP-0640</p>
-          <h1>Admin catalogue</h1>
-          <p className="muted">
-            Gérez les catégories, produits, disponibilité, prix, popularité et stock minimal sans
-            casser le catalogue client.
-          </p>
+          <p className="eyebrow">{t('admin.header.eyebrow')}</p>
+          <h1>{t('admin.header.title')}</h1>
+          <p className="muted">{t('admin.header.subtitle')}</p>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <TenantSelector />
-          <div className="status-pill active">{products.length} produits</div>
+          <div className="status-pill active">{t('admin.header.count', { count: products.length })}</div>
         </div>
       </div>
 

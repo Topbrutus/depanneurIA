@@ -8,9 +8,11 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Send } from 'lucide-react';
 import { useCartStore } from '@/lib/cart-store';
 import { OrderSummary } from '@/components/shop/order-summary';
+import { useI18n } from '@/lib/i18n-context';
 
 export function CartPage() {
   const navigate = useNavigate();
+  const { t } = useI18n();
   const items = useCartStore((state) => state.items);
   const clearCart = useCartStore((state) => state.clearCart);
 
@@ -57,7 +59,7 @@ export function CartPage() {
             }}
           >
             <ArrowLeft size={20} />
-            Retour à la boutique
+            {t('cartPage.backToShop')}
           </button>
 
           <div
@@ -68,12 +70,8 @@ export function CartPage() {
               textAlign: 'center',
             }}
           >
-            <h1 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '16px' }}>
-              Ton panier est vide
-            </h1>
-            <p style={{ color: '#6b7280', marginBottom: '24px' }}>
-              Ajoute des produits pour continuer.
-            </p>
+            <h1 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '16px' }}>{t('cartPage.empty.title')}</h1>
+            <p style={{ color: '#6b7280', marginBottom: '24px' }}>{t('cartPage.empty.subtitle')}</p>
             <button
               onClick={() => navigate('/')}
               style={{
@@ -86,7 +84,7 @@ export function CartPage() {
                 cursor: 'pointer',
               }}
             >
-              Retour à la boutique
+              {t('cartPage.returnToShop')}
             </button>
           </div>
         </div>
@@ -112,7 +110,7 @@ export function CartPage() {
           }}
         >
           <ArrowLeft size={20} />
-          Retour à la boutique
+          {t('cartPage.backToShop')}
         </button>
 
         <OrderSummary
@@ -141,7 +139,7 @@ export function CartPage() {
               cursor: 'pointer',
             }}
           >
-            Retour au panier
+            {t('cartPage.returnToCart')}
           </button>
 
           <button
@@ -161,7 +159,7 @@ export function CartPage() {
               gap: '8px',
             }}
           >
-            Confirmer et envoyer la commande
+            {t('cartPage.confirmSend')}
             <Send size={20} />
           </button>
         </div>

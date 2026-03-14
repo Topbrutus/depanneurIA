@@ -10,8 +10,10 @@ import { ProductGrid } from '@/components/shop/product-grid';
 import { CartPanel } from '@/components/shop/cart-panel';
 import { LastOrderCard } from '@/components/shop/last-order-card';
 import { TopProductsCard } from '@/components/shop/top-products-card';
+import { useI18n } from '@/lib/i18n-context';
 
 export function ShopPage() {
+  const { t } = useI18n();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [showInStock, setShowInStock] = useState(true);
@@ -74,9 +76,9 @@ export function ShopPage() {
       </header>
 
       {/* Navigation catégories (desktop uniquement) */}
-      <aside className="shop-categories" aria-label="Catégories">
+      <aside className="shop-categories" aria-label={t('shop.categories.title')}>
         <h2 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '16px' }}>
-          Catégories
+          {t('shop.categories.title')}
         </h2>
 
         <div
@@ -85,7 +87,7 @@ export function ShopPage() {
           role="button"
           tabIndex={0}
         >
-          Tout
+          {t('shop.categories.all')}
         </div>
 
         {categories.map((category) => (
@@ -109,10 +111,10 @@ export function ShopPage() {
           <input
             type="search"
             className="shop-search-input"
-            placeholder="Rechercher un produit…"
+            placeholder={t('shop.search.placeholder')}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            aria-label="Rechercher un produit"
+            aria-label={t('shop.search.placeholder')}
           />
         </div>
 
@@ -122,14 +124,14 @@ export function ShopPage() {
             className={`shop-filter-button ${showInStock ? 'active' : ''}`}
             onClick={() => setShowInStock(!showInStock)}
           >
-            En stock uniquement
+            {t('shop.filters.inStock')}
           </button>
 
           <button
             className={`shop-filter-button ${showPopular ? 'active' : ''}`}
             onClick={() => setShowPopular(!showPopular)}
           >
-            Populaires
+            {t('shop.filters.popular')}
           </button>
         </div>
 

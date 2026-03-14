@@ -4,6 +4,12 @@
     "module": "ESNext",
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "moduleResolution": "bundler",
+    "baseUrl": ".",
+    "paths": {
+      "@depaneuria/types": ["packages/types/src"],
+      "@depaneuria/types/*": ["packages/types/src/*"],
+      "@/*": ["apps/web/src/*"]
+    },
     "resolveJsonModule": true,
     "allowJs": true,
     "checkJs": false,
