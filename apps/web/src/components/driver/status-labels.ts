@@ -1,15 +1,17 @@
-import type { OrderStatus } from '@depaneuria/types';
+import type { OrderStatus, Translations } from '@depaneuria/types';
 
-export const STATUS_LABELS: Record<OrderStatus, string> = {
-  draft: 'Brouillon',
-  submitted: 'Soumise',
-  accepted: 'Acceptée',
-  rejected: 'Rejetée',
-  preparing: 'En préparation',
-  ready_for_delivery: 'Prête',
-  assigned_to_driver: 'Assignée au livreur',
-  out_for_delivery: 'En livraison',
-  delivered: 'Livrée',
-  delivery_failed: 'Échec livraison',
-  cancelled: 'Annulée',
-};
+export function getStatusLabels(t: Translations): Record<OrderStatus, string> {
+  return {
+    draft: t.order.statusDraft,
+    submitted: t.order.statusSubmitted,
+    accepted: t.order.statusAccepted,
+    rejected: t.order.statusRejected,
+    preparing: t.order.statusPreparing,
+    ready_for_delivery: t.order.statusReady,
+    assigned_to_driver: t.order.statusAssigned,
+    out_for_delivery: t.order.statusOutForDelivery,
+    delivered: t.order.statusDelivered,
+    delivery_failed: t.order.statusFailed,
+    cancelled: t.order.statusCancelled,
+  };
+}

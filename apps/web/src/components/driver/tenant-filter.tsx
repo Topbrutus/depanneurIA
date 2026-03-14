@@ -1,13 +1,15 @@
 import { useTenant } from '../../lib/use-tenant';
+import { useI18n } from '../../lib/i18n-context';
 
 export function TenantFilter() {
+  const { translations: t } = useI18n();
   const { tenants, currentTenantId, setCurrentTenantId, loading } = useTenant();
 
   if (loading || tenants.length <= 1) return null;
 
   return (
     <div className="tenant-filter">
-      <label htmlFor="tenant-filter-driver">Dépanneur :</label>
+      <label htmlFor="tenant-filter-driver">{t.driver.tenantLabel}</label>
       <select
         id="tenant-filter-driver"
         value={currentTenantId}

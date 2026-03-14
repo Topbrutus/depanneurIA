@@ -1,8 +1,9 @@
 import type { OrderStatus } from '@depaneuria/types';
 import type { OrderWithDetails } from '../../lib/driver-api';
 import { DeliveryStatusBadge } from './delivery-status-badge';
-import { STATUS_LABELS } from './status-labels';
+import { getStatusLabels } from './status-labels';
 import { DeliveryActions } from './delivery-actions';
+import { useI18n } from '../../lib/i18n-context';
 
 interface DeliveryCardProps {
   order: OrderWithDetails;
@@ -42,6 +43,9 @@ function buildStatusTimeline(order: OrderWithDetails) {
 }
 
 export function DeliveryCard({ order, onStatusChange }: DeliveryCardProps) {
+  const { translations: t } = useI18n();
+  const STATUS_LABELS = getStatusLabels(t);
+
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return new Intl.DateTimeFormat('fr-FR', {
@@ -70,7 +74,7 @@ export function DeliveryCard({ order, onStatusChange }: DeliveryCardProps) {
   return (
     <div className="delivery-card">
       <div className="delivery-card-header">
-        <div className="delivery-card-id">Commande #{order.id.slice(0, 8)}</div>
+        <div className="delivery-card-id">{t.driver.orderId}{order.id.slice(0, 8)}</div>
         <div className="delivery-card-time">{formatDate(order.createdAt)}</div>
       </div>
 
@@ -78,11 +82,11 @@ export function DeliveryCard({ order, onStatusChange }: DeliveryCardProps) {
         <h3>
           {order.customer?.firstName} {order.customer?.lastName}
         </h3>
-        {order.customer?.phone && <p>Tél: {order.customer.phone}</p>}
+        {order.customer?.phone && <p>{t.driver.phone}: {order.customer.phone}</p>}
       </div>
 
       <div className="delivery-card-address">
-        <h4>Adresse de livraison:</h4>
+        <h4>{t.driver.deliveryAddress}:</h4>
         {order.address && (
           <>
             <p>{order.address.street}</p>
@@ -91,7 +95,7 @@ export function DeliveryCard({ order, onStatusChange }: DeliveryCardProps) {
             </p>
             {order.address.deliveryInstructions && (
               <p className="delivery-instructions">
-                Consignes: {order.address.deliveryInstructions}
+                {t.driver.deliveryInstructions}: {order.address.deliveryInstructions}
               </p>
             )}
           </>
@@ -99,7 +103,7 @@ export function DeliveryCard({ order, onStatusChange }: DeliveryCardProps) {
       </div>
 
       <div className="delivery-card-items">
-        <h4>Articles ({order.items.length}):</h4>
+        <h4>{t.driver.items} ({order.items.length}):</h4>
         <ul>
           {order.items.map((item) => (
             <li key={item.id}>
@@ -112,26 +116,26 @@ export function DeliveryCard({ order, onStatusChange }: DeliveryCardProps) {
       </div>
 
       <div className="delivery-card-total">
-        <strong>Total: {formatCurrency(order.totalAmount)}</strong>
+        <strong>{t.driver.total}: {formatCurrency(order.totalAmount)}</strong>
       </div>
 
       {order.notes && (
         <div className="delivery-card-notes">
-          <h4>Notes:</h4>
+          <h4>{t.driver.notes}:</h4>
           <p>{order.notes}</p>
         </div>
       )}
 
       <div className="delivery-card-history">
         <div className="history-header">
-          <h4>Suivi livraison</h4>
+          <h4>{t.driver.deliveryTracking}</h4>
           <span className="history-last-update">
-            Dernière mise à jour : {formatDate(lastUpdate)}
+            {t.driver.lastUpdate} : {formatDate(lastUpdate)}
           </span>
         </div>
         <div className="history-steps">
           {historyEntries.length === 0 ? (
-            <span className="history-empty">Historique indisponible.</span>
+            <span className="history-empty">{t.driver.historyNotAvailable}</span>
           ) : (
             historyEntries.map((entry) => (
               <div

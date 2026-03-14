@@ -1,6 +1,7 @@
 import type { OrderStatus } from '@depaneuria/types';
 import type { OrderWithDetails } from '../../lib/driver-api';
 import { DeliveryCard } from './delivery-card';
+import { useI18n } from '../../lib/i18n-context';
 
 interface DeliveryQueueProps {
   orders: OrderWithDetails[];
@@ -15,11 +16,13 @@ export function DeliveryQueue({
   error,
   onStatusChange,
 }: DeliveryQueueProps) {
+  const { translations: t } = useI18n();
+
   if (isLoading) {
     return (
       <div className="delivery-queue-loading">
         <div className="spinner"></div>
-        <p>Chargement des livraisons...</p>
+        <p>{t.driver.loadingDeliveries}</p>
       </div>
     );
   }
@@ -31,7 +34,7 @@ export function DeliveryQueue({
   if (orders.length === 0) {
     return (
       <div className="delivery-queue-empty">
-        <p>Aucune livraison disponible pour le moment.</p>
+        <p>{t.driver.noDeliveriesMessage}</p>
       </div>
     );
   }

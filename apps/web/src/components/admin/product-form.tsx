@@ -6,6 +6,7 @@ import type {
   ProductAvailability,
   ProductStatus,
 } from '@depaneuria/types';
+import { useI18n } from '../../lib/i18n-context';
 
 interface ProductFormProps {
   categories: Category[];
@@ -25,6 +26,7 @@ export function ProductForm({
   onCancel,
   isSubmitting = false,
 }: ProductFormProps) {
+  const { translations: t } = useI18n();
   const [name, setName] = useState('');
   const [categoryId, setCategoryId] = useState('');
   const [price, setPrice] = useState<string>('0');
@@ -89,16 +91,16 @@ export function ProductForm({
 
   return (
     <form className="admin-panel" onSubmit={handleSubmit}>
-      <h3>{initialProduct ? 'Modifier le produit' : 'Nouveau produit'}</h3>
+      <h3>{initialProduct ? t.admin.editProductTitle : t.admin.newProduct}</h3>
       <p className="muted">
-        Remplissez les champs essentiels : nom, catégorie, prix, disponibilité et stock minimal.
+        {t.admin.formDescription}
       </p>
 
       <div className="divider" />
 
       <div className="form-grid">
         <div className="form-field full">
-          <label htmlFor="name">Nom</label>
+          <label htmlFor="name">{t.admin.nameLabel}</label>
           <input
             id="name"
             type="text"
@@ -109,7 +111,7 @@ export function ProductForm({
         </div>
 
         <div className="form-field">
-          <label htmlFor="category">Catégorie</label>
+          <label htmlFor="category">{t.admin.categoryLabel}</label>
           <select
             id="category"
             value={categoryId}
@@ -125,7 +127,7 @@ export function ProductForm({
         </div>
 
         <div className="form-field">
-          <label htmlFor="price">Prix</label>
+          <label htmlFor="price">{t.admin.priceLabel}</label>
           <input
             id="price"
             type="number"
@@ -138,7 +140,7 @@ export function ProductForm({
         </div>
 
         <div className="form-field">
-          <label htmlFor="unit">Unité</label>
+          <label htmlFor="unit">{t.admin.unitLabel}</label>
           <input
             id="unit"
             type="text"
@@ -149,7 +151,7 @@ export function ProductForm({
         </div>
 
         <div className="form-field">
-          <label htmlFor="status">Statut</label>
+          <label htmlFor="status">{t.admin.statusLabel}</label>
           <select
             id="status"
             value={status}
@@ -157,14 +159,14 @@ export function ProductForm({
           >
             {statusOptions.map((option) => (
               <option key={option} value={option}>
-                {option === 'active' ? 'Actif' : 'Brouillon'}
+                {option === 'active' ? t.admin.active : t.admin.draft}
               </option>
             ))}
           </select>
         </div>
 
         <div className="form-field">
-          <label htmlFor="availability">Disponibilité</label>
+          <label htmlFor="availability">{t.admin.availabilityLabel}</label>
           <select
             id="availability"
             value={availability}
@@ -173,17 +175,17 @@ export function ProductForm({
             {availabilityOptions.map((option) => (
               <option key={option} value={option}>
                 {option === 'en_stock'
-                  ? 'En stock'
+                  ? t.admin.inStock
                   : option === 'rupture'
-                  ? 'Rupture'
-                  : 'Sur commande'}
+                  ? t.admin.outOfStock
+                  : t.admin.onOrder}
               </option>
             ))}
           </select>
         </div>
 
         <div className="form-field">
-          <label htmlFor="stock">Stock</label>
+          <label htmlFor="stock">{t.admin.stockLabel}</label>
           <input
             id="stock"
             type="number"
@@ -195,7 +197,7 @@ export function ProductForm({
         </div>
 
         <div className="form-field">
-          <label htmlFor="minStock">Stock minimal</label>
+          <label htmlFor="minStock">{t.admin.minStockLabel}</label>
           <input
             id="minStock"
             type="number"
@@ -207,7 +209,7 @@ export function ProductForm({
         </div>
 
         <div className="form-field">
-          <label htmlFor="displayOrder">Ordre d&apos;affichage</label>
+          <label htmlFor="displayOrder">{t.admin.displayOrder}</label>
           <input
             id="displayOrder"
             type="number"
@@ -219,35 +221,35 @@ export function ProductForm({
         </div>
 
         <div className="form-field">
-          <label htmlFor="popular">Populaire</label>
+          <label htmlFor="popular">{t.admin.popularLabel}</label>
           <select
             id="popular"
             value={popular ? 'true' : 'false'}
             onChange={(e) => setPopular(e.target.value === 'true')}
           >
-            <option value="false">Non</option>
-            <option value="true">Oui</option>
+            <option value="false">{t.admin.no}</option>
+            <option value="true">{t.admin.yes}</option>
           </select>
         </div>
 
         <div className="form-field full">
-          <label htmlFor="description">Description</label>
+          <label htmlFor="description">{t.admin.descriptionLabel}</label>
           <textarea
             id="description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            placeholder="Courte description pour l'équipe et l'assistant."
+            placeholder={t.admin.descriptionPlaceholder}
           />
         </div>
 
         <div className="form-field full">
-          <label htmlFor="imageUrl">Image (URL)</label>
+          <label htmlFor="imageUrl">{t.admin.imageLabel}</label>
           <input
             id="imageUrl"
             type="text"
             value={imageUrl}
             onChange={(e) => setImageUrl(e.target.value)}
-            placeholder="https://..."
+            placeholder={t.admin.imagePlaceholder}
           />
         </div>
       </div>
@@ -255,11 +257,11 @@ export function ProductForm({
       <div className="form-actions">
         {initialProduct && (
           <button type="button" className="admin-btn ghost" onClick={onCancel} disabled={isSubmitting}>
-            Annuler
+            {t.admin.cancelButton}
           </button>
         )}
         <button type="submit" className="admin-btn" disabled={isSubmitting}>
-          {initialProduct ? 'Enregistrer' : 'Créer'}
+          {initialProduct ? t.admin.saveButton : t.admin.createButton}
         </button>
       </div>
     </form>

@@ -5,6 +5,7 @@ import { fetchDeliveryOrders, updateOrderStatus } from '../lib/driver-api';
 import { DeliveryQueue } from '../components/driver/delivery-queue';
 import { TenantFilter } from '../components/driver/tenant-filter';
 import { useTenant } from '../lib/use-tenant';
+import { useI18n } from '../lib/i18n-context';
 import '../styles/driver.css';
 
 type StatusFilter =
@@ -15,15 +16,6 @@ type StatusFilter =
   | 'delivered'
   | 'delivery_failed';
 
-const STATUS_FILTERS: Array<{ value: StatusFilter; label: string }> = [
-  { value: 'open', label: 'En cours' },
-  { value: 'ready_for_delivery', label: 'Prêtes' },
-  { value: 'assigned_to_driver', label: 'Assignées' },
-  { value: 'out_for_delivery', label: 'En route' },
-  { value: 'delivered', label: 'Livrées' },
-  { value: 'delivery_failed', label: 'Échecs' },
-];
-
 const OPEN_STATUSES: OrderStatus[] = [
   'ready_for_delivery',
   'assigned_to_driver',
@@ -31,11 +23,21 @@ const OPEN_STATUSES: OrderStatus[] = [
 ];
 
 export function DriverPage() {
+  const { translations: t } = useI18n();
   const [orders, setOrders] = useState<OrderWithDetails[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [statusFilter, setStatusFilter] = useState<StatusFilter>('open');
   const { currentTenantId } = useTenant();
+
+  const STATUS_FILTERS: Array<{ value: StatusFilter; label: string }> = [
+    { value: 'open', label: t.driver.filterOpen },
+    { value: 'ready_for_delivery', label: t.driver.filterReady },
+    { value: 'assigned_to_driver', label: t.driver.filterAssigned },
+    { value: 'out_for_delivery', label: t.driver.filterOutForDelivery },
+    { value: 'delivered', label: t.driver.filterDelivered },
+    { value: 'delivery_failed', label: t.driver.filterFailed },
+  ];
 
   const loadOrders = useCallback(async (filter: StatusFilter) => {
     setIsLoading(true);
@@ -58,12 +60,12 @@ export function DriverPage() {
       setOrders(sortedByRecent);
     } catch (err) {
       setError(
-        err instanceof Error ? err.message : 'Erreur lors du chargement'
+        err instanceof Error ? err.message : t.driver.loadError
       );
     } finally {
       setIsLoading(false);
     }
-  }, [currentTenantId]);
+  }, [currentTenantId, t.driver.loadError]);
 
   useEffect(() => {
     loadOrders(statusFilter);
@@ -82,7 +84,7 @@ export function DriverPage() {
       setError(
         err instanceof Error
           ? err.message
-          : 'Erreur lors de la mise à jour du statut'
+          : t.driver.updateError
       );
     }
   };
@@ -90,7 +92,7 @@ export function DriverPage() {
   return (
     <div className="driver-page">
       <header className="driver-header">
-        <h1>Interface Livreur</h1>
+        <h1>{t.driver.pageTitle}</h1>
         <TenantFilter />
       </header>
 

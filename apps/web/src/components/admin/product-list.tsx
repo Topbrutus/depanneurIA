@@ -1,5 +1,6 @@
 import type { Product, ProductAvailability } from '@depaneuria/types';
 import { ProductRow } from './product-row';
+import { useI18n } from '../../lib/i18n-context';
 
 interface ProductListProps {
   products: Product[];
@@ -22,19 +23,21 @@ export function ProductList({
   onPriceChange,
   onStockChange,
 }: ProductListProps) {
+  const { translations: t } = useI18n();
+
   if (products.length === 0) {
-    return <p className="muted">Aucun produit ne correspond aux filtres.</p>;
+    return <p className="muted">{t.admin.noProductsMatch}</p>;
   }
 
   return (
     <table className="product-table">
       <thead>
         <tr>
-          <th>Produit</th>
-          <th>Prix</th>
-          <th>Statut</th>
-          <th>Stock</th>
-          <th>Actions</th>
+          <th>{t.admin.productTable}</th>
+          <th>{t.admin.priceTable}</th>
+          <th>{t.admin.statusTable}</th>
+          <th>{t.admin.stockTable}</th>
+          <th>{t.admin.actionsTable}</th>
         </tr>
       </thead>
       <tbody>

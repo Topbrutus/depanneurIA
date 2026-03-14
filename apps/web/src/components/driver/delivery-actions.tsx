@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { OrderStatus } from '@depaneuria/types';
+import { useI18n } from '../../lib/i18n-context';
 
 interface DeliveryActionsProps {
   orderId: string;
@@ -12,6 +13,7 @@ export function DeliveryActions({
   currentStatus,
   onStatusChange,
 }: DeliveryActionsProps) {
+  const { translations: t } = useI18n();
   const [isUpdating, setIsUpdating] = useState(false);
 
   const handleAction = async (newStatus: OrderStatus) => {
@@ -36,7 +38,7 @@ export function DeliveryActions({
           onClick={() => handleAction('assigned_to_driver')}
           disabled={isUpdating}
         >
-          Prendre en charge
+          {t.driver.takeCharge}
         </button>
       </div>
     );
@@ -50,7 +52,7 @@ export function DeliveryActions({
           onClick={() => handleAction('out_for_delivery')}
           disabled={isUpdating}
         >
-          Démarrer la livraison
+          {t.driver.startDeliveryButton}
         </button>
       </div>
     );
@@ -64,14 +66,14 @@ export function DeliveryActions({
           onClick={() => handleAction('delivered')}
           disabled={isUpdating}
         >
-          Marquer livrée
+          {t.driver.markDelivered}
         </button>
         <button
           className="delivery-action-btn problem"
           onClick={() => handleAction('delivery_failed')}
           disabled={isUpdating}
         >
-          Signaler un problème
+          {t.driver.reportProblem}
         </button>
       </div>
     );
