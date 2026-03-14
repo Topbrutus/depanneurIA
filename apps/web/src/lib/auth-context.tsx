@@ -39,7 +39,7 @@ export const useAuth = create<AuthStore>((set, get) => ({
         throw new Error(data.error?.message || 'Login failed');
       }
 
-      const sessionId = response.headers.get('X-Session-Id');
+      const sessionId = data.sessionId || response.headers.get('X-Session-Id');
       if (!sessionId || !data.session) {
         throw new Error('Invalid session response');
       }

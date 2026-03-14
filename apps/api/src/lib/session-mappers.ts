@@ -6,10 +6,12 @@ import type { UserSession, LoginResponse, SessionResponse, LogoutResponse } from
 export function mapLoginResponse(
   success: boolean,
   session?: UserSession,
+  sessionId?: string,
   error?: { message: string; code: string }
 ): LoginResponse {
   return {
     success,
+    sessionId,
     session,
     error,
   };

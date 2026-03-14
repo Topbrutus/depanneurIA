@@ -26,6 +26,7 @@ export interface MockLoginRequest {
  */
 export interface LoginResponse {
   success: boolean;
+  sessionId?: string;
   session?: UserSession;
   error?: {
     message: string;
