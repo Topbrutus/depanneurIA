@@ -13,9 +13,11 @@ export const getTranslations = (locale: Locale): Translations => {
 }
 
 // Helper to get a nested translation key
-export const getNestedValue = (obj: any, path: string): string => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const getNestedValue = (obj: Record<string, any>, path: string): string => {
   const keys = path.split('.')
-  let result = obj
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let result: any = obj
   for (const key of keys) {
     result = result?.[key]
     if (result === undefined) break
