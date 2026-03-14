@@ -4,24 +4,26 @@ import { fetchOrders, updateOrderStatus, type OrderWithDetails } from '../lib/st
 import { OrderQueue } from '../components/store/order-queue';
 import { TenantFilter } from '../components/store/tenant-filter';
 import { useTenant } from '../lib/use-tenant';
+import { useI18n } from '../lib/i18n-context';
 import '../styles/store.css';
 
 type StatusFilter = OrderStatus | 'all';
 
-const FILTER_OPTIONS: { value: StatusFilter; label: string }[] = [
-  { value: 'all', label: 'Toutes' },
-  { value: 'submitted', label: 'Soumises' },
-  { value: 'accepted', label: 'Acceptées' },
-  { value: 'preparing', label: 'En préparation' },
-  { value: 'ready_for_delivery', label: 'Prêtes' },
-];
-
 export default function StoreOpsPage() {
+  const { translations: t } = useI18n();
   const [orders, setOrders] = useState<OrderWithDetails[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [statusFilter, setStatusFilter] = useState<StatusFilter>('all');
   const { currentTenantId } = useTenant();
+
+  const FILTER_OPTIONS: { value: StatusFilter; label: string }[] = [
+    { value: 'all', label: t.store.filterAll },
+    { value: 'submitted', label: t.store.filterSubmitted },
+    { value: 'accepted', label: t.store.filterAccepted },
+    { value: 'preparing', label: t.store.filterPreparing },
+    { value: 'ready_for_delivery', label: t.store.filterReady },
+  ];
 
   const loadOrders = useCallback(async (filter: StatusFilter) => {
     setIsLoading(true);
@@ -30,11 +32,11 @@ export default function StoreOpsPage() {
       const data = await fetchOrders(filter === 'all' ? undefined : filter, currentTenantId);
       setOrders(data);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Erreur lors du chargement des commandes');
+      setError(err instanceof Error ? err.message : t.store.loadError);
     } finally {
       setIsLoading(false);
     }
-  }, [currentTenantId]);
+  }, [currentTenantId, t.store.loadError]);
 
   useEffect(() => {
     loadOrders(statusFilter);
@@ -46,15 +48,15 @@ export default function StoreOpsPage() {
       // Recharger les commandes après la mise à jour
       await loadOrders(statusFilter);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Erreur lors de la mise à jour du statut');
+      setError(err instanceof Error ? err.message : t.store.updateError);
     }
   };
 
   return (
     <div className="store-ops-page">
       <div className="store-ops-header">
-        <h1>Gestion des commandes</h1>
-        <p>Acceptez, préparez et gérez les commandes entrantes</p>
+        <h1>{t.store.pageTitle}</h1>
+        <p>{t.store.pageDescription}</p>
         <TenantFilter />
       </div>
 

@@ -9,21 +9,23 @@ import {
   type VoiceAdapter,
   type VoiceState,
 } from '../../lib/voice-adapter';
+import { useI18n } from '../../lib/i18n-context';
 import { AssistantInput } from './assistant-input';
 import { AssistantMessageBubble } from './assistant-message';
 import { VoiceButton } from './voice-button';
 import { VoiceStatus } from './voice-status';
 import '../../styles/assistant.css';
 
-const WELCOME: AssistantMessage = {
-  id: 'welcome',
-  role: 'assistant',
-  text: '👋 Bonjour ! Dites-moi ce que vous voulez — par exemple "je veux du lait", "mets 2 coke" ou "je veux des chips ketchup".',
-  timestamp: 0,
-};
-
 export function AssistantPanel() {
-  const [messages, setMessages] = useState<AssistantMessage[]>([WELCOME]);
+  const { translations: t } = useI18n();
+  const [messages, setMessages] = useState<AssistantMessage[]>(() => [
+    {
+      id: 'welcome',
+      role: 'assistant',
+      text: t.assistant.welcomeMessage,
+      timestamp: 0,
+    },
+  ]);
   const [isLoading, setIsLoading] = useState(false);
   const [voiceState, setVoiceState] = useState<VoiceState>({ status: 'ready' });
   const bottomRef = useRef<HTMLDivElement>(null);
@@ -83,7 +85,7 @@ export function AssistantPanel() {
 
   return (
     <section
-      aria-label="Assistant de commande"
+      aria-label={t.assistant.panelAriaLabel}
       style={{
         border: '1px solid #e0e0e0',
         borderRadius: '12px',
@@ -109,7 +111,7 @@ export function AssistantPanel() {
       >
         <span style={{ fontSize: '1.1rem' }}>🤖</span>
         <span style={{ fontWeight: 600, fontSize: '0.95rem' }}>
-          Assistant depaneurIA
+          {t.assistant.assistantName}
         </span>
       </div>
 
@@ -117,7 +119,7 @@ export function AssistantPanel() {
       <div
         role="log"
         aria-live="polite"
-        aria-label="Historique de la conversation"
+        aria-label={t.assistant.conversationHistoryAriaLabel}
         style={{
           flex: 1,
           overflowY: 'auto',
@@ -133,7 +135,7 @@ export function AssistantPanel() {
 
         {isLoading && (
           <div
-            aria-label="L'assistant est en train de répondre"
+            aria-label={t.assistant.respondingAriaLabel}
             style={{
               color: '#aaa',
               fontSize: '0.82rem',
@@ -141,7 +143,7 @@ export function AssistantPanel() {
               paddingLeft: '0.25rem',
             }}
           >
-            En train de répondre…
+            {t.assistant.responding}
           </div>
         )}
 

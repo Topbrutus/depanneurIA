@@ -2,6 +2,7 @@ import type { OrderWithDetails } from '../../lib/store-api';
 import { OrderStatusBadge } from './order-status-badge';
 import { OrderActions } from './order-actions';
 import type { OrderStatus } from '@depaneuria/types';
+import { useI18n } from '../../lib/i18n-context';
 
 interface OrderCardProps {
   order: OrderWithDetails;
@@ -19,15 +20,17 @@ export function OrderCard({ order, onStatusChange }: OrderCardProps) {
     }).format(date);
   };
 
+  const { translations: t } = useI18n();
+
   const customerName = order.customer
     ? `${order.customer.firstName} ${order.customer.lastName}`
-    : 'Client inconnu';
+    : t.store.customerUnknown;
 
   const customerPhone = order.customer?.phone || '';
 
   const deliveryAddress = order.address
     ? `${order.address.street}, ${order.address.postalCode} ${order.address.city}`
-    : 'Adresse non disponible';
+    : t.store.addressNotAvailable;
 
   return (
     <div className="order-card">
@@ -40,11 +43,11 @@ export function OrderCard({ order, onStatusChange }: OrderCardProps) {
         <h3>{customerName}</h3>
         {customerPhone && <p>{customerPhone}</p>}
         <p>{deliveryAddress}</p>
-        {order.notes && <p className="order-card-notes">Note: {order.notes}</p>}
+        {order.notes && <p className="order-card-notes">{t.store.note}: {order.notes}</p>}
       </div>
 
       <div className="order-card-items">
-        <h4>Articles ({order.items.length})</h4>
+        <h4>{t.store.items} ({order.items.length})</h4>
         <ul className="order-items-list">
           {order.items.map((item) => (
             <li key={item.id}>
@@ -59,7 +62,7 @@ export function OrderCard({ order, onStatusChange }: OrderCardProps) {
       </div>
 
       <div className="order-card-total">
-        <span>Total</span>
+        <span>{t.store.total}</span>
         <span>{order.totalAmount.toFixed(2)} $</span>
       </div>
 

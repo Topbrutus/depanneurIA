@@ -1,5 +1,6 @@
 import type { OrderStatus } from '@depaneuria/types';
 import { useState } from 'react';
+import { useI18n } from '../../lib/i18n-context';
 
 interface OrderActionsProps {
   orderId: string;
@@ -8,6 +9,7 @@ interface OrderActionsProps {
 }
 
 export function OrderActions({ orderId, currentStatus, onStatusChange }: OrderActionsProps) {
+  const { translations: t } = useI18n();
   const [isUpdating, setIsUpdating] = useState(false);
 
   const handleStatusChange = async (newStatus: OrderStatus) => {
@@ -33,7 +35,7 @@ export function OrderActions({ orderId, currentStatus, onStatusChange }: OrderAc
           onClick={() => handleStatusChange('accepted')}
           disabled={isUpdating}
         >
-          Accepter
+          {t.store.acceptButton}
         </button>
       )}
       {canReject && (
@@ -42,7 +44,7 @@ export function OrderActions({ orderId, currentStatus, onStatusChange }: OrderAc
           onClick={() => handleStatusChange('rejected')}
           disabled={isUpdating}
         >
-          Refuser
+          {t.store.rejectButton}
         </button>
       )}
       {canPrepare && (
@@ -51,7 +53,7 @@ export function OrderActions({ orderId, currentStatus, onStatusChange }: OrderAc
           onClick={() => handleStatusChange('preparing')}
           disabled={isUpdating}
         >
-          Passer en préparation
+          {t.store.markPreparingButton}
         </button>
       )}
       {canReady && (
@@ -60,7 +62,7 @@ export function OrderActions({ orderId, currentStatus, onStatusChange }: OrderAc
           onClick={() => handleStatusChange('ready_for_delivery')}
           disabled={isUpdating}
         >
-          Marquer prête
+          {t.store.markReadyButton}
         </button>
       )}
     </div>

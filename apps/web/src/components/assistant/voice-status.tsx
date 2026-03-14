@@ -1,3 +1,4 @@
+import { useI18n } from '../../lib/i18n-context';
 import type { VoiceState } from '../../lib/voice-adapter';
 
 interface Props {
@@ -5,21 +6,23 @@ interface Props {
 }
 
 export function VoiceStatus({ state }: Props) {
+  const { translations: t } = useI18n();
+
   const message = (() => {
     switch (state.status) {
       case 'unsupported':
-        return 'Micro non supporté. Utilisez le clavier pour écrire.';
+        return t.assistant.micNotSupported;
       case 'listening':
-        return 'Écoute en cours… parlez clairement près du micro.';
+        return t.assistant.listeningInProgress;
       case 'transcribing':
         return state.transcript
-          ? `Transcription… « ${state.transcript} »`
-          : 'Transcription…';
+          ? `${t.assistant.transcribingWithText} « ${state.transcript} »`
+          : t.assistant.transcribing;
       case 'error':
-        return state.message ?? 'Le micro a rencontré un problème.';
+        return state.message ?? t.assistant.micProblem;
       case 'ready':
       default:
-        return 'Micro prêt. Cliquez pour parler ou utilisez le clavier.';
+        return t.assistant.micReady;
     }
   })();
 

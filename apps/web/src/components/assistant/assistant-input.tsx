@@ -2,6 +2,7 @@
 
 import type { ChangeEvent, KeyboardEvent } from 'react';
 import { useState } from 'react';
+import { useI18n } from '../../lib/i18n-context';
 
 interface Props {
   onSend: (text: string) => void;
@@ -9,6 +10,7 @@ interface Props {
 }
 
 export function AssistantInput({ onSend, disabled = false }: Props) {
+  const { translations: t } = useI18n();
   const [value, setValue] = useState('');
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -43,11 +45,11 @@ export function AssistantInput({ onSend, disabled = false }: Props) {
       }}
     >
       <input
-        aria-label="Message pour l'assistant"
+        aria-label={t.assistant.inputAriaLabel}
         disabled={disabled}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
-        placeholder="Écrivez votre commande… ex: je veux du lait"
+        placeholder={t.assistant.inputPlaceholder}
         type="text"
         value={value}
         style={{
@@ -63,7 +65,7 @@ export function AssistantInput({ onSend, disabled = false }: Props) {
         }}
       />
       <button
-        aria-label="Envoyer le message"
+        aria-label={t.assistant.sendButtonAriaLabel}
         disabled={!canSend}
         onClick={submit}
         type="button"
@@ -80,7 +82,7 @@ export function AssistantInput({ onSend, disabled = false }: Props) {
           transition: 'background 0.15s',
         }}
       >
-        Envoyer
+        {t.assistant.sendButton}
       </button>
     </div>
   );

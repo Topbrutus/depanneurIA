@@ -215,6 +215,25 @@ export interface Translations {
     stopVoice: string
     send: string
     clear: string
+    welcomeMessage: string
+    assistantName: string
+    inputPlaceholder: string
+    inputAriaLabel: string
+    sendButton: string
+    sendButtonAriaLabel: string
+    responding: string
+    respondingAriaLabel: string
+    conversationHistoryAriaLabel: string
+    panelAriaLabel: string
+    micUnavailable: string
+    stop: string
+    transcribing: string
+    microphone: string
+    micNotSupported: string
+    listeningInProgress: string
+    transcribingWithText: string
+    micProblem: string
+    micReady: string
   }
   store: {
     title: string
@@ -231,6 +250,37 @@ export interface Translations {
     callCustomer: string
     noOrders: string
     filterByTenant: string
+    pageTitle: string
+    pageDescription: string
+    tenantLabel: string
+    filterAll: string
+    filterSubmitted: string
+    filterAccepted: string
+    filterPreparing: string
+    filterReady: string
+    loadError: string
+    updateError: string
+    noOrdersMessage: string
+    customerUnknown: string
+    addressNotAvailable: string
+    note: string
+    items: string
+    total: string
+    statusDraft: string
+    statusSubmitted: string
+    statusAccepted: string
+    statusRejected: string
+    statusPreparing: string
+    statusReady: string
+    statusAssigned: string
+    statusOutForDelivery: string
+    statusDelivered: string
+    statusDeliveryFailed: string
+    statusCancelled: string
+    acceptButton: string
+    rejectButton: string
+    markPreparingButton: string
+    markReadyButton: string
   }
   driver: {
     title: string
@@ -244,6 +294,32 @@ export interface Translations {
     reportFailure: string
     noDeliveries: string
     filterByTenant: string
+    pageTitle: string
+    tenantLabel: string
+    filterOpen: string
+    filterReady: string
+    filterAssigned: string
+    filterOutForDelivery: string
+    filterDelivered: string
+    filterFailed: string
+    loadError: string
+    updateError: string
+    noDeliveriesMessage: string
+    loadingDeliveries: string
+    orderId: string
+    phone: string
+    deliveryAddress: string
+    deliveryInstructions: string
+    items: string
+    total: string
+    notes: string
+    deliveryTracking: string
+    lastUpdate: string
+    historyNotAvailable: string
+    takeCharge: string
+    startDeliveryButton: string
+    markDelivered: string
+    reportProblem: string
   }
   admin: {
     catalogTitle: string
@@ -267,5 +343,79 @@ export interface Translations {
     deactivate: string
     noProducts: string
     selectTenant: string
+    eyebrow: string
+    pageTitle: string
+    pageDescription: string
+    tenantLabel: string
+    productsCount: string
+    searchPlaceholder: string
+    allAvailability: string
+    allStatus: string
+    statusActive: string
+    statusDraft: string
+    popular: string
+    refresh: string
+    loadError: string
+    saveError: string
+    statusChangeError: string
+    availabilityChangeError: string
+    popularityChangeError: string
+    priceChangeError: string
+    stockChangeError: string
+    categoriesTitle: string
+    categoriesDescription: string
+    allCategories: string
+    noProductsMatch: string
+    productTable: string
+    priceTable: string
+    statusTable: string
+    stockTable: string
+    actionsTable: string
+    newProduct: string
+    editProductTitle: string
+    formDescription: string
+    nameLabel: string
+    categoryLabel: string
+    priceLabel: string
+    unitLabel: string
+    statusLabel: string
+    availabilityLabel: string
+    stockLabel: string
+    minStockLabel: string
+    displayOrder: string
+    popularLabel: string
+    descriptionLabel: string
+    descriptionPlaceholder: string
+    imageLabel: string
+    imagePlaceholder: string
+    cancelButton: string
+    saveButton: string
+    createButton: string
+    inStock: string
+    outOfStock: string
+    onOrder: string
+    active: string
+    draft: string
+    yes: string
+    no: string
+    deactivateButton: string
+    activateButton: string
+    restockButton: string
+    outOfStockButton: string
+    removeTop: string
+    markTop: string
+    priceButton: string
+    stockButton: string
+    editButton: string
+    stockBadgeOutOfStock: string
+    stockBadgeOnOrder: string
+    stockBadgeLow: string
+    stockBadgeInStock: string
+    newPricePrompt: string
+    currentStockPrompt: string
+    minStockPrompt: string
+    invalidPrice: string
+    invalidStock: string
+    invalidMinStock: string
   }
 }
