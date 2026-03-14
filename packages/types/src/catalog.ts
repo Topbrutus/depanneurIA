@@ -19,6 +19,7 @@ export interface Product {
   popular: boolean;
   createdAt: string;
   updatedAt: string;
+  tenantId?: string;
 }
 
 export interface Category {
@@ -30,11 +31,16 @@ export interface Category {
   displayOrder: number;
   createdAt: string;
   updatedAt: string;
+  tenantId?: string;
 }
 
 export interface CategoryWithProducts extends Category {
   products: Product[];
 }
+
+export type TenantProduct = Product & { tenantId: string };
+export type TenantCategory = Category & { tenantId: string };
+export type TenantCategoryWithProducts = TenantCategory & { products: TenantProduct[] };
 
 export interface ProductFilters {
   categoryId?: string;

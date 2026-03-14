@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import type { OrderStatus } from '@depaneuria/types';
 import { fetchOrders, updateOrderStatus, type OrderWithDetails } from '../lib/store-api';
 import { OrderQueue } from '../components/store/order-queue';
@@ -23,26 +23,26 @@ export default function StoreOpsPage() {
   const [statusFilter, setStatusFilter] = useState<StatusFilter>('all');
   const { currentTenantId } = useTenant();
 
-  const loadOrders = async (filter: StatusFilter) => {
+  const loadOrders = useCallback(async (filter: StatusFilter) => {
     setIsLoading(true);
     setError(null);
     try {
-      const data = await fetchOrders(filter === 'all' ? undefined : filter);
+      const data = await fetchOrders(filter === 'all' ? undefined : filter, currentTenantId);
       setOrders(data);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Erreur lors du chargement des commandes');
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [currentTenantId]);
 
   useEffect(() => {
     loadOrders(statusFilter);
-  }, [statusFilter, currentTenantId]);
+  }, [loadOrders, statusFilter]);
 
   const handleStatusChange = async (orderId: string, newStatus: OrderStatus) => {
     try {
-      await updateOrderStatus(orderId, newStatus);
+      await updateOrderStatus(orderId, newStatus, currentTenantId);
       // Recharger les commandes après la mise à jour
       await loadOrders(statusFilter);
     } catch (err) {

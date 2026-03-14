@@ -57,8 +57,8 @@ export default function AdminCatalogPage() {
     setError(null);
     try {
       const [cats, prods] = await Promise.all([
-        fetchCategories(),
-        fetchProducts(filtersForApi),
+        fetchCategories(currentTenantId),
+        fetchProducts(filtersForApi, currentTenantId),
       ]);
       setCategories(cats);
       setProducts(prods);
@@ -67,8 +67,6 @@ export default function AdminCatalogPage() {
     } finally {
       setLoading(false);
     }
-    // currentTenantId is needed to reload data when tenant changes
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filtersForApi, currentTenantId]);
 
   useEffect(() => {
@@ -77,21 +75,21 @@ export default function AdminCatalogPage() {
 
   const refreshProducts = useCallback(async () => {
     try {
-      const updated = await fetchProducts(filtersForApi);
+      const updated = await fetchProducts(filtersForApi, currentTenantId);
       setProducts(updated);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Erreur lors du rafraîchissement.');
     }
-  }, [filtersForApi]);
+  }, [filtersForApi, currentTenantId]);
 
   const handleSubmit = async (payload: Parameters<typeof createProduct>[0], productId?: string) => {
     setSubmitting(true);
     setError(null);
     try {
       if (productId) {
-        await updateProduct(productId, payload);
+        await updateProduct(productId, payload, currentTenantId);
       } else {
-        await createProduct(payload);
+        await createProduct(payload, currentTenantId);
       }
       setEditingProduct(null);
       await refreshProducts();
@@ -105,7 +103,7 @@ export default function AdminCatalogPage() {
   const handleToggleStatus = async (product: Product) => {
     try {
       const nextStatus: ProductStatus = product.status === 'active' ? 'draft' : 'active';
-      await updateProduct(product.id, { status: nextStatus });
+      await updateProduct(product.id, { status: nextStatus }, currentTenantId);
       await refreshProducts();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Impossible de changer le statut.');
@@ -117,7 +115,7 @@ export default function AdminCatalogPage() {
     availability: ProductAvailability
   ) => {
     try {
-      await updateProductAvailability(product.id, availability);
+      await updateProductAvailability(product.id, availability, currentTenantId);
       await refreshProducts();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Impossible de changer la disponibilité.');
@@ -126,7 +124,7 @@ export default function AdminCatalogPage() {
 
   const handlePopularityChange = async (product: Product) => {
     try {
-      await updateProductPopularity(product.id, !product.popular);
+      await updateProductPopularity(product.id, !product.popular, currentTenantId);
       await refreshProducts();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Impossible de mettre à jour la popularité.');
@@ -142,7 +140,7 @@ export default function AdminCatalogPage() {
       return;
     }
     try {
-      await updateProduct(product.id, { price: nextPrice });
+      await updateProduct(product.id, { price: nextPrice }, currentTenantId);
       await refreshProducts();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Impossible de mettre à jour le prix.');
@@ -169,7 +167,7 @@ export default function AdminCatalogPage() {
     }
 
     try {
-      await updateProductStock(product.id, nextStock, nextMinStock);
+      await updateProductStock(product.id, nextStock, nextMinStock, currentTenantId);
       await refreshProducts();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Impossible de mettre à jour le stock.');

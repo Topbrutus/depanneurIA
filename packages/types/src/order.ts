@@ -40,6 +40,7 @@ export interface Order {
   items: OrderItem[];
   createdAt: string;
   updatedAt: string;
+  tenantId?: string;
 }
 
 export interface CreateOrderInput {
@@ -51,3 +52,5 @@ export interface CreateOrderInput {
     quantity: number;
   }[];
 }
+
+export type TenantOrder = Order & { tenantId: string };

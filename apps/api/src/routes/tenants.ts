@@ -1,26 +1,28 @@
 import { Router } from 'express';
 import { prisma } from '../lib/prisma';
-import { listTenants } from '../lib/tenant-store';
+import { listTenants, isProductForTenant, setOrderTenant } from '../lib/tenant-store';
 import { resolveTenant, tenantId } from '../lib/tenant-context';
-import { mapCategoryWithProducts, mapOrder } from '../lib/mappers';
+import { mapOrder } from '../lib/mappers';
+import { mapCategoriesWithProductsForTenant, mapOrdersForTenant } from '../lib/tenant-mappers';
 import { requireString, requireArray, requirePositiveInt, optionalString } from '../lib/validators';
 import { NotFoundError, ValidationError } from '../lib/errors';
+import { applyTransition, buildInitialHistory, ensureStatus } from '../lib/order-state-machine';
 import {
-  applyTransition,
-  buildInitialHistory,
-  ensureStatus,
-  normalizeStatusHistory,
-} from '../lib/order-state-machine';
-import {
-  listCategories as adminListCategories,
+  createProduct as adminCreateProduct,
   listProducts as adminListProducts,
   updateProduct as adminUpdateProduct,
 } from '../lib/admin-catalog-store';
-import type { ProductFilters, ProductStatus, OrderStatus, UpdateProductPayload } from '@depaneuria/types';
+import type {
+  CreateProductPayload,
+  ProductFilters,
+  ProductStatus,
+  UpdateProductPayload,
+} from '@depaneuria/types';
 import {
   ensureAvailability,
   ensureStatus as ensureProductStatus,
 } from '../lib/admin-catalog-validators';
+import { requireCatalogManagement } from '../lib/role-guards';
 
 const router = Router();
 
@@ -34,6 +36,7 @@ router.get('/', (_req, res) => {
 
 /* ────── Toutes les sous-routes nécessitent un tenant valide ────── */
 router.use('/:tenantId', resolveTenant);
+router.use('/:tenantId/admin', requireCatalogManagement);
 
 /* ──────────────── GET /tenants/:tenantId/catalog ──────────────── */
 router.get('/:tenantId/catalog', async (_req, res, next) => {
@@ -52,7 +55,7 @@ router.get('/:tenantId/catalog', async (_req, res, next) => {
 
     res.json({
       success: true,
-      data: categories.map(mapCategoryWithProducts),
+      data: mapCategoriesWithProductsForTenant(categories, _tid),
       meta: { tenantId: _tid },
     });
   } catch (err) {
@@ -81,7 +84,7 @@ router.get('/:tenantId/orders', async (req, res, next) => {
 
     res.json({
       success: true,
-      data: orders.map(mapOrder),
+      data: mapOrdersForTenant(orders, _tid),
       meta: { tenantId: _tid },
     });
   } catch (err) {
@@ -129,6 +132,9 @@ router.post('/:tenantId/orders', async (req, res, next) => {
     const orderItemsData = items.map((item) => {
       const product = productMap.get(item.productId);
       if (!product) throw new ValidationError(`Produit ${item.productId} introuvable`);
+      if (!isProductForTenant(product.slug, _tid)) {
+        throw new ValidationError(`Produit ${product.slug} indisponible pour ce dépanneur`);
+      }
       const unitPrice = product.price;
       totalAmount += unitPrice * item.quantity;
       return { productId: item.productId, quantity: item.quantity, unitPrice };
@@ -155,6 +161,7 @@ router.post('/:tenantId/orders', async (req, res, next) => {
       },
       include: { items: { include: { product: { select: { name: true } } } } },
     });
+    setOrderTenant(order.id, _tid);
 
     res.status(201).json({
       success: true,
@@ -182,11 +189,27 @@ router.get('/:tenantId/admin/catalog/products', async (req, res, next) => {
     if (typeof req.query['search'] === 'string' && req.query['search'].trim().length > 0)
       filters.search = req.query['search'].trim();
 
-    const products = await adminListProducts(filters);
+    const products = await adminListProducts(filters, _tid);
 
     res.json({
       success: true,
       data: products,
+      meta: { tenantId: _tid },
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.post('/:tenantId/admin/catalog/products', async (req, res, next) => {
+  try {
+    const _tid = tenantId(res);
+    const payload = req.body as CreateProductPayload;
+    const product = await adminCreateProduct(payload, _tid);
+
+    res.status(201).json({
+      success: true,
+      data: product,
       meta: { tenantId: _tid },
     });
   } catch (err) {
@@ -199,7 +222,7 @@ router.patch('/:tenantId/admin/catalog/products/:id', async (req, res, next) => 
   try {
     const _tid = tenantId(res);
     const payload = req.body as UpdateProductPayload;
-    const product = await adminUpdateProduct(req.params['id'], payload);
+    const product = await adminUpdateProduct(req.params['id'], payload, _tid);
 
     res.json({
       success: true,

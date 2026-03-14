@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import type { OrderStatus } from '@depaneuria/types';
 import type { OrderWithDetails } from '../lib/driver-api';
 import { fetchDeliveryOrders, updateOrderStatus } from '../lib/driver-api';
@@ -37,18 +37,18 @@ export function DriverPage() {
   const [statusFilter, setStatusFilter] = useState<StatusFilter>('open');
   const { currentTenantId } = useTenant();
 
-  const loadOrders = async (filter: StatusFilter) => {
+  const loadOrders = useCallback(async (filter: StatusFilter) => {
     setIsLoading(true);
     setError(null);
     try {
       let data: OrderWithDetails[];
       if (filter === 'open') {
         const lists = await Promise.all(
-          OPEN_STATUSES.map((status) => fetchDeliveryOrders(status))
+          OPEN_STATUSES.map((status) => fetchDeliveryOrders(status, currentTenantId))
         );
         data = lists.flat();
       } else {
-        data = await fetchDeliveryOrders(filter);
+        data = await fetchDeliveryOrders(filter, currentTenantId);
       }
       const sortedByRecent = [...data].sort(
         (a, b) =>
@@ -63,11 +63,11 @@ export function DriverPage() {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [currentTenantId]);
 
   useEffect(() => {
     loadOrders(statusFilter);
-  }, [statusFilter, currentTenantId]);
+  }, [loadOrders, statusFilter]);
 
   const handleStatusChange = async (
     orderId: string,
@@ -75,7 +75,7 @@ export function DriverPage() {
   ) => {
     try {
       setError(null);
-      await updateOrderStatus(orderId, newStatus);
+      await updateOrderStatus(orderId, newStatus, currentTenantId);
       // Recharger les commandes après mise à jour
       await loadOrders(statusFilter);
     } catch (err) {

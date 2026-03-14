@@ -1,6 +1,8 @@
 import type { Order, OrderStatus } from '@depaneuria/types';
+import { DEFAULT_TENANT_ID } from '@depaneuria/types';
 
-const API_BASE = '/api/v1';
+const API_ROOT = (import.meta.env.VITE_API_URL || '/api/v1').replace(/\/$/, '');
+const API_BASE = `${API_ROOT}/tenants`;
 
 export interface OrderWithDetails extends Order {
   customer?: {
@@ -23,11 +25,11 @@ interface ApiResponse<T> {
 
 /** Récupère les commandes prêtes pour livraison (ready_for_delivery, assigned_to_driver, out_for_delivery) */
 export async function fetchDeliveryOrders(
-  status?: OrderStatus
+  status?: OrderStatus,
+  tenantId: string = DEFAULT_TENANT_ID
 ): Promise<OrderWithDetails[]> {
-  const url = status
-    ? `${API_BASE}/orders?status=${status}`
-    : `${API_BASE}/orders`;
+  const base = `${API_BASE}/${tenantId}/orders`;
+  const url = status ? `${base}?status=${status}` : base;
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error(
@@ -43,9 +45,10 @@ export async function fetchDeliveryOrders(
  */
 export async function updateOrderStatus(
   orderId: string,
-  newStatus: OrderStatus
+  newStatus: OrderStatus,
+  tenantId: string = DEFAULT_TENANT_ID
 ): Promise<OrderWithDetails> {
-  const response = await fetch(`${API_BASE}/orders/${orderId}`, {
+  const response = await fetch(`${API_BASE}/${tenantId}/orders/${orderId}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',

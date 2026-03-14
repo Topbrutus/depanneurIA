@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { prisma } from '../lib/prisma';
-import { mapCategoryWithProducts, mapProduct } from '../lib/mappers';
+import { DEFAULT_TENANT_ID } from '@depaneuria/types';
+import { mapCategoriesWithProductsForTenant, mapProductsForTenant } from '../lib/tenant-mappers';
 
 const router = Router();
 
@@ -19,7 +20,8 @@ router.get('/', async (_req, res, next) => {
 
     res.json({
       success: true,
-      data: categories.map(mapCategoryWithProducts),
+      data: mapCategoriesWithProductsForTenant(categories, DEFAULT_TENANT_ID),
+      meta: { tenantId: DEFAULT_TENANT_ID },
     });
   } catch (err) {
     next(err);
@@ -40,7 +42,8 @@ router.get('/top', async (_req, res, next) => {
 
     res.json({
       success: true,
-      data: products.map(mapProduct),
+      data: mapProductsForTenant(products, DEFAULT_TENANT_ID),
+      meta: { tenantId: DEFAULT_TENANT_ID },
     });
   } catch (err) {
     next(err);

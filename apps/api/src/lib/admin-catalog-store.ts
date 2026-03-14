@@ -5,6 +5,7 @@ import type {
   ProductStatus,
   UpdateProductPayload,
 } from '@depaneuria/types';
+import { DEFAULT_TENANT_ID } from '@depaneuria/types';
 import { prisma } from './prisma';
 import { NotFoundError, ValidationError } from './errors';
 import {
@@ -19,6 +20,8 @@ import {
   slugify,
 } from './admin-catalog-validators';
 import { toCategory, toProduct } from './admin-catalog-mappers';
+import { assignProductToTenant, isProductForTenant, moveProductToTenant } from './tenant-store';
+import type { Product as PrismaProduct } from '@prisma/client';
 
 async function assertCategoryExists(categoryId: string) {
   const category = await prisma.category.findUnique({ where: { id: categoryId } });
@@ -57,23 +60,33 @@ function buildWhere(filters: ProductFilters) {
   return where;
 }
 
-export async function listCategories() {
+function ensureProductForTenant(
+  product: PrismaProduct | null,
+  tenantId: string
+): asserts product is PrismaProduct {
+  if (!product || !isProductForTenant(product.slug, tenantId)) {
+    throw new NotFoundError('Produit');
+  }
+}
+
+export async function listCategories(tenantId: string = DEFAULT_TENANT_ID) {
   const categories = await prisma.category.findMany({
     orderBy: { displayOrder: 'asc' },
   });
-  return categories.map(toCategory);
+  return categories.map((category) => toCategory(category, tenantId));
 }
 
-export async function listProducts(filters: ProductFilters = {}) {
+export async function listProducts(filters: ProductFilters = {}, tenantId: string = DEFAULT_TENANT_ID) {
   const where = buildWhere(filters);
   const products = await prisma.product.findMany({
     where,
     orderBy: { updatedAt: 'desc' },
   });
-  return products.map(toProduct);
+  const scoped = products.filter((product) => isProductForTenant(product.slug, tenantId));
+  return scoped.map((product) => toProduct(product, tenantId));
 }
 
-export async function createProduct(payload: CreateProductPayload) {
+export async function createProduct(payload: CreateProductPayload, tenantId: string = DEFAULT_TENANT_ID) {
   const name = ensureString(payload.name, 'name');
   const slug = ensureSlug(payload.slug, name);
   const categoryId = ensureString(payload.categoryId, 'categoryId');
@@ -113,6 +126,7 @@ export async function createProduct(payload: CreateProductPayload) {
         minStock,
       },
     });
+    assignProductToTenant(product.slug, tenantId);
     return toProduct(product);
   } catch (err) {
     if (
@@ -127,11 +141,13 @@ export async function createProduct(payload: CreateProductPayload) {
   }
 }
 
-export async function updateProduct(productId: string, payload: UpdateProductPayload) {
+export async function updateProduct(
+  productId: string,
+  payload: UpdateProductPayload,
+  tenantId: string = DEFAULT_TENANT_ID
+) {
   const existing = await prisma.product.findUnique({ where: { id: productId } });
-  if (!existing) {
-    throw new NotFoundError('Produit');
-  }
+  ensureProductForTenant(existing, tenantId);
 
   const data: Record<string, unknown> = {};
 
@@ -193,11 +209,18 @@ export async function updateProduct(productId: string, payload: UpdateProductPay
     throw new ValidationError('Aucune mise à jour fournie');
   }
 
+  const nextSlug =
+    payload.slug !== undefined ? ensureSlug(payload.slug, payload.name ?? existing.name) : existing.slug;
+
   try {
     const product = await prisma.product.update({
       where: { id: productId },
-      data,
+      data: { ...data, slug: nextSlug },
     });
+    if (nextSlug !== existing.slug) {
+      moveProductToTenant(existing.slug, nextSlug, tenantId);
+    }
+    assignProductToTenant(nextSlug, tenantId);
     return toProduct(product);
   } catch (err) {
     if (
@@ -214,13 +237,18 @@ export async function updateProduct(productId: string, payload: UpdateProductPay
 
 export async function updateAvailability(
   productId: string,
-  availability: ProductAvailability
+  availability: ProductAvailability,
+  tenantId: string = DEFAULT_TENANT_ID
 ) {
+  const existing = await prisma.product.findUnique({ where: { id: productId } });
+  ensureProductForTenant(existing, tenantId);
+
   try {
     const product = await prisma.product.update({
       where: { id: productId },
       data: { availability: ensureAvailability(availability) },
     });
+    assignProductToTenant(product.slug, tenantId);
     return toProduct(product);
   } catch (err) {
     if (
@@ -238,8 +266,12 @@ export async function updateAvailability(
 export async function updateStock(
   productId: string,
   stock: number,
-  minStock?: number
+  minStock?: number,
+  tenantId: string = DEFAULT_TENANT_ID
 ) {
+  const existing = await prisma.product.findUnique({ where: { id: productId } });
+  ensureProductForTenant(existing, tenantId);
+
   try {
     const product = await prisma.product.update({
       where: { id: productId },
@@ -250,6 +282,7 @@ export async function updateStock(
           : {}),
       },
     });
+    assignProductToTenant(product.slug, tenantId);
     return toProduct(product);
   } catch (err) {
     if (
@@ -264,12 +297,20 @@ export async function updateStock(
   }
 }
 
-export async function updatePopularity(productId: string, popular: boolean) {
+export async function updatePopularity(
+  productId: string,
+  popular: boolean,
+  tenantId: string = DEFAULT_TENANT_ID
+) {
+  const existing = await prisma.product.findUnique({ where: { id: productId } });
+  ensureProductForTenant(existing, tenantId);
+
   try {
     const product = await prisma.product.update({
       where: { id: productId },
       data: { popular: ensureBoolean(popular, 'popular') },
     });
+    assignProductToTenant(product.slug, tenantId);
     return toProduct(product);
   } catch (err) {
     if (

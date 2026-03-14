@@ -1,6 +1,7 @@
 import type { Tenant } from '@depaneuria/types';
 
-const API_BASE = '/api/v1/tenants';
+const API_ROOT = (import.meta.env.VITE_API_URL || '/api/v1').replace(/\/$/, '');
+const API_BASE = `${API_ROOT}/tenants`;
 
 interface ApiResponse<T> {
   success: boolean;

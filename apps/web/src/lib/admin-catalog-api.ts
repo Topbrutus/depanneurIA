@@ -1,8 +1,15 @@
-import type { Category, CreateProductPayload, Product, ProductFilters, UpdateProductPayload } from '@depaneuria/types';
+import type {
+  Category,
+  CreateProductPayload,
+  Product,
+  ProductFilters,
+  UpdateProductPayload,
+} from '@depaneuria/types';
+import { DEFAULT_TENANT_ID } from '@depaneuria/types';
 import { getSessionId } from './auth-storage';
 
-const API_URL = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
-const ADMIN_BASE = `${API_URL}/admin/catalog`;
+const API_ROOT = (import.meta.env.VITE_API_URL || '/api/v1').replace(/\/$/, '');
+const adminBase = (tenantId: string) => `${API_ROOT}/tenants/${tenantId}/admin/catalog`;
 
 interface ApiResponse<T> {
   success: true;
@@ -30,8 +37,12 @@ function authHeaders(): HeadersInit {
   return sessionId ? { Authorization: `Bearer ${sessionId}` } : {};
 }
 
-async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
-  const res = await fetch(`${ADMIN_BASE}${path}`, {
+async function request<T>(
+  path: string,
+  tenantId: string,
+  options: RequestInit = {}
+): Promise<T> {
+  const res = await fetch(`${adminBase(tenantId)}${path}`, {
     ...options,
     headers: {
       ...authHeaders(),
@@ -52,16 +63,22 @@ async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
   return payload.data;
 }
 
-export async function fetchCategories(): Promise<Category[]> {
-  return request<Category[]>('/categories');
+export async function fetchCategories(tenantId: string = DEFAULT_TENANT_ID): Promise<Category[]> {
+  return request<Category[]>('/categories', tenantId);
 }
 
-export async function fetchProducts(filters?: ProductFilters): Promise<Product[]> {
-  return request<Product[]>(`/products${buildQuery(filters)}`);
+export async function fetchProducts(
+  filters?: ProductFilters,
+  tenantId: string = DEFAULT_TENANT_ID
+): Promise<Product[]> {
+  return request<Product[]>(`/products${buildQuery(filters)}`, tenantId);
 }
 
-export async function createProduct(payload: CreateProductPayload): Promise<Product> {
-  return request<Product>('/products', {
+export async function createProduct(
+  payload: CreateProductPayload,
+  tenantId: string = DEFAULT_TENANT_ID
+): Promise<Product> {
+  return request<Product>('/products', tenantId, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
@@ -70,9 +87,10 @@ export async function createProduct(payload: CreateProductPayload): Promise<Prod
 
 export async function updateProduct(
   productId: string,
-  payload: UpdateProductPayload
+  payload: UpdateProductPayload,
+  tenantId: string = DEFAULT_TENANT_ID
 ): Promise<Product> {
-  return request<Product>(`/products/${productId}`, {
+  return request<Product>(`/products/${productId}`, tenantId, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
@@ -81,9 +99,10 @@ export async function updateProduct(
 
 export async function updateProductAvailability(
   productId: string,
-  availability: Product['availability']
+  availability: Product['availability'],
+  tenantId: string = DEFAULT_TENANT_ID
 ): Promise<Product> {
-  return request<Product>(`/products/${productId}/availability`, {
+  return request<Product>(`/products/${productId}/availability`, tenantId, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ availability }),
@@ -93,9 +112,10 @@ export async function updateProductAvailability(
 export async function updateProductStock(
   productId: string,
   stock: number,
-  minStock?: number
+  minStock?: number,
+  tenantId: string = DEFAULT_TENANT_ID
 ): Promise<Product> {
-  return request<Product>(`/products/${productId}/stock`, {
+  return request<Product>(`/products/${productId}/stock`, tenantId, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ stock, minStock }),
@@ -104,9 +124,10 @@ export async function updateProductStock(
 
 export async function updateProductPopularity(
   productId: string,
-  popular: boolean
+  popular: boolean,
+  tenantId: string = DEFAULT_TENANT_ID
 ): Promise<Product> {
-  return request<Product>(`/products/${productId}/popularity`, {
+  return request<Product>(`/products/${productId}/popularity`, tenantId, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ popular }),

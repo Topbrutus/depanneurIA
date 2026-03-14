@@ -42,8 +42,8 @@ app.use('/api/v1/orders', ordersRouter);
 // Telephony - pour l'instant public (sera restreint plus tard)
 app.use('/api/v1/telephony', telephonyRouter);
 
-// Tenants - seulement admin
-app.use('/api/v1/tenants', requireAdminAccess, tenantsRouter);
+// Tenants - multi-tenant routes (gestion des permissions dans le routeur)
+app.use('/api/v1/tenants', tenantsRouter);
 
 // --- Error handling ---
 app.use((err: unknown, _req: Request, res: Response, _next: NextFunction) => {

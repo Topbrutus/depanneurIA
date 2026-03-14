@@ -1,6 +1,8 @@
 import type { Order, OrderStatus } from '@depaneuria/types';
+import { DEFAULT_TENANT_ID } from '@depaneuria/types';
 
-const API_BASE = '/api/v1';
+const API_ROOT = (import.meta.env.VITE_API_URL || '/api/v1').replace(/\/$/, '');
+const API_BASE = `${API_ROOT}/tenants`;
 
 export interface ApiResponse<T> {
   success: boolean;
@@ -23,8 +25,12 @@ export interface OrderWithDetails extends Order {
 /**
  * Récupérer toutes les commandes avec filtre optionnel par statut
  */
-export async function fetchOrders(status?: OrderStatus): Promise<OrderWithDetails[]> {
-  const url = status ? `${API_BASE}/orders?status=${status}` : `${API_BASE}/orders`;
+export async function fetchOrders(
+  status?: OrderStatus,
+  tenantId: string = DEFAULT_TENANT_ID
+): Promise<OrderWithDetails[]> {
+  const base = `${API_BASE}/${tenantId}/orders`;
+  const url = status ? `${base}?status=${status}` : base;
   const response = await fetch(url);
 
   if (!response.ok) {
@@ -38,8 +44,11 @@ export async function fetchOrders(status?: OrderStatus): Promise<OrderWithDetail
 /**
  * Récupérer une commande spécifique par ID
  */
-export async function fetchOrder(orderId: string): Promise<OrderWithDetails> {
-  const response = await fetch(`${API_BASE}/orders/${orderId}`);
+export async function fetchOrder(
+  orderId: string,
+  tenantId: string = DEFAULT_TENANT_ID
+): Promise<OrderWithDetails> {
+  const response = await fetch(`${API_BASE}/${tenantId}/orders/${orderId}`);
 
   if (!response.ok) {
     throw new Error(`Erreur lors de la récupération de la commande: ${response.statusText}`);
@@ -52,8 +61,12 @@ export async function fetchOrder(orderId: string): Promise<OrderWithDetails> {
 /**
  * Mettre à jour le statut d'une commande
  */
-export async function updateOrderStatus(orderId: string, status: OrderStatus): Promise<OrderWithDetails> {
-  const response = await fetch(`${API_BASE}/orders/${orderId}`, {
+export async function updateOrderStatus(
+  orderId: string,
+  status: OrderStatus,
+  tenantId: string = DEFAULT_TENANT_ID
+): Promise<OrderWithDetails> {
+  const response = await fetch(`${API_BASE}/${tenantId}/orders/${orderId}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',

@@ -31,6 +31,7 @@ export type {
   OrderStatusHistory,
   OrderItem,
   Order,
+  TenantOrder,
   CreateOrderInput,
 } from './order';
 
@@ -40,6 +41,9 @@ export type {
   ProductAvailability,
   Category,
   CategoryWithProducts,
+  TenantProduct,
+  TenantCategory,
+  TenantCategoryWithProducts,
   ProductFilters,
   CreateProductPayload,
   UpdateProductPayload,

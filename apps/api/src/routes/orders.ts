@@ -5,6 +5,8 @@ import { requireString, requireArray, requirePositiveInt, optionalString } from 
 import { NotFoundError, ValidationError } from '../lib/errors';
 import { applyTransition, buildInitialHistory, ensureStatus, normalizeStatusHistory } from '../lib/order-state-machine';
 import type { OrderStatus } from '@depaneuria/types';
+import { DEFAULT_TENANT_ID } from '@depaneuria/types';
+import { isOrderForTenant, isProductForTenant, setOrderTenant } from '../lib/tenant-store';
 
 const router = Router();
 
@@ -28,9 +30,12 @@ router.get('/', async (req, res, next) => {
       orderBy: { createdAt: 'desc' },
     });
 
+    const scopedOrders = orders.filter((order) => isOrderForTenant(order.id, DEFAULT_TENANT_ID));
+
     res.json({
       success: true,
-      data: orders.map(mapOrder),
+      data: scopedOrders.map(mapOrder),
+      meta: { tenantId: DEFAULT_TENANT_ID },
     });
   } catch (err) {
     next(err);
@@ -91,6 +96,9 @@ router.post('/', async (req, res, next) => {
       if (!product) {
         throw new ValidationError(`Produit ${item.productId} introuvable`);
       }
+      if (!isProductForTenant(product.slug, DEFAULT_TENANT_ID)) {
+        throw new ValidationError(`Produit ${product.slug} indisponible pour ce dépanneur`);
+      }
       const unitPrice = product.price;
       totalAmount += unitPrice * item.quantity;
       return {
@@ -128,10 +136,12 @@ router.post('/', async (req, res, next) => {
         },
       },
     });
+    setOrderTenant(order.id, DEFAULT_TENANT_ID);
 
     res.status(201).json({
       success: true,
       data: mapOrder(order),
+      meta: { tenantId: DEFAULT_TENANT_ID },
     });
   } catch (err) {
     next(err);
@@ -150,13 +160,14 @@ router.get('/:id', async (req, res, next) => {
       },
     });
 
-    if (!order) {
+    if (!order || !isOrderForTenant(order.id, DEFAULT_TENANT_ID)) {
       throw new NotFoundError('Commande');
     }
 
     res.json({
       success: true,
       data: mapOrder(order),
+      meta: { tenantId: DEFAULT_TENANT_ID },
     });
   } catch (err) {
     next(err);
@@ -174,7 +185,7 @@ router.patch('/:id', async (req, res, next) => {
       where: { id: orderId },
     });
 
-    if (!existing) {
+    if (!existing || !isOrderForTenant(orderId, DEFAULT_TENANT_ID)) {
       throw new NotFoundError('Commande');
     }
 
@@ -205,6 +216,7 @@ router.patch('/:id', async (req, res, next) => {
     res.json({
       success: true,
       data: mapOrder(updated),
+      meta: { tenantId: DEFAULT_TENANT_ID },
     });
   } catch (err) {
     next(err);

@@ -6,10 +6,13 @@ import type {
   Order as PrismaOrder,
   OrderItem as PrismaOrderItem,
 } from '@prisma/client';
+import { DEFAULT_TENANT_ID } from '@depaneuria/types';
 import type { OrderStatusHistory } from '@depaneuria/types';
+import { orderTenant, productTenant } from './tenant-store';
 import { ensureStatus, normalizeStatusHistory } from './order-state-machine';
 
-export function mapProduct(p: PrismaProduct) {
+export function mapProduct(p: PrismaProduct, tenantId?: string) {
+  const resolvedTenant = tenantId ?? productTenant(p.slug);
   return {
     id: p.id,
     name: p.name,
@@ -27,10 +30,11 @@ export function mapProduct(p: PrismaProduct) {
     popular: p.popular,
     createdAt: p.createdAt.toISOString(),
     updatedAt: p.updatedAt.toISOString(),
+    tenantId: resolvedTenant,
   };
 }
 
-export function mapCategory(c: PrismaCategory) {
+export function mapCategory(c: PrismaCategory, tenantId: string = DEFAULT_TENANT_ID) {
   return {
     id: c.id,
     name: c.name,
@@ -40,15 +44,17 @@ export function mapCategory(c: PrismaCategory) {
     displayOrder: c.displayOrder,
     createdAt: c.createdAt.toISOString(),
     updatedAt: c.updatedAt.toISOString(),
+    tenantId,
   };
 }
 
 export function mapCategoryWithProducts(
-  c: PrismaCategory & { products: PrismaProduct[] }
+  c: PrismaCategory & { products: PrismaProduct[] },
+  tenantId?: string
 ) {
   return {
-    ...mapCategory(c),
-    products: c.products.map(mapProduct),
+    ...mapCategory(c, tenantId),
+    products: c.products.map((product) => mapProduct(product, tenantId)),
   };
 }
 
@@ -141,5 +147,6 @@ export function mapOrder(
       : undefined,
     createdAt: o.createdAt.toISOString(),
     updatedAt: o.updatedAt.toISOString(),
+    tenantId: orderTenant(o.id),
   };
 }
