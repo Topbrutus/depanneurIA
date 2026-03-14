@@ -29,10 +29,10 @@ router.post('/mock-login', (req: Request, res: Response, next: NextFunction) => 
     // Créer la session
     const { sessionId, session } = createSession(username, role, tenantId);
 
-    // Envoyer le sessionId dans un header pour faciliter le client
+    // Envoyer le sessionId dans le header pour faciliter le client
     res.setHeader('X-Session-Id', sessionId);
 
-    // Retourner session avec le sessionId dans le body aussi
+    // Retourner session avec le sessionId dans le body (méthode principale)
     res.json(
       mapLoginResponse(true, session, sessionId)
     );
