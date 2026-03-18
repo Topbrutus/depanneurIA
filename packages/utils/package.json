@@ -1,0 +1,31 @@
+{
+  "name": "@depaneuria/utils",
+  "version": "0.1.0",
+  "description": "Utilitaires partagés — depaneurIA",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc --build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "lint": "echo '[utils] lint: not yet wired' && exit 0",
+    "format": "echo '[utils] format: not yet wired' && exit 0"
+  },
+  "dependencies": {
+    "@depaneuria/types": "workspace:*"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "vitest": "^1.6.0"
+  }
+}
