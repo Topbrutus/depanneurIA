@@ -1,2 +1,1 @@
-// Export module for assistant
-export const name = '@depaneuria/assistant';
+export * from './assistant-logic';
