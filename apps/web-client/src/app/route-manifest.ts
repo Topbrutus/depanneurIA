@@ -12,7 +12,7 @@ export const clientRoutes = [
   { path: '/auth', name: 'auth', label: 'Connexion', status: 'v1' },
   { path: '/register', name: 'register', label: 'Inscription', status: 'v1' },
   { path: '/contact', name: 'contact-store', label: 'Contact Dépanneur', status: 'v1' },
-  { path: '/terms', name: 'terms', label: 'Conditions d\\'utilisation', status: 'v1' },
+  { path: '/terms', name: 'terms', label: "Conditions d'utilisation", status: 'v1' },
   { path: '/privacy', name: 'privacy', label: 'Confidentialité', status: 'v1' },
   { path: '/accessibility', name: 'accessibility', label: 'Accessibilité', status: 'v1' },
   { path: '/help/voice', name: 'voice-help', label: 'Aide Vocale', status: 'v1' },

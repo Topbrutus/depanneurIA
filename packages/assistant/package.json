@@ -3,6 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "main": "src/index.ts",
+  "dependencies": {
+    "@depaneuria/types": "workspace:*"
+  },
+  "devDependencies": {
+    "vitest": "latest"
+  },
   "scripts": {
     "lint": "echo 'lint not implemented'",
     "test": "echo 'test not implemented'",
