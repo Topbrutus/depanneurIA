@@ -1,38 +1,18 @@
+import { DEMO_DELIVERY } from '@depaneuria/types';
+
 export const mockDeliveries = [
-  {
-    id: 'DEL-001',
-    orderId: 'ORD-NEW-001',
-    customerName: 'Jean Dupont',
-    phone: '+1 514 555 1234',
-    address: '123 rue Principale, App 4B, Montréal, QC H2X 1Y6',
-    distance: '2.5 km',
-    estimatedTime: '10 mins',
-    total: 11.97,
-    status: 'assigned', // 'available', 'assigned', 'picked_up', 'in_transit', 'delivered'
-    notes: 'Code de porte: 1234. Laissez à la porte.',
-  },
+  DEMO_DELIVERY,
   {
     id: 'DEL-002',
-    orderId: 'ORD-PREP-002',
-    customerName: 'Marie Tremblay',
-    phone: '+1 514 555 5678',
-    address: '456 boul. René-Lévesque, Montréal, QC H2Z 1A4',
-    distance: '5.2 km',
-    estimatedTime: '15 mins',
-    total: 2.99,
-    status: 'available',
-    notes: '',
-  },
-  {
-    id: 'DEL-003',
     orderId: 'ORD-DONE-003',
     customerName: 'Lucie B.',
-    phone: '+1 514 555 9999',
+    customerPhone: '+1 514 555 9999',
     address: '789 ave Mont-Royal, Montréal, QC H2J 1W4',
     distance: '1.2 km',
     estimatedTime: '5 mins',
-    total: 15.5,
+    totalAmount: 15.5,
     status: 'delivered',
-    notes: '',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
   },
 ];

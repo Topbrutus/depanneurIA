@@ -17,7 +17,7 @@ export function OrderPrepare() {
     order.items.length > 0 && order.items.every((i: any) => checkedItems[i.productId]);
 
   const handleFinish = () => {
-    updateOrderStatus(order.id, 'ready');
+    updateOrderStatus(order.id, 'ready_for_delivery');
     navigate('/orders/active');
   };
 
@@ -59,11 +59,10 @@ export function OrderPrepare() {
                   readOnly
                   style={{ transform: 'scale(1.5)' }}
                 />
-                <span style={{ fontSize: '20px' }}>{i.emoji}</span>
                 <span
                   style={{ fontSize: '18px', textDecoration: isChecked ? 'line-through' : 'none' }}
                 >
-                  {i.name}
+                  {i.productName}
                 </span>
               </div>
               <strong style={{ fontSize: '18px' }}>{i.quantity}x</strong>

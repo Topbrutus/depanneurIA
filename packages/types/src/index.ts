@@ -65,3 +65,6 @@ export type {
 
 export { SUPPORTED_LOCALES, DEFAULT_LOCALE } from './i18n';
 export type { SupportedLocale } from './i18n';
+
+export * from './delivery';
+export * from './demo-data';

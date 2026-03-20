@@ -5,7 +5,9 @@ import { useStoreContext } from '../lib/StoreContext';
 
 export function StoreLayout() {
   const { orders } = useStoreContext();
-  const newOrdersCount = orders.filter((o: any) => o.status === 'received').length;
+  const newOrdersCount = orders.filter(
+    (o: any) => o.status === 'submitted' || o.status === 'draft'
+  ).length;
 
   return (
     <div

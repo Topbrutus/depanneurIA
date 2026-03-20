@@ -12,8 +12,9 @@
   "dependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-router-dom": "^6",
-    "@depaneuria/ui": "workspace:*"
+    "react-router-dom": "^6.30.0",
+    "@depaneuria/ui": "workspace:*",
+    "@depaneuria/types": "workspace:*"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.0.0",

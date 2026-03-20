@@ -1,33 +1,17 @@
-export const mockCategories = [
-  { id: 'boissons', name: 'Boissons' },
-  { id: 'snacks', name: 'Snacks Salés' },
-  { id: 'epicerie', name: 'Épicerie' },
-];
+import {
+  DEMO_CATEGORIES,
+  DEMO_PRODUCTS,
+  DEMO_CUSTOMER,
+  DEMO_ADDRESS,
+  DEMO_ORDER,
+} from '@depaneuria/types';
 
-export const mockProducts = [
-  { id: 'coke-2l', name: 'Coca-Cola 2L', price: 3.49, categoryId: 'boissons', emoji: '🥤' },
-  { id: 'pepsi-can', name: 'Pepsi Canette', price: 1.25, categoryId: 'boissons', emoji: '🥫' },
-  { id: 'doritos-nacho', name: 'Doritos Nacho', price: 4.99, categoryId: 'snacks', emoji: '🌮' },
-  { id: 'lays-classique', name: 'Lays Classique', price: 4.49, categoryId: 'snacks', emoji: '🥔' },
-  { id: 'lait-1l', name: 'Lait 2% 1L', price: 2.99, categoryId: 'epicerie', emoji: '🥛' },
-  {
-    id: 'pain-blanc',
-    name: 'Pain Blanc tranché',
-    price: 3.29,
-    categoryId: 'epicerie',
-    emoji: '🍞',
-  },
-];
+export const mockCategories = DEMO_CATEGORIES;
+export const mockProducts = DEMO_PRODUCTS;
 
 export const mockLastOrder = {
-  id: 'ORD-1234',
-  date: '2026-03-15T14:30:00Z',
-  total: 9.73,
+  ...DEMO_ORDER,
   status: 'delivered',
-  items: [
-    { productId: 'coke-2l', quantity: 1, name: 'Coca-Cola 2L', price: 3.49 },
-    { productId: 'doritos-nacho', quantity: 1, name: 'Doritos Nacho', price: 4.99 },
-  ],
 };
 
 export const mockOrders = [
@@ -37,25 +21,27 @@ export const mockOrders = [
     date: '2026-03-10T10:15:00Z',
     total: 3.29,
     status: 'delivered',
-    items: [{ productId: 'pain-blanc', quantity: 1, name: 'Pain Blanc tranché', price: 3.29 }],
+    items: [
+      { productId: 'pain-blanc', quantity: 1, productName: 'Pain Blanc tranché', unitPrice: 3.29 },
+    ],
   },
 ];
 
 export const mockAddresses = [
-  {
-    id: 'addr-1',
-    label: 'Domicile',
-    street: '123 rue Principale, App 4B',
-    city: 'Montréal',
-    zip: 'H2X 1Y6',
-  },
+  DEMO_ADDRESS,
   {
     id: 'addr-2',
+    customerId: DEMO_CUSTOMER.id,
     label: 'Travail',
     street: '456 boul. René-Lévesque',
     city: 'Montréal',
-    zip: 'H2Z 1A4',
+    postalCode: 'H2Z 1A4',
+    country: 'Canada',
+    isDefault: false,
+    notes: null,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
   },
 ];
 
-export const mockTopProducts = [mockProducts[0], mockProducts[2], mockProducts[4]];
+export const mockTopProducts = [mockProducts[0], mockProducts[1], mockProducts[2]];

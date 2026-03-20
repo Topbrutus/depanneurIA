@@ -34,7 +34,7 @@ export function DeliveryProof() {
         }}
       >
         <h3 style={{ margin: `0 0 ${spacing.md} 0` }}>
-          Montant perçu : {delivery.total.toFixed(2)} $
+          Montant perçu : {delivery.totalAmount.toFixed(2)} $
         </h3>
 
         <p style={{ fontWeight: 'bold', marginBottom: spacing.sm }}>Méthode de paiement (Mock) :</p>

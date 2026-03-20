@@ -4,13 +4,17 @@ import { ButtonPrimary, ButtonSecondary, spacing, colors } from '@depaneuria/ui'
 import { useAppContext } from '../lib/AppContext';
 
 export function Cart() {
-  const { cart, cartTotal, clearCart } = useAppContext();
+  const { cart, cartTotal, placeOrder } = useAppContext();
   const navigate = useNavigate();
 
   const handleCheckout = () => {
     if (cart.length === 0) return;
-    clearCart();
-    navigate('/order/ORD-NEW-1234'); // mock success
+    placeOrder();
+    // In a real app we'd get the ID, here we just go to the current order view
+    // We'll use a timeout to let the state update
+    setTimeout(() => {
+      navigate('/order/current');
+    }, 100);
   };
 
   return (

@@ -9,7 +9,7 @@ export function Shop() {
   const [search, setSearch] = useState('');
   const [cat, setCat] = useState<string | null>(null);
 
-  const filtered = mockProducts.filter((p) => {
+  const filtered = mockProducts.filter((p: any) => {
     if (cat && p.categoryId !== cat) return false;
     if (search && !p.name.toLowerCase().includes(search.toLowerCase())) return false;
     return true;
@@ -63,7 +63,7 @@ export function Shop() {
         >
           Tous
         </button>
-        {mockCategories.map((c) => (
+        {mockCategories.map((c: any) => (
           <button
             key={c.id}
             onClick={() => setCat(c.id)}
@@ -87,7 +87,7 @@ export function Shop() {
           gap: spacing.md,
         }}
       >
-        {filtered.map((p) => (
+        {filtered.map((p: any) => (
           <ProductCard key={p.id} product={p} onAdd={addToCart} />
         ))}
       </div>

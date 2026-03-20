@@ -8,7 +8,7 @@ export function ActiveOrders() {
   const navigate = useNavigate();
 
   const activeOrders = orders.filter((o: any) =>
-    ['preparing', 'ready', 'assigned'].includes(o.status)
+    ['preparing', 'ready_for_delivery', 'assigned_to_driver'].includes(o.status)
   );
 
   return (
@@ -43,7 +43,7 @@ export function ActiveOrders() {
                   Continuer Préparation
                 </ButtonPrimary>
               )}
-              {(o.status === 'ready' || o.status === 'preparing') && (
+              {(o.status === 'ready_for_delivery' || o.status === 'preparing') && (
                 <ButtonPrimary
                   onClick={() => navigate(`/order/${o.id}/assign`)}
                   style={{ backgroundColor: '#10B981' }}

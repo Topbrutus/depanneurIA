@@ -12,7 +12,8 @@ import { useStoreContext } from '../lib/StoreContext';
 export function Dashboard() {
   const { orders, updateOrderStatus } = useStoreContext();
 
-  const newOrders = orders.filter((o: any) => o.status === 'received');
+  // Show new orders (draft/submitted)
+  const newOrders = orders.filter((o: any) => o.status === 'submitted' || o.status === 'draft');
 
   return (
     <div>
@@ -57,7 +58,7 @@ export function Dashboard() {
                     {o.id} - {o.customerName}
                   </h2>
                   <p style={{ margin: 0, color: colors.secondary }}>
-                    {new Date(o.date).toLocaleTimeString()} • {o.total.toFixed(2)} $
+                    {new Date(o.createdAt).toLocaleTimeString()} • {o.totalAmount.toFixed(2)} $
                   </p>
                 </div>
                 <OrderStatusBadge status={o.status} />
@@ -68,7 +69,7 @@ export function Dashboard() {
                 <ul style={{ margin: `${spacing.xs} 0 0 0`, paddingLeft: '20px' }}>
                   {o.items.map((i: any, idx: number) => (
                     <li key={idx}>
-                      {i.emoji} {i.quantity}x {i.name}
+                      {i.quantity}x {i.productName}
                     </li>
                   ))}
                 </ul>
@@ -82,7 +83,7 @@ export function Dashboard() {
                   Accepter & Préparer
                 </ButtonPrimary>
                 <ButtonSecondary
-                  onClick={() => updateOrderStatus(o.id, 'cancelled')}
+                  onClick={() => updateOrderStatus(o.id, 'rejected')}
                   style={{ flex: 1, borderColor: colors.error, color: colors.error }}
                 >
                   Refuser

@@ -36,15 +36,13 @@ export function OrderDetail() {
                   justifyContent: 'space-between',
                 }}
               >
-                <span>
-                  {i.emoji} {i.name}
-                </span>
+                <span>{i.productName}</span>
                 <strong>{i.quantity}x</strong>
               </li>
             ))}
           </ul>
           <h3 style={{ textAlign: 'right', marginTop: spacing.md }}>
-            Total : {order.total.toFixed(2)} $
+            Total : {order.totalAmount.toFixed(2)} $
           </h3>
         </div>
 
@@ -63,7 +61,7 @@ export function OrderDetail() {
             <strong>Client:</strong> {order.customerName}
           </p>
           <p>
-            <strong>Date:</strong> {new Date(order.date).toLocaleString()}
+            <strong>Date:</strong> {new Date(order.createdAt).toLocaleString()}
           </p>
           <p>
             <strong>Statut:</strong> <OrderStatusBadge status={order.status} />
@@ -77,7 +75,7 @@ export function OrderDetail() {
               gap: spacing.sm,
             }}
           >
-            {order.status === 'received' && (
+            {['draft', 'submitted'].includes(order.status) && (
               <ButtonPrimary onClick={() => navigate('/')}>Aller à la réception</ButtonPrimary>
             )}
             {order.status === 'preparing' && (
@@ -85,7 +83,7 @@ export function OrderDetail() {
                 Pointer les articles
               </ButtonPrimary>
             )}
-            {(order.status === 'ready' || order.status === 'preparing') && (
+            {(order.status === 'ready_for_delivery' || order.status === 'preparing') && (
               <ButtonPrimary
                 onClick={() => navigate(`/order/${order.id}/assign`)}
                 style={{ backgroundColor: colors.success }}

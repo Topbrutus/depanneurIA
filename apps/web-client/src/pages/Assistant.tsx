@@ -20,7 +20,7 @@ export function Assistant() {
     setTimeout(() => {
       // Mock logic simple
       if (query.includes('chips') || query.includes('doritos')) {
-        const product = mockProducts.find((p) => p.id === 'doritos-nacho');
+        const product = mockProducts.find((p: any) => p.id === 'doritos-nacho');
         addToCart(product);
         setMessages((m) => [
           ...m,

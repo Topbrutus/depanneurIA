@@ -27,7 +27,8 @@ export function DeliveryCard({ delivery, showAccept = false, onAccept }: any) {
           📍 {delivery.distance} • {delivery.estimatedTime}
         </p>
         <p style={{ margin: 0, fontWeight: 'bold' }}>
-          💵 {delivery.total.toFixed(2)} $ {delivery.status !== 'delivered' && '(À encaisser)'}
+          💵 {delivery.totalAmount.toFixed(2)} ${' '}
+          {delivery.status !== 'delivered' && '(À encaisser)'}
         </p>
       </div>
 

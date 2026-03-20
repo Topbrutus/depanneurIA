@@ -68,7 +68,7 @@ export function DeliveryDetail() {
       >
         <h3 style={{ margin: `0 0 ${spacing.sm} 0` }}>Montant à encaisser</h3>
         <p style={{ fontSize: '24px', fontWeight: 'bold', margin: 0, color: colors.primary }}>
-          {delivery.total.toFixed(2)} $
+          {delivery.totalAmount.toFixed(2)} $
         </p>
       </div>
 
