@@ -13,24 +13,24 @@ faite ici ; il s'agit uniquement de la documentation de référence.
 
 Le client est l'utilisateur final qui passe commande auprès d'un dépanneur.
 
-| Route                          | Page                        | Accès         |
-|--------------------------------|-----------------------------|---------------|
-| `/`                            | Accueil publique            | public        |
-| `/boutique`                    | Boutique manuelle           | public        |
-| `/mode-assiste`                | Mode assisté (chat/vocal)   | public        |
-| `/connexion`                   | Connexion                   | public        |
-| `/inscription`                 | Inscription                 | public        |
-| `/profil`                      | Profil client               | authentifié   |
-| `/profil/adresses`             | Adresses enregistrées       | authentifié   |
-| `/commandes`                   | Historique des commandes    | authentifié   |
-| `/commandes/derniere`          | Dernière commande           | authentifié   |
-| `/commandes/:id/suivi`         | Suivi de commande en cours  | authentifié   |
-| `/produits-populaires`         | Produits populaires         | public        |
-| `/contact`                     | Contact du dépanneur        | public        |
-| `/conditions-utilisation`      | Conditions d'utilisation    | public        |
-| `/confidentialite`             | Politique de confidentialité| public        |
-| `/accessibilite`               | Déclaration d'accessibilité | public        |
-| `/aide-vocale`                 | Aide vocale                 | public        |
+| Route                     | Page                         | Accès       |
+| ------------------------- | ---------------------------- | ----------- |
+| `/`                       | Accueil publique             | public      |
+| `/boutique`               | Boutique manuelle            | public      |
+| `/mode-assiste`           | Mode assisté (chat/vocal)    | public      |
+| `/connexion`              | Connexion                    | public      |
+| `/inscription`            | Inscription                  | public      |
+| `/profil`                 | Profil client                | authentifié |
+| `/profil/adresses`        | Adresses enregistrées        | authentifié |
+| `/commandes`              | Historique des commandes     | authentifié |
+| `/commandes/derniere`     | Dernière commande            | authentifié |
+| `/commandes/:id/suivi`    | Suivi de commande en cours   | authentifié |
+| `/produits-populaires`    | Produits populaires          | public      |
+| `/contact`                | Contact du dépanneur         | public      |
+| `/conditions-utilisation` | Conditions d'utilisation     | public      |
+| `/confidentialite`        | Politique de confidentialité | public      |
+| `/accessibilite`          | Déclaration d'accessibilité  | public      |
+| `/aide-vocale`            | Aide vocale                  | public      |
 
 ### Parcours type — client
 
@@ -46,18 +46,18 @@ Le client est l'utilisateur final qui passe commande auprès d'un dépanneur.
 
 Le dépanneur est le commerçant qui prépare et expédie les commandes.
 
-| Route                                  | Page                        | Accès         |
-|----------------------------------------|-----------------------------|---------------|
-| `/depanneur/connexion`                 | Connexion dépanneur         | public        |
-| `/depanneur/tableau-de-bord`           | Tableau de bord             | authentifié   |
-| `/depanneur/commandes`                 | Liste des commandes         | authentifié   |
-| `/depanneur/commandes/:id`             | Détail d'une commande       | authentifié   |
-| `/depanneur/produits`                  | Gestion des produits        | authentifié   |
-| `/depanneur/produits/:id`              | Détail / édition produit    | authentifié   |
-| `/depanneur/inventaire`                | Inventaire et disponibilité | authentifié   |
-| `/depanneur/profil`                    | Profil du commerce          | authentifié   |
-| `/depanneur/horaires`                  | Horaires d'ouverture        | authentifié   |
-| `/depanneur/statistiques`              | Statistiques de vente       | authentifié   |
+| Route                        | Page                        | Accès       |
+| ---------------------------- | --------------------------- | ----------- |
+| `/depanneur/connexion`       | Connexion dépanneur         | public      |
+| `/depanneur/tableau-de-bord` | Tableau de bord             | authentifié |
+| `/depanneur/commandes`       | Liste des commandes         | authentifié |
+| `/depanneur/commandes/:id`   | Détail d'une commande       | authentifié |
+| `/depanneur/produits`        | Gestion des produits        | authentifié |
+| `/depanneur/produits/:id`    | Détail / édition produit    | authentifié |
+| `/depanneur/inventaire`      | Inventaire et disponibilité | authentifié |
+| `/depanneur/profil`          | Profil du commerce          | authentifié |
+| `/depanneur/horaires`        | Horaires d'ouverture        | authentifié |
+| `/depanneur/statistiques`    | Statistiques de vente       | authentifié |
 
 ### Parcours type — dépanneur
 
@@ -72,16 +72,16 @@ Le dépanneur est le commerçant qui prépare et expédie les commandes.
 
 Le livreur récupère les commandes préparées et les livre au client.
 
-| Route                                | Page                        | Accès         |
-|--------------------------------------|-----------------------------|---------------|
-| `/livreur/connexion`                 | Connexion livreur           | public        |
-| `/livreur/tableau-de-bord`           | Tableau de bord             | authentifié   |
-| `/livreur/livraisons`                | Liste des livraisons        | authentifié   |
-| `/livreur/livraisons/:id`            | Détail d'une livraison      | authentifié   |
-| `/livreur/livraisons/:id/itineraire` | Itinéraire de livraison     | authentifié   |
-| `/livreur/historique`                | Historique des livraisons   | authentifié   |
-| `/livreur/profil`                    | Profil livreur              | authentifié   |
-| `/livreur/disponibilite`             | Gestion de disponibilité    | authentifié   |
+| Route                                | Page                      | Accès       |
+| ------------------------------------ | ------------------------- | ----------- |
+| `/livreur/connexion`                 | Connexion livreur         | public      |
+| `/livreur/tableau-de-bord`           | Tableau de bord           | authentifié |
+| `/livreur/livraisons`                | Liste des livraisons      | authentifié |
+| `/livreur/livraisons/:id`            | Détail d'une livraison    | authentifié |
+| `/livreur/livraisons/:id/itineraire` | Itinéraire de livraison   | authentifié |
+| `/livreur/historique`                | Historique des livraisons | authentifié |
+| `/livreur/profil`                    | Profil livreur            | authentifié |
+| `/livreur/disponibilite`             | Gestion de disponibilité  | authentifié |
 
 ### Parcours type — livreur
 
@@ -96,22 +96,22 @@ Le livreur récupère les commandes préparées et les livre au client.
 
 Le super administrateur supervise l'ensemble de la plateforme.
 
-| Route                                  | Page                          | Accès         |
-|----------------------------------------|-------------------------------|---------------|
-| `/admin/connexion`                     | Connexion administrateur      | public        |
-| `/admin/tableau-de-bord`               | Tableau de bord global        | authentifié   |
-| `/admin/depanneurs`                    | Liste des dépanneurs          | authentifié   |
-| `/admin/depanneurs/:id`                | Détail d'un dépanneur         | authentifié   |
-| `/admin/livreurs`                      | Liste des livreurs            | authentifié   |
-| `/admin/livreurs/:id`                  | Détail d'un livreur           | authentifié   |
-| `/admin/clients`                       | Liste des clients             | authentifié   |
-| `/admin/clients/:id`                   | Détail d'un client            | authentifié   |
-| `/admin/commandes`                     | Toutes les commandes          | authentifié   |
-| `/admin/commandes/:id`                 | Détail d'une commande         | authentifié   |
-| `/admin/produits`                      | Catalogue produits global     | authentifié   |
-| `/admin/zones-livraison`               | Gestion des zones             | authentifié   |
-| `/admin/statistiques`                  | Statistiques plateforme       | authentifié   |
-| `/admin/parametres`                    | Paramètres généraux           | authentifié   |
+| Route                    | Page                      | Accès       |
+| ------------------------ | ------------------------- | ----------- |
+| `/admin/connexion`       | Connexion administrateur  | public      |
+| `/admin/tableau-de-bord` | Tableau de bord global    | authentifié |
+| `/admin/depanneurs`      | Liste des dépanneurs      | authentifié |
+| `/admin/depanneurs/:id`  | Détail d'un dépanneur     | authentifié |
+| `/admin/livreurs`        | Liste des livreurs        | authentifié |
+| `/admin/livreurs/:id`    | Détail d'un livreur       | authentifié |
+| `/admin/clients`         | Liste des clients         | authentifié |
+| `/admin/clients/:id`     | Détail d'un client        | authentifié |
+| `/admin/commandes`       | Toutes les commandes      | authentifié |
+| `/admin/commandes/:id`   | Détail d'une commande     | authentifié |
+| `/admin/produits`        | Catalogue produits global | authentifié |
+| `/admin/zones-livraison` | Gestion des zones         | authentifié |
+| `/admin/statistiques`    | Statistiques plateforme   | authentifié |
+| `/admin/parametres`      | Paramètres généraux       | authentifié |
 
 ### Parcours type — super administrateur
 
@@ -125,12 +125,12 @@ Le super administrateur supervise l'ensemble de la plateforme.
 
 ## Résumé
 
-| Rôle              | Nombre de pages | Préfixe de route  |
-|-------------------|-----------------|-------------------|
-| Client            | 16              | `/`               |
-| Dépanneur         | 10              | `/depanneur/`     |
-| Livreur           | 8               | `/livreur/`       |
-| Super admin       | 14              | `/admin/`         |
-| **Total unique**  | **48**          |                   |
+| Rôle             | Nombre de pages | Préfixe de route |
+| ---------------- | --------------- | ---------------- |
+| Client           | 16              | `/`              |
+| Dépanneur        | 10              | `/depanneur/`    |
+| Livreur          | 8               | `/livreur/`      |
+| Super admin      | 14              | `/admin/`        |
+| **Total unique** | **48**          |                  |
 
 Les routes respectent la convention kebab-case définie dans DEP-0153.

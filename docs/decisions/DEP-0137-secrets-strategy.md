@@ -19,7 +19,7 @@ du système : clé API, mot de passe de base de données, clé JWT, token d'acc�
 ## Sources autorisées par environnement
 
 | Environnement | Source autorisée                           |
-|---------------|--------------------------------------------|
+| ------------- | ------------------------------------------ |
 | Local         | Fichier `.env.local` (jamais commité)      |
 | CI            | GitHub Actions Secrets (chiffrés)          |
 | Staging       | Variables d'environnement de la plateforme |

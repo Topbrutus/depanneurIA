@@ -40,11 +40,13 @@ cd ../..
 ### 4. Lancement en mode développement
 
 Terminal 1 (API):
+
 ```bash
 pnpm dev:api
 ```
 
 Terminal 2 (Web):
+
 ```bash
 pnpm dev:web
 ```
@@ -80,6 +82,7 @@ pnpm build
 ```
 
 Cela génère :
+
 - `apps/api/dist/` : API compilée
 - `apps/web/dist/` : Application web statique
 
@@ -125,6 +128,7 @@ NODE_ENV=production node dist/server.js
 ### Déploiement de l'application web
 
 L'application web est statique. Déployer le contenu de `apps/web/dist/` sur :
+
 - Un CDN (Cloudflare, AWS CloudFront)
 - Un serveur web (Nginx, Apache)
 - Une plateforme (Vercel, Netlify, GitHub Pages)
@@ -153,6 +157,7 @@ curl http://localhost:3001/health
 ```
 
 Réponse attendue :
+
 ```json
 {
   "success": true,

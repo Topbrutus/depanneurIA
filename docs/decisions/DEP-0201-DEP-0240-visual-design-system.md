@@ -206,15 +206,24 @@ support complet des caractères français, open source, chargement rapide.
 
 **Source** : Google Fonts
 **Graisses utilisées** :
+
 - Regular (400) : texte courant
 - Medium (500) : sous-titres, labels
 - SemiBold (600) : titres secondaires, boutons
 - Bold (700) : titres principaux, CTA importants
 
 **Fallback stack** :
+
 ```css
-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-             'Roboto', 'Helvetica Neue', Arial, sans-serif;
+font-family:
+  'Inter',
+  -apple-system,
+  BlinkMacSystemFont,
+  'Segoe UI',
+  'Roboto',
+  'Helvetica Neue',
+  Arial,
+  sans-serif;
 ```
 
 #### Optimisations
@@ -235,6 +244,7 @@ font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
 
 **Graisse** : Regular (400) uniquement
 **Fallback stack** :
+
 ```css
 font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
 ```
@@ -257,6 +267,7 @@ Ceci garantit l'alignement vertical des colonnes de chiffres.
 #### Hiérarchie typographique
 
 **H1 — Titre de page principal**
+
 - Taille : 32px (2rem)
 - Graisse : Bold (700)
 - Hauteur de ligne : 1.2 (38.4px)
@@ -265,6 +276,7 @@ Ceci garantit l'alignement vertical des colonnes de chiffres.
 - Usage : une seule fois par page, titre principal
 
 **H2 — Titre de section**
+
 - Taille : 24px (1.5rem)
 - Graisse : SemiBold (600)
 - Hauteur de ligne : 1.3 (31.2px)
@@ -273,6 +285,7 @@ Ceci garantit l'alignement vertical des colonnes de chiffres.
 - Usage : sections majeures
 
 **H3 — Sous-titre de section**
+
 - Taille : 20px (1.25rem)
 - Graisse : SemiBold (600)
 - Hauteur de ligne : 1.4 (28px)
@@ -281,6 +294,7 @@ Ceci garantit l'alignement vertical des colonnes de chiffres.
 - Usage : sous-sections, cartes
 
 **H4 — Titre de carte/composant**
+
 - Taille : 16px (1rem)
 - Graisse : Medium (500)
 - Hauteur de ligne : 1.5 (24px)
@@ -289,6 +303,7 @@ Ceci garantit l'alignement vertical des colonnes de chiffres.
 - Usage : titres de cartes produits, noms de produits
 
 **H5 — Label accentué**
+
 - Taille : 14px (0.875rem)
 - Graisse : Medium (500)
 - Hauteur de ligne : 1.5 (21px)
@@ -299,6 +314,7 @@ Ceci garantit l'alignement vertical des colonnes de chiffres.
 #### Responsive
 
 Sur mobile (< 768px) :
+
 - H1 : 28px
 - H2 : 22px
 - H3 : 18px
@@ -311,6 +327,7 @@ Sur mobile (< 768px) :
 #### Styles de paragraphe
 
 **Body Large — Texte principal accentué**
+
 - Taille : 18px (1.125rem)
 - Graisse : Regular (400)
 - Hauteur de ligne : 1.6 (28.8px)
@@ -318,6 +335,7 @@ Sur mobile (< 768px) :
 - Usage : textes d'introduction, messages importants
 
 **Body — Texte standard**
+
 - Taille : 16px (1rem)
 - Graisse : Regular (400)
 - Hauteur de ligne : 1.5 (24px)
@@ -325,6 +343,7 @@ Sur mobile (< 768px) :
 - Usage : corps de texte principal, descriptions
 
 **Body Small — Texte secondaire**
+
 - Taille : 14px (0.875rem)
 - Graisse : Regular (400)
 - Hauteur de ligne : 1.5 (21px)
@@ -332,6 +351,7 @@ Sur mobile (< 768px) :
 - Usage : métadonnées, informations complémentaires
 
 **Caption — Légende**
+
 - Taille : 12px (0.75rem)
 - Graisse : Regular (400)
 - Hauteur de ligne : 1.4 (16.8px)
@@ -352,6 +372,7 @@ Sur mobile (< 768px) :
 #### Typographie des boutons
 
 **Bouton Large (CTA principal)**
+
 - Taille : 16px (1rem)
 - Graisse : SemiBold (600)
 - Hauteur de ligne : 1.5 (24px)
@@ -361,6 +382,7 @@ Sur mobile (< 768px) :
 - Usage : actions principales (valider commande, ajouter au panier)
 
 **Bouton Medium (action secondaire)**
+
 - Taille : 15px (0.9375rem)
 - Graisse : Medium (500)
 - Hauteur de ligne : 1.5 (22.5px)
@@ -370,6 +392,7 @@ Sur mobile (< 768px) :
 - Usage : actions courantes
 
 **Bouton Small (action tertiaire)**
+
 - Taille : 14px (0.875rem)
 - Graisse : Medium (500)
 - Hauteur de ligne : 1.5 (21px)
@@ -379,6 +402,7 @@ Sur mobile (< 768px) :
 - Usage : actions secondaires, liens d'action
 
 **Bouton Icon-only (action icône seule)**
+
 - Taille : 44x44px minimum (zone de tap)
 - Icône : 20x20px
 - Padding : 12px (centré)
@@ -403,6 +427,7 @@ Les cartes produits ont une hiérarchie typographique interne stricte pour facil
 le scan visuel et la comparaison.
 
 **Nom du produit**
+
 - Taille : 16px (1rem)
 - Graisse : SemiBold (600)
 - Hauteur de ligne : 1.4 (22.4px)
@@ -411,6 +436,7 @@ le scan visuel et la comparaison.
 - Usage : identité du produit
 
 **Description courte / Variante**
+
 - Taille : 14px (0.875rem)
 - Graisse : Regular (400)
 - Hauteur de ligne : 1.5 (21px)
@@ -419,6 +445,7 @@ le scan visuel et la comparaison.
 - Usage : format, poids, saveur
 
 **Prix (si affiché)**
+
 - Taille : 18px (1.125rem)
 - Graisse : Bold (700)
 - Hauteur de ligne : 1.3 (23.4px)
@@ -427,6 +454,7 @@ le scan visuel et la comparaison.
 - Usage : prix unitaire
 
 **Badge de disponibilité**
+
 - Taille : 12px (0.75rem)
 - Graisse : Medium (500)
 - Hauteur de ligne : 1.3 (15.6px)
@@ -436,6 +464,7 @@ le scan visuel et la comparaison.
 - Usage : en stock, limité, rupture
 
 **Label catégorie**
+
 - Taille : 11px (0.6875rem)
 - Graisse : Medium (500)
 - Hauteur de ligne : 1.4 (15.4px)
@@ -447,6 +476,7 @@ le scan visuel et la comparaison.
 #### Responsive
 
 Sur mobile, les cartes produits en mode liste :
+
 - Nom : 15px
 - Description : 13px
 - Prix : 16px
@@ -463,6 +493,7 @@ Sur mobile, les cartes produits en mode liste :
 **Carte produit standard (mode grille)**
 
 Dimensions :
+
 - Largeur : flexible (grille responsive)
 - Ratio d'aspect : 3:4 (image) + contenu texte
 - Padding interne : 12px
@@ -471,6 +502,7 @@ Dimensions :
 - Background : `#FFFFFF`
 
 Structure :
+
 ```
 ┌──────────────────────────┐
 │                          │
@@ -488,6 +520,7 @@ Structure :
 ```
 
 **Image produit**
+
 - Ratio : 1:1 (carré)
 - Object-fit : cover
 - Border-radius : 8px (top)
@@ -495,6 +528,7 @@ Structure :
 - Hover : légère scale (1.05) avec transition smooth
 
 **Badge disponibilité**
+
 - Position : absolute top-right sur l'image
 - Padding : 4px 8px
 - Border-radius : 6px
@@ -502,6 +536,7 @@ Structure :
 - Exemple : `rgba(16, 185, 129, 0.9)` pour "En stock"
 
 **Bouton ajout panier**
+
 - Style : icon + text ou icon-only selon largeur
 - Taille : 36px hauteur
 - Border-radius : 8px
@@ -525,6 +560,7 @@ Le panier est une section verticale sticky qui affiche les produits ajoutés,
 le résumé et les actions de validation.
 
 **Container panier**
+
 - Width : 100% du container parent (section 3)
 - Max-height : calc(100vh - 100px) (scroll interne)
 - Background : `#FFFFFF`
@@ -534,6 +570,7 @@ le résumé et les actions de validation.
 - Shadow : `0 2px 8px rgba(0,0,0,0.04)`
 
 **Header panier**
+
 - Titre : "Panier" + badge de quantité
 - Taille titre : 18px SemiBold
 - Badge : `#2563EB` background, texte blanc
@@ -542,6 +579,7 @@ le résumé et les actions de validation.
 **Item de panier**
 
 Structure d'un item :
+
 ```
 ┌────────────────────────────────┐
 │ [Image] Nom du produit         │
@@ -556,11 +594,13 @@ Structure d'un item :
 - Background hover : `#F8FAFC`
 
 **Miniature produit**
+
 - Size : 60x60px
 - Border-radius : 8px
 - Object-fit : cover
 
 **Contrôles quantité**
+
 - Style : boutons [-] [quantité] [+]
 - Taille boutons : 28x28px
 - Border : 1px solid `#CBD5E1`
@@ -568,17 +608,20 @@ Structure d'un item :
 - Quantité : 14px Medium, min-width 32px, centré
 
 **Bouton supprimer**
+
 - Style : icon-only (icône poubelle)
 - Taille : 32x32px
 - Couleur : `#64748B`, hover `#EF4444`
 - Position : à droite de la ligne
 
 **Footer panier (résumé)**
+
 - Border-top : 2px solid `#E2E8F0`
 - Padding-top : 16px
 - Background : `#F8FAFC` (optionnel)
 
 Contenu :
+
 - Total articles : "X articles"
 - Ligne "Total" : Bold, 18px
 - Bouton CTA : "Commander" (large, pleine largeur)
@@ -600,6 +643,7 @@ Le chat assistant est intégré dans la section 3 (desktop) ou en modal/drawer (
 sous le panier ou dans un onglet dédié.
 
 **Container chat**
+
 - Background : `#FFFFFF`
 - Border : 1px solid `#E2E8F0`
 - Border-radius : 12px
@@ -608,12 +652,14 @@ sous le panier ou dans un onglet dédié.
 - Max-height : 500px (scroll messages)
 
 **Header chat**
+
 - Titre : "Assistant" + indicateur de statut
 - Taille : 16px SemiBold
 - Indicateur : pastille verte "En ligne" ou grise "Hors ligne"
 - Bouton fermer : icon-only (X), top-right
 
 **Zone de messages**
+
 - Padding : 12px
 - Overflow-y : auto
 - Display : flex column
@@ -622,6 +668,7 @@ sous le panier ou dans un onglet dédié.
 **Message assistant (à gauche)**
 
 Structure :
+
 ```
 ┌─────────────────────────┐
 │ 🤖 [Avatar]             │
@@ -641,6 +688,7 @@ Structure :
 **Message client (à droite)**
 
 Structure :
+
 ```
         ┌─────────────────────┐
         │      Message texte  │
@@ -663,6 +711,7 @@ Structure :
 - Display : flex gap 8px
 
 Input :
+
 - Flex : 1
 - Height : 40px
 - Border : 1px solid `#CBD5E1`
@@ -672,6 +721,7 @@ Input :
 - Placeholder : "Demandez un produit..."
 
 Bouton envoyer :
+
 - Size : 40x40px (icon-only)
 - Background : `#2563EB`
 - Icon : flèche ou avion papier, blanc
@@ -679,6 +729,7 @@ Bouton envoyer :
 - Disabled si input vide
 
 Bouton micro (si mode vocal actif) :
+
 - Size : 40x40px
 - Background : `#F3F4F6`, hover `#10B981` (actif)
 - Icon : micro, couleur adaptée
@@ -695,6 +746,7 @@ Les suggestions sont des tuiles rapides affichées par l'assistant pour proposer
 des produits ou des actions.
 
 **Container suggestions**
+
 - Display : flex column gap 8px
 - Padding : 0 (dans le chat) ou 16px (section dédiée)
 - Max suggestions visibles : 5
@@ -703,6 +755,7 @@ des produits ou des actions.
 **Tuile suggestion**
 
 Structure :
+
 ```
 ┌────────────────────────────────────┐
 │ [Img] Nom produit          [+]     │
@@ -720,15 +773,18 @@ Structure :
 - Cursor : pointer
 
 **Image produit (suggestion)**
+
 - Size : 40x40px
 - Border-radius : 6px
 - Object-fit : cover
 
 **Texte**
+
 - Nom : 14px SemiBold, `#0F172A`, line-clamp 1
 - Description : 12px Regular, `#64748B`, line-clamp 1
 
 **Bouton action**
+
 - Size : 32x32px
 - Icon : + (ajouter)
 - Background : `#2563EB`
@@ -737,6 +793,7 @@ Structure :
 - Hover : background `#1D4ED8`
 
 **Animation d'apparition**
+
 - Fade in + slide up
 - Durée : 200ms
 - Easing : ease-out
@@ -751,42 +808,49 @@ Structure :
 Les badges d'état communiquent visuellement l'étape actuelle de la commande.
 
 **Badge "Nouvelle"**
+
 - Background : `#DBEAFE` (blue-100)
 - Text : `#1E40AF` (blue-700)
 - Icon : clock ou hourglass
 - Border : none
 
 **Badge "En préparation"**
+
 - Background : `#FEF3C7` (amber-100)
 - Text : `#B45309` (amber-700)
 - Icon : cooking/chef hat
 - Border : none
 
 **Badge "Prête"**
+
 - Background : `#D1FAE5` (green-100)
 - Text : `#047857` (green-700)
 - Icon : checkmark-circle
 - Border : none
 
 **Badge "En livraison"**
+
 - Background : `#E0E7FF` (indigo-100)
 - Text : `#4338CA` (indigo-700)
 - Icon : truck ou scooter
 - Border : none
 
 **Badge "Livrée"**
+
 - Background : `#D1FAE5` (green-100)
 - Text : `#047857` (green-700)
 - Icon : checkmark-double
 - Border : none
 
 **Badge "Annulée"**
+
 - Background : `#FEE2E2` (red-100)
 - Text : `#B91C1C` (red-700)
 - Icon : x-circle
 - Border : none
 
 **Badge "Problème"**
+
 - Background : `#FEE2E2` (red-100)
 - Text : `#B91C1C` (red-700)
 - Icon : alert-triangle
@@ -812,6 +876,7 @@ Les alertes du dépanneur sont affichées en notifications toast (top-right) ou
 en bannière (top) selon l'urgence.
 
 **Alerte "Nouvelle commande"**
+
 - Type : toast
 - Background : `#2563EB`
 - Text : `#FFFFFF`
@@ -821,6 +886,7 @@ en bannière (top) selon l'urgence.
 - Action : "Voir la commande" (bouton blanc outline)
 
 **Alerte "Commande urgente"**
+
 - Type : bannière fixe (top, full width)
 - Background : `#FEF3C7` (amber-100)
 - Text : `#78350F` (amber-900)
@@ -830,6 +896,7 @@ en bannière (top) selon l'urgence.
 - Action : "Traiter maintenant" (bouton primaire)
 
 **Alerte "Produit manquant"**
+
 - Type : toast
 - Background : `#FEE2E2` (red-100)
 - Text : `#7F1D1D` (red-900)
@@ -838,6 +905,7 @@ en bannière (top) selon l'urgence.
 - Action : "Marquer indisponible" (lien)
 
 **Alerte "Livreur disponible"**
+
 - Type : toast
 - Background : `#D1FAE5` (green-100)
 - Text : `#064E3B` (green-900)
@@ -867,6 +935,7 @@ Les alertes du livreur sont optimisées pour mobile et doivent être visibles
 même en conditions de mobilité.
 
 **Alerte "Nouvelle livraison assignée"**
+
 - Type : modal full-screen (mobile) ou toast large (desktop)
 - Background : `#2563EB`
 - Text : `#FFFFFF`
@@ -877,6 +946,7 @@ même en conditions de mobilité.
 - Auto-dismiss : 15 secondes (retour à liste)
 
 **Alerte "Client absent"**
+
 - Type : modal dialog
 - Background : `#FFFFFF`
 - Title : "Client non disponible"
@@ -884,6 +954,7 @@ même en conditions de mobilité.
 - Actions : "Appeler client" | "Retour dépanneur"
 
 **Alerte "Problème de livraison"**
+
 - Type : modal dialog
 - Background : `#FFFFFF`
 - Title : "Signaler un problème"
@@ -891,6 +962,7 @@ même en conditions de mobilité.
 - Actions : "Envoyer" | "Annuler"
 
 **Notification "Livraison terminée"**
+
 - Type : toast
 - Background : `#10B981` (green)
 - Text : `#FFFFFF`
@@ -913,6 +985,7 @@ même en conditions de mobilité.
 #### Spinner principal
 
 **Spinner global (page)**
+
 - Type : spinning circle
 - Size : 48px
 - Color : `#2563EB` (primaire)
@@ -923,6 +996,7 @@ même en conditions de mobilité.
 - Z-index : 9998
 
 **Spinner inline (bouton)**
+
 - Type : spinning circle
 - Size : 16px
 - Color : currentColor (hérite du texte)
@@ -930,6 +1004,7 @@ même en conditions de mobilité.
 - Position : remplace l'icône ou le texte du bouton
 
 **Spinner section (carte, composant)**
+
 - Type : spinning circle
 - Size : 32px
 - Color : `#64748B` (gris)
@@ -943,6 +1018,7 @@ au lieu de spinners.
 **Skeleton carte produit**
 
 Structure :
+
 ```
 ┌──────────────────────────┐
 │ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ │ (image)
@@ -960,6 +1036,7 @@ Structure :
 - Border-radius : identique aux éléments réels
 
 **Skeleton texte**
+
 - Height : hauteur du texte cible (16px, 18px, etc.)
 - Width : variable (70-100% de la largeur)
 - Border-radius : 4px
@@ -974,6 +1051,7 @@ Pour les opérations longues (> 3 secondes), afficher un message :
 - "Connexion à l'assistant..."
 
 Style :
+
 - Font-size : 14px
 - Color : `#64748B`
 - Position : sous le spinner
@@ -996,6 +1074,7 @@ Style :
 #### Icônes essentielles
 
 **Navigation et interface**
+
 - `menu` : menu burger (3 lignes)
 - `x` : fermer, annuler
 - `chevron-left` / `chevron-right` : navigation
@@ -1008,6 +1087,7 @@ Style :
 - `log-out` : déconnexion
 
 **Panier et commerce**
+
 - `shopping-cart` : panier
 - `shopping-bag` : sac (alternatif)
 - `plus` : ajouter
@@ -1018,6 +1098,7 @@ Style :
 - `credit-card` : paiement (futur)
 
 **Produits et catalogue**
+
 - `package` : produit, colis
 - `grid` : vue grille
 - `list` : vue liste
@@ -1027,6 +1108,7 @@ Style :
 - `image` : photo produit
 
 **Communication et assistant**
+
 - `message-circle` : chat, messages
 - `mic` : micro, vocal
 - `phone` : téléphone
@@ -1034,6 +1116,7 @@ Style :
 - `bot` : assistant IA (custom si besoin)
 
 **États et notifications**
+
 - `bell` : notification
 - `alert-circle` : information
 - `alert-triangle` : attention, warning
@@ -1043,6 +1126,7 @@ Style :
 - `help-circle` : aide
 
 **Livraison et commandes**
+
 - `truck` : livraison, livreur
 - `map-pin` : adresse, localisation
 - `clock` : attente, horaire
@@ -1051,6 +1135,7 @@ Style :
 - `package-x` : problème colis
 
 **Autres**
+
 - `eye` : voir, afficher
 - `eye-off` : masquer
 - `edit` : éditer
@@ -1085,67 +1170,82 @@ Style :
 #### Animations globales
 
 **Fade in (apparition)**
+
 ```css
 opacity: 0 -> 1
 duration: 200ms
 easing: ease-out
 ```
+
 Usage : toast, modals, tooltips
 
 **Fade out (disparition)**
+
 ```css
 opacity: 1 -> 0
 duration: 150ms
 easing: ease-in
 ```
+
 Usage : fermeture toast, dismissal
 
 **Slide in (entrée latérale)**
+
 ```css
 transform: translateX(100%) -> translateX(0)
 opacity: 0 -> 1
 duration: 250ms
 easing: ease-out
 ```
+
 Usage : drawer, sidebar mobile
 
 **Slide up (entrée bas)**
+
 ```css
 transform: translateY(20px) -> translateY(0)
 opacity: 0 -> 1
 duration: 200ms
 easing: ease-out
 ```
+
 Usage : suggestions, dropdowns
 
 **Scale up (agrandissement)**
+
 ```css
 transform: scale(0.95) -> scale(1)
 opacity: 0 -> 1
 duration: 150ms
 easing: ease-out
 ```
+
 Usage : modal dialog, popover
 
 **Shake (erreur)**
+
 ```css
 transform: translateX(0 -> -10px -> 10px -> -10px -> 0)
 duration: 400ms
 easing: ease-in-out
 iterations: 1
 ```
+
 Usage : erreur validation champ
 
 **Pulse (attention)**
+
 ```css
 transform: scale(1 -> 1.05 -> 1)
 duration: 600ms
 easing: ease-in-out
 iterations: 2
 ```
+
 Usage : notification importante, nouvel item
 
 **Skeleton shimmer (chargement)**
+
 ```css
 background: linear-gradient(90deg, #F1F5F9 25%, #E2E8F0 50%, #F1F5F9 75%)
 background-size: 200% 100%
@@ -1161,11 +1261,13 @@ animation: shimmer 1.5s ease-in-out infinite
 Lorsqu'un produit est ajouté au panier depuis une carte produit :
 
 **Étape 1 : Feedback immédiat sur le bouton (0-150ms)**
+
 - Scale button : 1 -> 0.95 -> 1
 - Background : couleur primaire -> couleur active
 - Easing : ease-in-out
 
 **Étape 2 : Animation de la miniature (150-500ms)**
+
 - Clone visuel de l'image produit créé
 - Position initiale : centre de la carte produit
 - Transform :
@@ -1177,6 +1279,7 @@ Lorsqu'un produit est ajouté au panier depuis une carte produit :
 - Courbe : bezier pour effet parabole
 
 **Étape 3 : Feedback panier (450-600ms)**
+
 - Icône panier : scale 1 -> 1.2 -> 1
 - Badge quantité : fade in + slide down si nouveau
 - Background panier : flash `#10B981` (green) 150ms
@@ -1184,6 +1287,7 @@ Lorsqu'un produit est ajouté au panier depuis une carte produit :
 - Easing : ease-out
 
 **Étape 4 : Mise à jour du panier (600ms+)**
+
 - Nouvel item : slide down + fade in dans la liste
 - Duration : 200ms
 - Stagger : si plusieurs items ajoutés successivement
@@ -1203,10 +1307,12 @@ Lorsqu'un produit est ajouté au panier depuis une carte produit :
 Lorsqu'un produit est retiré du panier (bouton supprimer ou quantité = 0) :
 
 **Étape 1 : Confirmation visuelle (0-100ms)**
+
 - Item : background fade to `#FEE2E2` (red-100)
 - Duration : 100ms
 
 **Étape 2 : Slide out (100-350ms)**
+
 - Transform : translateX(0 -> -100%)
 - Opacity : 1 -> 0
 - Height : hauteur actuelle -> 0 (collapse)
@@ -1214,11 +1320,13 @@ Lorsqu'un produit est retiré du panier (bouton supprimer ou quantité = 0) :
 - Easing : ease-in
 
 **Étape 3 : Repositionnement des autres items (350-500ms)**
+
 - Items suivants : slide up pour combler l'espace
 - Duration : 150ms
 - Easing : ease-out
 
 **Étape 4 : Mise à jour des totaux (500-650ms)**
+
 - Total : fade out ancien -> fade in nouveau
 - Badge quantité panier : update avec scale pulse
 - Duration : 150ms
@@ -1226,6 +1334,7 @@ Lorsqu'un produit est retiré du panier (bouton supprimer ou quantité = 0) :
 #### État panier vide
 
 Si dernier item retiré :
+
 - Fade out de la liste (200ms)
 - Fade in du message "Panier vide" + illustration (300ms)
 - Stagger : 100ms entre les deux
@@ -1239,12 +1348,14 @@ Si dernier item retiré :
 Lorsque l'assistant affiche des suggestions produits :
 
 **Conteneur suggestions (0-200ms)**
+
 - Height : 0 -> auto
 - Opacity : 0 -> 1
 - Duration : 200ms
 - Easing : ease-out
 
 **Tuiles suggestions (stagger)**
+
 - Chaque tuile apparaît séquentiellement avec :
   - Transform : translateY(10px) -> translateY(0)
   - Opacity : 0 -> 1
@@ -1253,11 +1364,13 @@ Lorsque l'assistant affiche des suggestions produits :
   - Stagger delay : 50ms entre chaque tuile
 
 **Ordre d'apparition**
+
 - Tuiles de haut en bas
 - Max 5 tuiles visibles
 - Si > 5, les suivantes apparaissent au scroll
 
 **Icône indicateur**
+
 - Icône "suggestions" dans le chat : pulse 1 fois
 - Durée pulse : 300ms
 
@@ -1270,6 +1383,7 @@ Lorsque l'assistant affiche des suggestions produits :
 Lorsque les suggestions sont fermées (action utilisateur ou auto-close) :
 
 **Tuiles suggestions (reverse stagger)**
+
 - Chaque tuile disparaît séquentiellement :
   - Transform : translateY(0) -> translateY(-10px)
   - Opacity : 1 -> 0
@@ -1279,6 +1393,7 @@ Lorsque les suggestions sont fermées (action utilisateur ou auto-close) :
   - Ordre : bas vers haut (inverse de l'ouverture)
 
 **Conteneur suggestions (après tuiles)**
+
 - Height : auto -> 0
 - Opacity : maintenu à 0
 - Duration : 100ms
@@ -1295,24 +1410,28 @@ Lorsque les suggestions sont fermées (action utilisateur ou auto-close) :
 Lorsque l'état d'une commande change (ex: "Nouvelle" -> "En préparation") :
 
 **Badge d'état**
+
 - Scale : 1 -> 1.15 -> 1
 - Background : transition de l'ancienne couleur vers la nouvelle
 - Duration : 300ms
 - Easing : ease-in-out
 
 **Icône d'état**
+
 - Rotation : 0deg -> 360deg (si icône change)
 - Opacity : 1 -> 0 -> 1 (cross-fade)
 - Duration : 250ms
 - Easing : ease-in-out
 
 **Ligne de statut (stepper horizontal)**
+
 - Barre de progression : width animate jusqu'à la nouvelle étape
 - Duration : 400ms
 - Easing : ease-out
 - Icône de l'étape atteinte : scale pulse + couleur verte
 
 **Notification associée (optionnel)**
+
 - Toast notification avec le nouvel état
 - Apparition : slide down + fade in
 - Duration : 250ms
@@ -1327,29 +1446,34 @@ Lorsque l'état d'une commande change (ex: "Nouvelle" -> "En préparation") :
 Lorsqu'une nouvelle commande arrive :
 
 **Notification toast (0-300ms)**
+
 - Entrée : slide in right + fade in
 - Scale : 0.9 -> 1 (léger bounce)
 - Duration : 300ms
 - Easing : ease-out
 
 **Icône bell (0-600ms)**
+
 - Shake animation : rotate -15deg -> 15deg -> -10deg -> 10deg -> 0deg
 - Duration : 600ms
 - Iterations : 2
 - Easing : ease-in-out
 
 **Badge nombre de commandes (300-450ms)**
+
 - Scale : 0 -> 1.2 -> 1
 - Background : flash `#EF4444` (red)
 - Duration : 150ms
 - Easing : ease-out
 
 **Bordure notification (pendant toute la durée)**
+
 - Border-color : pulse entre `#2563EB` et `#1D4ED8`
 - Duration : 1s
 - Iterations : 3
 
 **Son (simultané avec visuel)**
+
 - Notification sonore de 500ms
 - Volume : configurable
 - Pattern : double-beep
@@ -1363,12 +1487,14 @@ Lorsqu'une nouvelle commande arrive :
 Lorsqu'une livraison est assignée au livreur :
 
 **Modal plein écran (0-350ms)**
+
 - Background overlay : opacity 0 -> 0.9
 - Modal : scale 0.8 -> 1 + fade in
 - Duration : 350ms
 - Easing : ease-out
 
 **Icône truck (200-800ms)**
+
 - Entrée : slide in left (mouvement du véhicule)
 - Transform : translateX(-100%) -> translateX(0)
 - Scale : 0.8 -> 1
@@ -1376,6 +1502,7 @@ Lorsqu'une livraison est assignée au livreur :
 - Bounce finale : scale 1 -> 1.1 -> 1
 
 **Détails commande (stagger)**
+
 - Chaque ligne d'info apparaît séquentiellement :
   - Slide up + fade in
   - Duration : 200ms par ligne
@@ -1383,20 +1510,24 @@ Lorsqu'une livraison est assignée au livreur :
 - Lignes : adresse, client, items, instructions
 
 **Boutons d'action (600-800ms)**
+
 - Fade in + slide up
 - Duration : 200ms
 - Scale : 0.95 -> 1
 
 **Bordure du modal**
+
 - Glow pulse `#10B981` (green)
 - Duration : 1.5s
 - Iterations : 2
 
 **Feedback haptique (mobile)**
+
 - Vibration pattern : [200ms, 100ms, 200ms]
 - Simultané avec animation
 
 **Son (simultané)**
+
 - Notification sonore forte
 - Duration : 800ms
 - Volume : élevé (livreur en déplacement)
@@ -1711,6 +1842,7 @@ Lorsqu'une livraison est assignée au livreur :
 **Animation pulse**
 
 Si nouvel item ajouté :
+
 - Scale : 1 -> 1.15 -> 1
 - Duration : 300ms
 - Badge : background flash `#10B981` -> `#EF4444`
@@ -1758,6 +1890,7 @@ Si nouvel item ajouté :
 **Typing indicator**
 
 Pendant que l'assistant "tape" :
+
 ```
 ┌──────────────────────────────┐
 │ 🤖 [Avatar]                  │
@@ -1773,6 +1906,7 @@ Pendant que l'assistant "tape" :
 **Actions suggérées (boutons rapides)**
 
 Si le message contient des actions suggérées (ex: "Oui" / "Non") :
+
 - Afficher en dessous du message
 - Boutons small, secondary style
 - Display : flex gap 8px
@@ -1813,6 +1947,7 @@ Si le message contient des actions suggérées (ex: "Oui" / "Non") :
 **États d'envoi**
 
 Icons en bas à droite du timestamp :
+
 - **Sending** : single checkmark, gray
 - **Sent** : double checkmark, gray
 - **Read** : double checkmark, blue (si implémenté)
@@ -1821,6 +1956,7 @@ Icons en bas à droite du timestamp :
 **Erreur d'envoi**
 
 Si échec :
+
 - Border : 1px solid `#FCA5A5` (red-300)
 - Background : `#FEE2E2` (red-100)
 - Text : `#7F1D1D` (red-900)
@@ -2208,6 +2344,7 @@ validé par les parties prenantes (product owner, développeurs, designers).
 **Prochaines étapes après validation**
 
 Une fois ce document validé :
+
 1. Créer les tokens de design (variables CSS/SCSS)
 2. Implémenter les composants de base dans le code
 3. Construire une bibliothèque de composants (Storybook ou similaire)
@@ -2237,6 +2374,7 @@ depaneurIA V1, couvrant les 40 tâches de DEP-0201 à DEP-0240 :
 **Total : 40 tâches documentées**
 
 Le système est conçu pour être :
+
 - **Cohérent** : toutes les décisions visuelles suivent les mêmes principes
 - **Accessible** : WCAG 2.1 AA minimum, mode contraste élevé, keyboard navigation
 - **Performant** : animations GPU-accelerated, respect de prefers-reduced-motion

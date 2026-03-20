@@ -19,14 +19,14 @@ Ajouter une couche sécurité V1 minimale et propre avec rôles simples pour sé
 
 Chaque rôle a les permissions suivantes (définies dans `packages/types/src/roles.ts`) :
 
-| Permission | customer | store_operator | driver | admin |
-|------------|----------|----------------|--------|-------|
-| canAccessStore | ❌ | ✅ | ❌ | ✅ |
-| canAccessDriver | ❌ | ❌ | ✅ | ✅ |
-| canAccessAdmin | ❌ | ❌ | ❌ | ✅ |
-| canManageCatalog | ❌ | ❌ | ❌ | ✅ |
-| canManageOrders | ❌ | ✅ | ❌ | ✅ |
-| canManageTenants | ❌ | ❌ | ❌ | ✅ |
+| Permission       | customer | store_operator | driver | admin |
+| ---------------- | -------- | -------------- | ------ | ----- |
+| canAccessStore   | ❌       | ✅             | ❌     | ✅    |
+| canAccessDriver  | ❌       | ❌             | ✅     | ✅    |
+| canAccessAdmin   | ❌       | ❌             | ❌     | ✅    |
+| canManageCatalog | ❌       | ❌             | ❌     | ✅    |
+| canManageOrders  | ❌       | ✅             | ❌     | ✅    |
+| canManageTenants | ❌       | ❌             | ❌     | ✅    |
 
 ## API implémentée
 
@@ -93,11 +93,13 @@ Chaque rôle a les permissions suivantes (définies dans `packages/types/src/rol
 ## Fichiers créés/modifiés
 
 ### Types (`packages/types/src/`)
+
 - ✅ `roles.ts` — Définition des rôles et permissions
 - ✅ `auth.ts` — Types pour session, login, logout
 - ✅ `index.ts` — Export des types auth et rôles
 
 ### API (`apps/api/src/`)
+
 - ✅ `lib/auth-store.ts` — Store de sessions en mémoire
 - ✅ `lib/auth-middleware.ts` — Middleware d'extraction et validation de session
 - ✅ `lib/role-guards.ts` — Gardes de rôles et permissions
@@ -106,6 +108,7 @@ Chaque rôle a les permissions suivantes (définies dans `packages/types/src/rol
 - ✅ `app.ts` — Middleware `extractSession` appliqué globalement
 
 ### Web (`apps/web/src/`)
+
 - ✅ `lib/auth-context.tsx` — Zustand store pour l'authentification
 - ✅ `lib/auth-storage.ts` — Gestion du stockage localStorage
 - ✅ `lib/role-guards.ts` — Fonctions de vérification de permissions
@@ -135,10 +138,12 @@ Chaque rôle a les permissions suivantes (définies dans `packages/types/src/rol
 ## Erreurs gérées
 
 ### Côté API
+
 - **401 Unauthorized** — Session invalide ou manquante
 - **403 Forbidden** — Accès refusé, rôle insuffisant
 
 ### Côté Front
+
 - Page "Accès refusé" avec message explicite
 - Redirection vers `/mock-login` si non authentifié
 - Message d'erreur lors du login
@@ -146,6 +151,7 @@ Chaque rôle a les permissions suivantes (définies dans `packages/types/src/rol
 ## Mode démo/local
 
 Le système fonctionne entièrement en mode démo/local :
+
 - Pas de connexion à un service d'authentification externe
 - Sessions stockées en mémoire côté API (Map)
 - Sessions persistées en localStorage côté front
@@ -154,6 +160,7 @@ Le système fonctionne entièrement en mode démo/local :
 ## Évolution future prévue
 
 Le système est conçu pour évoluer vers :
+
 - Authentification réelle (OAuth, JWT, etc.)
 - Store de sessions persistant (Redis, DB)
 - Gestion des expirations de session

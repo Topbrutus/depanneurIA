@@ -18,15 +18,15 @@ Définir l'affichage permanent du panier sur les écrans desktop (≥1024px de l
 
 ### Règles d'affichage
 
-| Élément              | Valeur                                                        |
-|----------------------|---------------------------------------------------------------|
-| Position             | Colonne fixe à droite de l'écran                              |
-| Largeur              | 320px                                                         |
-| Hauteur              | 100% de la fenêtre (moins l'en-tête si présent)               |
-| Scroll interne       | Activé si le contenu dépasse la hauteur disponible           |
-| Visibilité par défaut| Toujours visible (non repliable)                              |
-| Fond                 | Blanc #FFFFFF avec ombre portée légère                        |
-| Bordure              | Bordure gauche 1px gris clair #E0E0E0                         |
+| Élément               | Valeur                                             |
+| --------------------- | -------------------------------------------------- |
+| Position              | Colonne fixe à droite de l'écran                   |
+| Largeur               | 320px                                              |
+| Hauteur               | 100% de la fenêtre (moins l'en-tête si présent)    |
+| Scroll interne        | Activé si le contenu dépasse la hauteur disponible |
+| Visibilité par défaut | Toujours visible (non repliable)                   |
+| Fond                  | Blanc #FFFFFF avec ombre portée légère             |
+| Bordure               | Bordure gauche 1px gris clair #E0E0E0              |
 
 ### Contenu affiché
 
@@ -50,11 +50,11 @@ Définir l'affichage permanent du panier sur les écrans desktop (≥1024px de l
 
 ### États du panier
 
-| État                 | Affichage                                                     |
-|----------------------|---------------------------------------------------------------|
-| Panier vide          | Message : « Ton panier est vide. »                            |
-| Panier avec produits | Liste complète + total + boutons d'action                     |
-| Panier en cours      | Indicateur de chargement si synchronisation en cours          |
+| État                 | Affichage                                            |
+| -------------------- | ---------------------------------------------------- |
+| Panier vide          | Message : « Ton panier est vide. »                   |
+| Panier avec produits | Liste complète + total + boutons d'action            |
+| Panier en cours      | Indicateur de chargement si synchronisation en cours |
 
 ### Accessibilité
 
@@ -72,42 +72,43 @@ Définir l'affichage du panier sur les écrans mobiles (<1024px) sous forme d'un
 
 ### Règles d'affichage
 
-| Élément              | Valeur                                                        |
-|----------------------|---------------------------------------------------------------|
-| Position par défaut  | Masqué, accessible via bouton flottant en bas à droite       |
-| Position déployée    | Panneau en overlay couvrant 100% de l'écran                  |
-| Animation ouverture  | Slide up depuis le bas (300ms, ease-out)                      |
-| Animation fermeture  | Slide down vers le bas (200ms, ease-in)                       |
-| Fond overlay         | Semi-transparent noir #000000 à 40% d'opacité                 |
-| Fond panneau         | Blanc #FFFFFF                                                 |
-| Hauteur panneau      | 80% de la hauteur d'écran (ajustable par glissement)         |
+| Élément             | Valeur                                                 |
+| ------------------- | ------------------------------------------------------ |
+| Position par défaut | Masqué, accessible via bouton flottant en bas à droite |
+| Position déployée   | Panneau en overlay couvrant 100% de l'écran            |
+| Animation ouverture | Slide up depuis le bas (300ms, ease-out)               |
+| Animation fermeture | Slide down vers le bas (200ms, ease-in)                |
+| Fond overlay        | Semi-transparent noir #000000 à 40% d'opacité          |
+| Fond panneau        | Blanc #FFFFFF                                          |
+| Hauteur panneau     | 80% de la hauteur d'écran (ajustable par glissement)   |
 
 ### Bouton d'accès (panier replié)
 
-| Élément              | Valeur                                                        |
-|----------------------|---------------------------------------------------------------|
-| Position             | Fixe en bas à droite, 16px de marge                           |
-| Forme                | Cercle de 64px de diamètre                                    |
-| Couleur fond         | Primaire #2563EB                                              |
-| Icône                | Panier (Lucide `shopping-cart`) en blanc                      |
-| Badge quantité       | Pastille rouge #EF4444 affichant le nombre d'articles         |
-| État au survol       | Légère élévation (box-shadow plus prononcée)                  |
+| Élément        | Valeur                                                |
+| -------------- | ----------------------------------------------------- |
+| Position       | Fixe en bas à droite, 16px de marge                   |
+| Forme          | Cercle de 64px de diamètre                            |
+| Couleur fond   | Primaire #2563EB                                      |
+| Icône          | Panier (Lucide `shopping-cart`) en blanc              |
+| Badge quantité | Pastille rouge #EF4444 affichant le nombre d'articles |
+| État au survol | Légère élévation (box-shadow plus prononcée)          |
 
 ### Contenu du panneau déployé
 
 Identique à la vue desktop (DEP-0334) :
+
 - En-tête panier avec titre et nombre d'articles
 - Liste des produits avec miniatures, quantités, prix
 - Pied de panier avec total et boutons d'action
 
 ### Interactions
 
-| Action               | Comportement                                                  |
-|----------------------|---------------------------------------------------------------|
-| Tap sur bouton       | Ouvre le panneau panier (slide up)                            |
-| Tap sur overlay      | Ferme le panneau panier (slide down)                          |
-| Glissement vers bas  | Ferme le panneau panier                                       |
-| Bouton fermer (×)    | En haut à droite du panneau, ferme le panneau                 |
+| Action              | Comportement                                  |
+| ------------------- | --------------------------------------------- |
+| Tap sur bouton      | Ouvre le panneau panier (slide up)            |
+| Tap sur overlay     | Ferme le panneau panier (slide down)          |
+| Glissement vers bas | Ferme le panneau panier                       |
+| Bouton fermer (×)   | En haut à droite du panneau, ferme le panneau |
 
 ### Accessibilité
 
@@ -125,26 +126,26 @@ Permettre au client de modifier la quantité d'un produit déjà ajouté au pani
 
 ### Interface
 
-| Élément              | Valeur                                                        |
-|----------------------|---------------------------------------------------------------|
-| Type de contrôle     | Champ numérique avec boutons + et −                           |
-| Largeur              | 80px                                                          |
-| Hauteur              | 32px                                                          |
-| Valeur minimale      | 1                                                             |
-| Valeur maximale      | 99 (ou limite définie par le stock disponible)                |
-| Bouton −             | Icône `minus` (Lucide), désactivé si quantité = 1             |
-| Bouton +             | Icône `plus` (Lucide), désactivé si quantité = max            |
-| Champ central        | Affiche la quantité actuelle, éditable au clavier             |
+| Élément          | Valeur                                             |
+| ---------------- | -------------------------------------------------- |
+| Type de contrôle | Champ numérique avec boutons + et −                |
+| Largeur          | 80px                                               |
+| Hauteur          | 32px                                               |
+| Valeur minimale  | 1                                                  |
+| Valeur maximale  | 99 (ou limite définie par le stock disponible)     |
+| Bouton −         | Icône `minus` (Lucide), désactivé si quantité = 1  |
+| Bouton +         | Icône `plus` (Lucide), désactivé si quantité = max |
+| Champ central    | Affiche la quantité actuelle, éditable au clavier  |
 
 ### Comportements
 
-| Action               | Comportement                                                  |
-|----------------------|---------------------------------------------------------------|
-| Clic sur −           | Décrémente la quantité de 1 (minimum 1)                       |
-| Clic sur +           | Incrémente la quantité de 1 (maximum défini ou 99)            |
-| Saisie clavier       | Accepte uniquement les chiffres, valide à la perte de focus   |
-| Quantité = 0         | Impossible : minimum 1 (pour retirer, voir DEP-0337)          |
-| Quantité > stock     | Message d'alerte : « Stock disponible : X unités »            |
+| Action           | Comportement                                                |
+| ---------------- | ----------------------------------------------------------- |
+| Clic sur −       | Décrémente la quantité de 1 (minimum 1)                     |
+| Clic sur +       | Incrémente la quantité de 1 (maximum défini ou 99)          |
+| Saisie clavier   | Accepte uniquement les chiffres, valide à la perte de focus |
+| Quantité = 0     | Impossible : minimum 1 (pour retirer, voir DEP-0337)        |
+| Quantité > stock | Message d'alerte : « Stock disponible : X unités »          |
 
 ### Mise à jour du panier
 
@@ -168,24 +169,24 @@ Permettre au client de supprimer un produit du panier en un seul clic, sans conf
 
 ### Interface
 
-| Élément              | Valeur                                                        |
-|----------------------|---------------------------------------------------------------|
-| Type de contrôle     | Bouton icône (Lucide `x` ou `trash-2`)                        |
-| Position             | À droite de chaque ligne produit dans le panier               |
-| Taille               | 24×24px                                                       |
-| Couleur icône        | Gris neutre #6B7280                                           |
-| Couleur au survol    | Rouge #EF4444                                                 |
-| Libellé accessible   | `aria-label="Retirer [Nom du produit] du panier"`            |
+| Élément            | Valeur                                            |
+| ------------------ | ------------------------------------------------- |
+| Type de contrôle   | Bouton icône (Lucide `x` ou `trash-2`)            |
+| Position           | À droite de chaque ligne produit dans le panier   |
+| Taille             | 24×24px                                           |
+| Couleur icône      | Gris neutre #6B7280                               |
+| Couleur au survol  | Rouge #EF4444                                     |
+| Libellé accessible | `aria-label="Retirer [Nom du produit] du panier"` |
 
 ### Comportements
 
-| Action               | Comportement                                                  |
-|----------------------|---------------------------------------------------------------|
-| Clic sur bouton      | Retire immédiatement le produit du panier                     |
-| Animation de retrait | Slide out vers la droite + fade out (300ms)                   |
-| Mise à jour totaux   | Recalcul instantané du total général                          |
+| Action               | Comportement                                                 |
+| -------------------- | ------------------------------------------------------------ |
+| Clic sur bouton      | Retire immédiatement le produit du panier                    |
+| Animation de retrait | Slide out vers la droite + fade out (300ms)                  |
+| Mise à jour totaux   | Recalcul instantané du total général                         |
 | Feedback utilisateur | Message temporaire (toast) : « [Produit] retiré du panier. » |
-| Undo possible        | Bouton « Annuler » dans le toast (5 secondes) pour restaurer  |
+| Undo possible        | Bouton « Annuler » dans le toast (5 secondes) pour restaurer |
 
 ### Persistance
 
@@ -207,33 +208,33 @@ Permettre au client de supprimer tous les produits du panier en une seule action
 
 ### Interface
 
-| Élément              | Valeur                                                        |
-|----------------------|---------------------------------------------------------------|
-| Type de contrôle     | Bouton secondaire (style outline)                             |
-| Position             | Pied de panier, au-dessus du bouton « Confirmer le panier »  |
-| Libellé              | « Vider le panier »                                           |
-| Icône                | Lucide `trash-2`                                              |
-| Couleur              | Gris neutre #6B7280                                           |
-| Couleur au survol    | Rouge #EF4444                                                 |
+| Élément           | Valeur                                                      |
+| ----------------- | ----------------------------------------------------------- |
+| Type de contrôle  | Bouton secondaire (style outline)                           |
+| Position          | Pied de panier, au-dessus du bouton « Confirmer le panier » |
+| Libellé           | « Vider le panier »                                         |
+| Icône             | Lucide `trash-2`                                            |
+| Couleur           | Gris neutre #6B7280                                         |
+| Couleur au survol | Rouge #EF4444                                               |
 
 ### Comportements
 
-| Action               | Comportement                                                  |
-|----------------------|---------------------------------------------------------------|
-| Clic sur bouton      | Affiche une modale de confirmation (voir ci-dessous)          |
-| Confirmation         | Vide complètement le panier                                   |
-| Annulation           | Ferme la modale, aucun changement                             |
-| Feedback utilisateur | Message temporaire (toast) : « Panier vidé. »                 |
+| Action               | Comportement                                         |
+| -------------------- | ---------------------------------------------------- |
+| Clic sur bouton      | Affiche une modale de confirmation (voir ci-dessous) |
+| Confirmation         | Vide complètement le panier                          |
+| Annulation           | Ferme la modale, aucun changement                    |
+| Feedback utilisateur | Message temporaire (toast) : « Panier vidé. »        |
 
 ### Modale de confirmation
 
-| Élément              | Valeur                                                        |
-|----------------------|---------------------------------------------------------------|
-| Titre                | « Vider le panier ? »                                         |
-| Message              | « Tous les produits seront retirés. Cette action ne peut pas être annulée. » |
-| Bouton principal     | « Vider » (rouge #EF4444)                                     |
-| Bouton secondaire    | « Annuler » (gris neutre #6B7280)                             |
-| Fermeture            | Clic sur « Annuler », Escape, ou clic sur overlay             |
+| Élément           | Valeur                                                                       |
+| ----------------- | ---------------------------------------------------------------------------- |
+| Titre             | « Vider le panier ? »                                                        |
+| Message           | « Tous les produits seront retirés. Cette action ne peut pas être annulée. » |
+| Bouton principal  | « Vider » (rouge #EF4444)                                                    |
+| Bouton secondaire | « Annuler » (gris neutre #6B7280)                                            |
+| Fermeture         | Clic sur « Annuler », Escape, ou clic sur overlay                            |
 
 ### Persistance
 
@@ -255,25 +256,25 @@ Permettre au client de valider le contenu de son panier et de passer à l'écran
 
 ### Interface
 
-| Élément              | Valeur                                                        |
-|----------------------|---------------------------------------------------------------|
-| Type de contrôle     | Bouton principal (style filled)                               |
-| Position             | Pied de panier, en bas de la colonne/panneau                  |
-| Libellé              | « Confirmer le panier » ou « Passer commande »                |
-| Icône                | Lucide `arrow-right` ou `check-circle`                        |
-| Couleur fond         | Primaire #2563EB                                              |
-| Couleur texte        | Blanc #FFFFFF                                                 |
-| État désactivé       | Si panier vide, bouton grisé et non cliquable                 |
+| Élément          | Valeur                                         |
+| ---------------- | ---------------------------------------------- |
+| Type de contrôle | Bouton principal (style filled)                |
+| Position         | Pied de panier, en bas de la colonne/panneau   |
+| Libellé          | « Confirmer le panier » ou « Passer commande » |
+| Icône            | Lucide `arrow-right` ou `check-circle`         |
+| Couleur fond     | Primaire #2563EB                               |
+| Couleur texte    | Blanc #FFFFFF                                  |
+| État désactivé   | Si panier vide, bouton grisé et non cliquable  |
 
 ### Comportements
 
-| Action               | Comportement                                                  |
-|----------------------|---------------------------------------------------------------|
-| Clic sur bouton      | Redirige vers l'écran récapitulatif (DEP-0347)                |
-| Panier vide          | Bouton désactivé, tooltip : « Ajoute des produits pour continuer. » |
-| Client non connecté  | Demande de connexion ou d'inscription avant de continuer      |
-| Vérification stock   | Avant redirection, vérification de la disponibilité des produits |
-| Stock insuffisant    | Message d'alerte : « Certains produits ne sont plus disponibles. » |
+| Action              | Comportement                                                        |
+| ------------------- | ------------------------------------------------------------------- |
+| Clic sur bouton     | Redirige vers l'écran récapitulatif (DEP-0347)                      |
+| Panier vide         | Bouton désactivé, tooltip : « Ajoute des produits pour continuer. » |
+| Client non connecté | Demande de connexion ou d'inscription avant de continuer            |
+| Vérification stock  | Avant redirection, vérification de la disponibilité des produits    |
+| Stock insuffisant   | Message d'alerte : « Certains produits ne sont plus disponibles. »  |
 
 ### Vérifications avant confirmation
 
@@ -297,33 +298,33 @@ Permettre au client de recréer rapidement le panier à partir des produits de s
 
 ### Interface
 
-| Élément              | Valeur                                                        |
-|----------------------|---------------------------------------------------------------|
-| Type de contrôle     | Bouton secondaire (style outline)                             |
-| Position             | Au-dessus du panier (dans la section « Dernière commande », voir DEP-0351) ou dans le panier vide |
-| Libellé              | « Recommander » ou « Ajouter au panier »                      |
-| Icône                | Lucide `repeat` ou `refresh-cw`                               |
-| Couleur              | Primaire #2563EB (outline)                                    |
+| Élément          | Valeur                                                                                            |
+| ---------------- | ------------------------------------------------------------------------------------------------- |
+| Type de contrôle | Bouton secondaire (style outline)                                                                 |
+| Position         | Au-dessus du panier (dans la section « Dernière commande », voir DEP-0351) ou dans le panier vide |
+| Libellé          | « Recommander » ou « Ajouter au panier »                                                          |
+| Icône            | Lucide `repeat` ou `refresh-cw`                                                                   |
+| Couleur          | Primaire #2563EB (outline)                                                                        |
 
 ### Comportements
 
-| Action               | Comportement                                                  |
-|----------------------|---------------------------------------------------------------|
-| Clic sur bouton      | Ajoute tous les produits de la dernière commande au panier    |
-| Panier non vide      | Affiche une modale de confirmation : « Ajouter au panier existant ou remplacer ? » |
-| Produits indisponibles | Affiche un message d'alerte listant les produits non disponibles |
-| Quantités            | Reprend les quantités de la dernière commande                 |
-| Feedback utilisateur | Message temporaire (toast) : « Dernière commande ajoutée au panier. » |
+| Action                 | Comportement                                                                       |
+| ---------------------- | ---------------------------------------------------------------------------------- |
+| Clic sur bouton        | Ajoute tous les produits de la dernière commande au panier                         |
+| Panier non vide        | Affiche une modale de confirmation : « Ajouter au panier existant ou remplacer ? » |
+| Produits indisponibles | Affiche un message d'alerte listant les produits non disponibles                   |
+| Quantités              | Reprend les quantités de la dernière commande                                      |
+| Feedback utilisateur   | Message temporaire (toast) : « Dernière commande ajoutée au panier. »              |
 
 ### Modale de confirmation (si panier non vide)
 
-| Élément              | Valeur                                                        |
-|----------------------|---------------------------------------------------------------|
-| Titre                | « Recommander la dernière commande ? »                        |
-| Message              | « Ton panier contient déjà des produits. Souhaites-tu les conserver ? » |
-| Bouton principal     | « Ajouter » (primaire #2563EB) — Fusionne avec panier existant |
-| Bouton secondaire    | « Remplacer » (rouge #EF4444) — Vide et remplace              |
-| Bouton tertiaire     | « Annuler » (gris neutre #6B7280)                             |
+| Élément           | Valeur                                                                  |
+| ----------------- | ----------------------------------------------------------------------- |
+| Titre             | « Recommander la dernière commande ? »                                  |
+| Message           | « Ton panier contient déjà des produits. Souhaites-tu les conserver ? » |
+| Bouton principal  | « Ajouter » (primaire #2563EB) — Fusionne avec panier existant          |
+| Bouton secondaire | « Remplacer » (rouge #EF4444) — Vide et remplace                        |
+| Bouton tertiaire  | « Annuler » (gris neutre #6B7280)                                       |
 
 ### Conditions d'affichage
 
@@ -350,16 +351,16 @@ Fournir un feedback visuel clair et fluide lors de l'ajout d'un produit au panie
 
 ### Animation
 
-| Élément              | Valeur                                                        |
-|----------------------|---------------------------------------------------------------|
-| Déclencheur          | Clic sur le bouton « Ajouter au panier » (DEP-0331)           |
-| Élément animé        | Clone de la miniature produit (50×50px ou 64×64px)            |
-| Point de départ      | Position de la carte produit dans la grille                   |
-| Point d'arrivée      | Icône du panier (desktop : colonne droite, mobile : bouton flottant) |
-| Durée                | 600ms                                                         |
-| Courbe d'animation   | ease-in-out (accélération puis décélération)                  |
-| Échelle              | Réduction progressive de 100% à 50% pendant la translation    |
-| Opacité              | Réduction progressive de 100% à 0% dans les 100ms finales     |
+| Élément            | Valeur                                                               |
+| ------------------ | -------------------------------------------------------------------- |
+| Déclencheur        | Clic sur le bouton « Ajouter au panier » (DEP-0331)                  |
+| Élément animé      | Clone de la miniature produit (50×50px ou 64×64px)                   |
+| Point de départ    | Position de la carte produit dans la grille                          |
+| Point d'arrivée    | Icône du panier (desktop : colonne droite, mobile : bouton flottant) |
+| Durée              | 600ms                                                                |
+| Courbe d'animation | ease-in-out (accélération puis décélération)                         |
+| Échelle            | Réduction progressive de 100% à 50% pendant la translation           |
+| Opacité            | Réduction progressive de 100% à 0% dans les 100ms finales            |
 
 ### Étapes de l'animation
 
@@ -371,11 +372,11 @@ Fournir un feedback visuel clair et fluide lors de l'ajout d'un produit au panie
 
 ### Feedback supplémentaire
 
-| Élément              | Valeur                                                        |
-|----------------------|---------------------------------------------------------------|
-| Badge panier         | Animation pulse sur le badge de quantité (200ms)              |
-| Son (optionnel)      | Petit son de confirmation (désactivable dans les préférences) |
-| Message toast        | « [Nom du produit] ajouté au panier. »                        |
+| Élément         | Valeur                                                        |
+| --------------- | ------------------------------------------------------------- |
+| Badge panier    | Animation pulse sur le badge de quantité (200ms)              |
+| Son (optionnel) | Petit son de confirmation (désactivable dans les préférences) |
+| Message toast   | « [Nom du produit] ajouté au panier. »                        |
 
 ### Accessibilité
 
@@ -393,12 +394,12 @@ Garantir que le contenu du panier est conservé lorsque le client recharge la pa
 
 ### Stratégie de persistance
 
-| Scénario             | Stratégie                                                     |
-|----------------------|---------------------------------------------------------------|
-| Client connecté      | Panier stocké côté serveur + copie locale (localStorage)      |
-| Client non connecté  | Panier stocké uniquement en local (localStorage)              |
-| Expiration           | Panier local expire après 7 jours d'inactivité                |
-| Conflits             | Priorité au panier serveur si client connecté                 |
+| Scénario            | Stratégie                                                |
+| ------------------- | -------------------------------------------------------- |
+| Client connecté     | Panier stocké côté serveur + copie locale (localStorage) |
+| Client non connecté | Panier stocké uniquement en local (localStorage)         |
+| Expiration          | Panier local expire après 7 jours d'inactivité           |
+| Conflits            | Priorité au panier serveur si client connecté            |
 
 ### Mécanisme technique
 
@@ -419,11 +420,11 @@ Garantir que le contenu du panier est conservé lorsque le client recharge la pa
 
 ### Gestion des conflits
 
-| Cas                  | Résolution                                                    |
-|----------------------|---------------------------------------------------------------|
-| Produit supprimé     | Retrait automatique du panier, notification utilisateur       |
-| Stock insuffisant    | Ajustement automatique de la quantité, notification utilisateur |
-| Prix modifié         | Mise à jour automatique du prix, notification utilisateur     |
+| Cas               | Résolution                                                      |
+| ----------------- | --------------------------------------------------------------- |
+| Produit supprimé  | Retrait automatique du panier, notification utilisateur         |
+| Stock insuffisant | Ajustement automatique de la quantité, notification utilisateur |
+| Prix modifié      | Mise à jour automatique du prix, notification utilisateur       |
 
 ### Accessibilité
 
@@ -440,12 +441,12 @@ Garantir que le contenu du panier est conservé lorsque le client passe d'un mod
 
 ### Règles de persistance
 
-| Transition           | Comportement                                                  |
-|----------------------|---------------------------------------------------------------|
-| Manuel → Assisté     | Panier conservé intégralement, visible dans le mode assisté   |
-| Assisté → Manuel     | Panier conservé intégralement, visible dans le mode manuel    |
+| Transition                 | Comportement                                                                |
+| -------------------------- | --------------------------------------------------------------------------- |
+| Manuel → Assisté           | Panier conservé intégralement, visible dans le mode assisté                 |
+| Assisté → Manuel           | Panier conservé intégralement, visible dans le mode manuel                  |
 | Manuel/Assisté → Téléphone | Panier conservé, récupérable par l'agent vocal (lecture du panier existant) |
-| Téléphone → Manuel/Assisté | Panier mis à jour avec les produits ajoutés par téléphone |
+| Téléphone → Manuel/Assisté | Panier mis à jour avec les produits ajoutés par téléphone                   |
 
 ### Mécanisme technique
 
@@ -455,9 +456,9 @@ Garantir que le contenu du panier est conservé lorsque le client passe d'un mod
 
 ### Feedback utilisateur
 
-| Cas                  | Message affiché                                               |
-|----------------------|---------------------------------------------------------------|
-| Changement de mode   | Aucun message (comportement transparent)                      |
+| Cas                          | Message affiché                                                                            |
+| ---------------------------- | ------------------------------------------------------------------------------------------ |
+| Changement de mode           | Aucun message (comportement transparent)                                                   |
 | Premier passage mode assisté | Message d'accueil : « Ton panier est toujours disponible. Tu peux continuer ta commande. » |
 
 ---
@@ -470,10 +471,10 @@ Garantir que le contenu du panier est conservé lorsque le client navigue entre 
 
 ### Règles de persistance
 
-| Action               | Comportement                                                  |
-|----------------------|---------------------------------------------------------------|
-| Clic sur catégorie   | Panier reste visible (desktop) ou accessible (mobile)         |
-| Panier affiché       | Contenu inchangé, total inchangé                              |
+| Action                             | Comportement                                                         |
+| ---------------------------------- | -------------------------------------------------------------------- |
+| Clic sur catégorie                 | Panier reste visible (desktop) ou accessible (mobile)                |
+| Panier affiché                     | Contenu inchangé, total inchangé                                     |
 | Produits de différentes catégories | Tous conservés dans le panier, indépendamment de la catégorie active |
 
 ### Mécanisme technique
@@ -496,12 +497,12 @@ Garantir que le contenu du panier n'est pas perdu en cas de perte temporaire de 
 
 ### Règles de persistance
 
-| Cas                  | Comportement                                                  |
-|----------------------|---------------------------------------------------------------|
+| Cas                          | Comportement                                                      |
+| ---------------------------- | ----------------------------------------------------------------- |
 | Coupure réseau courte (<30s) | Panier conservé en local, modifications possibles en mode offline |
-| Retour connexion     | Synchronisation automatique avec le serveur                   |
-| Coupure longue (>30s)| Panier conservé en local, message d'information affiché       |
-| Modifications offline| Sauvegardées en local, synchronisées dès le retour réseau     |
+| Retour connexion             | Synchronisation automatique avec le serveur                       |
+| Coupure longue (>30s)        | Panier conservé en local, message d'information affiché           |
+| Modifications offline        | Sauvegardées en local, synchronisées dès le retour réseau         |
 
 ### Mécanisme technique
 
@@ -523,11 +524,11 @@ Garantir que le contenu du panier n'est pas perdu en cas de perte temporaire de 
 
 ### Gestion des conflits
 
-| Cas                  | Résolution                                                    |
-|----------------------|---------------------------------------------------------------|
-| Produit supprimé pendant coupure | Retrait automatique, notification utilisateur          |
-| Stock épuisé pendant coupure | Ajustement quantité, notification utilisateur              |
-| Prix modifié pendant coupure | Mise à jour automatique, notification utilisateur          |
+| Cas                              | Résolution                                        |
+| -------------------------------- | ------------------------------------------------- |
+| Produit supprimé pendant coupure | Retrait automatique, notification utilisateur     |
+| Stock épuisé pendant coupure     | Ajustement quantité, notification utilisateur     |
+| Prix modifié pendant coupure     | Mise à jour automatique, notification utilisateur |
 
 ### Accessibilité
 
@@ -544,52 +545,52 @@ Définir le comportement de l'application lorsque le client a confirmé son pani
 
 ### États de la commande
 
-| État                 | Description                                                   |
-|----------------------|---------------------------------------------------------------|
-| `draft`              | Panier non confirmé, modifications possibles                  |
-| `pending`            | Panier confirmé, commande en cours de traitement              |
-| `validated`          | Commande validée, en attente de préparation                   |
-| `failed`             | Échec de traitement (paiement refusé, stock épuisé, erreur serveur) |
+| État        | Description                                                         |
+| ----------- | ------------------------------------------------------------------- |
+| `draft`     | Panier non confirmé, modifications possibles                        |
+| `pending`   | Panier confirmé, commande en cours de traitement                    |
+| `validated` | Commande validée, en attente de préparation                         |
+| `failed`    | Échec de traitement (paiement refusé, stock épuisé, erreur serveur) |
 
 ### Comportements par état
 
 #### État `pending` (en cours de traitement)
 
-| Élément              | Valeur                                                        |
-|----------------------|---------------------------------------------------------------|
-| Écran affiché        | Écran de chargement avec message : « Traitement de ta commande en cours… » |
-| Indicateur visuel    | Spinner ou barre de progression indéterminée                  |
-| Panier               | Non modifiable, lecture seule                                 |
-| Bouton retour        | Désactivé (impossible de revenir en arrière)                  |
-| Durée attendue       | 5 à 15 secondes (paramétrable)                                |
-| Persistance          | État `pending` conservé localement pour éviter tout double envoi après rechargement |
-| Timeout              | Si > 30 secondes, affichage message d'erreur (voir `failed`)  |
+| Élément           | Valeur                                                                              |
+| ----------------- | ----------------------------------------------------------------------------------- |
+| Écran affiché     | Écran de chargement avec message : « Traitement de ta commande en cours… »          |
+| Indicateur visuel | Spinner ou barre de progression indéterminée                                        |
+| Panier            | Non modifiable, lecture seule                                                       |
+| Bouton retour     | Désactivé (impossible de revenir en arrière)                                        |
+| Durée attendue    | 5 à 15 secondes (paramétrable)                                                      |
+| Persistance       | État `pending` conservé localement pour éviter tout double envoi après rechargement |
+| Timeout           | Si > 30 secondes, affichage message d'erreur (voir `failed`)                        |
 
 #### État `validated` (commande validée)
 
-| Élément              | Valeur                                                        |
-|----------------------|---------------------------------------------------------------|
-| Redirection          | Vers l'écran de confirmation (DEP-0348)                       |
-| Panier               | Vidé automatiquement                                          |
-| Notification         | Message de succès : « Commande validée ! »                    |
+| Élément      | Valeur                                     |
+| ------------ | ------------------------------------------ |
+| Redirection  | Vers l'écran de confirmation (DEP-0348)    |
+| Panier       | Vidé automatiquement                       |
+| Notification | Message de succès : « Commande validée ! » |
 
 #### État `failed` (échec)
 
-| Élément              | Valeur                                                        |
-|----------------------|---------------------------------------------------------------|
-| Redirection          | Vers l'écran d'échec (DEP-0350)                               |
-| Panier               | Conservé, modifications possibles                             |
-| Message d'erreur     | Explication claire de la raison de l'échec                    |
-| Action proposée      | Bouton « Réessayer » ou « Modifier le panier »                |
+| Élément          | Valeur                                         |
+| ---------------- | ---------------------------------------------- |
+| Redirection      | Vers l'écran d'échec (DEP-0350)                |
+| Panier           | Conservé, modifications possibles              |
+| Message d'erreur | Explication claire de la raison de l'échec     |
+| Action proposée  | Bouton « Réessayer » ou « Modifier le panier » |
 
 ### Gestion des erreurs
 
-| Type d'erreur        | Message affiché                                               |
-|----------------------|---------------------------------------------------------------|
-| Stock épuisé         | « Certains produits ne sont plus disponibles. Vérifie ton panier. » |
-| Paiement refusé      | « Le paiement a échoué. Vérifie tes informations bancaires. » |
-| Erreur serveur       | « Une erreur est survenue. Réessaie dans quelques instants. » |
-| Timeout              | « Le traitement prend plus de temps que prévu. Réessaie plus tard. » |
+| Type d'erreur   | Message affiché                                                      |
+| --------------- | -------------------------------------------------------------------- |
+| Stock épuisé    | « Certains produits ne sont plus disponibles. Vérifie ton panier. »  |
+| Paiement refusé | « Le paiement a échoué. Vérifie tes informations bancaires. »        |
+| Erreur serveur  | « Une erreur est survenue. Réessaie dans quelques instants. »        |
+| Timeout         | « Le traitement prend plus de temps que prévu. Réessaie plus tard. » |
 
 ### Accessibilité
 
@@ -608,51 +609,51 @@ Afficher un écran récapitulatif permettant au client de vérifier le contenu d
 
 #### 1. En-tête
 
-| Élément              | Valeur                                                        |
-|----------------------|---------------------------------------------------------------|
-| Titre                | « Récapitulatif de ta commande »                              |
-| Sous-titre           | « Vérifie les informations avant de confirmer. »              |
+| Élément    | Valeur                                           |
+| ---------- | ------------------------------------------------ |
+| Titre      | « Récapitulatif de ta commande »                 |
+| Sous-titre | « Vérifie les informations avant de confirmer. » |
 
 #### 2. Section Panier
 
-| Élément              | Valeur                                                        |
-|----------------------|---------------------------------------------------------------|
-| Liste des produits   | Miniature, nom, quantité, prix unitaire, prix total ligne     |
-| Total produits       | « Total produits : 38,50 € »                                  |
-| Frais de livraison   | « Livraison : 4,00 € » (ou « Gratuite » si applicable)        |
-| Total général        | « Total à payer : 42,50 € » (en gras, police plus grande)     |
+| Élément            | Valeur                                                    |
+| ------------------ | --------------------------------------------------------- |
+| Liste des produits | Miniature, nom, quantité, prix unitaire, prix total ligne |
+| Total produits     | « Total produits : 38,50 € »                              |
+| Frais de livraison | « Livraison : 4,00 € » (ou « Gratuite » si applicable)    |
+| Total général      | « Total à payer : 42,50 € » (en gras, police plus grande) |
 
 #### 3. Section Adresse de livraison
 
-| Élément              | Valeur                                                        |
-|----------------------|---------------------------------------------------------------|
-| Adresse affichée     | Rue, code postal, ville                                       |
-| Notes de livraison   | Si renseignées (voir DEP-0291)                                |
-| Bouton modifier      | Lien « Modifier l'adresse » redirigeant vers écran d'adresses (DEP-0304) |
+| Élément            | Valeur                                                                   |
+| ------------------ | ------------------------------------------------------------------------ |
+| Adresse affichée   | Rue, code postal, ville                                                  |
+| Notes de livraison | Si renseignées (voir DEP-0291)                                           |
+| Bouton modifier    | Lien « Modifier l'adresse » redirigeant vers écran d'adresses (DEP-0304) |
 
 #### 4. Section Téléphone de contact
 
-| Élément              | Valeur                                                        |
-|----------------------|---------------------------------------------------------------|
-| Téléphone affiché    | Numéro de téléphone du client                                 |
-| Bouton modifier      | Lien « Modifier le téléphone » redirigeant vers écran profil (DEP-0303) |
+| Élément           | Valeur                                                                  |
+| ----------------- | ----------------------------------------------------------------------- |
+| Téléphone affiché | Numéro de téléphone du client                                           |
+| Bouton modifier   | Lien « Modifier le téléphone » redirigeant vers écran profil (DEP-0303) |
 
 #### 5. Boutons d'action
 
-| Élément              | Valeur                                                        |
-|----------------------|---------------------------------------------------------------|
-| Bouton principal     | « Confirmer et envoyer la commande » (primaire #2563EB)       |
-| Bouton secondaire    | « Retour au panier » (gris neutre #6B7280, outline)           |
-| Icône bouton principal | Lucide `check-circle` ou `send`                             |
+| Élément                | Valeur                                                  |
+| ---------------------- | ------------------------------------------------------- |
+| Bouton principal       | « Confirmer et envoyer la commande » (primaire #2563EB) |
+| Bouton secondaire      | « Retour au panier » (gris neutre #6B7280, outline)     |
+| Icône bouton principal | Lucide `check-circle` ou `send`                         |
 
 ### Comportements
 
-| Action               | Comportement                                                  |
-|----------------------|---------------------------------------------------------------|
-| Clic « Confirmer »   | Envoie la commande au serveur (état `pending`, voir DEP-0346) |
-| Clic « Retour »      | Retour au panier, modifications possibles                     |
-| Modification adresse | Redirection vers écran d'adresses, retour automatique après modification |
-| Modification téléphone | Redirection vers écran profil, retour automatique après modification |
+| Action                 | Comportement                                                             |
+| ---------------------- | ------------------------------------------------------------------------ |
+| Clic « Confirmer »     | Envoie la commande au serveur (état `pending`, voir DEP-0346)            |
+| Clic « Retour »        | Retour au panier, modifications possibles                                |
+| Modification adresse   | Redirection vers écran d'adresses, retour automatique après modification |
+| Modification téléphone | Redirection vers écran profil, retour automatique après modification     |
 
 ### Vérifications avant envoi
 

@@ -26,12 +26,12 @@ le format est invalide (inscription, mise à jour de profil).
 
 ### Message
 
-| Élément         | Valeur                                                                             |
-|-----------------|------------------------------------------------------------------------------------|
-| Code erreur     | `ERR_PHONE_INVALID`                                                                |
+| Élément         | Valeur                                                                            |
+| --------------- | --------------------------------------------------------------------------------- |
+| Code erreur     | `ERR_PHONE_INVALID`                                                               |
 | Message affiché | « Le numéro de téléphone saisi n'est pas valide. Vérifie le format et réessaie. » |
-| Ton             | Bienveillant, direct                                                               |
-| Emplacement     | Sous le champ téléphone, en rouge (#D32F2F)                                        |
+| Ton             | Bienveillant, direct                                                              |
+| Emplacement     | Sous le champ téléphone, en rouge (#D32F2F)                                       |
 
 ### Règles de déclenchement
 
@@ -42,7 +42,7 @@ le format est invalide (inscription, mise à jour de profil).
 ### Cas attendus
 
 | Cas                               | Résultat attendu                 |
-|-----------------------------------|----------------------------------|
+| --------------------------------- | -------------------------------- |
 | Champ vide                        | ❌ Erreur — champ obligatoire    |
 | Moins de 10 chiffres              | ❌ Erreur — format invalide      |
 | Lettres ou caractères spéciaux    | ❌ Erreur — caractères interdits |
@@ -59,12 +59,12 @@ la zone de livraison couverte par depaneurIA.
 
 ### Message
 
-| Élément         | Valeur                                                                                    |
-|-----------------|-------------------------------------------------------------------------------------------|
-| Code erreur     | `ERR_ZONE_NOT_SERVED`                                                                     |
+| Élément         | Valeur                                                                                   |
+| --------------- | ---------------------------------------------------------------------------------------- |
+| Code erreur     | `ERR_ZONE_NOT_SERVED`                                                                    |
 | Message affiché | « Désolé, cette adresse se trouve en dehors de notre zone de livraison pour le moment. » |
-| Ton             | Empathique, honnête                                                                       |
-| Emplacement     | Sous le champ adresse, en orange (#E65100)                                                |
+| Ton             | Empathique, honnête                                                                      |
+| Emplacement     | Sous le champ adresse, en orange (#E65100)                                               |
 
 ### Règles de déclenchement
 
@@ -75,7 +75,7 @@ la zone de livraison couverte par depaneurIA.
 ### Cas attendus
 
 | Cas                                 | Résultat attendu               |
-|-------------------------------------|--------------------------------|
+| ----------------------------------- | ------------------------------ |
 | Code postal hors zone               | ❌ Erreur — zone non desservie |
 | Adresse dans une ville non couverte | ❌ Erreur — zone non desservie |
 | Adresse dans la zone de livraison   | ✅ Accepté                     |
@@ -92,17 +92,17 @@ que des champs obligatoires sont manquants.
 
 ### Message
 
-| Élément         | Valeur                                                                               |
-|-----------------|--------------------------------------------------------------------------------------|
-| Code erreur     | `ERR_ACCOUNT_INCOMPLETE`                                                             |
-| Message affiché | « Ton compte est incomplet. Complète les informations manquantes pour continuer. »  |
-| Ton             | Encourageant, clair                                                                  |
-| Emplacement     | Bannière en haut de l'écran concerné, en orange (#E65100)                            |
+| Élément         | Valeur                                                                             |
+| --------------- | ---------------------------------------------------------------------------------- |
+| Code erreur     | `ERR_ACCOUNT_INCOMPLETE`                                                           |
+| Message affiché | « Ton compte est incomplet. Complète les informations manquantes pour continuer. » |
+| Ton             | Encourageant, clair                                                                |
+| Emplacement     | Bannière en haut de l'écran concerné, en orange (#E65100)                          |
 
 ### Champs vérifiés
 
 | Champ              | Obligatoire | Référence |
-|--------------------|-------------|-----------|
+| ------------------ | ----------- | --------- |
 | Nom                | Oui         | DEP-0282  |
 | Téléphone          | Oui         | DEP-0282  |
 | Adresse principale | Oui         | DEP-0282  |
@@ -115,12 +115,12 @@ que des champs obligatoires sont manquants.
 
 ### Cas attendus
 
-| Cas                                     | Résultat attendu              |
-|-----------------------------------------|-------------------------------|
-| Nom manquant                            | ❌ Erreur — compte incomplet  |
-| Téléphone manquant                      | ❌ Erreur — compte incomplet  |
-| Adresse manquante                       | ❌ Erreur — compte incomplet  |
-| Tous les champs obligatoires renseignés | ✅ Accepté                    |
+| Cas                                     | Résultat attendu             |
+| --------------------------------------- | ---------------------------- |
+| Nom manquant                            | ❌ Erreur — compte incomplet |
+| Téléphone manquant                      | ❌ Erreur — compte incomplet |
+| Adresse manquante                       | ❌ Erreur — compte incomplet |
+| Tous les champs obligatoires renseignés | ✅ Accepté                   |
 
 ---
 
@@ -151,11 +151,11 @@ qu'il retrouve son panier en cours lors de sa prochaine connexion.
 ### Cas attendus
 
 | Cas                                           | Résultat attendu                 |
-|-----------------------------------------------|----------------------------------|
+| --------------------------------------------- | -------------------------------- |
 | Client connecté ajoute un produit             | ✅ Panier sauvé côté serveur     |
 | Client non connecté ajoute un produit         | ✅ Panier sauvé localement       |
 | Client se connecte avec panier local existant | ✅ Fusion panier local → serveur |
-| Panier inactif > 30 jours                    | ✅ Panier expiré, supprimé       |
+| Panier inactif > 30 jours                     | ✅ Panier expiré, supprimé       |
 
 ---
 
@@ -169,7 +169,7 @@ améliorer son expérience lors de ses visites suivantes.
 ### Préférences sauvegardées
 
 | Préférence               | Type     | Exemple                   |
-|--------------------------|----------|---------------------------|
+| ------------------------ | -------- | ------------------------- |
 | Dernière recherche texte | `string` | `"chips ketchup"`         |
 | Dernier filtre catégorie | `string` | `"boissons"`              |
 | Dernier tri utilisé      | `string` | `"prix_asc"`              |
@@ -204,7 +204,7 @@ permettre un accès rapide (raccourci « recommander ») et un suivi simplifié.
 ### Données sauvegardées
 
 | Champ             | Type       | Exemple                  |
-|-------------------|------------|--------------------------|
+| ----------------- | ---------- | ------------------------ |
 | ID commande       | `string`   | `"CMD-20260312-001"`     |
 | Date de commande  | `datetime` | `"2026-03-12T14:30:00Z"` |
 | Statut            | `string`   | `"livree"`, `"en_cours"` |
@@ -246,7 +246,7 @@ ultérieurement si le besoin est confirmé. En V1, cette fonctionnalité est
 ### Données sauvegardées (par favori)
 
 | Champ        | Type       | Exemple                  |
-|--------------|------------|--------------------------|
+| ------------ | ---------- | ------------------------ |
 | ID produit   | `string`   | `"P-01"`                 |
 | Date d'ajout | `datetime` | `"2026-03-12T10:00:00Z"` |
 
@@ -269,15 +269,15 @@ fonctionne de bout en bout sans perte de données ni friction inutile.
 
 ### Scénario de validation
 
-| Étape | Action                                           | Résultat attendu                                     |
-|-------|--------------------------------------------------|------------------------------------------------------|
-| 1     | Le client ouvre le site pour la première fois    | Écran d'inscription affiché (DEP-0281, DEP-0301)     |
-| 2     | Le client remplit nom, téléphone, adresse        | Formulaire accepté, compte créé (DEP-0282)           |
-| 3     | Le client navigue et ajoute des produits         | Panier sauvé côté serveur (DEP-0314)                 |
-| 4     | Le client ferme le site                          | Session terminée proprement                          |
-| 5     | Le client revient et se reconnecte               | Reconnexion sans ressaisie complète (DEP-0287)       |
-| 6     | Le panier est retrouvé                           | Panier restauré avec les produits ajoutés (DEP-0314) |
-| 7     | Les préférences sont retrouvées                  | Mode et filtres restaurés (DEP-0315, DEP-0299)       |
+| Étape | Action                                        | Résultat attendu                                     |
+| ----- | --------------------------------------------- | ---------------------------------------------------- |
+| 1     | Le client ouvre le site pour la première fois | Écran d'inscription affiché (DEP-0281, DEP-0301)     |
+| 2     | Le client remplit nom, téléphone, adresse     | Formulaire accepté, compte créé (DEP-0282)           |
+| 3     | Le client navigue et ajoute des produits      | Panier sauvé côté serveur (DEP-0314)                 |
+| 4     | Le client ferme le site                       | Session terminée proprement                          |
+| 5     | Le client revient et se reconnecte            | Reconnexion sans ressaisie complète (DEP-0287)       |
+| 6     | Le panier est retrouvé                        | Panier restauré avec les produits ajoutés (DEP-0314) |
+| 7     | Les préférences sont retrouvées               | Mode et filtres restaurés (DEP-0315, DEP-0299)       |
 
 ### Critères de succès
 
@@ -299,7 +299,7 @@ complément d'information.
 ### Données minimales requises
 
 | Donnée             | Source   | Nécessaire pour                       |
-|--------------------|----------|---------------------------------------|
+| ------------------ | -------- | ------------------------------------- |
 | Nom                | DEP-0282 | Identifier le destinataire            |
 | Téléphone          | DEP-0282 | Contacter le client pour la livraison |
 | Adresse principale | DEP-0282 | Localiser le point de livraison       |
@@ -307,7 +307,7 @@ complément d'information.
 ### Vérifications
 
 | Vérification                                          | Résultat attendu                             |
-|-------------------------------------------------------|----------------------------------------------|
+| ----------------------------------------------------- | -------------------------------------------- |
 | Nom présent et non vide                               | ✅ Suffisant pour identifier le client       |
 | Téléphone valide (format DEP-0284, DEP-0311)          | ✅ Suffisant pour contacter le client        |
 | Adresse complète et dans la zone (DEP-0285, DEP-0312) | ✅ Suffisant pour livrer                     |
@@ -334,7 +334,7 @@ sans une décision explicite documentée.
 ### Périmètre gelé
 
 | Bloc          | Contenu                                                   |
-|---------------|-----------------------------------------------------------|
+| ------------- | --------------------------------------------------------- |
 | DEP-0281–0290 | Inscription, champs, vérifications, connexion, adresses   |
 | DEP-0291–0300 | Notes livraison, suppression compte, consentements, modes |
 | DEP-0301–0310 | Écrans UI, messages de bienvenue, erreur adresse          |
@@ -353,7 +353,7 @@ sans une décision explicite documentée.
 ### Critères de gel validés
 
 | Critère                                           | Statut  |
-|---------------------------------------------------|---------|
+| ------------------------------------------------- | ------- |
 | Tous les messages d'erreur sont définis           | ✅ Fait |
 | Toutes les logiques de persistance sont définies  | ✅ Fait |
 | La validation inscription/retour est documentée   | ✅ Fait |

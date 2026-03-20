@@ -16,5 +16,5 @@ export const clientRoutes = [
   { path: '/privacy', name: 'privacy', label: 'Confidentialité', status: 'v1' },
   { path: '/accessibility', name: 'accessibility', label: 'Accessibilité', status: 'v1' },
   { path: '/help/voice', name: 'voice-help', label: 'Aide Vocale', status: 'v1' },
-  { path: '/pay', name: 'payment', label: 'Paiement en ligne', status: 'later' }
+  { path: '/pay', name: 'payment', label: 'Paiement en ligne', status: 'later' },
 ];

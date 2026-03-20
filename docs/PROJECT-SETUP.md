@@ -13,16 +13,19 @@ Colonnes suggérées :
 ## Labels suggérés
 
 ### Type
+
 - `task`
 - `bug`
 - `idea`
 
 ### Priorité
+
 - `priority:high`
 - `priority:medium`
 - `priority:low`
 
 ### Domaine
+
 - `domain:product`
 - `domain:github`
 - `domain:frontend`

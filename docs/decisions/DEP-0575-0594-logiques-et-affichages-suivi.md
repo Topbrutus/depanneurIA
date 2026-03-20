@@ -29,11 +29,11 @@ l'assistant (DEP-0392) et au tri (DEP-0329).
 
 ### Critères de calcul
 
-| Critère                         | Poids | Période     |
-|---------------------------------|-------|-------------|
-| Nombre de commandes validées    | ×3    | 30 derniers jours |
-| Nombre de commandes validées    | ×1    | 7 derniers jours (bonus fraîcheur) |
-| Nombre d'ajouts au panier       | ×1    | 30 derniers jours |
+| Critère                      | Poids | Période                            |
+| ---------------------------- | ----- | ---------------------------------- |
+| Nombre de commandes validées | ×3    | 30 derniers jours                  |
+| Nombre de commandes validées | ×1    | 7 derniers jours (bonus fraîcheur) |
+| Nombre d'ajouts au panier    | ×1    | 30 derniers jours                  |
 
 ### Formule
 
@@ -80,14 +80,14 @@ pour un client donné, avec un statut terminal positif (`livree`).
 
 ### Statuts pris en compte
 
-| Statut          | Compte comme dernière commande |
-|-----------------|-------------------------------|
-| `livree`        | ✅ Oui                         |
-| `en_attente`    | ❌ Non — en cours              |
-| `en_preparation`| ❌ Non — en cours              |
-| `prete`         | ❌ Non — en cours              |
-| `annulee`       | ❌ Non — non aboutie           |
-| `probleme`      | ❌ Non — non aboutie           |
+| Statut           | Compte comme dernière commande |
+| ---------------- | ------------------------------ |
+| `livree`         | ✅ Oui                         |
+| `en_attente`     | ❌ Non — en cours              |
+| `en_preparation` | ❌ Non — en cours              |
+| `prete`          | ❌ Non — en cours              |
+| `annulee`        | ❌ Non — non aboutie           |
+| `probleme`       | ❌ Non — non aboutie           |
 
 ### Mise à jour
 
@@ -151,20 +151,20 @@ abandonné et les règles de conservation avant nettoyage.
 
 Un panier est **abandonné** si les conditions suivantes sont toutes réunies :
 
-| Condition                                     | Valeur seuil    |
-|-----------------------------------------------|-----------------|
-| Le panier contient au moins 1 article         | Oui             |
-| Aucune commande n'a été validée depuis        | —               |
-| Aucune activité (ajout, retrait, modification)| > **30 minutes**|
-| Le client ne s'est pas reconnecté depuis      | > **24 heures** |
+| Condition                                      | Valeur seuil     |
+| ---------------------------------------------- | ---------------- |
+| Le panier contient au moins 1 article          | Oui              |
+| Aucune commande n'a été validée depuis         | —                |
+| Aucune activité (ajout, retrait, modification) | > **30 minutes** |
+| Le client ne s'est pas reconnecté depuis       | > **24 heures**  |
 
 ### Durées de rétention
 
-| Situation client                   | Durée de rétention du panier |
-|------------------------------------|------------------------------|
-| Client connecté, panier actif      | 30 jours (DEP-0314)          |
-| Client connecté, panier abandonné  | 7 jours avant nettoyage      |
-| Client non connecté (localStorage) | Session navigateur uniquement|
+| Situation client                   | Durée de rétention du panier  |
+| ---------------------------------- | ----------------------------- |
+| Client connecté, panier actif      | 30 jours (DEP-0314)           |
+| Client connecté, panier abandonné  | 7 jours avant nettoyage       |
+| Client non connecté (localStorage) | Session navigateur uniquement |
 
 ### Règles
 
@@ -191,13 +191,13 @@ de leur durée de rétention (DEP-0578).
 
 ### Processus de nettoyage
 
-| Étape | Action                                                              |
-|-------|---------------------------------------------------------------------|
-| 1     | Identifier les paniers correspondant aux critères d'expiration      |
-| 2     | Vérifier qu'aucune commande n'est en cours pour ce client           |
-| 3     | Supprimer les articles du panier (soft delete en V1)                |
-| 4     | Marquer le panier comme `expire` dans le système                    |
-| 5     | Journaliser la suppression (tenant, client anonymisé, nb articles)  |
+| Étape | Action                                                             |
+| ----- | ------------------------------------------------------------------ |
+| 1     | Identifier les paniers correspondant aux critères d'expiration     |
+| 2     | Vérifier qu'aucune commande n'est en cours pour ce client          |
+| 3     | Supprimer les articles du panier (soft delete en V1)               |
+| 4     | Marquer le panier comme `expire` dans le système                   |
+| 5     | Journaliser la suppression (tenant, client anonymisé, nb articles) |
 
 ### Règles
 
@@ -219,20 +219,20 @@ actif est abandonné, pour l'inciter à finaliser sa commande.
 
 ### Conditions d'envoi
 
-| Condition                                    | Valeur          |
-|----------------------------------------------|-----------------|
-| Panier contient au moins 1 article disponible| Oui             |
-| Délai depuis dernière activité               | > **2 heures**  |
-| Client connecté avec e-mail ou téléphone     | Oui             |
-| Relance déjà envoyée pour ce panier          | Non (1 seule)   |
+| Condition                                     | Valeur         |
+| --------------------------------------------- | -------------- |
+| Panier contient au moins 1 article disponible | Oui            |
+| Délai depuis dernière activité                | > **2 heures** |
+| Client connecté avec e-mail ou téléphone      | Oui            |
+| Relance déjà envoyée pour ce panier           | Non (1 seule)  |
 
 ### Canal de relance V1
 
-| Canal           | Contenu                                                         |
-|-----------------|-----------------------------------------------------------------|
+| Canal                                | Contenu                                                          |
+| ------------------------------------ | ---------------------------------------------------------------- |
 | Notification push (si PWA installée) | « Tu as des articles dans ton panier. Commande quand tu veux ! » |
-| Aucun SMS en V1 | Réservé V2                                                      |
-| Aucun e-mail en V1 | Réservé V2                                                   |
+| Aucun SMS en V1                      | Réservé V2                                                       |
+| Aucun e-mail en V1                   | Réservé V2                                                       |
 
 ### Contenu de la notification push
 
@@ -261,31 +261,31 @@ et les acteurs déclenchant chaque transition.
 
 ### États
 
-| État             | Identifiant      | Description                                          |
-|------------------|------------------|------------------------------------------------------|
-| En attente       | `en_attente`     | Commande reçue, non traitée par le dépanneur         |
-| En préparation   | `en_preparation` | Acceptée par le dépanneur, en cours de préparation   |
-| Prête            | `prete`          | Préparée, en attente de livreur                      |
-| En livraison     | `en_livraison`   | Prise en charge par le livreur                       |
-| Livrée           | `livree`         | Remise au client avec succès                         |
-| Annulée          | `annulee`        | Annulée (client, dépanneur ou système)               |
-| Problème         | `probleme`       | Incident survenu après acceptation                   |
+| État           | Identifiant      | Description                                        |
+| -------------- | ---------------- | -------------------------------------------------- |
+| En attente     | `en_attente`     | Commande reçue, non traitée par le dépanneur       |
+| En préparation | `en_preparation` | Acceptée par le dépanneur, en cours de préparation |
+| Prête          | `prete`          | Préparée, en attente de livreur                    |
+| En livraison   | `en_livraison`   | Prise en charge par le livreur                     |
+| Livrée         | `livree`         | Remise au client avec succès                       |
+| Annulée        | `annulee`        | Annulée (client, dépanneur ou système)             |
+| Problème       | `probleme`       | Incident survenu après acceptation                 |
 
 ### Transitions autorisées
 
-| De              | Vers             | Déclencheur                  | Référence       |
-|-----------------|------------------|------------------------------|-----------------|
-| `en_attente`    | `en_preparation` | Dépanneur accepte            | DEP-0493        |
-| `en_attente`    | `annulee`        | Dépanneur refuse / client annule / expiration | DEP-0494 |
-| `en_preparation`| `prete`          | Dépanneur marque prête       | DEP-0496 (futur)|
-| `en_preparation`| `probleme`       | Incident signalé             | DEP-0490        |
-| `en_preparation`| `annulee`        | Dépanneur annule             | DEP-0498 (futur)|
-| `prete`         | `en_livraison`   | Livreur prend en charge      | DEP-0497 (futur)|
-| `prete`         | `probleme`       | Incident signalé             | DEP-0490        |
-| `en_livraison`  | `livree`         | Livreur confirme remise      | DEP-0589        |
-| `en_livraison`  | `probleme`       | Incident livraison           | DEP-0490        |
-| `probleme`      | `livree`         | Résolution positive          | Manuel dépanneur|
-| `probleme`      | `annulee`        | Résolution négative          | Manuel dépanneur|
+| De               | Vers             | Déclencheur                                   | Référence        |
+| ---------------- | ---------------- | --------------------------------------------- | ---------------- |
+| `en_attente`     | `en_preparation` | Dépanneur accepte                             | DEP-0493         |
+| `en_attente`     | `annulee`        | Dépanneur refuse / client annule / expiration | DEP-0494         |
+| `en_preparation` | `prete`          | Dépanneur marque prête                        | DEP-0496 (futur) |
+| `en_preparation` | `probleme`       | Incident signalé                              | DEP-0490         |
+| `en_preparation` | `annulee`        | Dépanneur annule                              | DEP-0498 (futur) |
+| `prete`          | `en_livraison`   | Livreur prend en charge                       | DEP-0497 (futur) |
+| `prete`          | `probleme`       | Incident signalé                              | DEP-0490         |
+| `en_livraison`   | `livree`         | Livreur confirme remise                       | DEP-0589         |
+| `en_livraison`   | `probleme`       | Incident livraison                            | DEP-0490         |
+| `probleme`       | `livree`         | Résolution positive                           | Manuel dépanneur |
+| `probleme`       | `annulee`        | Résolution négative                           | Manuel dépanneur |
 
 ### Règles
 
@@ -305,29 +305,29 @@ commande), les transitions autorisées et les acteurs déclenchants.
 
 ### États
 
-| État               | Identifiant        | Description                                        |
-|--------------------|--------------------|----------------------------------------------------|
-| Non assignée       | `non_assignee`     | Commande prête, aucun livreur désigné              |
-| Assignée           | `assignee`         | Livreur désigné, pas encore parti                  |
-| En route           | `en_route`         | Livreur parti du dépanneur                         |
-| Arrivée            | `arrivee`          | Livreur à l'adresse du client                      |
-| Livrée             | `livree`           | Remise confirmée                                   |
-| Échec              | `echec`            | Tentative de livraison échouée                     |
-| Retournée          | `retournee`        | Retour au dépanneur après échec                    |
+| État         | Identifiant    | Description                           |
+| ------------ | -------------- | ------------------------------------- |
+| Non assignée | `non_assignee` | Commande prête, aucun livreur désigné |
+| Assignée     | `assignee`     | Livreur désigné, pas encore parti     |
+| En route     | `en_route`     | Livreur parti du dépanneur            |
+| Arrivée      | `arrivee`      | Livreur à l'adresse du client         |
+| Livrée       | `livree`       | Remise confirmée                      |
+| Échec        | `echec`        | Tentative de livraison échouée        |
+| Retournée    | `retournee`    | Retour au dépanneur après échec       |
 
 ### Transitions autorisées
 
-| De              | Vers         | Déclencheur                    |
-|-----------------|--------------|--------------------------------|
-| `non_assignee`  | `assignee`   | Dépanneur assigne un livreur   |
-| `assignee`      | `en_route`   | Livreur confirme le départ     |
-| `assignee`      | `non_assignee`| Réassignation (livreur annule)|
-| `en_route`      | `arrivee`    | Livreur signale arrivée        |
-| `en_route`      | `echec`      | Incident en route              |
-| `arrivee`       | `livree`     | Livreur confirme la remise     |
-| `arrivee`       | `echec`      | Client absent ou refus         |
-| `echec`         | `retournee`  | Livreur retourne au dépanneur  |
-| `echec`         | `assignee`   | Nouvelle tentative (V2)        |
+| De             | Vers           | Déclencheur                    |
+| -------------- | -------------- | ------------------------------ |
+| `non_assignee` | `assignee`     | Dépanneur assigne un livreur   |
+| `assignee`     | `en_route`     | Livreur confirme le départ     |
+| `assignee`     | `non_assignee` | Réassignation (livreur annule) |
+| `en_route`     | `arrivee`      | Livreur signale arrivée        |
+| `en_route`     | `echec`        | Incident en route              |
+| `arrivee`      | `livree`       | Livreur confirme la remise     |
+| `arrivee`      | `echec`        | Client absent ou refus         |
+| `echec`        | `retournee`    | Livreur retourne au dépanneur  |
+| `echec`        | `assignee`     | Nouvelle tentative (V2)        |
 
 ### Règles
 
@@ -346,28 +346,28 @@ se fait **à la livraison** (pas de pré-paiement en ligne en V1).
 
 ### États
 
-| État             | Identifiant      | Description                                         |
-|------------------|------------------|-----------------------------------------------------|
-| En attente       | `paiement_attente`| Commande acceptée, paiement non encore collecté    |
-| Collecté         | `paiement_collecte`| Livreur a collecté le paiement                    |
-| Non collecté     | `paiement_non_collecte`| Livraison échouée, paiement non collecté     |
-| Litige           | `paiement_litige` | Montant contesté ou incident signalé               |
+| État         | Identifiant             | Description                                     |
+| ------------ | ----------------------- | ----------------------------------------------- |
+| En attente   | `paiement_attente`      | Commande acceptée, paiement non encore collecté |
+| Collecté     | `paiement_collecte`     | Livreur a collecté le paiement                  |
+| Non collecté | `paiement_non_collecte` | Livraison échouée, paiement non collecté        |
+| Litige       | `paiement_litige`       | Montant contesté ou incident signalé            |
 
 ### Transitions autorisées
 
-| De                    | Vers                    | Déclencheur                         |
-|-----------------------|-------------------------|-------------------------------------|
-| `paiement_attente`    | `paiement_collecte`     | Livreur confirme remise + paiement  |
-| `paiement_attente`    | `paiement_non_collecte` | Livraison échouée (DEP-0582 `echec`)|
-| `paiement_collecte`   | `paiement_litige`       | Signalement incident montant        |
-| `paiement_non_collecte`| `paiement_litige`      | Signalement incident                |
+| De                      | Vers                    | Déclencheur                          |
+| ----------------------- | ----------------------- | ------------------------------------ |
+| `paiement_attente`      | `paiement_collecte`     | Livreur confirme remise + paiement   |
+| `paiement_attente`      | `paiement_non_collecte` | Livraison échouée (DEP-0582 `echec`) |
+| `paiement_collecte`     | `paiement_litige`       | Signalement incident montant         |
+| `paiement_non_collecte` | `paiement_litige`       | Signalement incident                 |
 
 ### Modes de paiement acceptés V1
 
-| Mode             | Identifiant   |
-|------------------|---------------|
-| Espèces          | `especes`     |
-| Carte sur place  | `carte_tpe`   |
+| Mode            | Identifiant |
+| --------------- | ----------- |
+| Espèces         | `especes`   |
+| Carte sur place | `carte_tpe` |
 
 ### Règles
 
@@ -389,25 +389,25 @@ autorisées et les déclencheurs.
 
 ### États (DEP-0248)
 
-| État           | Identifiant    | Description                                     |
-|----------------|----------------|-------------------------------------------------|
-| En stock       | `en_stock`     | Quantité disponible normale                     |
-| Faible stock   | `faible_stock` | Quantité basse (seuil configurable par tenant)  |
-| Rupture        | `rupture`      | Aucune unité disponible                         |
-| Archivé        | `archive`      | Retiré du catalogue actif (DEP-0251)            |
+| État         | Identifiant    | Description                                    |
+| ------------ | -------------- | ---------------------------------------------- |
+| En stock     | `en_stock`     | Quantité disponible normale                    |
+| Faible stock | `faible_stock` | Quantité basse (seuil configurable par tenant) |
+| Rupture      | `rupture`      | Aucune unité disponible                        |
+| Archivé      | `archive`      | Retiré du catalogue actif (DEP-0251)           |
 
 ### Transitions autorisées
 
-| De            | Vers           | Déclencheur                                    |
-|---------------|----------------|------------------------------------------------|
-| `en_stock`    | `faible_stock` | Quantité descend sous le seuil bas             |
-| `en_stock`    | `rupture`      | Quantité atteint 0                             |
-| `faible_stock`| `en_stock`     | Réapprovisionnement                            |
-| `faible_stock`| `rupture`      | Quantité atteint 0                             |
-| `rupture`     | `en_stock`     | Réapprovisionnement                            |
-| `rupture`     | `faible_stock` | Réapprovisionnement partiel                    |
-| Tout état     | `archive`      | Décision dépanneur (retrait catalogue)         |
-| `archive`     | `en_stock`     | Réactivation par le dépanneur                  |
+| De             | Vers           | Déclencheur                            |
+| -------------- | -------------- | -------------------------------------- |
+| `en_stock`     | `faible_stock` | Quantité descend sous le seuil bas     |
+| `en_stock`     | `rupture`      | Quantité atteint 0                     |
+| `faible_stock` | `en_stock`     | Réapprovisionnement                    |
+| `faible_stock` | `rupture`      | Quantité atteint 0                     |
+| `rupture`      | `en_stock`     | Réapprovisionnement                    |
+| `rupture`      | `faible_stock` | Réapprovisionnement partiel            |
+| Tout état      | `archive`      | Décision dépanneur (retrait catalogue) |
+| `archive`      | `en_stock`     | Réactivation par le dépanneur          |
 
 ### Seuil de faible stock
 
@@ -433,17 +433,17 @@ pour chaque entité (commande, livraison, paiement, disponibilité produit).
 
 ### Structure d'une entrée d'historique
 
-| Champ            | Type       | Description                                       |
-|------------------|------------|---------------------------------------------------|
-| `id`             | uuid       | Identifiant unique de l'entrée                    |
-| `entity_type`    | string     | Type d'entité (`commande`, `livraison`, `paiement`, `produit`) |
-| `entity_id`      | uuid       | Identifiant de l'entité concernée                 |
-| `from_state`     | string     | État avant la transition (null si création)       |
-| `to_state`       | string     | État après la transition                          |
-| `triggered_by`   | string     | Rôle de l'acteur (`client`, `depanneur`, `livreur`, `systeme`) |
-| `actor_id`       | uuid       | Identifiant de l'acteur (null si système)         |
-| `timestamp`      | datetime   | Horodatage exact (UTC)                            |
-| `note`           | string     | Commentaire optionnel (motif, incident, etc.)     |
+| Champ          | Type     | Description                                                    |
+| -------------- | -------- | -------------------------------------------------------------- |
+| `id`           | uuid     | Identifiant unique de l'entrée                                 |
+| `entity_type`  | string   | Type d'entité (`commande`, `livraison`, `paiement`, `produit`) |
+| `entity_id`    | uuid     | Identifiant de l'entité concernée                              |
+| `from_state`   | string   | État avant la transition (null si création)                    |
+| `to_state`     | string   | État après la transition                                       |
+| `triggered_by` | string   | Rôle de l'acteur (`client`, `depanneur`, `livreur`, `systeme`) |
+| `actor_id`     | uuid     | Identifiant de l'acteur (null si système)                      |
+| `timestamp`    | datetime | Horodatage exact (UTC)                                         |
+| `note`         | string   | Commentaire optionnel (motif, incident, etc.)                  |
 
 ### Règles
 
@@ -473,13 +473,13 @@ clique sur « Commander » et que la validation côté serveur réussit
 
 ### Structure
 
-| Champ           | Valeur                                      |
-|-----------------|---------------------------------------------|
-| `created_at`    | datetime UTC (ex. : `2026-03-13T14:32:00Z`) |
-| `entity_type`   | `commande`                                  |
-| `from_state`    | `null`                                      |
-| `to_state`      | `en_attente`                                |
-| `triggered_by`  | `client`                                    |
+| Champ          | Valeur                                      |
+| -------------- | ------------------------------------------- |
+| `created_at`   | datetime UTC (ex. : `2026-03-13T14:32:00Z`) |
+| `entity_type`  | `commande`                                  |
+| `from_state`   | `null`                                      |
+| `to_state`     | `en_attente`                                |
+| `triggered_by` | `client`                                    |
 
 ### Règles
 
@@ -502,13 +502,13 @@ serveur : transition `en_attente` → `en_preparation`.
 
 ### Structure
 
-| Champ           | Valeur                     |
-|-----------------|----------------------------|
-| `accepted_at`   | datetime UTC               |
-| `entity_type`   | `commande`                 |
-| `from_state`    | `en_attente`               |
-| `to_state`      | `en_preparation`           |
-| `triggered_by`  | `depanneur`                |
+| Champ          | Valeur           |
+| -------------- | ---------------- |
+| `accepted_at`  | datetime UTC     |
+| `entity_type`  | `commande`       |
+| `from_state`   | `en_attente`     |
+| `to_state`     | `en_preparation` |
+| `triggered_by` | `depanneur`      |
 
 ### Règles
 
@@ -533,13 +533,13 @@ transition livraison `assignee` → `en_route`.
 
 ### Structure
 
-| Champ           | Valeur                     |
-|-----------------|----------------------------|
-| `departed_at`   | datetime UTC               |
-| `entity_type`   | `livraison`                |
-| `from_state`    | `assignee`                 |
-| `to_state`      | `en_route`                 |
-| `triggered_by`  | `livreur`                  |
+| Champ          | Valeur       |
+| -------------- | ------------ |
+| `departed_at`  | datetime UTC |
+| `entity_type`  | `livraison`  |
+| `from_state`   | `assignee`   |
+| `to_state`     | `en_route`   |
+| `triggered_by` | `livreur`    |
 
 ### Règles
 
@@ -564,13 +564,13 @@ interface : transition livraison `arrivee` → `livree` et commande
 
 ### Structure
 
-| Champ           | Valeur                     |
-|-----------------|----------------------------|
-| `delivered_at`  | datetime UTC               |
-| `entity_type`   | `livraison`                |
-| `from_state`    | `arrivee`                  |
-| `to_state`      | `livree`                   |
-| `triggered_by`  | `livreur`                  |
+| Champ          | Valeur       |
+| -------------- | ------------ |
+| `delivered_at` | datetime UTC |
+| `entity_type`  | `livraison`  |
+| `from_state`   | `arrivee`    |
+| `to_state`     | `livree`     |
+| `triggered_by` | `livreur`    |
 
 ### Règles
 
@@ -596,15 +596,15 @@ Enregistré simultanément ou immédiatement après la confirmation de livraison
 
 ### Structure
 
-| Champ           | Valeur                          |
-|-----------------|---------------------------------|
-| `paid_at`       | datetime UTC                    |
-| `entity_type`   | `paiement`                      |
-| `from_state`    | `paiement_attente`              |
-| `to_state`      | `paiement_collecte`             |
-| `triggered_by`  | `livreur`                       |
-| `mode`          | `especes` ou `carte_tpe`        |
-| `amount`        | Montant collecté (decimal)      |
+| Champ          | Valeur                     |
+| -------------- | -------------------------- |
+| `paid_at`      | datetime UTC               |
+| `entity_type`  | `paiement`                 |
+| `from_state`   | `paiement_attente`         |
+| `to_state`     | `paiement_collecte`        |
+| `triggered_by` | `livreur`                  |
+| `mode`         | `especes` ou `carte_tpe`   |
+| `amount`       | Montant collecté (decimal) |
 
 ### Règles
 
@@ -624,25 +624,25 @@ suivi (`/commandes/:id`).
 
 ### Structure de la timeline
 
-| Étape              | Icône | Condition d'affichage                    |
-|--------------------|-------|------------------------------------------|
-| Commande reçue     | ✅    | Toujours (dès création)                  |
-| Acceptée           | ✅    | Après `accepted_at` (DEP-0587)           |
-| En préparation     | 🔄    | État `en_preparation`                    |
-| Prête              | 📦    | État `prete`                             |
-| En route           | 🚗    | Après `departed_at` (DEP-0588)           |
-| Livrée             | 🎉    | Après `delivered_at` (DEP-0589)          |
+| Étape          | Icône | Condition d'affichage           |
+| -------------- | ----- | ------------------------------- |
+| Commande reçue | ✅    | Toujours (dès création)         |
+| Acceptée       | ✅    | Après `accepted_at` (DEP-0587)  |
+| En préparation | 🔄    | État `en_preparation`           |
+| Prête          | 📦    | État `prete`                    |
+| En route       | 🚗    | Après `departed_at` (DEP-0588)  |
+| Livrée         | 🎉    | Après `delivered_at` (DEP-0589) |
 
 ### Informations affichées
 
-| Information                 | Condition                                    |
-|-----------------------------|----------------------------------------------|
-| Statut actuel (texte)       | Toujours                                     |
-| Horodatage de chaque étape  | Une fois l'étape franchie                    |
-| Nom du livreur              | Après assignation (optionnel V1)             |
-| Temps estimé restant        | Après `departed_at`, si ETA calculable       |
-| Montant total TTC           | Toujours                                     |
-| Mode de paiement attendu    | Toujours                                     |
+| Information                | Condition                              |
+| -------------------------- | -------------------------------------- |
+| Statut actuel (texte)      | Toujours                               |
+| Horodatage de chaque étape | Une fois l'étape franchie              |
+| Nom du livreur             | Après assignation (optionnel V1)       |
+| Temps estimé restant       | Après `departed_at`, si ETA calculable |
+| Montant total TTC          | Toujours                               |
+| Mode de paiement attendu   | Toujours                               |
 
 ### Règles
 
@@ -665,16 +665,16 @@ fiche détail (DEP-0492).
 
 ### Informations affichées
 
-| Information                        | Détail                                        |
-|------------------------------------|-----------------------------------------------|
-| Statut actuel + badge coloré       | Selon machine d'état DEP-0581                 |
-| Timeline des transitions           | Chaque étape avec horodatage et acteur        |
-| Chronomètre de préparation         | Temps écoulé depuis `accepted_at`             |
-| Disponibilité des articles         | Temps réel (DEP-0584)                         |
-| Informations client                | Nom, téléphone, adresse, note livraison       |
-| Livreur assigné                    | Nom + statut livraison (DEP-0582)             |
-| Récapitulatif financier            | Sous-total, taxes, frais, total TTC           |
-| Historique de la commande          | Transitions DEP-0585 (acteur + horodatage)    |
+| Information                  | Détail                                     |
+| ---------------------------- | ------------------------------------------ |
+| Statut actuel + badge coloré | Selon machine d'état DEP-0581              |
+| Timeline des transitions     | Chaque étape avec horodatage et acteur     |
+| Chronomètre de préparation   | Temps écoulé depuis `accepted_at`          |
+| Disponibilité des articles   | Temps réel (DEP-0584)                      |
+| Informations client          | Nom, téléphone, adresse, note livraison    |
+| Livreur assigné              | Nom + statut livraison (DEP-0582)          |
+| Récapitulatif financier      | Sous-total, taxes, frais, total TTC        |
+| Historique de la commande    | Transitions DEP-0585 (acteur + horodatage) |
 
 ### Règles
 
@@ -694,25 +694,25 @@ orientée action et lisibilité terrain.
 
 ### Informations affichées (par commande assignée)
 
-| Information                  | Format                                         |
-|------------------------------|------------------------------------------------|
-| Nom du client                | Prénom + initiale nom                          |
-| Adresse de livraison         | Adresse complète, cliquable → navigation GPS   |
-| Téléphone client             | Cliquable → appel direct                       |
-| Note de livraison            | Affichée si présente (DEP-0291)                |
-| Liste des articles           | Nom + quantité (lecture seule)                 |
-| Montant à collecter          | Total TTC + mode de paiement attendu           |
-| Statut de la livraison       | Badge selon machine d'état DEP-0582            |
-| Actions disponibles          | Selon état : Partir / Arrivé / Livré / Incident|
+| Information            | Format                                          |
+| ---------------------- | ----------------------------------------------- |
+| Nom du client          | Prénom + initiale nom                           |
+| Adresse de livraison   | Adresse complète, cliquable → navigation GPS    |
+| Téléphone client       | Cliquable → appel direct                        |
+| Note de livraison      | Affichée si présente (DEP-0291)                 |
+| Liste des articles     | Nom + quantité (lecture seule)                  |
+| Montant à collecter    | Total TTC + mode de paiement attendu            |
+| Statut de la livraison | Badge selon machine d'état DEP-0582             |
+| Actions disponibles    | Selon état : Partir / Arrivé / Livré / Incident |
 
 ### Actions disponibles par état
 
-| État livraison  | Actions                                         |
-|-----------------|-------------------------------------------------|
-| `assignee`      | « Confirmer le départ » (DEP-0588)              |
-| `en_route`      | « Signaler arrivée »                            |
-| `arrivee`       | « Confirmer la livraison » + « Signaler incident »|
-| `echec`         | « Retourner au dépanneur »                      |
+| État livraison | Actions                                            |
+| -------------- | -------------------------------------------------- |
+| `assignee`     | « Confirmer le départ » (DEP-0588)                 |
+| `en_route`     | « Signaler arrivée »                               |
+| `arrivee`      | « Confirmer la livraison » + « Signaler incident » |
+| `echec`        | « Retourner au dépanneur »                         |
 
 ### Règles
 
@@ -738,36 +738,36 @@ tenants, tous les livreurs et tous les historiques**.
 
 ### Tableau de bord principal
 
-| Métrique                           | Granularité           |
-|------------------------------------|-----------------------|
-| Commandes reçues                   | Jour / semaine / mois |
-| Commandes livrées                  | Par tenant, par livreur|
-| Commandes annulées / refusées      | Par tenant, motif     |
-| Commandes en problème actives      | Temps réel            |
-| Délai moyen d'acceptation          | Par tenant            |
-| Délai moyen de livraison           | Par tenant, par livreur|
-| Taux de succès livraison           | Par tenant, global    |
-| Litiges paiement en cours          | Temps réel            |
+| Métrique                      | Granularité             |
+| ----------------------------- | ----------------------- |
+| Commandes reçues              | Jour / semaine / mois   |
+| Commandes livrées             | Par tenant, par livreur |
+| Commandes annulées / refusées | Par tenant, motif       |
+| Commandes en problème actives | Temps réel              |
+| Délai moyen d'acceptation     | Par tenant              |
+| Délai moyen de livraison      | Par tenant, par livreur |
+| Taux de succès livraison      | Par tenant, global      |
+| Litiges paiement en cours     | Temps réel              |
 
 ### Vue détail par commande
 
-| Information                         | Détail                                       |
-|-------------------------------------|----------------------------------------------|
-| Historique complet (DEP-0585)       | Toutes les transitions, tous acteurs         |
-| Données client                      | Complètes (accès administrateur)             |
-| Données dépanneur                   | Complètes                                    |
-| Données livreur                     | Complètes                                    |
-| État paiement (DEP-0583)            | Complet, incluant litiges                    |
-| Journaux système                    | Transitions automatiques, expirations        |
+| Information                   | Détail                                |
+| ----------------------------- | ------------------------------------- |
+| Historique complet (DEP-0585) | Toutes les transitions, tous acteurs  |
+| Données client                | Complètes (accès administrateur)      |
+| Données dépanneur             | Complètes                             |
+| Données livreur               | Complètes                             |
+| État paiement (DEP-0583)      | Complet, incluant litiges             |
+| Journaux système              | Transitions automatiques, expirations |
 
 ### Actions disponibles
 
-| Action                              | Condition                                    |
-|-------------------------------------|----------------------------------------------|
-| Résoudre un litige paiement         | État `paiement_litige`                       |
-| Forcer le changement d'état d'une commande | Cas exceptionnels documentés          |
-| Réassigner un livreur               | Livraison `assignee` ou `en_route`           |
-| Exporter l'historique d'une commande| Toujours disponible                          |
+| Action                                     | Condition                          |
+| ------------------------------------------ | ---------------------------------- |
+| Résoudre un litige paiement                | État `paiement_litige`             |
+| Forcer le changement d'état d'une commande | Cas exceptionnels documentés       |
+| Réassigner un livreur                      | Livraison `assignee` ou `en_route` |
+| Exporter l'historique d'une commande       | Toujours disponible                |
 
 ### Règles
 
@@ -782,25 +782,25 @@ tenants, tous les livreurs et tous les historiques**.
 
 ## Synthèse du bloc DEP-0575–DEP-0594
 
-| DEP      | Sujet                              | Décision clé                                                     |
-|----------|------------------------------------|------------------------------------------------------------------|
-| DEP-0575 | Popularité produits                | Score pondéré 30j, recalcul horaire, top 10, par tenant          |
-| DEP-0576 | Dernière commande                  | Seules commandes `livree` comptent, mis à jour à DEP-0589        |
-| DEP-0577 | Recommandation historique          | Top 5 variantes fréquentes, complété par populaires, déterministe|
-| DEP-0578 | Rétention panier abandonné         | 7 j si abandonné, 30 j si actif non converti                     |
-| DEP-0579 | Nettoyage paniers                  | Quotidien, soft delete, jamais si commande en cours              |
-| DEP-0580 | Relance douce panier               | 1 seule push après 2h, jamais de prix mentionné                  |
-| DEP-0581 | Machine d'état commandes           | 7 états, transitions strictes, états terminaux irréversibles     |
-| DEP-0582 | Machine d'état livraisons          | 7 états, déclencheurs par acteur, terminaux irréversibles        |
-| DEP-0583 | Machine d'état paiement            | 4 états, paiement à la livraison uniquement en V1                |
-| DEP-0584 | Machine d'état disponibilité       | 4 états, seuil faible stock = 5 unités par défaut                |
-| DEP-0585 | Historique changements d'état      | Immuable, tous acteurs, rétention 2 ans commandes                |
-| DEP-0586 | Horodatage création commande       | `created_at` UTC, déclenche délai acceptation 10 min             |
-| DEP-0587 | Horodatage acceptation             | `accepted_at` UTC, démarre chrono préparation                    |
-| DEP-0588 | Horodatage départ livreur          | `departed_at` UTC, base ETA client                               |
-| DEP-0589 | Horodatage livraison               | `delivered_at` UTC, déclenche popularité + dernière commande     |
-| DEP-0590 | Horodatage paiement                | `paid_at` UTC + mode + montant, après livraison                  |
-| DEP-0591 | Suivi client                       | Timeline 6 étapes, temps réel, aucun détail interne exposé       |
-| DEP-0592 | Suivi dépanneur                    | Timeline complète + chrono + dispo temps réel + financier        |
-| DEP-0593 | Suivi livreur                      | Mobile-first, actions par état, montant total uniquement         |
-| DEP-0594 | Suivi super administrateur         | Dashboard global, historique complet, actions forcées journalisées|
+| DEP      | Sujet                         | Décision clé                                                       |
+| -------- | ----------------------------- | ------------------------------------------------------------------ |
+| DEP-0575 | Popularité produits           | Score pondéré 30j, recalcul horaire, top 10, par tenant            |
+| DEP-0576 | Dernière commande             | Seules commandes `livree` comptent, mis à jour à DEP-0589          |
+| DEP-0577 | Recommandation historique     | Top 5 variantes fréquentes, complété par populaires, déterministe  |
+| DEP-0578 | Rétention panier abandonné    | 7 j si abandonné, 30 j si actif non converti                       |
+| DEP-0579 | Nettoyage paniers             | Quotidien, soft delete, jamais si commande en cours                |
+| DEP-0580 | Relance douce panier          | 1 seule push après 2h, jamais de prix mentionné                    |
+| DEP-0581 | Machine d'état commandes      | 7 états, transitions strictes, états terminaux irréversibles       |
+| DEP-0582 | Machine d'état livraisons     | 7 états, déclencheurs par acteur, terminaux irréversibles          |
+| DEP-0583 | Machine d'état paiement       | 4 états, paiement à la livraison uniquement en V1                  |
+| DEP-0584 | Machine d'état disponibilité  | 4 états, seuil faible stock = 5 unités par défaut                  |
+| DEP-0585 | Historique changements d'état | Immuable, tous acteurs, rétention 2 ans commandes                  |
+| DEP-0586 | Horodatage création commande  | `created_at` UTC, déclenche délai acceptation 10 min               |
+| DEP-0587 | Horodatage acceptation        | `accepted_at` UTC, démarre chrono préparation                      |
+| DEP-0588 | Horodatage départ livreur     | `departed_at` UTC, base ETA client                                 |
+| DEP-0589 | Horodatage livraison          | `delivered_at` UTC, déclenche popularité + dernière commande       |
+| DEP-0590 | Horodatage paiement           | `paid_at` UTC + mode + montant, après livraison                    |
+| DEP-0591 | Suivi client                  | Timeline 6 étapes, temps réel, aucun détail interne exposé         |
+| DEP-0592 | Suivi dépanneur               | Timeline complète + chrono + dispo temps réel + financier          |
+| DEP-0593 | Suivi livreur                 | Mobile-first, actions par état, montant total uniquement           |
+| DEP-0594 | Suivi super administrateur    | Dashboard global, historique complet, actions forcées journalisées |

@@ -24,14 +24,14 @@ L'agent vocal téléphonique est un **assistant conversationnel vocal** qui rép
 
 ### Ce qu'il est
 
-| Attribut           | Description                                                             |
-|--------------------|-------------------------------------------------------------------------|
-| Nature             | Agent conversationnel vocal sur ligne téléphonique                      |
-| Portée             | Mode téléphone uniquement (≠ mode manuel, ≠ mode assisté web)          |
-| Canal              | Voix téléphonique synchrone (appel entrant)                             |
-| Langue             | Français — V1                                                           |
-| Disponibilité      | 24/7 (avec gestion des horaires d'ouverture du dépanneur)              |
-| Mémoire            | Limitée à l'appel en cours + accès aux données client si identifié     |
+| Attribut      | Description                                                        |
+| ------------- | ------------------------------------------------------------------ |
+| Nature        | Agent conversationnel vocal sur ligne téléphonique                 |
+| Portée        | Mode téléphone uniquement (≠ mode manuel, ≠ mode assisté web)      |
+| Canal         | Voix téléphonique synchrone (appel entrant)                        |
+| Langue        | Français — V1                                                      |
+| Disponibilité | 24/7 (avec gestion des horaires d'ouverture du dépanneur)          |
+| Mémoire       | Limitée à l'appel en cours + accès aux données client si identifié |
 
 ### Ce qu'il n'est pas
 
@@ -54,14 +54,14 @@ Choisir la solution technique cloud pour gérer les appels téléphoniques entra
 
 ### Choix technique
 
-| Critère                    | Solution retenue                                                    |
-|----------------------------|---------------------------------------------------------------------|
-| Fournisseur cloud          | **Twilio** (solution de référence V1)                               |
-| Service principal          | Twilio Voice API + Twilio Programmable Voice                        |
-| IA conversationnelle       | OpenAI Realtime API ou équivalent (connexion WebSocket temps réel)  |
-| Protocole d'intégration    | WebSocket pour l'audio streaming bidirectionnel                     |
-| Format audio entrant       | μ-law (G.711) 8 kHz mono (standard téléphonie)                      |
-| Format audio sortant       | μ-law (G.711) 8 kHz mono (standard téléphonie)                      |
+| Critère                 | Solution retenue                                                   |
+| ----------------------- | ------------------------------------------------------------------ |
+| Fournisseur cloud       | **Twilio** (solution de référence V1)                              |
+| Service principal       | Twilio Voice API + Twilio Programmable Voice                       |
+| IA conversationnelle    | OpenAI Realtime API ou équivalent (connexion WebSocket temps réel) |
+| Protocole d'intégration | WebSocket pour l'audio streaming bidirectionnel                    |
+| Format audio entrant    | μ-law (G.711) 8 kHz mono (standard téléphonie)                     |
+| Format audio sortant    | μ-law (G.711) 8 kHz mono (standard téléphonie)                     |
 
 ### Justification
 
@@ -85,12 +85,12 @@ Choisir le fournisseur de numéros téléphoniques publics pour le service depan
 
 ### Choix technique
 
-| Critère                    | Solution retenue                                                    |
-|----------------------------|---------------------------------------------------------------------|
-| Fournisseur                | **Twilio** (cohérent avec DEP-0442)                                 |
-| Type de numéro             | Numéro local (géographique) par zone de couverture                  |
-| Format numéro (France)     | +33 X XX XX XX XX (exemple : +33 1 XX XX XX XX pour région Paris)  |
-| Gestion multi-tenant       | 1 numéro par dépanneur (ou 1 numéro partagé avec routage interne)  |
+| Critère                | Solution retenue                                                  |
+| ---------------------- | ----------------------------------------------------------------- |
+| Fournisseur            | **Twilio** (cohérent avec DEP-0442)                               |
+| Type de numéro         | Numéro local (géographique) par zone de couverture                |
+| Format numéro (France) | +33 X XX XX XX XX (exemple : +33 1 XX XX XX XX pour région Paris) |
+| Gestion multi-tenant   | 1 numéro par dépanneur (ou 1 numéro partagé avec routage interne) |
 
 ### Règles d'attribution
 
@@ -130,11 +130,11 @@ Réserver un numéro de téléphone dédié aux tests de développement et d'int
 
 ### Numéro de test
 
-| Environnement | Numéro                     | Statut          |
-|---------------|----------------------------|-----------------|
-| Développement | (à réserver via Twilio)    | À faire         |
-| Test          | (à réserver via Twilio)    | À faire         |
-| Production    | (à réserver selon zone)    | Non commencé    |
+| Environnement | Numéro                  | Statut       |
+| ------------- | ----------------------- | ------------ |
+| Développement | (à réserver via Twilio) | À faire      |
+| Test          | (à réserver via Twilio) | À faire      |
+| Production    | (à réserver selon zone) | Non commencé |
 
 ### Règles de test
 
@@ -152,25 +152,25 @@ Définir le flux nominal d'un appel entrant lorsque le dépanneur est ouvert, le
 
 ### Étapes du flux
 
-| Étape | Description                                                                 | Phrase utilisée        |
-|-------|-----------------------------------------------------------------------------|------------------------|
-| 1     | Le client compose le numéro depaneurIA                                       | —                      |
-| 2     | Twilio reçoit l'appel et appelle le webhook backend                          | —                      |
-| 3     | Le backend vérifie les conditions : horaires, disponibilité système, zone    | —                      |
-| 4     | Si tout est OK → connexion WebSocket avec OpenAI Realtime API                | —                      |
-| 5     | L'agent vocal salue le client                                                | DEP-0451               |
-| 6     | Vérification si le client est connu (reconnaissance du numéro appelant)      | —                      |
-| 7a    | Si client connu → accueil personnalisé (DEP-0449)                            | DEP-0449               |
-| 7b    | Si client inconnu → collecte des informations (DEP-0450)                     | DEP-0450               |
-| 8     | Collecte du nom (si inconnu)                                                 | DEP-0452               |
-| 9     | Collecte du numéro (si inconnu ou non détecté)                               | DEP-0453               |
-| 10    | Collecte de l'adresse de livraison                                           | DEP-0454               |
-| 11    | Validation de la zone de livraison                                           | —                      |
-| 12    | Collecte de la commande (produits souhaités)                                 | DEP-0455               |
-| 13    | Clarification si produit ambigu ou non trouvé                                | DEP-0456               |
-| 14    | Confirmation du panier (lecture des produits ajoutés)                        | DEP-0457 (hors périmètre)|
-| 15    | Confirmation de l'adresse de livraison                                       | DEP-0458 (hors périmètre)|
-| 16    | Fin de l'appel et confirmation de la prise en charge                         | DEP-0459 (hors périmètre)|
+| Étape | Description                                                               | Phrase utilisée           |
+| ----- | ------------------------------------------------------------------------- | ------------------------- |
+| 1     | Le client compose le numéro depaneurIA                                    | —                         |
+| 2     | Twilio reçoit l'appel et appelle le webhook backend                       | —                         |
+| 3     | Le backend vérifie les conditions : horaires, disponibilité système, zone | —                         |
+| 4     | Si tout est OK → connexion WebSocket avec OpenAI Realtime API             | —                         |
+| 5     | L'agent vocal salue le client                                             | DEP-0451                  |
+| 6     | Vérification si le client est connu (reconnaissance du numéro appelant)   | —                         |
+| 7a    | Si client connu → accueil personnalisé (DEP-0449)                         | DEP-0449                  |
+| 7b    | Si client inconnu → collecte des informations (DEP-0450)                  | DEP-0450                  |
+| 8     | Collecte du nom (si inconnu)                                              | DEP-0452                  |
+| 9     | Collecte du numéro (si inconnu ou non détecté)                            | DEP-0453                  |
+| 10    | Collecte de l'adresse de livraison                                        | DEP-0454                  |
+| 11    | Validation de la zone de livraison                                        | —                         |
+| 12    | Collecte de la commande (produits souhaités)                              | DEP-0455                  |
+| 13    | Clarification si produit ambigu ou non trouvé                             | DEP-0456                  |
+| 14    | Confirmation du panier (lecture des produits ajoutés)                     | DEP-0457 (hors périmètre) |
+| 15    | Confirmation de l'adresse de livraison                                    | DEP-0458 (hors périmètre) |
+| 16    | Fin de l'appel et confirmation de la prise en charge                      | DEP-0459 (hors périmètre) |
 
 ### Diagramme de flux (simplifié)
 
@@ -217,13 +217,13 @@ Définir le flux d'appel lorsque l'appel est reçu en dehors des horaires d'ouve
 
 ### Flux
 
-| Étape | Description                                                                 | Phrase utilisée                                      |
-|-------|-----------------------------------------------------------------------------|------------------------------------------------------|
-| 1     | Le client compose le numéro depaneurIA                                       | —                                                    |
-| 2     | Twilio reçoit l'appel et appelle le webhook backend                          | —                                                    |
-| 3     | Le backend vérifie les horaires → statut = fermé                             | —                                                    |
-| 4     | L'agent vocal annonce la fermeture et propose de rappeler                    | « Bonjour ! Nous sommes actuellement fermés. Nos horaires d'ouverture sont [horaires]. Vous pouvez rappeler à ce moment, ou passer commande sur notre site web. Merci et à bientôt ! » |
-| 5     | Fin de l'appel                                                               | —                                                    |
+| Étape | Description                                               | Phrase utilisée                                                                                                                                                                        |
+| ----- | --------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1     | Le client compose le numéro depaneurIA                    | —                                                                                                                                                                                      |
+| 2     | Twilio reçoit l'appel et appelle le webhook backend       | —                                                                                                                                                                                      |
+| 3     | Le backend vérifie les horaires → statut = fermé          | —                                                                                                                                                                                      |
+| 4     | L'agent vocal annonce la fermeture et propose de rappeler | « Bonjour ! Nous sommes actuellement fermés. Nos horaires d'ouverture sont [horaires]. Vous pouvez rappeler à ce moment, ou passer commande sur notre site web. Merci et à bientôt ! » |
+| 5     | Fin de l'appel                                            | —                                                                                                                                                                                      |
 
 ### Règles
 
@@ -252,13 +252,13 @@ Définir le flux d'appel lorsque le backend depaneurIA ou l'API d'IA conversatio
 
 ### Flux
 
-| Étape | Description                                                                 | Phrase utilisée                                      |
-|-------|-----------------------------------------------------------------------------|------------------------------------------------------|
-| 1     | Le client compose le numéro depaneurIA                                       | —                                                    |
-| 2     | Twilio reçoit l'appel et appelle le webhook backend                          | —                                                    |
-| 3     | Le backend ou l'IA conversationnelle est indisponible                        | —                                                    |
-| 4     | Twilio joue un message enregistré (fallback)                                 | « Bonjour ! Notre service téléphonique est temporairement indisponible. Veuillez réessayer dans quelques instants, ou passez commande sur notre site web. Merci de votre compréhension. » |
-| 5     | Fin de l'appel                                                               | —                                                    |
+| Étape | Description                                           | Phrase utilisée                                                                                                                                                                           |
+| ----- | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1     | Le client compose le numéro depaneurIA                | —                                                                                                                                                                                         |
+| 2     | Twilio reçoit l'appel et appelle le webhook backend   | —                                                                                                                                                                                         |
+| 3     | Le backend ou l'IA conversationnelle est indisponible | —                                                                                                                                                                                         |
+| 4     | Twilio joue un message enregistré (fallback)          | « Bonjour ! Notre service téléphonique est temporairement indisponible. Veuillez réessayer dans quelques instants, ou passez commande sur notre site web. Merci de votre compréhension. » |
+| 5     | Fin de l'appel                                        | —                                                                                                                                                                                         |
 
 ### Règles
 
@@ -287,14 +287,14 @@ Définir le flux d'appel lorsque l'adresse de livraison fournie par le client n'
 
 ### Flux
 
-| Étape | Description                                                                 | Phrase utilisée                                      |
-|-------|-----------------------------------------------------------------------------|------------------------------------------------------|
-| 1     | L'agent vocal a collecté l'adresse de livraison (DEP-0454)                   | —                                                    |
-| 2     | Le backend vérifie la zone → statut = non desservie                         | —                                                    |
-| 3     | L'agent vocal informe le client que la zone n'est pas couverte               | « Je suis désolé, nous ne livrons pas encore à cette adresse. Nos zones de livraison sont [liste ou description]. Souhaitez-vous être informé lorsque nous couvrirons votre secteur ? » |
-| 4a    | Si le client dit oui → collecte du numéro ou email pour notification future | « Parfait ! Laissez-moi votre numéro ou email, et nous vous contacterons dès que possible. » |
-| 4b    | Si le client dit non → fin de l'appel                                        | « Pas de problème. Merci de votre appel et à bientôt ! » |
-| 5     | Fin de l'appel                                                               | —                                                    |
+| Étape | Description                                                                 | Phrase utilisée                                                                                                                                                                         |
+| ----- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1     | L'agent vocal a collecté l'adresse de livraison (DEP-0454)                  | —                                                                                                                                                                                       |
+| 2     | Le backend vérifie la zone → statut = non desservie                         | —                                                                                                                                                                                       |
+| 3     | L'agent vocal informe le client que la zone n'est pas couverte              | « Je suis désolé, nous ne livrons pas encore à cette adresse. Nos zones de livraison sont [liste ou description]. Souhaitez-vous être informé lorsque nous couvrirons votre secteur ? » |
+| 4a    | Si le client dit oui → collecte du numéro ou email pour notification future | « Parfait ! Laissez-moi votre numéro ou email, et nous vous contacterons dès que possible. »                                                                                            |
+| 4b    | Si le client dit non → fin de l'appel                                       | « Pas de problème. Merci de votre appel et à bientôt ! »                                                                                                                                |
+| 5     | Fin de l'appel                                                              | —                                                                                                                                                                                       |
 
 ### Règles
 
@@ -321,14 +321,14 @@ Définir le flux d'appel lorsque le système reconnaît le numéro de téléphon
 
 ### Flux
 
-| Étape | Description                                                                 | Phrase utilisée                                      |
-|-------|-----------------------------------------------------------------------------|------------------------------------------------------|
-| 1     | Le backend vérifie le `caller_id` → client trouvé                           | —                                                    |
-| 2     | L'agent vocal salue le client par son prénom                                | « Bonjour [Prénom] ! Ravi de vous retrouver. Que puis-je préparer pour vous aujourd'hui ? » |
-| 3     | Proposition de réutiliser la dernière adresse de livraison                   | « Souhaitez-vous qu'on livre à [dernière adresse connue] ? » |
-| 4a    | Si le client dit oui → adresse confirmée, passer à la collecte de commande  | DEP-0455                                             |
-| 4b    | Si le client dit non ou propose une autre adresse → collecte nouvelle adresse| DEP-0454                                             |
-| 5     | Collecte de la commande                                                      | DEP-0455                                             |
+| Étape | Description                                                                   | Phrase utilisée                                                                             |
+| ----- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| 1     | Le backend vérifie le `caller_id` → client trouvé                             | —                                                                                           |
+| 2     | L'agent vocal salue le client par son prénom                                  | « Bonjour [Prénom] ! Ravi de vous retrouver. Que puis-je préparer pour vous aujourd'hui ? » |
+| 3     | Proposition de réutiliser la dernière adresse de livraison                    | « Souhaitez-vous qu'on livre à [dernière adresse connue] ? »                                |
+| 4a    | Si le client dit oui → adresse confirmée, passer à la collecte de commande    | DEP-0455                                                                                    |
+| 4b    | Si le client dit non ou propose une autre adresse → collecte nouvelle adresse | DEP-0454                                                                                    |
+| 5     | Collecte de la commande                                                       | DEP-0455                                                                                    |
 
 ### Règles
 
@@ -356,14 +356,14 @@ Définir le flux d'appel lorsque le système ne reconnaît pas le numéro de té
 
 ### Flux
 
-| Étape | Description                                                                 | Phrase utilisée                                      |
-|-------|-----------------------------------------------------------------------------|------------------------------------------------------|
-| 1     | Le backend vérifie le `caller_id` → client non trouvé                       | —                                                    |
-| 2     | L'agent vocal demande le nom du client                                       | DEP-0452                                             |
-| 3     | L'agent vocal demande le numéro de téléphone (pour confirmation)             | DEP-0453                                             |
-| 4     | L'agent vocal demande l'adresse de livraison                                 | DEP-0454                                             |
-| 5     | Le backend crée un nouvel enregistrement client (ou met à jour si le numéro correspond finalement à un client existant)|—|
-| 6     | Collecte de la commande                                                      | DEP-0455                                             |
+| Étape | Description                                                                                                             | Phrase utilisée |
+| ----- | ----------------------------------------------------------------------------------------------------------------------- | --------------- |
+| 1     | Le backend vérifie le `caller_id` → client non trouvé                                                                   | —               |
+| 2     | L'agent vocal demande le nom du client                                                                                  | DEP-0452        |
+| 3     | L'agent vocal demande le numéro de téléphone (pour confirmation)                                                        | DEP-0453        |
+| 4     | L'agent vocal demande l'adresse de livraison                                                                            | DEP-0454        |
+| 5     | Le backend crée un nouvel enregistrement client (ou met à jour si le numéro correspond finalement à un client existant) | —               |
+| 6     | Collecte de la commande                                                                                                 | DEP-0455        |
 
 ### Règles
 
@@ -391,12 +391,12 @@ Définir la phrase de salutation standard utilisée par l'agent vocal téléphon
 
 ### Variantes selon contexte
 
-| Contexte                           | Phrase                                                                              |
-|------------------------------------|-------------------------------------------------------------------------------------|
-| Appel nominal (client inconnu)     | « Bonjour ! Vous êtes bien chez [Nom du dépanneur]. Je suis votre assistant vocal. Comment puis-je vous aider aujourd'hui ? » |
-| Appel nominal (client connu)       | « Bonjour [Prénom] ! Vous êtes bien chez [Nom du dépanneur]. Que puis-je préparer pour vous aujourd'hui ? » |
-| Appel hors horaires                | « Bonjour ! Nous sommes actuellement fermés. » (suite en DEP-0446)                  |
-| Appel système indisponible         | « Bonjour ! Notre service téléphonique est temporairement indisponible. » (suite en DEP-0447) |
+| Contexte                       | Phrase                                                                                                                        |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| Appel nominal (client inconnu) | « Bonjour ! Vous êtes bien chez [Nom du dépanneur]. Je suis votre assistant vocal. Comment puis-je vous aider aujourd'hui ? » |
+| Appel nominal (client connu)   | « Bonjour [Prénom] ! Vous êtes bien chez [Nom du dépanneur]. Que puis-je préparer pour vous aujourd'hui ? »                   |
+| Appel hors horaires            | « Bonjour ! Nous sommes actuellement fermés. » (suite en DEP-0446)                                                            |
+| Appel système indisponible     | « Bonjour ! Notre service téléphonique est temporairement indisponible. » (suite en DEP-0447)                                 |
 
 ### Règles de ton
 
@@ -425,11 +425,11 @@ Définir la phrase utilisée par l'agent vocal pour demander le nom du client lo
 
 ### Variantes
 
-| Contexte                           | Phrase                                                                              |
-|------------------------------------|-------------------------------------------------------------------------------------|
-| Première demande                   | « Pour commencer, comment vous appelez-vous ? »                                     |
-| Répétition (non compris)           | « Pardon, je n'ai pas bien compris. Pouvez-vous répéter votre nom s'il vous plaît ? » |
-| Clarification (nom ambigu)         | « J'ai noté [nom compris]. C'est bien ça ? »                                        |
+| Contexte                   | Phrase                                                                                |
+| -------------------------- | ------------------------------------------------------------------------------------- |
+| Première demande           | « Pour commencer, comment vous appelez-vous ? »                                       |
+| Répétition (non compris)   | « Pardon, je n'ai pas bien compris. Pouvez-vous répéter votre nom s'il vous plaît ? » |
+| Clarification (nom ambigu) | « J'ai noté [nom compris]. C'est bien ça ? »                                          |
 
 ### Règles de collecte
 
@@ -473,12 +473,12 @@ Définir la phrase utilisée par l'agent vocal pour demander ou confirmer le num
 
 ### Variantes
 
-| Contexte                           | Phrase                                                                              |
-|------------------------------------|-------------------------------------------------------------------------------------|
-| Demande initiale (caller_id masqué)| « Quel est votre numéro de téléphone ? »                                            |
-| Confirmation (caller_id détecté)   | « Je vois que vous m'appelez du [numéro détecté]. C'est bien ce numéro que je dois noter ? » |
-| Répétition (non compris)           | « Pardon, je n'ai pas bien compris. Pouvez-vous répéter votre numéro s'il vous plaît, chiffre par chiffre ? » |
-| Clarification (numéro ambigu)      | « J'ai noté [numéro répété]. C'est bien ça ? »                                      |
+| Contexte                            | Phrase                                                                                                        |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Demande initiale (caller_id masqué) | « Quel est votre numéro de téléphone ? »                                                                      |
+| Confirmation (caller_id détecté)    | « Je vois que vous m'appelez du [numéro détecté]. C'est bien ce numéro que je dois noter ? »                  |
+| Répétition (non compris)            | « Pardon, je n'ai pas bien compris. Pouvez-vous répéter votre numéro s'il vous plaît, chiffre par chiffre ? » |
+| Clarification (numéro ambigu)       | « J'ai noté [numéro répété]. C'est bien ça ? »                                                                |
 
 ### Règles de collecte
 
@@ -522,13 +522,13 @@ Définir la phrase utilisée par l'agent vocal pour demander l'adresse de livrai
 
 ### Variantes
 
-| Contexte                           | Phrase                                                                              |
-|------------------------------------|-------------------------------------------------------------------------------------|
-| Demande initiale (client inconnu)  | « Quelle est votre adresse de livraison ? »                                         |
-| Confirmation (client connu)        | « Souhaitez-vous qu'on livre à votre adresse habituelle, [dernière adresse] ? »     |
-| Répétition (non compris)           | « Pardon, je n'ai pas bien compris. Pouvez-vous répéter votre adresse lentement ? » |
-| Clarification (adresse ambiguë)    | « J'ai noté [adresse répétée]. C'est bien ça ? »                                    |
-| Précision (adresse incomplète)     | « D'accord, et quel est le code postal ? » ou « Quel est le numéro de rue ? »       |
+| Contexte                          | Phrase                                                                              |
+| --------------------------------- | ----------------------------------------------------------------------------------- |
+| Demande initiale (client inconnu) | « Quelle est votre adresse de livraison ? »                                         |
+| Confirmation (client connu)       | « Souhaitez-vous qu'on livre à votre adresse habituelle, [dernière adresse] ? »     |
+| Répétition (non compris)          | « Pardon, je n'ai pas bien compris. Pouvez-vous répéter votre adresse lentement ? » |
+| Clarification (adresse ambiguë)   | « J'ai noté [adresse répétée]. C'est bien ça ? »                                    |
+| Précision (adresse incomplète)    | « D'accord, et quel est le code postal ? » ou « Quel est le numéro de rue ? »       |
 
 ### Règles de collecte
 
@@ -575,12 +575,12 @@ Définir la phrase utilisée par l'agent vocal pour demander au client quels pro
 
 ### Variantes
 
-| Contexte                           | Phrase                                                                              |
-|------------------------------------|-------------------------------------------------------------------------------------|
-| Demande initiale                   | « Que souhaitez-vous commander aujourd'hui ? »                                      |
-| Ajout après premier produit        | « Autre chose ? »                                                                   |
-| Clarification produit non trouvé   | (voir DEP-0456)                                                                     |
-| Confirmation panier vide           | « Vous n'avez rien commandé pour le moment. Que souhaitez-vous ? »                  |
+| Contexte                         | Phrase                                                             |
+| -------------------------------- | ------------------------------------------------------------------ |
+| Demande initiale                 | « Que souhaitez-vous commander aujourd'hui ? »                     |
+| Ajout après premier produit      | « Autre chose ? »                                                  |
+| Clarification produit non trouvé | (voir DEP-0456)                                                    |
+| Confirmation panier vide         | « Vous n'avez rien commandé pour le moment. Que souhaitez-vous ? » |
 
 ### Règles de collecte
 
@@ -631,14 +631,14 @@ Définir la phrase utilisée par l'agent vocal pour clarifier un produit ambigu,
 
 ### Variantes
 
-| Contexte                           | Phrase                                                                              |
-|------------------------------------|-------------------------------------------------------------------------------------|
-| Produit non trouvé                 | « Je suis désolé, je ne trouve pas ce produit. Pouvez-vous me donner un autre nom ou une marque ? » |
-| Produit ambigu (2 options)         | « J'ai trouvé [option 1] et [option 2]. Lequel souhaitez-vous ? »                   |
-| Produit ambigu (3+ options)        | « J'ai trouvé plusieurs produits : [option 1], [option 2], [option 3]. Lequel préférez-vous ? » |
-| Quantité ambiguë                   | « Combien en voulez-vous ? »                                                        |
-| Variante ambiguë                   | « Quel format souhaitez-vous : [format 1] ou [format 2] ? »                         |
-| Mauvaise compréhension             | « Pardon, je n'ai pas bien compris. Pouvez-vous répéter plus lentement ? »          |
+| Contexte                    | Phrase                                                                                              |
+| --------------------------- | --------------------------------------------------------------------------------------------------- |
+| Produit non trouvé          | « Je suis désolé, je ne trouve pas ce produit. Pouvez-vous me donner un autre nom ou une marque ? » |
+| Produit ambigu (2 options)  | « J'ai trouvé [option 1] et [option 2]. Lequel souhaitez-vous ? »                                   |
+| Produit ambigu (3+ options) | « J'ai trouvé plusieurs produits : [option 1], [option 2], [option 3]. Lequel préférez-vous ? »     |
+| Quantité ambiguë            | « Combien en voulez-vous ? »                                                                        |
+| Variante ambiguë            | « Quel format souhaitez-vous : [format 1] ou [format 2] ? »                                         |
+| Mauvaise compréhension      | « Pardon, je n'ai pas bien compris. Pouvez-vous répéter plus lentement ? »                          |
 
 ### Règles de clarification
 
@@ -674,24 +674,24 @@ Définir la phrase utilisée par l'agent vocal pour clarifier un produit ambigu,
 
 ## Résumé des DEP-0441 à DEP-0456
 
-| DEP     | Titre                                                     | Type              |
-|---------|-----------------------------------------------------------|-------------------|
-| DEP-0441| Rôle précis de l'agent vocal téléphonique                 | Définition        |
-| DEP-0442| Solution téléphonique cloud principale                    | Choix technique   |
-| DEP-0443| Fournisseur de numéro téléphonique principal              | Choix technique   |
-| DEP-0444| Réservation d'un numéro de test                           | Action            |
-| DEP-0445| Flux d'appel entrant principal                            | Flux nominal      |
-| DEP-0446| Flux d'appel si le dépanneur est fermé                    | Flux d'exception  |
-| DEP-0447| Flux d'appel si le système est indisponible               | Flux d'exception  |
-| DEP-0448| Flux d'appel si la zone n'est pas desservie               | Flux d'exception  |
-| DEP-0449| Flux d'appel si le client est déjà connu                  | Flux personnalisé |
-| DEP-0450| Flux d'appel si le client est inconnu                     | Flux inscription  |
-| DEP-0451| Phrase de salutation téléphonique                         | Phrase système    |
-| DEP-0452| Phrase de collecte du nom                                 | Phrase système    |
-| DEP-0453| Phrase de collecte du numéro                              | Phrase système    |
-| DEP-0454| Phrase de collecte de l'adresse                           | Phrase système    |
-| DEP-0455| Phrase de collecte de la commande                         | Phrase système    |
-| DEP-0456| Phrase de clarification de produits téléphonique          | Phrase système    |
+| DEP      | Titre                                            | Type              |
+| -------- | ------------------------------------------------ | ----------------- |
+| DEP-0441 | Rôle précis de l'agent vocal téléphonique        | Définition        |
+| DEP-0442 | Solution téléphonique cloud principale           | Choix technique   |
+| DEP-0443 | Fournisseur de numéro téléphonique principal     | Choix technique   |
+| DEP-0444 | Réservation d'un numéro de test                  | Action            |
+| DEP-0445 | Flux d'appel entrant principal                   | Flux nominal      |
+| DEP-0446 | Flux d'appel si le dépanneur est fermé           | Flux d'exception  |
+| DEP-0447 | Flux d'appel si le système est indisponible      | Flux d'exception  |
+| DEP-0448 | Flux d'appel si la zone n'est pas desservie      | Flux d'exception  |
+| DEP-0449 | Flux d'appel si le client est déjà connu         | Flux personnalisé |
+| DEP-0450 | Flux d'appel si le client est inconnu            | Flux inscription  |
+| DEP-0451 | Phrase de salutation téléphonique                | Phrase système    |
+| DEP-0452 | Phrase de collecte du nom                        | Phrase système    |
+| DEP-0453 | Phrase de collecte du numéro                     | Phrase système    |
+| DEP-0454 | Phrase de collecte de l'adresse                  | Phrase système    |
+| DEP-0455 | Phrase de collecte de la commande                | Phrase système    |
+| DEP-0456 | Phrase de clarification de produits téléphonique | Phrase système    |
 
 ---
 

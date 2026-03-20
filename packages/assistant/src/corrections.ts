@@ -1,4 +1,9 @@
-import type { AssistantResponse, CartAdapter, CatalogProduct, ParsedIntent } from '@depaneuria/types';
+import type {
+  AssistantResponse,
+  CartAdapter,
+  CatalogProduct,
+  ParsedIntent,
+} from '@depaneuria/types';
 
 import { matchCatalog } from './catalog-match';
 import { replyProductNotFound, replyProductRemoved, replyReplacePrompt } from './replies';
@@ -7,14 +12,11 @@ import { replyProductNotFound, replyProductRemoved, replyReplacePrompt } from '.
  * Gère l'intention "remove" : cherche le produit dans le panier par mots-clés
  * et le supprime si trouvé.
  */
-export function handleRemove(
-  intent: ParsedIntent,
-  cart: CartAdapter,
-): AssistantResponse {
+export function handleRemove(intent: ParsedIntent, cart: CartAdapter): AssistantResponse {
   const cartItems = cart.getItems();
 
   const match = cartItems.find((item) =>
-    intent.keywords.some((kw) => item.productName.toLowerCase().includes(kw)),
+    intent.keywords.some((kw) => item.productName.toLowerCase().includes(kw))
   );
 
   if (match !== undefined) {
@@ -41,7 +43,7 @@ export function handleRemove(
  */
 export function handleReplace(
   _intent: ParsedIntent,
-  _catalog: CatalogProduct[],
+  _catalog: CatalogProduct[]
 ): AssistantResponse {
   return {
     text: replyReplacePrompt(),
@@ -55,10 +57,7 @@ export function handleReplace(
  * Si aucun match avec tous les mots-clés, tente des sous-ensembles progressifs
  * pour améliorer la pertinence sur les requêtes composées ("pepsi zero", "chips ketchup").
  */
-export function refineKeywords(
-  keywords: string[],
-  catalog: CatalogProduct[],
-): string[] {
+export function refineKeywords(keywords: string[], catalog: CatalogProduct[]): string[] {
   if (keywords.length <= 1) return keywords;
 
   const { confidence } = matchCatalog(keywords, catalog);

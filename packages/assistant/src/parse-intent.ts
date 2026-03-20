@@ -8,24 +8,40 @@ import { extractQuantity } from './quantity';
 // ---------------------------------------------------------------------------
 
 const VAGUE_TRIGGERS = [
-  'sais pas', 'sait pas', 'aucune idee', 'quoi prendre',
-  'quoi choisir', 'n importe', 'surprise moi',
+  'sais pas',
+  'sait pas',
+  'aucune idee',
+  'quoi prendre',
+  'quoi choisir',
+  'n importe',
+  'surprise moi',
 ] as const;
 
 const REPLACE_TRIGGERS = [
-  'remplace', 'remplacer', 'plutot autre', 'autre chose', 'change ca',
+  'remplace',
+  'remplacer',
+  'plutot autre',
+  'autre chose',
+  'change ca',
 ] as const;
 
-const REMOVE_TRIGGERS = [
-  'enleve', 'retire', 'supprime', 'efface',
-] as const;
+const REMOVE_TRIGGERS = ['enleve', 'retire', 'supprime', 'efface'] as const;
 
 const ADD_TRIGGERS = [
-  'je veux', 'je voudrais', 'j aimerais',
-  'mets ', 'ajoute ', 'rajoute ',
-  'donne moi', 'apporte moi',
-  'commande ', 'prends ',
-  'as tu', 'avez vous', 'tu as', 'il y a',
+  'je veux',
+  'je voudrais',
+  'j aimerais',
+  'mets ',
+  'ajoute ',
+  'rajoute ',
+  'donne moi',
+  'apporte moi',
+  'commande ',
+  'prends ',
+  'as tu',
+  'avez vous',
+  'tu as',
+  'il y a',
   'j ai besoin',
 ] as const;
 

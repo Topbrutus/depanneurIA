@@ -398,6 +398,7 @@ Définir le contenu et l'affichage du message de bienvenue affiché au client lo
 « Parcourez nos produits, utilisez la recherche ou les filtres pour trouver ce dont vous avez besoin. Ajoutez vos articles au panier et commandez quand vous êtes prêt. »
 
 **Affichage** :
+
 - Toast en haut de l'écran ou modal léger (non bloquant).
 - Durée : 5 secondes ou fermeture manuelle.
 - Bouton : « Commencer » (bouton primaire) ou « J'ai compris » (fermeture automatique).
@@ -427,6 +428,7 @@ Définir le contenu et l'affichage du message de bienvenue affiché au client lo
 « Bonjour ! Je suis votre assistant depaneurIA. Que puis-je vous aider à trouver aujourd'hui ? »
 
 **Affichage** :
+
 - Toast en haut de l'écran ou bulle de chat de l'assistant.
 - Durée : 5 secondes ou fermeture manuelle.
 - Indicateur visuel : icône de microphone animée pour montrer que l'assistant est à l'écoute.
@@ -453,6 +455,7 @@ Définir le contenu et l'affichage du message de bienvenue affiché au client lo
 « Vous préférez commander par téléphone ? Appelez le **08 00 12 34 56** (numéro gratuit). Un agent vocal ou humain vous guidera pour passer votre commande. »
 
 **Affichage** :
+
 - Modal ou écran dédié avec le numéro de téléphone bien visible.
 - Bouton d'action : « Appeler maintenant » (lance l'application téléphone avec le numéro pré-rempli).
 - Bouton secondaire : « Retour à la boutique » (retour en mode manuel ou assisté).
@@ -484,6 +487,7 @@ Définir le contenu et l'affichage du message d'erreur affiché au client lorsqu
 « Veuillez vérifier que votre adresse contient le numéro, le nom de rue, le code postal et la ville. »
 
 **Affichage** :
+
 - Message d'erreur sous le champ adresse (texte rouge, icône d'alerte).
 - Bordure rouge autour du champ adresse.
 - Pas de validation du formulaire tant que l'erreur n'est pas corrigée.

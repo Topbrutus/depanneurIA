@@ -19,7 +19,9 @@ function write(file, content) {
 }
 
 // 1. Site Maps
-write('docs/product/site-map-client.md', `
+write(
+  'docs/product/site-map-client.md',
+  `
 # Site Map Client V1
 
 **Objectif** : Permettre au client de commander rapidement via une interface manuelle ou assistée.
@@ -51,9 +53,12 @@ write('docs/product/site-map-client.md', `
 - Paiement en ligne sécurisé
 - Programme de fidélité
 - Parrainage
-`);
+`
+);
 
-write('docs/product/site-map-store.md', `
+write(
+  'docs/product/site-map-store.md',
+  `
 # Site Map Store (Dépanneur) V1
 
 **Objectif** : Recevoir, préparer et expédier les commandes simplement.
@@ -77,9 +82,12 @@ write('docs/product/site-map-store.md', `
 - Gestion avancée des stocks (inventaire précis)
 - Tableaux de bord financiers (Analytics)
 - Gestion des promotions
-`);
+`
+);
 
-write('docs/product/site-map-driver.md', `
+write(
+  'docs/product/site-map-driver.md',
+  `
 # Site Map Driver (Livreur) V1
 
 **Objectif** : Gérer les courses assignées, confirmer les remises et encaissements.
@@ -98,9 +106,12 @@ write('docs/product/site-map-driver.md', `
 ## Futures pages (Hors V1)
 - Carte interactive avec optimisation de tournée
 - Historique de facturation livreur
-`);
+`
+);
 
-write('docs/product/site-map-super-admin.md', `
+write(
+  'docs/product/site-map-super-admin.md',
+  `
 # Site Map Super Admin V1
 
 **Objectif** : Gérer la plateforme multi-tenant, superviser la santé globale du système.
@@ -119,10 +130,13 @@ write('docs/product/site-map-super-admin.md', `
 ## Futures pages (Hors V1)
 - Facturation des tenants (Stripe Connect)
 - Déploiement automatisé de nouveaux tenants
-`);
+`
+);
 
 // 2. Client Pages V1
-write('docs/product/client-pages-v1.md', `
+write(
+  'docs/product/client-pages-v1.md',
+  `
 # Pages Clés Client (V1)
 
 Définition précise des écrans du client final.
@@ -166,10 +180,13 @@ Définition précise des écrans du client final.
 - **Profil & Adresses** : Gestion des informations de contact.
 - **Dernière Commande / Populaires** : Raccourcis pour remplir le panier vite.
 - **Système** : Conditions, Confidentialité, Accessibilité, Aide Vocale (texte statique clair).
-`);
+`
+);
 
 // 3. Layout Rules
-write('docs/product/layout-rules-v1.md', `
+write(
+  'docs/product/layout-rules-v1.md',
+  `
 # Règles de Layout V1
 
 Le responsive est essentiel. L'interface s'adapte à deux contextes principaux.
@@ -210,10 +227,13 @@ Disposition empilée. Priorité à la grille ou au chat.
 1. L'action principale (Ajouter, Valider, Parler) doit toujours être au-dessus de la ligne de flottaison.
 2. Le panier mobile ne doit jamais masquer le bouton de paiement.
 3. Les erreurs (ex: hors zone) s'affichent en bannières collées en haut de l'écran (toast/alert).
-`);
+`
+);
 
 // 4. Client Interactions V1
-write('docs/flows/client-interactions-v1.md', `
+write(
+  'docs/flows/client-interactions-v1.md',
+  `
 # Comportements Clés Client V1
 
 ## 1. Grille Produits
@@ -230,10 +250,13 @@ write('docs/flows/client-interactions-v1.md', `
 - **Après validation** : Redirection vers \`/order/:id\` avec animation de succès. Panier vidé.
 - **Pendant préparation/livraison** : Panier verrouillé pour cette commande (lecture seule sur l'écran de suivi).
 - **Si commande échoue (Refus)** : Le panier initial est restauré pour permettre au client de modifier (ex: retirer l'article manquant) et renvoyer.
-`);
+`
+);
 
 // 5. Design System V1
-write('docs/product/design-system-v1.md', `
+write(
+  'docs/product/design-system-v1.md',
+  `
 # Système Visuel V1 (Design System)
 
 ## Couleurs (Tokens)
@@ -264,10 +287,13 @@ write('docs/product/design-system-v1.md', `
 - **Ajout au panier** : Léger "pop" (scale 1.05 puis 1.0) sur le bouton et le badge du panier.
 - **Ouverture suggestions** : Slide-up (glissement depuis le bas) ou Fade-in rapide (150ms).
 - **Transition d'états (Suivi)** : Remplissage progressif d'une barre de progression.
-`);
+`
+);
 
 // 6. Component Catalog V1
-write('docs/product/component-catalog-v1.md', `
+write(
+  'docs/product/component-catalog-v1.md',
+  `
 # Catalogue de Composants V1
 
 Liste des composants UI réutilisables à implémenter dans \`packages/ui\`.
@@ -293,10 +319,13 @@ Liste des composants UI réutilisables à implémenter dans \`packages/ui\`.
 
 ## Validation avant implémentation
 *L'équipe de développement doit s'assurer que chaque composant développé dans \`@depaneuria/ui\` correspond exactement à ces définitions, sans ajouter de variantes non listées pour la V1 afin de garantir un TTM (Time To Market) rapide.*
-`);
+`
+);
 
 // 7. Route Manifests (Apps)
-write('apps/web-client/src/app/route-manifest.ts', `
+write(
+  'apps/web-client/src/app/route-manifest.ts',
+  `
 export const clientRoutes = [
   { path: '/', name: 'home', label: 'Accueil', status: 'v1' },
   { path: '/shop', name: 'shop', label: 'Boutique Manuelle', status: 'v1' },
@@ -307,9 +336,12 @@ export const clientRoutes = [
   { path: '/auth', name: 'auth', label: 'Connexion', status: 'v1' },
   { path: '/pay', name: 'payment', label: 'Paiement en ligne', status: 'later' }
 ];
-`);
+`
+);
 
-write('apps/web-store/src/app/route-manifest.ts', `
+write(
+  'apps/web-store/src/app/route-manifest.ts',
+  `
 export const storeRoutes = [
   { path: '/', name: 'dashboard', label: 'Tableau de Réception', status: 'v1' },
   { path: '/orders/active', name: 'active-orders', label: 'Commandes en Cours', status: 'v1' },
@@ -318,19 +350,25 @@ export const storeRoutes = [
   { path: '/settings', name: 'settings', label: 'Paramètres', status: 'v1' },
   { path: '/analytics', name: 'analytics', label: 'Statistiques', status: 'later' }
 ];
-`);
+`
+);
 
-write('apps/web-driver/src/app/route-manifest.ts', `
+write(
+  'apps/web-driver/src/app/route-manifest.ts',
+  `
 export const driverRoutes = [
   { path: '/', name: 'assigned', label: 'Livraisons Assignées', status: 'v1' },
   { path: '/delivery/:id', name: 'delivery-detail', label: 'Livraison en Cours', status: 'v1' },
   { path: '/history', name: 'history', label: 'Historique', status: 'v1' },
   { path: '/map', name: 'map-view', label: 'Carte Interactive', status: 'later' }
 ];
-`);
+`
+);
 
 // 8. UI Package Manifests
-write('packages/ui/src/design-tokens.ts', `
+write(
+  'packages/ui/src/design-tokens.ts',
+  `
 // Design Tokens Conceptuels (V1)
 export const colors = {
   primary: '#2563EB',
@@ -357,9 +395,12 @@ export const radii = {
   lg: '12px',
   full: '9999px', // for pills/avatars
 };
-`);
+`
+);
 
-write('packages/ui/src/component-manifest.ts', `
+write(
+  'packages/ui/src/component-manifest.ts',
+  `
 // Liste des composants prévus dans la V1 (Contrat)
 export const ComponentManifest = [
   'ButtonPrimary',
@@ -374,7 +415,8 @@ export const ComponentManifest = [
   'ConfirmModal',
   'ToastNotification'
 ];
-`);
+`
+);
 
 // 9. Update READMEs to link to product docs
 function appendToReadme(filePath, text) {
@@ -386,7 +428,9 @@ function appendToReadme(filePath, text) {
   }
 }
 
-appendToReadme('README.md', `
+appendToReadme(
+  'README.md',
+  `
 ## Documentation Produit & UX
 Consultez la documentation détaillée de la V1 dans le dossier \`docs/product/\` :
 - [Site Maps](docs/product/site-map-client.md)
@@ -395,9 +439,12 @@ Consultez la documentation détaillée de la V1 dans le dossier \`docs/product/\
 - [Design System](docs/product/design-system-v1.md)
 - [Composants V1](docs/product/component-catalog-v1.md)
 - [Comportements](docs/flows/client-interactions-v1.md)
-`);
+`
+);
 
-appendToReadme('docs/product/README.md', `
+appendToReadme(
+  'docs/product/README.md',
+  `
 ## Documents Détaillés V1
 - [Site Map Client](site-map-client.md)
 - [Site Map Dépanneur (Store)](site-map-store.md)
@@ -407,16 +454,23 @@ appendToReadme('docs/product/README.md', `
 - [Règles de Layout (Responsive)](layout-rules-v1.md)
 - [Design System Visuel](design-system-v1.md)
 - [Catalogue de Composants](component-catalog-v1.md)
-`);
+`
+);
 
-appendToReadme('docs/flows/README.md', `
+appendToReadme(
+  'docs/flows/README.md',
+  `
 ## Interactions Détaillées
 - [Comportements Clés Client V1](client-interactions-v1.md)
-`);
+`
+);
 
-appendToReadme('docs/architecture/README.md', `
+appendToReadme(
+  'docs/architecture/README.md',
+  `
 ## Définitions UX/UI
 L'architecture frontend est guidée par les spécifications définies dans :
 - \`docs/product/layout-rules-v1.md\`
 - \`docs/product/design-system-v1.md\`
-`);
+`
+);

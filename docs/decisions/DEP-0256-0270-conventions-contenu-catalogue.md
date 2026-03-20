@@ -3,6 +3,7 @@
 ## Périmètre
 
 Ce document définit uniquement les **conventions de structure et de contenu** pour les données catalogue de depaneurIA V1 :
+
 - Structures de données pour unités, images et ordres d'affichage (DEP-0256 à DEP-0260)
 - Conventions techniques pour les images produits (DEP-0261 à DEP-0265)
 - Conventions éditoriales pour les textes et mots-clés (DEP-0266 à DEP-0270)
@@ -19,13 +20,13 @@ Une unité de vente définit le format commercial d'un produit (ex: canette 355m
 
 #### Champs requis
 
-| Champ            | Type     | Description                                    | Exemple              |
-|------------------|----------|------------------------------------------------|----------------------|
-| `unit_type`      | string   | Type d'unité (enum)                            | `"unit"`, `"pack"`   |
-| `quantity`       | number   | Quantité dans l'unité                          | `1`, `6`, `12`       |
-| `volume`         | number?  | Volume en ml (si liquide)                      | `355`, `2000`        |
-| `weight`         | number?  | Poids en g (si solide)                         | `250`, `500`         |
-| `unit_label`     | string   | Étiquette affichée                             | `"355ml"`, `"6x355ml"` |
+| Champ        | Type    | Description               | Exemple                |
+| ------------ | ------- | ------------------------- | ---------------------- |
+| `unit_type`  | string  | Type d'unité (enum)       | `"unit"`, `"pack"`     |
+| `quantity`   | number  | Quantité dans l'unité     | `1`, `6`, `12`         |
+| `volume`     | number? | Volume en ml (si liquide) | `355`, `2000`          |
+| `weight`     | number? | Poids en g (si solide)    | `250`, `500`           |
+| `unit_label` | string  | Étiquette affichée        | `"355ml"`, `"6x355ml"` |
 
 #### Types d'unités supportés
 
@@ -69,24 +70,24 @@ L'image principale est l'image par défaut affichée dans les cartes produits et
 
 #### Champs requis
 
-| Champ           | Type     | Description                                   | Exemple                          |
-|-----------------|----------|-----------------------------------------------|----------------------------------|
-| `url`           | string   | URL de l'image (CDN/storage)                  | `"https://cdn.../product-123.webp"` |
-| `alt_text`      | string   | Texte alternatif (accessibilité)              | `"Coca-Cola canette 355ml"`      |
-| `width`         | number   | Largeur en pixels                             | `800`                            |
-| `height`        | number   | Hauteur en pixels                             | `800`                            |
-| `format`        | string   | Format du fichier                             | `"webp"`, `"jpg"`                |
-| `file_size`     | number   | Taille du fichier en octets                   | `45000`                          |
-| `is_primary`    | boolean  | Indicateur d'image principale                 | `true`                           |
+| Champ        | Type    | Description                      | Exemple                             |
+| ------------ | ------- | -------------------------------- | ----------------------------------- |
+| `url`        | string  | URL de l'image (CDN/storage)     | `"https://cdn.../product-123.webp"` |
+| `alt_text`   | string  | Texte alternatif (accessibilité) | `"Coca-Cola canette 355ml"`         |
+| `width`      | number  | Largeur en pixels                | `800`                               |
+| `height`     | number  | Hauteur en pixels                | `800`                               |
+| `format`     | string  | Format du fichier                | `"webp"`, `"jpg"`                   |
+| `file_size`  | number  | Taille du fichier en octets      | `45000`                             |
+| `is_primary` | boolean | Indicateur d'image principale    | `true`                              |
 
 #### Champs optionnels
 
-| Champ              | Type     | Description                                | Exemple                          |
-|--------------------|----------|--------------------------------------------|---------------------------------|
-| `thumbnail_url`    | string   | URL de la vignette (150×150)               | `"https://cdn.../product-123-thumb.webp"` |
-| `medium_url`       | string   | URL de la version moyenne (400×400)        | `"https://cdn.../product-123-medium.webp"` |
-| `blurhash`         | string   | BlurHash pour chargement progressif        | `"LEHV6nWB2yk8pyo0adR*.7kCMdnj"` |
-| `uploaded_at`      | datetime | Date de téléversement                      | `"2026-03-13T10:30:00Z"`         |
+| Champ           | Type     | Description                         | Exemple                                    |
+| --------------- | -------- | ----------------------------------- | ------------------------------------------ |
+| `thumbnail_url` | string   | URL de la vignette (150×150)        | `"https://cdn.../product-123-thumb.webp"`  |
+| `medium_url`    | string   | URL de la version moyenne (400×400) | `"https://cdn.../product-123-medium.webp"` |
+| `blurhash`      | string   | BlurHash pour chargement progressif | `"LEHV6nWB2yk8pyo0adR*.7kCMdnj"`           |
+| `uploaded_at`   | datetime | Date de téléversement               | `"2026-03-13T10:30:00Z"`                   |
 
 #### Règles
 
@@ -120,22 +121,22 @@ Les images secondaires permettent d'afficher le produit sous différents angles 
 
 #### Champs requis
 
-| Champ           | Type     | Description                                   | Exemple                          |
-|-----------------|----------|-----------------------------------------------|----------------------------------|
-| `url`           | string   | URL de l'image                                | `"https://cdn.../product-123-alt1.webp"` |
-| `alt_text`      | string   | Texte alternatif descriptif                   | `"Coca-Cola canette - vue arrière"` |
-| `width`         | number   | Largeur en pixels                             | `800`                            |
-| `height`        | number   | Hauteur en pixels                             | `800`                            |
-| `format`        | string   | Format du fichier                             | `"webp"`, `"jpg"`                |
-| `display_order` | number   | Ordre d'affichage (0-indexed)                 | `0`, `1`, `2`                    |
-| `is_primary`    | boolean  | Toujours `false` pour secondaires             | `false`                          |
+| Champ           | Type    | Description                       | Exemple                                  |
+| --------------- | ------- | --------------------------------- | ---------------------------------------- |
+| `url`           | string  | URL de l'image                    | `"https://cdn.../product-123-alt1.webp"` |
+| `alt_text`      | string  | Texte alternatif descriptif       | `"Coca-Cola canette - vue arrière"`      |
+| `width`         | number  | Largeur en pixels                 | `800`                                    |
+| `height`        | number  | Hauteur en pixels                 | `800`                                    |
+| `format`        | string  | Format du fichier                 | `"webp"`, `"jpg"`                        |
+| `display_order` | number  | Ordre d'affichage (0-indexed)     | `0`, `1`, `2`                            |
+| `is_primary`    | boolean | Toujours `false` pour secondaires | `false`                                  |
 
 #### Champs optionnels
 
-| Champ              | Type     | Description                                | Exemple                          |
-|--------------------|----------|--------------------------------------------|---------------------------------|
-| `image_type`       | string   | Type d'image (contexte)                    | `"detail"`, `"context"`, `"packaging"` |
-| `thumbnail_url`    | string   | URL de la vignette                         | `"https://cdn.../product-123-alt1-thumb.webp"` |
+| Champ           | Type   | Description             | Exemple                                        |
+| --------------- | ------ | ----------------------- | ---------------------------------------------- |
+| `image_type`    | string | Type d'image (contexte) | `"detail"`, `"context"`, `"packaging"`         |
+| `thumbnail_url` | string | URL de la vignette      | `"https://cdn.../product-123-alt1-thumb.webp"` |
 
 #### Règles
 
@@ -180,20 +181,20 @@ L'ordre des catégories détermine leur position dans la navigation et les liste
 
 #### Champs requis
 
-| Champ             | Type     | Description                                   | Exemple              |
-|-------------------|----------|-----------------------------------------------|----------------------|
-| `category_id`     | string   | Identifiant unique de la catégorie            | `"cat-boissons"`     |
-| `display_order`   | number   | Position d'affichage (0-indexed)              | `0`, `1`, `2`        |
-| `is_visible`      | boolean  | Visibilité dans la navigation                 | `true`, `false`      |
-| `parent_id`       | string?  | ID de la catégorie parente (sous-catégories)  | `"cat-boissons"`     |
+| Champ           | Type    | Description                                  | Exemple          |
+| --------------- | ------- | -------------------------------------------- | ---------------- |
+| `category_id`   | string  | Identifiant unique de la catégorie           | `"cat-boissons"` |
+| `display_order` | number  | Position d'affichage (0-indexed)             | `0`, `1`, `2`    |
+| `is_visible`    | boolean | Visibilité dans la navigation                | `true`, `false`  |
+| `parent_id`     | string? | ID de la catégorie parente (sous-catégories) | `"cat-boissons"` |
 
 #### Champs optionnels
 
-| Champ             | Type     | Description                                   | Exemple              |
-|-------------------|----------|-----------------------------------------------|----------------------|
-| `is_featured`     | boolean  | Catégorie mise en avant (page d'accueil)      | `true`, `false`      |
-| `icon`            | string   | Icône associée (nom Lucide)                   | `"coffee"`, `"candy"` |
-| `color`           | string   | Couleur d'accent (hex)                        | `"#6366F1"`          |
+| Champ         | Type    | Description                              | Exemple               |
+| ------------- | ------- | ---------------------------------------- | --------------------- |
+| `is_featured` | boolean | Catégorie mise en avant (page d'accueil) | `true`, `false`       |
+| `icon`        | string  | Icône associée (nom Lucide)              | `"coffee"`, `"candy"` |
+| `color`       | string  | Couleur d'accent (hex)                   | `"#6366F1"`           |
 
 #### Règles
 
@@ -243,21 +244,21 @@ L'ordre des produits détermine leur position dans les listes et grilles au sein
 
 #### Champs requis
 
-| Champ             | Type     | Description                                   | Exemple              |
-|-------------------|----------|-----------------------------------------------|----------------------|
-| `product_id`      | string   | Identifiant unique du produit                 | `"prod-coca-355"`    |
-| `category_id`     | string   | Catégorie d'appartenance                      | `"cat-boissons-gazeuses"` |
-| `display_order`   | number   | Position d'affichage dans la catégorie (0-indexed) | `0`, `1`, `2`   |
-| `is_visible`      | boolean  | Visibilité dans la catégorie                  | `true`, `false`      |
+| Champ           | Type    | Description                                        | Exemple                   |
+| --------------- | ------- | -------------------------------------------------- | ------------------------- |
+| `product_id`    | string  | Identifiant unique du produit                      | `"prod-coca-355"`         |
+| `category_id`   | string  | Catégorie d'appartenance                           | `"cat-boissons-gazeuses"` |
+| `display_order` | number  | Position d'affichage dans la catégorie (0-indexed) | `0`, `1`, `2`             |
+| `is_visible`    | boolean | Visibilité dans la catégorie                       | `true`, `false`           |
 
 #### Champs optionnels
 
-| Champ             | Type     | Description                                   | Exemple              |
-|-------------------|----------|-----------------------------------------------|----------------------|
-| `is_featured`     | boolean  | Produit vedette (affiché en premier)          | `true`, `false`      |
-| `is_popular`      | boolean  | Produit populaire (badge)                     | `true`, `false`      |
-| `boost_score`     | number   | Score de boost pour le tri dynamique          | `0` à `100`          |
-| `pinned_position` | number?  | Position épinglée (force une position fixe)   | `0`, `1`, `2`        |
+| Champ             | Type    | Description                                 | Exemple         |
+| ----------------- | ------- | ------------------------------------------- | --------------- |
+| `is_featured`     | boolean | Produit vedette (affiché en premier)        | `true`, `false` |
+| `is_popular`      | boolean | Produit populaire (badge)                   | `true`, `false` |
+| `boost_score`     | number  | Score de boost pour le tri dynamique        | `0` à `100`     |
+| `pinned_position` | number? | Position épinglée (force une position fixe) | `0`, `1`, `2`   |
 
 #### Règles de tri
 
@@ -320,12 +321,12 @@ L'ordre final d'affichage des produits suit cette priorité :
 
 #### Tailles standardisées
 
-| Nom            | Dimensions | Poids max | Usage                                    |
-|----------------|------------|-----------|------------------------------------------|
-| `thumb`        | 150×150px  | 15 KB     | Miniatures panier, listes compactes      |
-| `medium`       | 400×400px  | 60 KB     | Cartes produits, suggestions             |
-| `full`         | 800×800px  | 150 KB    | Détail produit, zoom                     |
-| `hero`         | 1200×1200px| 250 KB    | Bannières, promotions (optionnel)        |
+| Nom      | Dimensions  | Poids max | Usage                               |
+| -------- | ----------- | --------- | ----------------------------------- |
+| `thumb`  | 150×150px   | 15 KB     | Miniatures panier, listes compactes |
+| `medium` | 400×400px   | 60 KB     | Cartes produits, suggestions        |
+| `full`   | 800×800px   | 150 KB    | Détail produit, zoom                |
+| `hero`   | 1200×1200px | 250 KB    | Bannières, promotions (optionnel)   |
 
 #### Règles de génération
 
@@ -361,13 +362,13 @@ product-coca-cola-355ml-full.webp     (800×800, ~120 KB)
 
 #### Composants du nom
 
-| Composant        | Description                           | Exemple                |
-|------------------|---------------------------------------|------------------------|
-| `type`           | Type de média (toujours `product`)    | `product`              |
-| `slug-produit`   | Slug kebab-case du produit            | `coca-cola`            |
-| `variante`       | Unité/format du produit               | `355ml`, `2l`, `6pack` |
-| `taille`         | Taille de l'image                     | `thumb`, `medium`, `full` |
-| `extension`      | Format de fichier                     | `webp`, `jpg`          |
+| Composant      | Description                        | Exemple                   |
+| -------------- | ---------------------------------- | ------------------------- |
+| `type`         | Type de média (toujours `product`) | `product`                 |
+| `slug-produit` | Slug kebab-case du produit         | `coca-cola`               |
+| `variante`     | Unité/format du produit            | `355ml`, `2l`, `6pack`    |
+| `taille`       | Taille de l'image                  | `thumb`, `medium`, `full` |
+| `extension`    | Format de fichier                  | `webp`, `jpg`             |
 
 #### Règles
 
@@ -414,7 +415,7 @@ product-lays-chips-ketchup-255g-full.webp
 #### Paramètres de compression WebP
 
 | Taille   | Qualité WebP | Poids cible | Poids max |
-|----------|--------------|-------------|-----------|
+| -------- | ------------ | ----------- | --------- |
 | `thumb`  | 75%          | 10 KB       | 15 KB     |
 | `medium` | 80%          | 40 KB       | 60 KB     |
 | `full`   | 85%          | 100 KB      | 150 KB    |
@@ -423,7 +424,7 @@ product-lays-chips-ketchup-255g-full.webp
 #### Paramètres de compression JPEG (fallback)
 
 | Taille   | Qualité JPEG | Poids cible | Poids max |
-|----------|--------------|-------------|-----------|
+| -------- | ------------ | ----------- | --------- |
 | `thumb`  | 70%          | 15 KB       | 20 KB     |
 | `medium` | 75%          | 50 KB       | 80 KB     |
 | `full`   | 80%          | 120 KB      | 180 KB    |
@@ -482,14 +483,17 @@ Pour les images sources non-carrées, appliquer un recadrage intelligent :
 #### Cas spéciaux
 
 **Produits multiples (packs)** :
+
 - Afficher l'ensemble du pack clairement
 - Privilégier une vue d'ensemble plutôt qu'un zoom sur une unité
 
 **Produits avec emballage transparent** :
+
 - Montrer le contenu visible à travers l'emballage
 - Équilibre entre emballage et contenu
 
 **Produits sans emballage (vrac)** :
+
 - Utiliser un contenant neutre standardisé
 - Fond uni pour mettre en valeur le produit
 
@@ -508,12 +512,14 @@ Pour les images sources non-carrées, appliquer un recadrage intelligent :
 **Couleur recommandée** : `#FFFFFF` (blanc pur)
 
 **Avantages** :
+
 - Uniformité visuelle dans les grilles
 - Contraste maximal avec l'interface
 - Facilite la découpe du produit (masking)
 - Standard e-commerce reconnu
 
 **Application** :
+
 - Utilisé pour 90% des images produits
 - Obligatoire pour les images `thumb` et `medium`
 - Recommandé pour `full` sauf exception
@@ -521,18 +527,21 @@ Pour les images sources non-carrées, appliquer un recadrage intelligent :
 #### Fonds alternatifs autorisés
 
 **1. Fond de contexte (images secondaires uniquement)**
+
 - Usage : montrer le produit en situation réelle
 - Exemples : boisson servie, snack sur une table
 - Restriction : seulement pour images `context` secondaires
 - Qualité : fond non distrayant, produit toujours l'élément principal
 
 **2. Fond légèrement coloré (cas exceptionnels)**
+
 - Usage : différenciation visuelle pour catégories premium
 - Couleurs autorisées : nuances très claires (`#F8F9FA`, `#F0F9FF`)
 - Restriction : doit être validé par le tenant (cohérence marque)
 - Limite : < 10% des produits d'un catalogue
 
 **3. Ombres et reflets**
+
 - Ombre portée légère : autorisée si subtile et naturelle
 - Reflet : autorisé si améliore la présentation sans distraire
 - Règle : ne jamais obscurcir le produit ou créer de confusion
@@ -548,12 +557,14 @@ Pour les images sources non-carrées, appliquer un recadrage intelligent :
 #### Traitement du fond
 
 **Suppression du fond (détourage)** :
+
 - Utiliser des outils automatiques (remove.bg, Photoshop Magic Eraser)
 - Affiner manuellement si nécessaire (cheveux, surfaces réfléchissantes)
 - Antialiasing doux sur les contours
 - Sauvegarder en WebP ou JPEG avec fond blanc (pas PNG transparent)
 
 **Cohérence par catégorie** :
+
 - Tous les produits d'une même catégorie doivent avoir le même type de fond
 - Si un produit a un fond contextuel, c'est une image secondaire
 - L'image principale reste toujours fond blanc
@@ -571,11 +582,13 @@ Les textes courts sont affichés dans les cartes produits, le panier et les list
 **Format** : `[Marque] [Type] [Variante principale]`
 
 **Longueur** :
+
 - Minimum : 3 caractères
 - Maximum : 60 caractères
 - Idéal : 25-40 caractères
 
 **Règles** :
+
 - Commence par la marque (si applicable)
 - Inclut le type de produit
 - Inclut la variante principale (saveur, format)
@@ -584,6 +597,7 @@ Les textes courts sont affichés dans les cartes produits, le panier et les list
 - Pas de point final
 
 **Exemples** :
+
 ```
 ✅ Coca-Cola Classic
 ✅ Pepsi Diète
@@ -603,11 +617,13 @@ Les textes courts sont affichés dans les cartes produits, le panier et les list
 **Format** : une phrase descriptive concise
 
 **Longueur** :
+
 - Minimum : 10 caractères
 - Maximum : 120 caractères
 - Idéal : 50-80 caractères
 
 **Règles** :
+
 - Complète le nom avec des détails utiles
 - Mentionne les caractéristiques clés (saveur, texture, usage)
 - Langage simple et direct
@@ -616,6 +632,7 @@ Les textes courts sont affichés dans les cartes produits, le panier et les list
 - Évite la redondance avec le nom
 
 **Exemples** :
+
 ```
 ✅ Boisson gazeuse classique au cola, rafraîchissante.
 ✅ Version sans sucre avec le même goût authentique.
@@ -636,6 +653,7 @@ Les textes courts sont affichés dans les cartes produits, le panier et les list
 **Longueur** : maximum 20 caractères
 
 **Exemples** :
+
 - `"Nouveau"` : produit récemment ajouté
 - `"Populaire"` : produit très commandé
 - `"Promo"` : en promotion
@@ -644,6 +662,7 @@ Les textes courts sont affichés dans les cartes produits, le panier et les list
 - `"Local"` : production locale
 
 **Règles** :
+
 - Un seul badge par produit (priorité au plus important)
 - Mis à jour dynamiquement (ex: "Nouveau" expire après 30 jours)
 - Pas de badge si rien de notable
@@ -657,11 +676,13 @@ Les descriptions longues sont affichées dans la page de détail du produit (si 
 #### Format général
 
 **Structure recommandée** :
+
 1. Paragraphe d'introduction (1-2 phrases)
 2. Caractéristiques principales (liste à puces)
 3. Informations complémentaires (optionnel)
 
 **Longueur** :
+
 - Minimum : 50 caractères
 - Maximum : 500 caractères
 - Idéal : 150-300 caractères
@@ -669,16 +690,19 @@ Les descriptions longues sont affichées dans la page de détail du produit (si 
 #### Contenu
 
 **Paragraphe d'introduction** :
+
 - Présente le produit de manière engageante
 - Évoque l'expérience ou l'usage
 - Ton positif mais factuel
 
 **Caractéristiques principales** :
+
 - Format : liste à puces ou phrases courtes
 - Inclut : saveur, ingrédients clés, format, origine (si pertinent)
 - Évite : informations redondantes avec les champs structurés
 
 **Informations complémentaires** :
+
 - Allergènes (si non couverts par champ dédié)
 - Conseils d'utilisation
 - Accords recommandés
@@ -686,6 +710,7 @@ Les descriptions longues sont affichées dans la page de détail du produit (si 
 #### Exemples
 
 **Boisson gazeuse** :
+
 ```markdown
 Le Coca-Cola Classic offre un goût unique de cola, apprécié depuis des décennies.
 Parfait pour accompagner vos repas ou se rafraîchir à tout moment de la journée.
@@ -697,6 +722,7 @@ Parfait pour accompagner vos repas ou se rafraîchir à tout moment de la journ�
 ```
 
 **Snack salé** :
+
 ```markdown
 Les chips Lays Ketchup sont préparées avec des pommes de terre sélectionnées
 et assaisonnées avec une saveur de ketchup équilibrée, sucrée et légèrement acidulée.
@@ -733,14 +759,7 @@ Les mots-clés permettent d'améliorer la recherche de produits par le client.
 
 ```json
 {
-  "keywords": [
-    "coca",
-    "coke",
-    "cola",
-    "boisson gazeuse",
-    "soda",
-    "canette"
-  ]
+  "keywords": ["coca", "coke", "cola", "boisson gazeuse", "soda", "canette"]
 }
 ```
 
@@ -777,6 +796,7 @@ Les mots-clés permettent d'améliorer la recherche de produits par le client.
 #### Exemples complets
 
 **Coca-Cola Classic 355ml** :
+
 ```json
 {
   "keywords": [
@@ -797,6 +817,7 @@ Les mots-clés permettent d'améliorer la recherche de produits par le client.
 ```
 
 **Lays Chips Ketchup 255g** :
+
 ```json
 {
   "keywords": [
@@ -883,6 +904,7 @@ Les synonymes parlés permettent à l'assistant conversationnel (texte/voix web)
 #### Exemples complets
 
 **Coca-Cola Classic 355ml** :
+
 ```json
 {
   "spoken_synonyms": [
@@ -902,6 +924,7 @@ Les synonymes parlés permettent à l'assistant conversationnel (texte/voix web)
 ```
 
 **Lays Chips Ketchup 255g** :
+
 ```json
 {
   "spoken_synonyms": [
@@ -921,6 +944,7 @@ Les synonymes parlés permettent à l'assistant conversationnel (texte/voix web)
 #### Gestion des ambiguïtés
 
 Si plusieurs produits partagent des synonymes similaires :
+
 - L'assistant demande une clarification
 - Propose des choix avec unités/formats : `"Voulez-vous le 355ml ou le 2L ?"`
 - Utilise le contexte de la conversation pour déduire
@@ -943,14 +967,7 @@ Les synonymes téléphoniques sont optimisés pour la reconnaissance vocale tél
 
 ```json
 {
-  "phone_synonyms": [
-    "coca cola",
-    "ko ka ko la",
-    "coke",
-    "ko ke",
-    "cola",
-    "ko la"
-  ]
+  "phone_synonyms": ["coca cola", "ko ka ko la", "coke", "ko ke", "cola", "ko la"]
 }
 ```
 
@@ -985,6 +1002,7 @@ Les synonymes téléphoniques sont optimisés pour la reconnaissance vocale tél
 #### Exemples complets
 
 **Coca-Cola Classic 355ml** :
+
 ```json
 {
   "phone_synonyms": [
@@ -1008,6 +1026,7 @@ Les synonymes téléphoniques sont optimisés pour la reconnaissance vocale tél
 ```
 
 **Lays Chips Ketchup 255g** :
+
 ```json
 {
   "phone_synonyms": [
@@ -1038,6 +1057,7 @@ Les synonymes téléphoniques sont optimisés pour la reconnaissance vocale tél
 #### Gestion des homophones
 
 Préparer des stratégies pour les mots qui sonnent pareil :
+
 - `"lait"` (produit laitier) vs `"lays"` (chips)
 - `"coke"` (boisson) vs `"cook"` (cuisine)
 
@@ -1059,16 +1079,19 @@ L'agent vocal utilise le contexte de la conversation et la catégorie attendue p
 Le catalogue de depaneurIA repose sur des structures claires et cohérentes :
 
 **Unités de vente (DEP-0256)** :
+
 - Types standardisés (`unit`, `pack`, `box`, `bulk`)
 - Informations volume/poids selon le contexte
 - Labels affichés clairs (`"355ml"`, `"6x355ml"`)
 
 **Images produits (DEP-0257, DEP-0258)** :
+
 - Image principale (1:1, CDN-hosted, alt text obligatoire)
 - Jusqu'à 4 images secondaires (détails, contexte, packaging)
 - Métadonnées complètes (dimensions, format, poids, BlurHash)
 
 **Ordre d'affichage (DEP-0259, DEP-0260)** :
+
 - Catégories : ordre global, visibilité, sous-catégories supportées
 - Produits : ordre par catégorie, épinglage, boost dynamique
 - Produits vedettes et populaires identifiés
@@ -1078,26 +1101,31 @@ Le catalogue de depaneurIA repose sur des structures claires et cohérentes :
 Des standards stricts assurent la qualité et la cohérence visuelle :
 
 **Tailles (DEP-0261)** :
+
 - 4 tailles standardisées : thumb (150px), medium (400px), full (800px), hero (1200px)
 - Ratio 1:1 pour uniformité dans les grilles
 - Génération automatique des dérivées depuis la source
 
 **Nommage (DEP-0262)** :
+
 - Format : `product-<slug>-<variante>-<taille>.<ext>`
 - Kebab-case strict, minuscules, pas d'espaces
 - Exemples : `product-coca-cola-355ml-full.webp`
 
 **Compression (DEP-0263)** :
+
 - WebP prioritaire (75-90% qualité selon taille)
 - JPEG fallback (70-80% qualité)
 - Poids cibles respectés : thumb <15KB, medium <60KB, full <150KB
 
 **Recadrage (DEP-0264)** :
+
 - Produit centré, occupant 70-85% de l'image
 - Marges de sécurité 5% minimum
 - Smart crop automatique avec détection d'objet
 
 **Fond (DEP-0265)** :
+
 - Standard : blanc pur `#FFFFFF` (90% des cas)
 - Alternatifs autorisés : contexte (images secondaires), légèrement coloré (rare)
 - Interdits : motifs, dégradés, fonds foncés, transparence PNG
@@ -1107,26 +1135,31 @@ Des standards stricts assurent la qualité et la cohérence visuelle :
 Le contenu textuel suit des règles précises pour la clarté et l'efficacité :
 
 **Textes courts (DEP-0266)** :
+
 - Nom : 25-40 caractères, `[Marque] [Type] [Variante]`
 - Description : 50-80 caractères, phrase descriptive concise
 - Badge : 1 mot-clé, maximum 20 caractères
 
 **Description longue (DEP-0267)** :
+
 - 150-300 caractères idéal
 - Structure : intro + caractéristiques + infos complémentaires
 - Ton professionnel et chaleureux
 
 **Mots-clés de recherche (DEP-0268)** :
+
 - 5 à 15 mots-clés par produit
 - Types : marques, types, caractéristiques, usage
 - Tout en minuscules pour normalisation
 
 **Synonymes parlés assistant (DEP-0269)** :
+
 - 5 à 20 formulations naturelles
 - Avec articles, quantifiants, variantes familières
 - Optimisé pour conversation texte/voix web
 
 **Synonymes téléphoniques (DEP-0270)** :
+
 - 8 à 25 variantes phonétiques
 - Découpage syllabique, homophones, chiffres épelés
 - Optimisé pour reconnaissance vocale téléphonique

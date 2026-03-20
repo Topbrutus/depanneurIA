@@ -26,15 +26,15 @@ d'une commande.
 
 ### Contenu de l'écran
 
-| Élément              | Valeur                                                                      |
-|----------------------|-----------------------------------------------------------------------------|
-| Titre principal      | « Commande envoyée »                                                        |
-| Message principal    | « Ta commande a bien été envoyée au dépanneur. »                           |
-| Numéro de commande   | Affiché clairement au format `#CMD-XXXX-YYYY` (ex. : `#CMD-2026-0001`)     |
-| État de la commande  | « En attente de prise en charge »                                           |
-| Temps estimé         | « Le dépanneur prendra ta commande en charge dans les prochaines minutes. » |
-| Bouton principal     | « Voir le suivi » (redirige vers DEP-0349)                                  |
-| Bouton secondaire    | « Retour à la boutique » (retour à la grille de produits)                   |
+| Élément             | Valeur                                                                      |
+| ------------------- | --------------------------------------------------------------------------- |
+| Titre principal     | « Commande envoyée »                                                        |
+| Message principal   | « Ta commande a bien été envoyée au dépanneur. »                            |
+| Numéro de commande  | Affiché clairement au format `#CMD-XXXX-YYYY` (ex. : `#CMD-2026-0001`)      |
+| État de la commande | « En attente de prise en charge »                                           |
+| Temps estimé        | « Le dépanneur prendra ta commande en charge dans les prochaines minutes. » |
+| Bouton principal    | « Voir le suivi » (redirige vers DEP-0349)                                  |
+| Bouton secondaire   | « Retour à la boutique » (retour à la grille de produits)                   |
 
 ### Comportement
 
@@ -46,14 +46,14 @@ d'une commande.
 
 ### Design visuel
 
-| Élément               | Spécification                                |
-|-----------------------|----------------------------------------------|
-| Couleur de fond       | Blanc (#FFFFFF)                              |
-| Couleur d'accent      | Vert succès (#10B981)                        |
-| Icône principale      | Icône de coche (check) verte                 |
-| Typographie titre     | Inter Bold 28px                              |
-| Typographie corps     | Inter Regular 16px                           |
-| Espacement            | Vertical centré, padding 32px                |
+| Élément           | Spécification                 |
+| ----------------- | ----------------------------- |
+| Couleur de fond   | Blanc (#FFFFFF)               |
+| Couleur d'accent  | Vert succès (#10B981)         |
+| Icône principale  | Icône de coche (check) verte  |
+| Typographie titre | Inter Bold 28px               |
+| Typographie corps | Inter Regular 16px            |
+| Espacement        | Vertical centré, padding 32px |
 
 ### Accessibilité
 
@@ -72,16 +72,16 @@ temps réel.
 
 ### Contenu de l'écran
 
-| Élément              | Valeur                                                                      |
-|----------------------|-----------------------------------------------------------------------------|
-| Titre principal      | « Suivi de commande »                                                       |
-| Numéro de commande   | Affiché en haut de l'écran au format `#CMD-XXXX-YYYY`                      |
+| Élément              | Valeur                                                                         |
+| -------------------- | ------------------------------------------------------------------------------ |
+| Titre principal      | « Suivi de commande »                                                          |
+| Numéro de commande   | Affiché en haut de l'écran au format `#CMD-XXXX-YYYY`                          |
 | État actuel          | « En attente », « Acceptée », « En préparation », « En livraison », « Livrée » |
-| Barre de progression | Indicateur visuel de l'avancement (5 étapes)                                |
-| Heure de création    | Format `HH:MM` (ex. : « 14:32 »)                                            |
-| Produits commandés   | Liste des produits avec quantités                                           |
-| Total de la commande | Affiché si le prix est disponible (optionnel V1)                            |
-| Bouton principal     | « Retour à la boutique »                                                    |
+| Barre de progression | Indicateur visuel de l'avancement (5 étapes)                                   |
+| Heure de création    | Format `HH:MM` (ex. : « 14:32 »)                                               |
+| Produits commandés   | Liste des produits avec quantités                                              |
+| Total de la commande | Affiché si le prix est disponible (optionnel V1)                               |
+| Bouton principal     | « Retour à la boutique »                                                       |
 
 ### Comportement
 
@@ -93,24 +93,24 @@ temps réel.
 
 ### Design visuel
 
-| Élément               | Spécification                                |
-|-----------------------|----------------------------------------------|
-| Couleur de fond       | Blanc (#FFFFFF)                              |
-| Couleur d'accent      | Bleu principal (#2563EB)                     |
-| Barre de progression  | 5 étapes avec indicateur de position actuel  |
-| Typographie titre     | Inter Bold 24px                              |
-| Typographie corps     | Inter Regular 14px                           |
-| Espacement            | Vertical padding 24px                        |
+| Élément              | Spécification                               |
+| -------------------- | ------------------------------------------- |
+| Couleur de fond      | Blanc (#FFFFFF)                             |
+| Couleur d'accent     | Bleu principal (#2563EB)                    |
+| Barre de progression | 5 étapes avec indicateur de position actuel |
+| Typographie titre    | Inter Bold 24px                             |
+| Typographie corps    | Inter Regular 14px                          |
+| Espacement           | Vertical padding 24px                       |
 
 ### États de la commande
 
-| État              | Couleur        | Description                                    |
-|-------------------|----------------|------------------------------------------------|
-| En attente        | Orange #F59E0B | La commande a été envoyée, en attente du dépanneur |
-| Acceptée          | Vert #10B981   | Le dépanneur a accepté la commande              |
-| En préparation    | Bleu #2563EB   | Le dépanneur prépare la commande                |
-| En livraison      | Indigo #4F46E5 | Le livreur est en route                         |
-| Livrée            | Vert #10B981   | La commande a été livrée avec succès            |
+| État           | Couleur        | Description                                        |
+| -------------- | -------------- | -------------------------------------------------- |
+| En attente     | Orange #F59E0B | La commande a été envoyée, en attente du dépanneur |
+| Acceptée       | Vert #10B981   | Le dépanneur a accepté la commande                 |
+| En préparation | Bleu #2563EB   | Le dépanneur prépare la commande                   |
+| En livraison   | Indigo #4F46E5 | Le livreur est en route                            |
+| Livrée         | Vert #10B981   | La commande a été livrée avec succès               |
 
 ### Accessibilité
 
@@ -129,14 +129,14 @@ erreur serveur, validation échouée).
 
 ### Contenu de l'écran
 
-| Élément              | Valeur                                                                      |
-|----------------------|-----------------------------------------------------------------------------|
-| Titre principal      | « Échec d'envoi de commande »                                               |
-| Message principal    | « Ta commande n'a pas pu être envoyée. Réessaie dans quelques instants. »  |
-| Code erreur          | Affiché si disponible (ex. : `ERR_NETWORK`, `ERR_SERVER_UNAVAILABLE`)      |
-| Détails techniques   | Affichés uniquement si utiles (optionnel)                                   |
-| Bouton principal     | « Réessayer » (tente de renvoyer la commande)                               |
-| Bouton secondaire    | « Annuler » (retour au panier)                                              |
+| Élément            | Valeur                                                                    |
+| ------------------ | ------------------------------------------------------------------------- |
+| Titre principal    | « Échec d'envoi de commande »                                             |
+| Message principal  | « Ta commande n'a pas pu être envoyée. Réessaie dans quelques instants. » |
+| Code erreur        | Affiché si disponible (ex. : `ERR_NETWORK`, `ERR_SERVER_UNAVAILABLE`)     |
+| Détails techniques | Affichés uniquement si utiles (optionnel)                                 |
+| Bouton principal   | « Réessayer » (tente de renvoyer la commande)                             |
+| Bouton secondaire  | « Annuler » (retour au panier)                                            |
 
 ### Comportement
 
@@ -148,24 +148,24 @@ erreur serveur, validation échouée).
 
 ### Design visuel
 
-| Élément               | Spécification                                |
-|-----------------------|----------------------------------------------|
-| Couleur de fond       | Blanc (#FFFFFF)                              |
-| Couleur d'accent      | Rouge erreur (#EF4444)                       |
-| Icône principale      | Icône d'alerte (triangle) rouge             |
-| Typographie titre     | Inter Bold 24px                              |
-| Typographie corps     | Inter Regular 16px                           |
-| Espacement            | Vertical centré, padding 32px                |
+| Élément           | Spécification                   |
+| ----------------- | ------------------------------- |
+| Couleur de fond   | Blanc (#FFFFFF)                 |
+| Couleur d'accent  | Rouge erreur (#EF4444)          |
+| Icône principale  | Icône d'alerte (triangle) rouge |
+| Typographie titre | Inter Bold 24px                 |
+| Typographie corps | Inter Regular 16px              |
+| Espacement        | Vertical centré, padding 32px   |
 
 ### Messages d'erreur
 
-| Code erreur              | Message affiché                                                                |
-|--------------------------|--------------------------------------------------------------------------------|
-| `ERR_NETWORK`            | « Problème de connexion. Vérifie ta connexion internet et réessaie. »         |
+| Code erreur              | Message affiché                                                                  |
+| ------------------------ | -------------------------------------------------------------------------------- |
+| `ERR_NETWORK`            | « Problème de connexion. Vérifie ta connexion internet et réessaie. »            |
 | `ERR_SERVER_UNAVAILABLE` | « Le serveur est temporairement indisponible. Réessaie dans quelques instants. » |
-| `ERR_ACCOUNT_INCOMPLETE` | « Ton compte est incomplet. Complète tes informations pour continuer. »       |
-| `ERR_ZONE_NOT_SERVED`    | « Ton adresse de livraison se trouve hors de notre zone de livraison. »       |
-| Autre                    | « Une erreur inattendue s'est produite. Réessaie ou contacte le support. »    |
+| `ERR_ACCOUNT_INCOMPLETE` | « Ton compte est incomplet. Complète tes informations pour continuer. »          |
+| `ERR_ZONE_NOT_SERVED`    | « Ton adresse de livraison se trouve hors de notre zone de livraison. »          |
+| Autre                    | « Une erreur inattendue s'est produite. Réessaie ou contacte le support. »       |
 
 ### Accessibilité
 
@@ -184,13 +184,13 @@ pour faciliter les commandes récurrentes.
 
 ### Contenu de la section
 
-| Élément              | Valeur                                                                      |
-|----------------------|-----------------------------------------------------------------------------|
-| Titre de la section  | « Dernière commande »                                                       |
-| Affichage            | Carrousel horizontal de cartes produits                                     |
-| Nombre de produits   | Jusqu'à 10 produits de la dernière commande                                 |
-| Action par produit   | Bouton « Ajouter au panier »                                                |
-| Action globale       | Bouton « Tout recommander » (ajoute tous les produits au panier)            |
+| Élément             | Valeur                                                           |
+| ------------------- | ---------------------------------------------------------------- |
+| Titre de la section | « Dernière commande »                                            |
+| Affichage           | Carrousel horizontal de cartes produits                          |
+| Nombre de produits  | Jusqu'à 10 produits de la dernière commande                      |
+| Action par produit  | Bouton « Ajouter au panier »                                     |
+| Action globale      | Bouton « Tout recommander » (ajoute tous les produits au panier) |
 
 ### Comportement
 
@@ -202,14 +202,14 @@ pour faciliter les commandes récurrentes.
 
 ### Design visuel
 
-| Élément               | Spécification                                |
-|-----------------------|----------------------------------------------|
-| Couleur de fond       | Gris clair (#F3F4F6)                         |
-| Typographie titre     | Inter Bold 20px                              |
-| Espacement            | Padding 16px, gap 12px                       |
-| Hauteur section       | 280px (carrousel horizontal)                 |
-| Bouton « Ajouter »    | Bleu principal (#2563EB)                     |
-| Bouton « Recommander »| Vert positif (#10B981)                       |
+| Élément                | Spécification                |
+| ---------------------- | ---------------------------- |
+| Couleur de fond        | Gris clair (#F3F4F6)         |
+| Typographie titre      | Inter Bold 20px              |
+| Espacement             | Padding 16px, gap 12px       |
+| Hauteur section        | 280px (carrousel horizontal) |
+| Bouton « Ajouter »     | Bleu principal (#2563EB)     |
+| Bouton « Recommander » | Vert positif (#10B981)       |
 
 ### Emplacement
 
@@ -234,13 +234,13 @@ des clients pour faciliter la découverte de produits populaires.
 
 ### Contenu de la section
 
-| Élément              | Valeur                                                                      |
-|----------------------|-----------------------------------------------------------------------------|
-| Titre de la section  | « Les plus commandés »                                                      |
-| Affichage            | Carrousel horizontal de cartes produits                                     |
-| Nombre de produits   | 10 produits les plus commandés (global ou par dépanneur)                    |
-| Action par produit   | Bouton « Ajouter au panier »                                                |
-| Badge produit        | Badge « Populaire » affiché sur chaque carte                                |
+| Élément             | Valeur                                                   |
+| ------------------- | -------------------------------------------------------- |
+| Titre de la section | « Les plus commandés »                                   |
+| Affichage           | Carrousel horizontal de cartes produits                  |
+| Nombre de produits  | 10 produits les plus commandés (global ou par dépanneur) |
+| Action par produit  | Bouton « Ajouter au panier »                             |
+| Badge produit       | Badge « Populaire » affiché sur chaque carte             |
 
 ### Comportement
 
@@ -252,14 +252,14 @@ des clients pour faciliter la découverte de produits populaires.
 
 ### Design visuel
 
-| Élément               | Spécification                                |
-|-----------------------|----------------------------------------------|
-| Couleur de fond       | Blanc (#FFFFFF)                              |
-| Typographie titre     | Inter Bold 20px                              |
-| Espacement            | Padding 16px, gap 12px                       |
-| Hauteur section       | 280px (carrousel horizontal)                 |
-| Badge « Populaire »   | Ambre (#F59E0B), position coin supérieur droit |
-| Bouton « Ajouter »    | Bleu principal (#2563EB)                     |
+| Élément             | Spécification                                  |
+| ------------------- | ---------------------------------------------- |
+| Couleur de fond     | Blanc (#FFFFFF)                                |
+| Typographie titre   | Inter Bold 20px                                |
+| Espacement          | Padding 16px, gap 12px                         |
+| Hauteur section     | 280px (carrousel horizontal)                   |
+| Badge « Populaire » | Ambre (#F59E0B), position coin supérieur droit |
+| Bouton « Ajouter »  | Bleu principal (#2563EB)                       |
 
 ### Emplacement
 
@@ -284,13 +284,13 @@ Définir la section affichant des recommandations personnalisées pour le client
 
 ### Contenu de la section
 
-| Élément              | Valeur                                                                      |
-|----------------------|-----------------------------------------------------------------------------|
-| Titre de la section  | « Recommandé pour toi »                                                     |
-| Affichage            | Carrousel horizontal de cartes produits                                     |
-| Nombre de produits   | 5 à 10 produits recommandés                                                 |
-| Action par produit   | Bouton « Ajouter au panier »                                                |
-| Badge produit        | Badge « Recommandé » affiché sur chaque carte                               |
+| Élément             | Valeur                                        |
+| ------------------- | --------------------------------------------- |
+| Titre de la section | « Recommandé pour toi »                       |
+| Affichage           | Carrousel horizontal de cartes produits       |
+| Nombre de produits  | 5 à 10 produits recommandés                   |
+| Action par produit  | Bouton « Ajouter au panier »                  |
+| Badge produit       | Badge « Recommandé » affiché sur chaque carte |
 
 ### Comportement
 
@@ -305,14 +305,14 @@ Définir la section affichant des recommandations personnalisées pour le client
 
 ### Design visuel
 
-| Élément               | Spécification                                |
-|-----------------------|----------------------------------------------|
-| Couleur de fond       | Gris clair (#F3F4F6)                         |
-| Typographie titre     | Inter Bold 20px                              |
-| Espacement            | Padding 16px, gap 12px                       |
-| Hauteur section       | 280px (carrousel horizontal)                 |
-| Badge « Recommandé »  | Indigo (#4F46E5), position coin supérieur droit |
-| Bouton « Ajouter »    | Bleu principal (#2563EB)                     |
+| Élément              | Spécification                                   |
+| -------------------- | ----------------------------------------------- |
+| Couleur de fond      | Gris clair (#F3F4F6)                            |
+| Typographie titre    | Inter Bold 20px                                 |
+| Espacement           | Padding 16px, gap 12px                          |
+| Hauteur section      | 280px (carrousel horizontal)                    |
+| Badge « Recommandé » | Indigo (#4F46E5), position coin supérieur droit |
+| Bouton « Ajouter »   | Bleu principal (#2563EB)                        |
 
 ### Emplacement
 
@@ -322,14 +322,14 @@ Définir la section affichant des recommandations personnalisées pour le client
 
 ### Critère de décision V1 vs V2
 
-| Condition                                      | V1  | V2  |
-|------------------------------------------------|-----|-----|
-| Recommandations basées sur la même catégorie  | ✅   | ✅   |
-| Recommandations basées sur la dernière commande | ✅   | ✅   |
-| Règles d'association simples (< 5 règles)     | ✅   | ✅   |
-| Algorithme de machine learning                 | ❌   | ✅   |
-| Analyse de comportement multi-sessions         | ❌   | ✅   |
-| Personnalisation par profil client             | ❌   | ✅   |
+| Condition                                       | V1  | V2  |
+| ----------------------------------------------- | --- | --- |
+| Recommandations basées sur la même catégorie    | ✅  | ✅  |
+| Recommandations basées sur la dernière commande | ✅  | ✅  |
+| Règles d'association simples (< 5 règles)       | ✅  | ✅  |
+| Algorithme de machine learning                  | ❌  | ✅  |
+| Analyse de comportement multi-sessions          | ❌  | ✅  |
+| Personnalisation par profil client              | ❌  | ✅  |
 
 ### Accessibilité
 
@@ -348,16 +348,16 @@ la navigation dans la boutique en mode manuel.
 
 ### Critères de validation
 
-| Cas de navigation                         | Résultat attendu                                     |
-|-------------------------------------------|------------------------------------------------------|
-| Navigation entre catégories               | ✅ Panier visible et synchronisé                     |
-| Recherche de produits                     | ✅ Panier visible et synchronisé                     |
-| Application de filtres                    | ✅ Panier visible et synchronisé                     |
-| Ouverture du détail d'un produit          | ✅ Panier visible et synchronisé                     |
-| Ajout d'un produit au panier              | ✅ Panier mis à jour immédiatement                   |
-| Modification de quantité dans le panier   | ✅ Panier mis à jour immédiatement                   |
-| Retrait d'un produit du panier            | ✅ Panier mis à jour immédiatement                   |
-| Rechargement de la page                   | ✅ Panier restauré depuis le stockage local          |
+| Cas de navigation                       | Résultat attendu                            |
+| --------------------------------------- | ------------------------------------------- |
+| Navigation entre catégories             | ✅ Panier visible et synchronisé            |
+| Recherche de produits                   | ✅ Panier visible et synchronisé            |
+| Application de filtres                  | ✅ Panier visible et synchronisé            |
+| Ouverture du détail d'un produit        | ✅ Panier visible et synchronisé            |
+| Ajout d'un produit au panier            | ✅ Panier mis à jour immédiatement          |
+| Modification de quantité dans le panier | ✅ Panier mis à jour immédiatement          |
+| Retrait d'un produit du panier          | ✅ Panier mis à jour immédiatement          |
+| Rechargement de la page                 | ✅ Panier restauré depuis le stockage local |
 
 ### Comportement attendu
 
@@ -386,13 +386,13 @@ interagit avec l'assistant texte (DEP-0361 à DEP-0400).
 
 ### Critères de validation
 
-| Cas d'interaction                         | Résultat attendu                                     |
-|-------------------------------------------|------------------------------------------------------|
-| Ajout de produit via l'assistant texte    | ✅ Panier mis à jour immédiatement                   |
-| Retrait de produit via l'assistant texte  | ✅ Panier mis à jour immédiatement                   |
-| Modification de quantité via l'assistant  | ✅ Panier mis à jour immédiatement                   |
-| Affichage du panier via l'assistant       | ✅ Panier affiché avec contenu synchronisé           |
-| Ajout de produit manuel pendant l'assistance | ✅ Panier mis à jour immédiatement                   |
+| Cas d'interaction                            | Résultat attendu                           |
+| -------------------------------------------- | ------------------------------------------ |
+| Ajout de produit via l'assistant texte       | ✅ Panier mis à jour immédiatement         |
+| Retrait de produit via l'assistant texte     | ✅ Panier mis à jour immédiatement         |
+| Modification de quantité via l'assistant     | ✅ Panier mis à jour immédiatement         |
+| Affichage du panier via l'assistant          | ✅ Panier affiché avec contenu synchronisé |
+| Ajout de produit manuel pendant l'assistance | ✅ Panier mis à jour immédiatement         |
 
 ### Comportement attendu
 
@@ -421,13 +421,13 @@ interagit avec l'assistant vocal web (DEP-0401 à DEP-0440).
 
 ### Critères de validation
 
-| Cas d'interaction                         | Résultat attendu                                     |
-|-------------------------------------------|------------------------------------------------------|
-| Ajout de produit via l'assistant vocal    | ✅ Panier mis à jour immédiatement                   |
-| Retrait de produit via l'assistant vocal  | ✅ Panier mis à jour immédiatement                   |
-| Modification de quantité via l'assistant  | ✅ Panier mis à jour immédiatement                   |
-| Lecture du panier par l'assistant vocal   | ✅ Panier lu avec contenu synchronisé                |
-| Ajout de produit manuel pendant l'assistance | ✅ Panier mis à jour immédiatement                   |
+| Cas d'interaction                            | Résultat attendu                      |
+| -------------------------------------------- | ------------------------------------- |
+| Ajout de produit via l'assistant vocal       | ✅ Panier mis à jour immédiatement    |
+| Retrait de produit via l'assistant vocal     | ✅ Panier mis à jour immédiatement    |
+| Modification de quantité via l'assistant     | ✅ Panier mis à jour immédiatement    |
+| Lecture du panier par l'assistant vocal      | ✅ Panier lu avec contenu synchronisé |
+| Ajout de produit manuel pendant l'assistance | ✅ Panier mis à jour immédiatement    |
 
 ### Comportement attendu
 
@@ -456,15 +456,15 @@ activer l'assistant texte ou vocal.
 
 ### Critères de validation
 
-| Parcours utilisateur                      | Résultat attendu                                     |
-|-------------------------------------------|------------------------------------------------------|
-| Navigation par catégories                 | ✅ Fonctionne sans assistant                         |
-| Recherche de produits                     | ✅ Fonctionne sans assistant                         |
-| Ajout de produits au panier               | ✅ Fonctionne sans assistant                         |
-| Modification du panier                    | ✅ Fonctionne sans assistant                         |
-| Confirmation du panier                    | ✅ Fonctionne sans assistant                         |
-| Envoi de la commande                      | ✅ Fonctionne sans assistant                         |
-| Suivi de la commande                      | ✅ Fonctionne sans assistant                         |
+| Parcours utilisateur        | Résultat attendu             |
+| --------------------------- | ---------------------------- |
+| Navigation par catégories   | ✅ Fonctionne sans assistant |
+| Recherche de produits       | ✅ Fonctionne sans assistant |
+| Ajout de produits au panier | ✅ Fonctionne sans assistant |
+| Modification du panier      | ✅ Fonctionne sans assistant |
+| Confirmation du panier      | ✅ Fonctionne sans assistant |
+| Envoi de la commande        | ✅ Fonctionne sans assistant |
+| Suivi de la commande        | ✅ Fonctionne sans assistant |
 
 ### Comportement attendu
 
@@ -492,14 +492,14 @@ texte ou vocal pour toutes les actions.
 
 ### Critères de validation
 
-| Parcours utilisateur                      | Résultat attendu                                     |
-|-------------------------------------------|------------------------------------------------------|
-| Recherche de produits via l'assistant     | ✅ Fonctionne avec assistant                         |
-| Ajout de produits via l'assistant         | ✅ Fonctionne avec assistant                         |
-| Modification du panier via l'assistant    | ✅ Fonctionne avec assistant                         |
-| Confirmation du panier via l'assistant    | ✅ Fonctionne avec assistant                         |
-| Envoi de la commande via l'assistant      | ✅ Fonctionne avec assistant                         |
-| Suivi de la commande via l'assistant      | ✅ Fonctionne avec assistant                         |
+| Parcours utilisateur                   | Résultat attendu             |
+| -------------------------------------- | ---------------------------- |
+| Recherche de produits via l'assistant  | ✅ Fonctionne avec assistant |
+| Ajout de produits via l'assistant      | ✅ Fonctionne avec assistant |
+| Modification du panier via l'assistant | ✅ Fonctionne avec assistant |
+| Confirmation du panier via l'assistant | ✅ Fonctionne avec assistant |
+| Envoi de la commande via l'assistant   | ✅ Fonctionne avec assistant |
+| Suivi de la commande via l'assistant   | ✅ Fonctionne avec assistant |
 
 ### Comportement attendu
 
@@ -529,13 +529,13 @@ et l'assistant vocal.
 
 ### Critères de validation
 
-| Critère                                   | Résultat attendu                                     |
-|-------------------------------------------|------------------------------------------------------|
-| Le panier est synchronisé entre les 3 modes | ✅ Synchronisation en temps réel                     |
-| Les actions manuelles et assistées partagent la même logique | ✅ Une seule source de vérité (state management)     |
-| Le panier persiste lors du changement de mode | ✅ Le contenu du panier est conservé                 |
-| Les règles de validation sont identiques  | ✅ Mêmes contraintes (quantité max, disponibilité)   |
-| Le panier est persisté localement         | ✅ Même mécanisme de persistance (localStorage)      |
+| Critère                                                      | Résultat attendu                                   |
+| ------------------------------------------------------------ | -------------------------------------------------- |
+| Le panier est synchronisé entre les 3 modes                  | ✅ Synchronisation en temps réel                   |
+| Les actions manuelles et assistées partagent la même logique | ✅ Une seule source de vérité (state management)   |
+| Le panier persiste lors du changement de mode                | ✅ Le contenu du panier est conservé               |
+| Les règles de validation sont identiques                     | ✅ Mêmes contraintes (quantité max, disponibilité) |
+| Le panier est persisté localement                            | ✅ Même mécanisme de persistance (localStorage)    |
 
 ### Comportement attendu
 
@@ -571,28 +571,28 @@ modes d'interaction.
 Le mode manuel de la boutique (DEP-0321 à DEP-0360) est **gelé** avec les
 fonctionnalités suivantes :
 
-| Fonctionnalité                            | État    |
-|-------------------------------------------|---------|
-| Page boutique avec grille de produits    | ✅ Gelé |
-| Navigation par catégories                 | ✅ Gelé |
-| Champ de recherche de produits            | ✅ Gelé |
-| Filtres (catégorie, disponibilité, popularité) | ✅ Gelé |
-| Tri simple de produits                    | ✅ Gelé |
-| Carte produit de base                     | ✅ Gelé |
-| Action ajouter au panier                  | ✅ Gelé |
-| Action voir détail d'un produit           | ✅ Gelé |
-| Vue panier (desktop fixe, mobile repliable) | ✅ Gelé |
-| Action modifier quantité dans le panier   | ✅ Gelé |
-| Action retirer un produit du panier       | ✅ Gelé |
-| Action vider le panier                    | ✅ Gelé |
-| Action confirmer le panier                | ✅ Gelé |
-| Écran récapitulatif avant envoi           | ✅ Gelé |
-| Écran confirmation de commande envoyée    | ✅ Gelé |
-| Écran suivi de commande                   | ✅ Gelé |
-| Écran échec d'envoi de commande           | ✅ Gelé |
-| Section « Dernière commande »             | ✅ Gelé |
-| Section « Top 10 des plus commandés »     | ✅ Gelé |
-| Section « Recommandé pour vous » (simple) | ✅ Gelé si simple, sinon V2 |
+| Fonctionnalité                                 | État                        |
+| ---------------------------------------------- | --------------------------- |
+| Page boutique avec grille de produits          | ✅ Gelé                     |
+| Navigation par catégories                      | ✅ Gelé                     |
+| Champ de recherche de produits                 | ✅ Gelé                     |
+| Filtres (catégorie, disponibilité, popularité) | ✅ Gelé                     |
+| Tri simple de produits                         | ✅ Gelé                     |
+| Carte produit de base                          | ✅ Gelé                     |
+| Action ajouter au panier                       | ✅ Gelé                     |
+| Action voir détail d'un produit                | ✅ Gelé                     |
+| Vue panier (desktop fixe, mobile repliable)    | ✅ Gelé                     |
+| Action modifier quantité dans le panier        | ✅ Gelé                     |
+| Action retirer un produit du panier            | ✅ Gelé                     |
+| Action vider le panier                         | ✅ Gelé                     |
+| Action confirmer le panier                     | ✅ Gelé                     |
+| Écran récapitulatif avant envoi                | ✅ Gelé                     |
+| Écran confirmation de commande envoyée         | ✅ Gelé                     |
+| Écran suivi de commande                        | ✅ Gelé                     |
+| Écran échec d'envoi de commande                | ✅ Gelé                     |
+| Section « Dernière commande »                  | ✅ Gelé                     |
+| Section « Top 10 des plus commandés »          | ✅ Gelé                     |
+| Section « Recommandé pour vous » (simple)      | ✅ Gelé si simple, sinon V2 |
 
 ### Définition de « gelé »
 
@@ -606,28 +606,28 @@ Un élément **gelé** signifie :
 
 ### Critères de validation du gel
 
-| Critère                                   | Résultat attendu                                     |
-|-------------------------------------------|------------------------------------------------------|
-| Toutes les fonctionnalités sont documentées | ✅ DEP-0321 à DEP-0360 complets                      |
-| Le mode manuel fonctionne de bout en bout | ✅ Validé par DEP-0357                               |
-| Le panier est synchronisé entre les modes | ✅ Validé par DEP-0359                               |
-| Le design visuel est défini               | ✅ Référence : DEP-0201 à DEP-0240                   |
-| Les tests de validation sont écrits       | ✅ Critères de validation définis dans DEP-0354 à DEP-0359 |
+| Critère                                     | Résultat attendu                                           |
+| ------------------------------------------- | ---------------------------------------------------------- |
+| Toutes les fonctionnalités sont documentées | ✅ DEP-0321 à DEP-0360 complets                            |
+| Le mode manuel fonctionne de bout en bout   | ✅ Validé par DEP-0357                                     |
+| Le panier est synchronisé entre les modes   | ✅ Validé par DEP-0359                                     |
+| Le design visuel est défini                 | ✅ Référence : DEP-0201 à DEP-0240                         |
+| Les tests de validation sont écrits         | ✅ Critères de validation définis dans DEP-0354 à DEP-0359 |
 
 ### Extensions futures (hors gel V1)
 
 Les extensions suivantes sont **hors périmètre du gel V1** et seront traitées
 dans des blocs ultérieurs ou en V2 :
 
-| Extension                                 | Bloc concerné    | V1 | V2 |
-|-------------------------------------------|------------------|----|-----|
-| Assistant texte (chat)                    | DEP-0361 à DEP-0400 | ✅  |     |
-| Assistant vocal web (push-to-talk)        | DEP-0401 à DEP-0440 | ✅  |     |
-| Agent vocal téléphonique (GPT Call)       | DEP-0441 à DEP-0480 | ✅  |     |
-| Recommandations avancées (ML)             | Futur            | ❌  | ✅  |
-| Historique de commandes complet           | Futur            | ❌  | ✅  |
-| Paiement en ligne                         | Futur            | ❌  | ✅  |
-| Programme de fidélité                     | Futur            | ❌  | ✅  |
+| Extension                           | Bloc concerné       | V1  | V2  |
+| ----------------------------------- | ------------------- | --- | --- |
+| Assistant texte (chat)              | DEP-0361 à DEP-0400 | ✅  |     |
+| Assistant vocal web (push-to-talk)  | DEP-0401 à DEP-0440 | ✅  |     |
+| Agent vocal téléphonique (GPT Call) | DEP-0441 à DEP-0480 | ✅  |     |
+| Recommandations avancées (ML)       | Futur               | ❌  | ✅  |
+| Historique de commandes complet     | Futur               | ❌  | ✅  |
+| Paiement en ligne                   | Futur               | ❌  | ✅  |
+| Programme de fidélité               | Futur               | ❌  | ✅  |
 
 ### Validations finales avant gel
 
@@ -669,6 +669,6 @@ texte (DEP-0361 à DEP-0400) et l'assistant vocal (DEP-0401 à DEP-0440) pourron
 
 ## Historique
 
-| Date       | Auteur      | Description                                      |
-|------------|-------------|--------------------------------------------------|
+| Date       | Auteur      | Description                                       |
+| ---------- | ----------- | ------------------------------------------------- |
 | 2026-03-13 | Claude Code | Création initiale du document DEP-0348 à DEP-0360 |

@@ -50,12 +50,12 @@ système est multi-tenant : un même back-end sert plusieurs dépanneurs.
 
 ### Données nécessaires
 
-| Champ              | Type     | Description                                      |
-|--------------------|----------|--------------------------------------------------|
-| `phone_number`     | `string` | Numéro virtuel appelé (format E.164)             |
-| `tenant_id`        | `uuid`   | Identifiant unique du dépanneur abonné           |
-| `tenant_name`      | `string` | Nom du dépanneur (utilisé dans les phrases TTS)  |
-| `is_active`        | `bool`   | Numéro actif ou suspendu                         |
+| Champ          | Type     | Description                                     |
+| -------------- | -------- | ----------------------------------------------- |
+| `phone_number` | `string` | Numéro virtuel appelé (format E.164)            |
+| `tenant_id`    | `uuid`   | Identifiant unique du dépanneur abonné          |
+| `tenant_name`  | `string` | Nom du dépanneur (utilisé dans les phrases TTS) |
+| `is_active`    | `bool`   | Numéro actif ou suspendu                        |
 
 ### Règles
 
@@ -68,11 +68,11 @@ système est multi-tenant : un même back-end sert plusieurs dépanneurs.
 
 ### Cas attendus
 
-| Situation                               | Résultat attendu                              |
-|-----------------------------------------|-----------------------------------------------|
-| Numéro connu et actif                   | ✅ Tenant identifié, appel traité             |
-| Numéro connu mais tenant suspendu       | ❌ Message d'indisponibilité, appel terminé   |
-| Numéro inconnu                          | ❌ Message générique, appel terminé           |
+| Situation                         | Résultat attendu                            |
+| --------------------------------- | ------------------------------------------- |
+| Numéro connu et actif             | ✅ Tenant identifié, appel traité           |
+| Numéro connu mais tenant suspendu | ❌ Message d'indisponibilité, appel terminé |
+| Numéro inconnu                    | ❌ Message générique, appel terminé         |
 
 ---
 
@@ -103,12 +103,12 @@ un même tenant.
 
 ### Données nécessaires
 
-| Champ          | Type     | Description                                       |
-|----------------|----------|---------------------------------------------------|
-| `tenant_id`    | `uuid`   | Identifiant du tenant (résolu en DEP-0473)        |
-| `store_id`     | `uuid`   | Identifiant du point de vente actif               |
-| `store_name`   | `string` | Nom du point de vente (utilisé dans les phrases)  |
-| `is_open`      | `bool`   | Indique si le dépanneur est actuellement ouvert   |
+| Champ        | Type     | Description                                      |
+| ------------ | -------- | ------------------------------------------------ |
+| `tenant_id`  | `uuid`   | Identifiant du tenant (résolu en DEP-0473)       |
+| `store_id`   | `uuid`   | Identifiant du point de vente actif              |
+| `store_name` | `string` | Nom du point de vente (utilisé dans les phrases) |
+| `is_open`    | `bool`   | Indique si le dépanneur est actuellement ouvert  |
 
 ### Règles
 
@@ -120,11 +120,11 @@ un même tenant.
 
 ### Cas attendus
 
-| Situation                                     | Résultat attendu                                  |
-|-----------------------------------------------|---------------------------------------------------|
-| Tenant V1, 1 seul site actif et ouvert        | ✅ `store_id` résolu, appel poursuit              |
-| Tenant V1, site fermé                         | ❌ Message horaires, appel terminé                |
-| Tenant futur, plusieurs sites                 | ✅ Sélection du site par logique multi-site       |
+| Situation                              | Résultat attendu                            |
+| -------------------------------------- | ------------------------------------------- |
+| Tenant V1, 1 seul site actif et ouvert | ✅ `store_id` résolu, appel poursuit        |
+| Tenant V1, site fermé                  | ❌ Message horaires, appel terminé          |
+| Tenant futur, plusieurs sites          | ✅ Sélection du site par logique multi-site |
 
 ---
 
@@ -137,31 +137,31 @@ Définir le point d'entrée HTTP que le fournisseur de téléphonie appelle lors
 
 ### Endpoint
 
-| Attribut   | Valeur                                      |
-|------------|---------------------------------------------|
-| Méthode    | `POST`                                      |
-| Chemin     | `/api/telephony/events`                     |
-| Auth       | Signature HMAC du fournisseur (webhook secret) |
-| Format     | JSON ou form-encoded selon le fournisseur   |
+| Attribut | Valeur                                         |
+| -------- | ---------------------------------------------- |
+| Méthode  | `POST`                                         |
+| Chemin   | `/api/telephony/events`                        |
+| Auth     | Signature HMAC du fournisseur (webhook secret) |
+| Format   | JSON ou form-encoded selon le fournisseur      |
 
 ### Événements reçus
 
-| Type d'événement       | Déclencheur                                    | Action système                              |
-|------------------------|------------------------------------------------|---------------------------------------------|
-| `call.incoming`        | Appel entrant sur un numéro virtuel            | Résoudre tenant (DEP-0473) + store (DEP-0474), initier session |
-| `speech.result`        | Résultat de reconnaissance vocale (STT)        | Traiter l'intent, préparer la réponse       |
-| `dtmf.received`        | Touche clavier du client                       | Traiter l'entrée numérique si applicable    |
-| `call.ended`           | Appel terminé (raccroché, timeout, erreur)     | Sauvegarder transcription et résumé (DEP-0465–0466), clore session |
+| Type d'événement | Déclencheur                                | Action système                                                     |
+| ---------------- | ------------------------------------------ | ------------------------------------------------------------------ |
+| `call.incoming`  | Appel entrant sur un numéro virtuel        | Résoudre tenant (DEP-0473) + store (DEP-0474), initier session     |
+| `speech.result`  | Résultat de reconnaissance vocale (STT)    | Traiter l'intent, préparer la réponse                              |
+| `dtmf.received`  | Touche clavier du client                   | Traiter l'entrée numérique si applicable                           |
+| `call.ended`     | Appel terminé (raccroché, timeout, erreur) | Sauvegarder transcription et résumé (DEP-0465–0466), clore session |
 
 ### Charge utile minimale attendue (`call.incoming`)
 
 ```json
 {
-  "event":      "call.incoming",
-  "call_id":    "CA_xxxx",
-  "to":         "+15551234567",
-  "from":       "+15559876543",
-  "timestamp":  "2026-03-13T09:00:00Z"
+  "event": "call.incoming",
+  "call_id": "CA_xxxx",
+  "to": "+15551234567",
+  "from": "+15559876543",
+  "timestamp": "2026-03-13T09:00:00Z"
 }
 ```
 
@@ -193,18 +193,18 @@ instruction structurée indiquant ce que le fournisseur doit lire ou jouer.
 ```json
 {
   "action": "speak",
-  "text":   "J'ai trouvé des chips ketchup. Veux-tu les Lay's ketchup à 3,49 € ?",
-  "voice":  "fr-FR-Standard-A",
-  "next":   "listen"
+  "text": "J'ai trouvé des chips ketchup. Veux-tu les Lay's ketchup à 3,49 € ?",
+  "voice": "fr-FR-Standard-A",
+  "next": "listen"
 }
 ```
 
 | Champ    | Description                                                       |
-|----------|-------------------------------------------------------------------|
-| `action` | `"speak"` (lire), `"play"` (fichier audio), `"hangup"` (terminer)|
+| -------- | ----------------------------------------------------------------- |
+| `action` | `"speak"` (lire), `"play"` (fichier audio), `"hangup"` (terminer) |
 | `text`   | Texte à synthétiser (max 500 caractères par réponse)              |
 | `voice`  | Code voix TTS (langue et variante — fr-FR V1)                     |
-| `next`   | `"listen"` (attendre la parole), `"hangup"`, `"dtmf"`            |
+| `next`   | `"listen"` (attendre la parole), `"hangup"`, `"dtmf"`             |
 
 ### Règles
 
@@ -220,11 +220,11 @@ instruction structurée indiquant ce que le fournisseur doit lire ou jouer.
 
 ### Actions spéciales
 
-| Action    | Quand l'utiliser                                           |
-|-----------|------------------------------------------------------------|
-| `hangup`  | Fin de commande confirmée, timeout, erreur non récupérable |
-| `play`    | Lecture d'un fichier audio préenregistré (optionnel V1)    |
-| `dtmf`    | Attendre une touche clavier du client                      |
+| Action   | Quand l'utiliser                                           |
+| -------- | ---------------------------------------------------------- |
+| `hangup` | Fin de commande confirmée, timeout, erreur non récupérable |
+| `play`   | Lecture d'un fichier audio préenregistré (optionnel V1)    |
+| `dtmf`   | Attendre une touche clavier du client                      |
 
 ---
 
@@ -251,12 +251,12 @@ identique à une commande passée via la boutique web.
 
 ```json
 {
-  "tenant_id":  "uuid-tenant",
-  "store_id":   "uuid-store",
-  "source":     "telephony",
-  "call_id":    "CA_xxxx",
+  "tenant_id": "uuid-tenant",
+  "store_id": "uuid-store",
+  "source": "telephony",
+  "call_id": "CA_xxxx",
   "customer": {
-    "phone":    "+15559876543"
+    "phone": "+15559876543"
   },
   "items": [
     { "product_id": "P-01", "quantity": 2 },
@@ -281,11 +281,11 @@ identique à une commande passée via la boutique web.
 
 ### Cas attendus
 
-| Situation                                    | Résultat attendu                                     |
-|----------------------------------------------|------------------------------------------------------|
-| Commande confirmée, produits disponibles     | ✅ Commande créée, numéro communiqué au client       |
-| Commande confirmée, rupture détectée         | ❌ Message vocal, commande non créée, appel terminé  |
-| Client raccroche avant confirmation          | ❌ Aucune commande créée, session close              |
+| Situation                                | Résultat attendu                                    |
+| ---------------------------------------- | --------------------------------------------------- |
+| Commande confirmée, produits disponibles | ✅ Commande créée, numéro communiqué au client      |
+| Commande confirmée, rupture détectée     | ❌ Message vocal, commande non créée, appel terminé |
+| Client raccroche avant confirmation      | ❌ Aucune commande créée, session close             |
 
 ---
 
@@ -298,17 +298,17 @@ normalement produit bien une commande système complète et valide.
 
 ### Scénario de test
 
-| Étape | Action / Événement                                    | Résultat attendu                                          |
-|-------|-------------------------------------------------------|-----------------------------------------------------------|
-| 1     | Appel entrant sur le numéro virtuel du tenant         | ✅ Tenant et store identifiés (DEP-0473, DEP-0474)        |
-| 2     | Message d'accueil lu au client                        | ✅ Phrase d'accueil canonique jouée (DEP-0371)            |
-| 3     | Client dit : « 2 Pepsi et des chips ketchup »         | ✅ Intents reconnus, produits trouvés dans le catalogue    |
-| 4     | Assistant lit le panier reconstitué                   | ✅ Lecture correcte du panier (DEP-0470)                  |
-| 5     | Client confirme : « Oui c'est bon »                   | ✅ Signal de confirmation reconnu (DEP-0472)              |
-| 6     | Commande créée via `POST /api/orders`                 | ✅ Commande enregistrée avec source `"telephony"`         |
-| 7     | Phrase de confirmation lue au client                  | ✅ Numéro de commande communiqué                          |
-| 8     | Phrase de fin d'appel lue                             | ✅ Appel terminé proprement (DEP-0459)                    |
-| 9     | Transcription et résumé sauvegardés                   | ✅ Données disponibles dans le back-end (DEP-0465–0466)   |
+| Étape | Action / Événement                            | Résultat attendu                                        |
+| ----- | --------------------------------------------- | ------------------------------------------------------- |
+| 1     | Appel entrant sur le numéro virtuel du tenant | ✅ Tenant et store identifiés (DEP-0473, DEP-0474)      |
+| 2     | Message d'accueil lu au client                | ✅ Phrase d'accueil canonique jouée (DEP-0371)          |
+| 3     | Client dit : « 2 Pepsi et des chips ketchup » | ✅ Intents reconnus, produits trouvés dans le catalogue |
+| 4     | Assistant lit le panier reconstitué           | ✅ Lecture correcte du panier (DEP-0470)                |
+| 5     | Client confirme : « Oui c'est bon »           | ✅ Signal de confirmation reconnu (DEP-0472)            |
+| 6     | Commande créée via `POST /api/orders`         | ✅ Commande enregistrée avec source `"telephony"`       |
+| 7     | Phrase de confirmation lue au client          | ✅ Numéro de commande communiqué                        |
+| 8     | Phrase de fin d'appel lue                     | ✅ Appel terminé proprement (DEP-0459)                  |
+| 9     | Transcription et résumé sauvegardés           | ✅ Données disponibles dans le back-end (DEP-0465–0466) |
 
 ### Critères de succès
 
@@ -337,25 +337,25 @@ créer de commande parasite.
 
 ### Scénario de test — Raccroché avant confirmation
 
-| Étape | Action / Événement                                    | Résultat attendu                                          |
-|-------|-------------------------------------------------------|-----------------------------------------------------------|
-| 1     | Appel entrant sur le numéro virtuel du tenant         | ✅ Tenant et store identifiés                             |
-| 2     | Message d'accueil lu au client                        | ✅ Phrase d'accueil jouée                                 |
-| 3     | Client dit : « 1 Pepsi »                              | ✅ Intent reconnu, produit trouvé                         |
-| 4     | Assistant lit le panier                               | ✅ Lecture correcte du panier                             |
-| 5     | Client raccroche sans confirmer                       | ✅ Événement `call.ended` reçu                            |
-| 6     | Aucune commande créée                                 | ✅ Pas d'appel à `POST /api/orders`                       |
-| 7     | Transcription partielle sauvegardée                   | ✅ Données disponibles (DEP-0465–0466), statut `"abandonné"` |
+| Étape | Action / Événement                            | Résultat attendu                                             |
+| ----- | --------------------------------------------- | ------------------------------------------------------------ |
+| 1     | Appel entrant sur le numéro virtuel du tenant | ✅ Tenant et store identifiés                                |
+| 2     | Message d'accueil lu au client                | ✅ Phrase d'accueil jouée                                    |
+| 3     | Client dit : « 1 Pepsi »                      | ✅ Intent reconnu, produit trouvé                            |
+| 4     | Assistant lit le panier                       | ✅ Lecture correcte du panier                                |
+| 5     | Client raccroche sans confirmer               | ✅ Événement `call.ended` reçu                               |
+| 6     | Aucune commande créée                         | ✅ Pas d'appel à `POST /api/orders`                          |
+| 7     | Transcription partielle sauvegardée           | ✅ Données disponibles (DEP-0465–0466), statut `"abandonné"` |
 
 ### Scénario complémentaire — Timeout sans parole
 
-| Étape | Action / Événement                                    | Résultat attendu                                          |
-|-------|-------------------------------------------------------|-----------------------------------------------------------|
-| 1     | Appel entrant                                         | ✅ Tenant et store identifiés                             |
-| 2     | Message d'accueil joué                                | ✅ Phrase d'accueil jouée                                 |
-| 3     | Client ne parle pas pendant le délai configuré        | ✅ Message de relance joué (DEP-0460 ou DEP-0371)         |
-| 4     | Client toujours silencieux après 2 relances           | ✅ Message de fin d'appel joué, appel terminé             |
-| 5     | Aucune commande créée                                 | ✅ Session close, aucun enregistrement parasite           |
+| Étape | Action / Événement                             | Résultat attendu                                  |
+| ----- | ---------------------------------------------- | ------------------------------------------------- |
+| 1     | Appel entrant                                  | ✅ Tenant et store identifiés                     |
+| 2     | Message d'accueil joué                         | ✅ Phrase d'accueil jouée                         |
+| 3     | Client ne parle pas pendant le délai configuré | ✅ Message de relance joué (DEP-0460 ou DEP-0371) |
+| 4     | Client toujours silencieux après 2 relances    | ✅ Message de fin d'appel joué, appel terminé     |
+| 5     | Aucune commande créée                          | ✅ Session close, aucun enregistrement parasite   |
 
 ### Critères de succès
 
@@ -377,16 +377,16 @@ sans une décision explicite documentée par un nouveau DEP.
 
 ### Périmètre gelé
 
-| Bloc          | Contenu                                                                      |
-|---------------|------------------------------------------------------------------------------|
-| DEP-0441–0450 | Déclenchement, accueil, identification client, gestion de l'inconnu          |
-| DEP-0451–0459 | Phrases système téléphoniques (accueil, guidage, confirmation, fin)          |
-| DEP-0460–0464 | Logiques de répétition et de transfert futur                                 |
-| DEP-0465–0467 | Sauvegarde transcription, résumé, création commande depuis appel             |
+| Bloc          | Contenu                                                                             |
+| ------------- | ----------------------------------------------------------------------------------- |
+| DEP-0441–0450 | Déclenchement, accueil, identification client, gestion de l'inconnu                 |
+| DEP-0451–0459 | Phrases système téléphoniques (accueil, guidage, confirmation, fin)                 |
+| DEP-0460–0464 | Logiques de répétition et de transfert futur                                        |
+| DEP-0465–0467 | Sauvegarde transcription, résumé, création commande depuis appel                    |
 | DEP-0468–0472 | Reconnaissance produits, désambiguïsation, lecture panier, correction, confirmation |
-| DEP-0473–0474 | Rattachement appel → tenant et dépanneur                                     |
-| DEP-0475–0477 | API backend événements, sortie audio/texte, conversion commande vocale       |
-| DEP-0478–0479 | Tests bout en bout (appel complet et appel incomplet)                        |
+| DEP-0473–0474 | Rattachement appel → tenant et dépanneur                                            |
+| DEP-0475–0477 | API backend événements, sortie audio/texte, conversion commande vocale              |
+| DEP-0478–0479 | Tests bout en bout (appel complet et appel incomplet)                               |
 
 ### Règles du gel
 
@@ -401,13 +401,13 @@ sans une décision explicite documentée par un nouveau DEP.
 
 ### Critères de gel validés
 
-| Critère                                                         | Statut  |
-|-----------------------------------------------------------------|---------|
-| Logiques de rattachement tenant et dépanneur définies           | ✅ Fait |
-| API réception événements téléphoniques spécifiée                | ✅ Fait |
-| API sortie audio/texte spécifiée                                | ✅ Fait |
-| API conversion commande vocale → commande système spécifiée     | ✅ Fait |
-| Scénario test appel complet documenté                           | ✅ Fait |
-| Scénario test appel incomplet documenté                         | ✅ Fait |
-| Le lien avec DEP-0441–0472 est établi                           | ✅ Fait |
-| Le périmètre gelé est explicitement listé                       | ✅ Fait |
+| Critère                                                     | Statut  |
+| ----------------------------------------------------------- | ------- |
+| Logiques de rattachement tenant et dépanneur définies       | ✅ Fait |
+| API réception événements téléphoniques spécifiée            | ✅ Fait |
+| API sortie audio/texte spécifiée                            | ✅ Fait |
+| API conversion commande vocale → commande système spécifiée | ✅ Fait |
+| Scénario test appel complet documenté                       | ✅ Fait |
+| Scénario test appel incomplet documenté                     | ✅ Fait |
+| Le lien avec DEP-0441–0472 est établi                       | ✅ Fait |
+| Le périmètre gelé est explicitement listé                   | ✅ Fait |

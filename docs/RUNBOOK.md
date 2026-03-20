@@ -7,6 +7,7 @@ Guide opérationnel pour le projet depaneurIA. Ce document contient les procédu
 ### Démarrage du projet
 
 **Local:**
+
 ```bash
 # Terminal 1: API
 pnpm dev:api
@@ -16,6 +17,7 @@ pnpm dev:web
 ```
 
 **Production:**
+
 ```bash
 # API
 cd apps/api
@@ -65,6 +67,7 @@ Les logs sont affichés dans la console avec le niveau `debug`.
 Les logs sont au format JSON structuré, niveau `info`.
 
 Exemple de log :
+
 ```json
 {
   "timestamp": "2026-03-13T20:00:00.000Z",
@@ -89,6 +92,7 @@ Exemple de log :
 **Symptôme:** Erreur au lancement de `pnpm dev:api`
 
 **Diagnostic:**
+
 ```bash
 # Vérifier les variables d'environnement
 cat apps/api/.env
@@ -102,6 +106,7 @@ npx prisma studio
 ```
 
 **Solution:**
+
 1. Vérifier que `.env` existe et contient les bonnes valeurs
 2. Libérer le port 3001 si occupé
 3. Régénérer le client Prisma : `npx prisma generate`
@@ -112,6 +117,7 @@ npx prisma studio
 **Symptôme:** `pnpm build` échoue
 
 **Diagnostic:**
+
 ```bash
 # Vérifier les erreurs TypeScript
 pnpm typecheck
@@ -121,6 +127,7 @@ pnpm lint
 ```
 
 **Solution:**
+
 1. Corriger les erreurs TypeScript
 2. Corriger les erreurs ESLint
 3. S'assurer que Prisma client est généré : `cd apps/api && npx prisma generate`
@@ -130,6 +137,7 @@ pnpm lint
 **Symptôme:** Erreurs CORS dans la console du navigateur
 
 **Diagnostic:**
+
 ```bash
 # Vérifier CORS_ORIGIN dans apps/api/.env
 grep CORS_ORIGIN apps/api/.env
@@ -137,6 +145,7 @@ grep CORS_ORIGIN apps/api/.env
 
 **Solution:**
 Mettre à jour `CORS_ORIGIN` dans `apps/api/.env` pour correspondre à l'URL du frontend :
+
 ```bash
 CORS_ORIGIN=http://localhost:5173  # Development
 CORS_ORIGIN=https://app.depaneuria.com  # Production
@@ -147,6 +156,7 @@ CORS_ORIGIN=https://app.depaneuria.com  # Production
 **Symptôme:** Erreurs Prisma ou données incohérentes
 
 **Solution:**
+
 ```bash
 cd apps/api
 
@@ -162,11 +172,13 @@ npx prisma migrate deploy
 **Symptôme:** L'API est lente
 
 **Diagnostic:**
+
 1. Vérifier les logs pour identifier les requêtes lentes
 2. Utiliser `/health` pour vérifier l'uptime et la santé générale
 3. Vérifier la charge système (CPU, mémoire, I/O)
 
 **Solution:**
+
 1. Optimiser les requêtes base de données (indexes, N+1)
 2. Ajouter du cache si nécessaire
 3. Augmenter les ressources du serveur
@@ -189,11 +201,13 @@ pnpm lint && pnpm typecheck && pnpm build && pnpm test
 ### Backup de la base de données
 
 **SQLite (development):**
+
 ```bash
 cp apps/api/dev.db apps/api/dev.db.backup
 ```
 
 **PostgreSQL (production):**
+
 ```bash
 pg_dump -h host -U user -d depaneuria_prod > backup_$(date +%Y%m%d).sql
 ```

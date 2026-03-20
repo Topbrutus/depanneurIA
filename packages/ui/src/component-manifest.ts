@@ -16,5 +16,5 @@ export const ComponentManifest = [
   'LastOrderCard',
   'Top10Card',
   'ConfirmModal',
-  'ToastNotification'
+  'ToastNotification',
 ];

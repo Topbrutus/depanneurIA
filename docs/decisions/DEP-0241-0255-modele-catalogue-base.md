@@ -209,4 +209,3 @@ Prix internes (coût d’achat ou prix de base) par variante et tenant.
 - `tax_included` (bool)
 - `valid_from` / `valid_to` (datetime, optionnels)
 - `source` (`manuel` | `import` | `api_fournisseur`)
-

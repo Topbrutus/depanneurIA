@@ -1,8 +1,16 @@
 /** Correspondance chiffres-lettres pour les quantités en français. */
 const WORD_TO_NUMBER: Record<string, number> = {
-  un: 1, une: 1,
-  deux: 2, trois: 3, quatre: 4, cinq: 5,
-  six: 6, sept: 7, huit: 8, neuf: 9, dix: 10,
+  un: 1,
+  une: 1,
+  deux: 2,
+  trois: 3,
+  quatre: 4,
+  cinq: 5,
+  six: 6,
+  sept: 7,
+  huit: 8,
+  neuf: 9,
+  dix: 10,
 };
 
 /**

@@ -12,16 +12,16 @@ son support natif des workspaces et sa rapidité d'installation.
 Les scripts racine orchestrent l'ensemble du monorepo via les workspaces pnpm.  
 Ils délèguent l'exécution aux scripts de chaque application ou package.
 
-| Script              | Commande pnpm               | Description                                   |
-|---------------------|-----------------------------|-----------------------------------------------|
-| `dev`               | `pnpm dev`                  | Lance toutes les apps en développement        |
-| `dev:web`           | `pnpm dev:web`              | Lance uniquement le front-end                 |
-| `dev:api`           | `pnpm dev:api`              | Lance uniquement l'API                        |
-| `build`             | `pnpm build`                | Build complet de toutes les apps              |
-| `test`              | `pnpm test`                 | Exécute tous les tests                        |
-| `lint`              | `pnpm lint`                 | Lint de tout le code                          |
-| `format`            | `pnpm format`               | Formatage de tout le code                     |
-| `typecheck`         | `pnpm typecheck`            | Vérification TypeScript sans compilation      |
+| Script      | Commande pnpm    | Description                              |
+| ----------- | ---------------- | ---------------------------------------- |
+| `dev`       | `pnpm dev`       | Lance toutes les apps en développement   |
+| `dev:web`   | `pnpm dev:web`   | Lance uniquement le front-end            |
+| `dev:api`   | `pnpm dev:api`   | Lance uniquement l'API                   |
+| `build`     | `pnpm build`     | Build complet de toutes les apps         |
+| `test`      | `pnpm test`      | Exécute tous les tests                   |
+| `lint`      | `pnpm lint`      | Lint de tout le code                     |
+| `format`    | `pnpm format`    | Formatage de tout le code                |
+| `typecheck` | `pnpm typecheck` | Vérification TypeScript sans compilation |
 
 ### Scripts d'application (définis dans chaque `apps/*/package.json`)
 

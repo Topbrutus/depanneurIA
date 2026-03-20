@@ -3,17 +3,20 @@
 Ce dépôt centralise le développement de la plateforme **depaneurIA**. Merci de respecter ces quelques règles pour assurer la cohérence et la qualité du projet.
 
 ## Principes de base
+
 - **Petits changements :** Privilégiez des modifications atomiques et faciles à relire.
 - **Ouverture d'issue :** Avant tout changement important, merci d'ouvrir une issue pour discuter de l'approche technique ou fonctionnelle.
 
 ## Qualité minimale du code
+
 - **TypeScript strict** : Obligatoire partout. Pas de \`any\` gratuit (sauf avec justification explicite).
 - **Simplicité** : Petits modules lisibles, imports propres.
 - **Séparation des préoccupations** : Pas de logique métier dans les composants UI.
-- **Réutilisabilité** : Utiliser les packages partagés (\`packages/*\`) pour la logique métier, la configuration et les types.
+- **Réutilisabilité** : Utiliser les packages partagés (\`packages/\*\`) pour la logique métier, la configuration et les types.
 - **Formatage** : Prettier et ESLint doivent passer avant toute PR.
 
 ## Branch naming rules
+
 - `main` = branche stable (production)
 - `dev` = branche d’intégration (développement principal)
 - `feat/<topic>` = nouvelle fonctionnalité
@@ -25,6 +28,7 @@ Ce dépôt centralise le développement de la plateforme **depaneurIA**. Merci d
 Utilisez des noms de branches courts, en minuscules, avec des tirets pour séparer les mots.
 
 ### Exemples :
+
 - `feat/web-client`
 - `feat/api-core`
 - `fix/readme-links`
@@ -32,11 +36,13 @@ Utilisez des noms de branches courts, en minuscules, avec des tirets pour sépar
 - `infra/gcp-bootstrap`
 
 ## Commit naming rules
+
 Nous suivons les [Conventional Commits](https://www.conventionalcommits.org/) de manière simple :
 
 **Format :** `type(scope): short description`
 
 **Types autorisés :**
+
 - `feat` : Nouvelle fonctionnalité
 - `fix` : Correction de bug
 - `docs` : Documentation
@@ -49,21 +55,25 @@ Nous suivons les [Conventional Commits](https://www.conventionalcommits.org/) de
 La description doit être courte, claire et rédigée en minuscules.
 
 ### Exemples :
+
 - `feat(repo): add base folder structure`
 - `fix(api): correct order status mapping`
 - `docs(readme): clarify project vision`
 - `chore(github): add issue templates`
 
 ## Version tag naming rules
+
 - Format officiel : `vMAJOR.MINOR.PATCH`
 - Pas d’espaces
 - Toujours en minuscules pour le `v`
 - Utiliser les tags seulement pour des versions stables ou jalons clairement décidés
 
 ### Exemples :
+
 - `v0.1.0`
 - `v0.2.0`
 - `v1.0.0`
 
 ## Pull Requests
+
 Toute modification doit passer par une Pull Request (PR) propre et lisible. Elle sera revue avant d'être fusionnée dans la branche principale.

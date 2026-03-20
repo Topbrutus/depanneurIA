@@ -26,10 +26,7 @@ function scoreProduct(product: CatalogProduct, keywords: string[]): number {
  * Trouve le ou les meilleurs produits correspondant aux mots-clés dans le catalogue.
  * Ne retourne que les produits disponibles.
  */
-export function matchCatalog(
-  keywords: string[],
-  catalog: CatalogProduct[],
-): MatchResult {
+export function matchCatalog(keywords: string[], catalog: CatalogProduct[]): MatchResult {
   if (keywords.length === 0) {
     return { product: null, candidates: [], confidence: 'none' };
   }
@@ -45,9 +42,7 @@ export function matchCatalog(
   }
 
   const topScore = scored[0]?.score ?? 0;
-  const topProducts = scored
-    .filter((s) => s.score === topScore)
-    .map((s) => s.product);
+  const topProducts = scored.filter((s) => s.score === topScore).map((s) => s.product);
 
   if (topProducts.length === 1 && topScore >= 2) {
     const product = topProducts[0] ?? null;

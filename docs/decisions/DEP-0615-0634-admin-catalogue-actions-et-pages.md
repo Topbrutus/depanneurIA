@@ -20,13 +20,13 @@ Définir la logique permettant au dépanneur de supprimer une image d'un produit
 
 ### Comportement
 
-| Élément              | Description                                                      |
-|----------------------|------------------------------------------------------------------|
-| Déclenchement        | Bouton « × » ou icône poubelle sur la miniature de l'image      |
-| Confirmation         | Modal de confirmation : « Supprimer cette image ? »             |
-| Actions disponibles  | « Annuler » / « Supprimer »                                      |
-| Effet                | L'image est retirée de la liste des images du produit           |
-| Image principale     | Si c'était l'image principale, la première restante devient principale |
+| Élément             | Description                                                            |
+| ------------------- | ---------------------------------------------------------------------- |
+| Déclenchement       | Bouton « × » ou icône poubelle sur la miniature de l'image             |
+| Confirmation        | Modal de confirmation : « Supprimer cette image ? »                    |
+| Actions disponibles | « Annuler » / « Supprimer »                                            |
+| Effet               | L'image est retirée de la liste des images du produit                  |
+| Image principale    | Si c'était l'image principale, la première restante devient principale |
 
 ### Règles
 
@@ -54,13 +54,13 @@ Permettre au dépanneur de modifier l'ordre d'affichage des produits dans une ca
 
 ### Comportement
 
-| Élément              | Description                                                      |
-|----------------------|------------------------------------------------------------------|
-| Zone active          | Liste des produits d'une catégorie dans la page d'édition       |
-| Interaction          | Clic long (500 ms) + glisser-déposer vertical                   |
-| Feedback visuel      | Produit en cours de déplacement : ombre portée, opacité 0.8     |
-| Indicateur de dépôt  | Ligne bleue horizontale entre deux produits                      |
-| Sauvegarde           | Automatique dès le relâchement du clic                           |
+| Élément             | Description                                                 |
+| ------------------- | ----------------------------------------------------------- |
+| Zone active         | Liste des produits d'une catégorie dans la page d'édition   |
+| Interaction         | Clic long (500 ms) + glisser-déposer vertical               |
+| Feedback visuel     | Produit en cours de déplacement : ombre portée, opacité 0.8 |
+| Indicateur de dépôt | Ligne bleue horizontale entre deux produits                 |
+| Sauvegarde          | Automatique dès le relâchement du clic                      |
 
 ### Règles
 
@@ -89,13 +89,13 @@ Permettre au dépanneur de modifier l'ordre d'affichage des catégories dans le 
 
 ### Comportement
 
-| Élément              | Description                                                      |
-|----------------------|------------------------------------------------------------------|
-| Zone active          | Liste des catégories dans la page « Catégories admin » (DEP-0630) |
-| Interaction          | Clic long (500 ms) + glisser-déposer vertical                   |
-| Feedback visuel      | Catégorie en cours de déplacement : ombre portée, opacité 0.8   |
-| Indicateur de dépôt  | Ligne bleue horizontale entre deux catégories                    |
-| Sauvegarde           | Automatique dès le relâchement du clic                           |
+| Élément             | Description                                                       |
+| ------------------- | ----------------------------------------------------------------- |
+| Zone active         | Liste des catégories dans la page « Catégories admin » (DEP-0630) |
+| Interaction         | Clic long (500 ms) + glisser-déposer vertical                     |
+| Feedback visuel     | Catégorie en cours de déplacement : ombre portée, opacité 0.8     |
+| Indicateur de dépôt | Ligne bleue horizontale entre deux catégories                     |
+| Sauvegarde          | Automatique dès le relâchement du clic                            |
 
 ### Règles
 
@@ -124,13 +124,13 @@ Permettre au dépanneur de marquer un produit comme « vedette » pour le mettre
 
 ### Comportement
 
-| Élément              | Description                                                      |
-|----------------------|------------------------------------------------------------------|
-| Déclenchement        | Icône étoile (vide ou pleine) dans la fiche produit             |
-| État initial         | Étoile vide (produit non vedette)                                |
-| Action               | Clic sur l'étoile → bascule entre vedette / non vedette         |
-| Feedback visuel      | Étoile pleine (jaune `#F59E0B`) si vedette, vide sinon          |
-| Sauvegarde           | Immédiate au clic (pas de confirmation)                          |
+| Élément         | Description                                             |
+| --------------- | ------------------------------------------------------- |
+| Déclenchement   | Icône étoile (vide ou pleine) dans la fiche produit     |
+| État initial    | Étoile vide (produit non vedette)                       |
+| Action          | Clic sur l'étoile → bascule entre vedette / non vedette |
+| Feedback visuel | Étoile pleine (jaune `#F59E0B`) si vedette, vide sinon  |
+| Sauvegarde      | Immédiate au clic (pas de confirmation)                 |
 
 ### Règles
 
@@ -159,13 +159,13 @@ Permettre au dépanneur de marquer temporairement un produit comme indisponible 
 
 ### Comportement
 
-| Élément              | Description                                                      |
-|----------------------|------------------------------------------------------------------|
-| Déclenchement        | Interrupteur « Disponible » dans la fiche produit               |
-| État initial         | Activé (produit disponible)                                      |
-| Action               | Clic sur l'interrupteur → bascule disponible / indisponible     |
-| Feedback visuel      | Interrupteur rouge si indisponible, vert si disponible          |
-| Sauvegarde           | Immédiate au clic (pas de confirmation)                          |
+| Élément         | Description                                                 |
+| --------------- | ----------------------------------------------------------- |
+| Déclenchement   | Interrupteur « Disponible » dans la fiche produit           |
+| État initial    | Activé (produit disponible)                                 |
+| Action          | Clic sur l'interrupteur → bascule disponible / indisponible |
+| Feedback visuel | Interrupteur rouge si indisponible, vert si disponible      |
+| Sauvegarde      | Immédiate au clic (pas de confirmation)                     |
 
 ### Règles
 
@@ -194,14 +194,14 @@ Permettre au dépanneur de créer rapidement une copie d'un produit existant pou
 
 ### Comportement
 
-| Élément              | Description                                                      |
-|----------------------|------------------------------------------------------------------|
-| Déclenchement        | Bouton « Dupliquer » dans la fiche produit (admin)              |
-| Action               | Création d'une copie du produit avec toutes ses propriétés      |
-| Modifications auto   | Nom du produit : préfixé par « Copie de »                        |
-|                      | SKU : suffixé par `-copy-[timestamp]`                            |
-|                      | Slug : régénéré à partir du nouveau nom                          |
-| Statut               | Le produit dupliqué est créé en mode « brouillon » (DEP-0625)   |
+| Élément            | Description                                                   |
+| ------------------ | ------------------------------------------------------------- |
+| Déclenchement      | Bouton « Dupliquer » dans la fiche produit (admin)            |
+| Action             | Création d'une copie du produit avec toutes ses propriétés    |
+| Modifications auto | Nom du produit : préfixé par « Copie de »                     |
+|                    | SKU : suffixé par `-copy-[timestamp]`                         |
+|                    | Slug : régénéré à partir du nouveau nom                       |
+| Statut             | Le produit dupliqué est créé en mode « brouillon » (DEP-0625) |
 
 ### Propriétés copiées
 
@@ -232,13 +232,13 @@ Permettre au dépanneur de créer rapidement une copie d'une catégorie existant
 
 ### Comportement
 
-| Élément              | Description                                                      |
-|----------------------|------------------------------------------------------------------|
-| Déclenchement        | Bouton « Dupliquer » dans la fiche catégorie (admin)            |
-| Action               | Création d'une copie de la catégorie                             |
-| Modifications auto   | Nom de la catégorie : préfixé par « Copie de »                   |
-|                      | Slug : régénéré à partir du nouveau nom                          |
-| Produits associés    | **Non dupliqués en V1** — seule la structure est copiée          |
+| Élément            | Description                                             |
+| ------------------ | ------------------------------------------------------- |
+| Déclenchement      | Bouton « Dupliquer » dans la fiche catégorie (admin)    |
+| Action             | Création d'une copie de la catégorie                    |
+| Modifications auto | Nom de la catégorie : préfixé par « Copie de »          |
+|                    | Slug : régénéré à partir du nouveau nom                 |
+| Produits associés  | **Non dupliqués en V1** — seule la structure est copiée |
 
 ### Propriétés copiées
 
@@ -267,13 +267,13 @@ Permettre à un super-administrateur de cloner l'intégralité du catalogue d'un
 
 ### Comportement
 
-| Élément              | Description                                                      |
-|----------------------|------------------------------------------------------------------|
-| Déclenchement        | Bouton « Cloner le catalogue » dans l'interface super-admin      |
-| Sélection            | Choix du tenant source et du tenant destination                  |
-| Confirmation         | Modal : « Cloner [N] produits et [M] catégories vers [tenant] ? » |
-| Action               | Copie complète du catalogue (catégories + produits)              |
-| Durée estimée        | Affichage d'une barre de progression (peut prendre plusieurs minutes) |
+| Élément       | Description                                                           |
+| ------------- | --------------------------------------------------------------------- |
+| Déclenchement | Bouton « Cloner le catalogue » dans l'interface super-admin           |
+| Sélection     | Choix du tenant source et du tenant destination                       |
+| Confirmation  | Modal : « Cloner [N] produits et [M] catégories vers [tenant] ? »     |
+| Action        | Copie complète du catalogue (catégories + produits)                   |
+| Durée estimée | Affichage d'une barre de progression (peut prendre plusieurs minutes) |
 
 ### Éléments clonés
 
@@ -314,14 +314,14 @@ Permettre au dépanneur d'importer un grand nombre de produits en une seule opé
 
 ### Comportement prévu (V2)
 
-| Élément              | Description                                                      |
-|----------------------|------------------------------------------------------------------|
-| Déclenchement        | Bouton « Importer des produits » dans la page liste produits    |
-| Format accepté       | CSV, XLSX                                                        |
-| Colonnes requises    | `nom`, `categorie`, `prix`, `image_url`                          |
-| Colonnes optionnelles| `description`, `sku`, `mots_cles`, `synonymes`, `disponibilite` |
-| Validation           | Vérification des données avant import                            |
-| Erreurs              | Liste des lignes en erreur avec raison                           |
+| Élément               | Description                                                     |
+| --------------------- | --------------------------------------------------------------- |
+| Déclenchement         | Bouton « Importer des produits » dans la page liste produits    |
+| Format accepté        | CSV, XLSX                                                       |
+| Colonnes requises     | `nom`, `categorie`, `prix`, `image_url`                         |
+| Colonnes optionnelles | `description`, `sku`, `mots_cles`, `synonymes`, `disponibilite` |
+| Validation            | Vérification des données avant import                           |
+| Erreurs               | Liste des lignes en erreur avec raison                          |
 
 ### Règles prévues
 
@@ -345,13 +345,13 @@ Permettre au dépanneur d'exporter l'intégralité de son catalogue dans un fich
 
 ### Comportement
 
-| Élément              | Description                                                      |
-|----------------------|------------------------------------------------------------------|
-| Déclenchement        | Bouton « Exporter le catalogue » dans la page liste produits    |
-| Format proposé       | CSV (priorité), JSON (optionnel)                                 |
-| Contenu              | Toutes les catégories et produits avec leurs propriétés         |
-| Nom du fichier       | `catalogue-[tenant-slug]-[date].csv`                             |
-| Téléchargement       | Immédiat (< 1000 produits) ou asynchrone avec notification      |
+| Élément        | Description                                                  |
+| -------------- | ------------------------------------------------------------ |
+| Déclenchement  | Bouton « Exporter le catalogue » dans la page liste produits |
+| Format proposé | CSV (priorité), JSON (optionnel)                             |
+| Contenu        | Toutes les catégories et produits avec leurs propriétés      |
+| Nom du fichier | `catalogue-[tenant-slug]-[date].csv`                         |
+| Téléchargement | Immédiat (< 1000 produits) ou asynchrone avec notification   |
 
 ### Colonnes exportées (CSV)
 
@@ -382,13 +382,13 @@ Permettre au dépanneur de sauvegarder un produit en cours de création ou d'éd
 
 ### Comportement
 
-| Élément              | Description                                                      |
-|----------------------|------------------------------------------------------------------|
-| Déclenchement        | Bouton « Sauvegarder comme brouillon » dans la fiche produit    |
-| État du produit      | `status: draft`                                                  |
-| Visibilité           | Visible uniquement dans l'admin, pas côté client                |
-| Sauvegarde           | Toutes les données sont enregistrées (même incomplètes)         |
-| Validation           | Les validations obligatoires (DEP-0634) **ne sont pas** appliquées |
+| Élément         | Description                                                        |
+| --------------- | ------------------------------------------------------------------ |
+| Déclenchement   | Bouton « Sauvegarder comme brouillon » dans la fiche produit       |
+| État du produit | `status: draft`                                                    |
+| Visibilité      | Visible uniquement dans l'admin, pas côté client                   |
+| Sauvegarde      | Toutes les données sont enregistrées (même incomplètes)            |
+| Validation      | Les validations obligatoires (DEP-0634) **ne sont pas** appliquées |
 
 ### Affichage dans l'admin
 
@@ -417,13 +417,13 @@ Permettre au dépanneur de publier un brouillon ou un nouveau produit pour le re
 
 ### Comportement
 
-| Élément              | Description                                                      |
-|----------------------|------------------------------------------------------------------|
-| Déclenchement        | Bouton « Publier » dans la fiche produit                         |
-| État du produit      | `status: published`                                              |
-| Validation           | Les validations obligatoires (DEP-0634) **sont appliquées**     |
-| Blocage si erreur    | Si validation échoue, affichage des erreurs sans publication    |
-| Visibilité           | Le produit apparaît immédiatement côté client                   |
+| Élément           | Description                                                  |
+| ----------------- | ------------------------------------------------------------ |
+| Déclenchement     | Bouton « Publier » dans la fiche produit                     |
+| État du produit   | `status: published`                                          |
+| Validation        | Les validations obligatoires (DEP-0634) **sont appliquées**  |
+| Blocage si erreur | Si validation échoue, affichage des erreurs sans publication |
+| Visibilité        | Le produit apparaît immédiatement côté client                |
 
 ### Validations obligatoires avant publication (DEP-0634)
 
@@ -459,13 +459,13 @@ Définir la page principale de consultation et gestion des produits dans l'inter
 
 ### Structure de la page
 
-| Zone                 | Contenu                                                         | Position desktop       | Position mobile          |
-|----------------------|-----------------------------------------------------------------|------------------------|--------------------------|
-| Header               | Titre « Gestion des produits », bouton « Ajouter un produit »  | Haut — pleine largeur  | Haut — pleine largeur    |
-| Barre de filtres     | Recherche, filtre catégorie, filtre statut, filtre disponibilité | Sous le header         | Sous le header (empilé)  |
-| Onglets              | « Tous », « Publiés », « Brouillons », « Indisponibles »        | Sous la barre de filtres | Scroll horizontal        |
-| Zone principale      | Grille ou liste des produits (cartes avec miniature + infos)   | Corps principal        | Corps principal (liste)  |
-| Pagination           | « Précédent » / « Suivant », indicateur page actuelle           | Bas de la zone principale | Bas (flottant)          |
+| Zone             | Contenu                                                          | Position desktop          | Position mobile         |
+| ---------------- | ---------------------------------------------------------------- | ------------------------- | ----------------------- |
+| Header           | Titre « Gestion des produits », bouton « Ajouter un produit »    | Haut — pleine largeur     | Haut — pleine largeur   |
+| Barre de filtres | Recherche, filtre catégorie, filtre statut, filtre disponibilité | Sous le header            | Sous le header (empilé) |
+| Onglets          | « Tous », « Publiés », « Brouillons », « Indisponibles »         | Sous la barre de filtres  | Scroll horizontal       |
+| Zone principale  | Grille ou liste des produits (cartes avec miniature + infos)     | Corps principal           | Corps principal (liste) |
+| Pagination       | « Précédent » / « Suivant », indicateur page actuelle            | Bas de la zone principale | Bas (flottant)          |
 
 ### Accès
 
@@ -474,17 +474,18 @@ Définir la page principale de consultation et gestion des produits dans l'inter
 
 ### Comportement de la liste
 
-| Élément              | Description                                                      |
-|----------------------|------------------------------------------------------------------|
-| Tri par défaut       | Ordre d'affichage défini (DEP-0616) puis alphabétique           |
-| Recherche            | Recherche par nom, SKU, mots-clés, synonymes                    |
-| Filtres              | Catégorie, statut (publié/brouillon), disponibilité             |
-| Actions par carte    | « Modifier », « Dupliquer », « Supprimer »                       |
-| Sélection multiple   | Cases à cocher pour actions groupées (V2)                        |
+| Élément            | Description                                           |
+| ------------------ | ----------------------------------------------------- |
+| Tri par défaut     | Ordre d'affichage défini (DEP-0616) puis alphabétique |
+| Recherche          | Recherche par nom, SKU, mots-clés, synonymes          |
+| Filtres            | Catégorie, statut (publié/brouillon), disponibilité   |
+| Actions par carte  | « Modifier », « Dupliquer », « Supprimer »            |
+| Sélection multiple | Cases à cocher pour actions groupées (V2)             |
 
 ### Affichage des cartes produits
 
 Chaque carte affiche :
+
 - Miniature image principale (150×150 px)
 - Nom du produit (tronqué après 40 caractères)
 - Catégorie (label)
@@ -513,31 +514,31 @@ Définir la page dédiée à la création d'un nouveau produit dans l'interface 
 
 ### Structure de la page
 
-| Zone                 | Contenu                                                         | Position desktop       | Position mobile          |
-|----------------------|-----------------------------------------------------------------|------------------------|--------------------------|
-| Header               | Titre « Ajouter un produit », bouton « Annuler »               | Haut — pleine largeur  | Haut — pleine largeur    |
-| Formulaire principal | Tous les champs du produit (voir détails ci-dessous)            | Colonne principale (70%) | Empilé pleine largeur   |
-| Panneau actions      | Boutons « Sauvegarder comme brouillon », « Publier »           | Colonne droite (30%)   | Flottant en bas          |
-| Zone glisser-déposer | Upload des images (DEP-0631)                                    | En haut du formulaire  | En haut du formulaire    |
+| Zone                 | Contenu                                              | Position desktop         | Position mobile       |
+| -------------------- | ---------------------------------------------------- | ------------------------ | --------------------- |
+| Header               | Titre « Ajouter un produit », bouton « Annuler »     | Haut — pleine largeur    | Haut — pleine largeur |
+| Formulaire principal | Tous les champs du produit (voir détails ci-dessous) | Colonne principale (70%) | Empilé pleine largeur |
+| Panneau actions      | Boutons « Sauvegarder comme brouillon », « Publier » | Colonne droite (30%)     | Flottant en bas       |
+| Zone glisser-déposer | Upload des images (DEP-0631)                         | En haut du formulaire    | En haut du formulaire |
 
 ### Champs du formulaire
 
-| Champ                | Type          | Obligatoire | Validation (DEP-0634)                    |
-|----------------------|---------------|-------------|------------------------------------------|
-| Nom du produit       | Texte         | Oui         | ≤ 80 caractères                          |
-| Catégorie            | Liste déroulante | Oui      | Catégorie valide existante               |
-| SKU                  | Texte         | Non         | Unique dans le tenant, ≤ 50 caractères   |
-| Description courte   | Texte         | Non         | 50-80 caractères recommandés             |
-| Description longue   | Textarea      | Non         | 150-300 caractères recommandés           |
-| Prix                 | Nombre décimal | Oui        | > 0                                      |
-| Unité de vente       | Liste déroulante | Oui      | `piece`, `litre`, `kg`, etc.             |
-| Conditionnement      | Texte         | Non         | Ex : « Bouteille 1L », « Paquet de 4 »  |
-| Disponibilité        | Liste déroulante | Oui      | `en_stock`, `rupture`, `sur_commande`    |
-| Mots-clés            | Tags          | Non         | 5-15 mots-clés séparés par `,`           |
-| Synonymes parlés     | Tags          | Non         | 5-20 synonymes séparés par `,`           |
-| Synonymes téléphoniques | Tags       | Non         | 8-25 synonymes séparés par `,`           |
-| Allergènes/notes     | Textarea      | Non         | Texte libre                              |
-| Vedette              | Interrupteur  | Non         | Booléen                                  |
+| Champ                   | Type             | Obligatoire | Validation (DEP-0634)                  |
+| ----------------------- | ---------------- | ----------- | -------------------------------------- |
+| Nom du produit          | Texte            | Oui         | ≤ 80 caractères                        |
+| Catégorie               | Liste déroulante | Oui         | Catégorie valide existante             |
+| SKU                     | Texte            | Non         | Unique dans le tenant, ≤ 50 caractères |
+| Description courte      | Texte            | Non         | 50-80 caractères recommandés           |
+| Description longue      | Textarea         | Non         | 150-300 caractères recommandés         |
+| Prix                    | Nombre décimal   | Oui         | > 0                                    |
+| Unité de vente          | Liste déroulante | Oui         | `piece`, `litre`, `kg`, etc.           |
+| Conditionnement         | Texte            | Non         | Ex : « Bouteille 1L », « Paquet de 4 » |
+| Disponibilité           | Liste déroulante | Oui         | `en_stock`, `rupture`, `sur_commande`  |
+| Mots-clés               | Tags             | Non         | 5-15 mots-clés séparés par `,`         |
+| Synonymes parlés        | Tags             | Non         | 5-20 synonymes séparés par `,`         |
+| Synonymes téléphoniques | Tags             | Non         | 8-25 synonymes séparés par `,`         |
+| Allergènes/notes        | Textarea         | Non         | Texte libre                            |
+| Vedette                 | Interrupteur     | Non         | Booléen                                |
 
 ### Actions disponibles
 
@@ -568,12 +569,12 @@ Définir la page dédiée à la modification d'un produit existant dans l'interf
 
 Identique à la page d'ajout (DEP-0628) avec les différences suivantes :
 
-| Zone                 | Différence par rapport à l'ajout                                |
-|----------------------|-----------------------------------------------------------------|
-| Header               | Titre « Modifier : [nom du produit] »                           |
-| Formulaire           | Tous les champs pré-remplis avec les valeurs actuelles         |
-| Panneau actions      | Boutons « Enregistrer les modifications », « Supprimer »        |
-| Historique           | Section optionnelle : « Dernière modification le [date] par [utilisateur] » |
+| Zone            | Différence par rapport à l'ajout                                            |
+| --------------- | --------------------------------------------------------------------------- |
+| Header          | Titre « Modifier : [nom du produit] »                                       |
+| Formulaire      | Tous les champs pré-remplis avec les valeurs actuelles                      |
+| Panneau actions | Boutons « Enregistrer les modifications », « Supprimer »                    |
+| Historique      | Section optionnelle : « Dernière modification le [date] par [utilisateur] » |
 
 ### Actions disponibles
 
@@ -609,12 +610,12 @@ Définir la page dédiée à la gestion des catégories du catalogue dans l'inte
 
 ### Structure de la page
 
-| Zone                 | Contenu                                                         | Position desktop       | Position mobile          |
-|----------------------|-----------------------------------------------------------------|------------------------|--------------------------|
-| Header               | Titre « Gestion des catégories », bouton « Ajouter une catégorie » | Haut — pleine largeur | Haut — pleine largeur   |
-| Barre de filtres     | Recherche par nom de catégorie                                  | Sous le header         | Sous le header           |
-| Zone principale      | Liste hiérarchique des catégories (arborescence)                | Corps principal        | Liste empilée            |
-| Panneau détail       | Formulaire d'édition de la catégorie sélectionnée               | Colonne droite (30%)   | Modal plein écran        |
+| Zone             | Contenu                                                            | Position desktop      | Position mobile       |
+| ---------------- | ------------------------------------------------------------------ | --------------------- | --------------------- |
+| Header           | Titre « Gestion des catégories », bouton « Ajouter une catégorie » | Haut — pleine largeur | Haut — pleine largeur |
+| Barre de filtres | Recherche par nom de catégorie                                     | Sous le header        | Sous le header        |
+| Zone principale  | Liste hiérarchique des catégories (arborescence)                   | Corps principal       | Liste empilée         |
+| Panneau détail   | Formulaire d'édition de la catégorie sélectionnée                  | Colonne droite (30%)  | Modal plein écran     |
 
 ### Accès
 
@@ -623,22 +624,22 @@ Définir la page dédiée à la gestion des catégories du catalogue dans l'inte
 
 ### Affichage de la liste
 
-| Élément              | Description                                                      |
-|----------------------|------------------------------------------------------------------|
-| Tri par défaut       | Ordre d'affichage défini (DEP-0617) puis alphabétique           |
-| Hiérarchie           | Catégories parentes en gras, enfants en retrait (indent)        |
-| Actions par ligne    | « Modifier », « Dupliquer », « Supprimer »                       |
-| Mode réorganisation  | Bouton « Réorganiser » active le glisser-déposer (DEP-0617)     |
+| Élément             | Description                                                 |
+| ------------------- | ----------------------------------------------------------- |
+| Tri par défaut      | Ordre d'affichage défini (DEP-0617) puis alphabétique       |
+| Hiérarchie          | Catégories parentes en gras, enfants en retrait (indent)    |
+| Actions par ligne   | « Modifier », « Dupliquer », « Supprimer »                  |
+| Mode réorganisation | Bouton « Réorganiser » active le glisser-déposer (DEP-0617) |
 
 ### Formulaire d'ajout/édition catégorie
 
-| Champ                | Type          | Obligatoire | Validation                               |
-|----------------------|---------------|-------------|------------------------------------------|
-| Nom de la catégorie  | Texte         | Oui         | ≤ 60 caractères                          |
-| Slug                 | Texte         | Oui         | Auto-généré, modifiable, unique          |
-| Catégorie parente    | Liste déroulante | Non      | Catégorie existante (pour hiérarchie)    |
-| Description          | Textarea      | Non         | ≤ 200 caractères                         |
-| Icône                | Sélecteur     | Non         | Choix d'icône Lucide ou image            |
+| Champ               | Type             | Obligatoire | Validation                            |
+| ------------------- | ---------------- | ----------- | ------------------------------------- |
+| Nom de la catégorie | Texte            | Oui         | ≤ 60 caractères                       |
+| Slug                | Texte            | Oui         | Auto-généré, modifiable, unique       |
+| Catégorie parente   | Liste déroulante | Non         | Catégorie existante (pour hiérarchie) |
+| Description         | Textarea         | Non         | ≤ 200 caractères                      |
+| Icône               | Sélecteur        | Non         | Choix d'icône Lucide ou image         |
 
 ### Actions disponibles
 
@@ -669,15 +670,15 @@ Définir la zone d'interaction permettant au dépanneur de téléverser et organ
 
 ### Comportement
 
-| Élément              | Description                                                      |
-|----------------------|------------------------------------------------------------------|
-| Position             | En haut de la fiche produit (ajout/édition)                      |
+| Élément              | Description                                                              |
+| -------------------- | ------------------------------------------------------------------------ |
+| Position             | En haut de la fiche produit (ajout/édition)                              |
 | Zone de dépôt        | Rectangle pointillé avec icône « + » et texte « Glisser les images ici » |
-| Interaction          | Clic → ouvre l'explorateur de fichiers                           |
-|                      | Glisser-déposer → upload direct des fichiers                     |
-| Formats acceptés     | `.jpg`, `.jpeg`, `.png`, `.webp`                                 |
-| Taille max par image | 5 Mo                                                             |
-| Nombre max d'images  | 5 images par produit (1 principale + 4 secondaires)             |
+| Interaction          | Clic → ouvre l'explorateur de fichiers                                   |
+|                      | Glisser-déposer → upload direct des fichiers                             |
+| Formats acceptés     | `.jpg`, `.jpeg`, `.png`, `.webp`                                         |
+| Taille max par image | 5 Mo                                                                     |
+| Nombre max d'images  | 5 images par produit (1 principale + 4 secondaires)                      |
 
 ### Affichage après upload
 
@@ -688,11 +689,11 @@ Définir la zone d'interaction permettant au dépanneur de téléverser et organ
 
 ### Feedback visuel
 
-| Événement            | Feedback                                                         |
-|----------------------|------------------------------------------------------------------|
-| Survol zone de dépôt | Bordure bleue animée                                             |
-| Upload en cours      | Barre de progression par image                                   |
-| Upload réussi        | Miniature apparaît avec animation fade-in                        |
+| Événement            | Feedback                                                                               |
+| -------------------- | -------------------------------------------------------------------------------------- |
+| Survol zone de dépôt | Bordure bleue animée                                                                   |
+| Upload en cours      | Barre de progression par image                                                         |
+| Upload réussi        | Miniature apparaît avec animation fade-in                                              |
 | Erreur               | Message d'erreur sous la zone : « Format non supporté » ou « Fichier trop volumineux » |
 
 ### Règles
@@ -730,12 +731,12 @@ Référence complète : **DEP-0616 — Action de réorganisation des produits pa
 
 ### Feedback visuel
 
-| Élément              | Description                                                      |
-|----------------------|------------------------------------------------------------------|
-| Curseur              | Icône « main ouverte » au survol, « main fermée » au clic        |
-| Produit en mouvement | Ombre portée, opacité 0.8, suit le curseur                       |
-| Indicateur de dépôt  | Ligne bleue horizontale entre deux produits                      |
-| Désactivation        | Produits non déplaçables ont un curseur « interdit »             |
+| Élément              | Description                                               |
+| -------------------- | --------------------------------------------------------- |
+| Curseur              | Icône « main ouverte » au survol, « main fermée » au clic |
+| Produit en mouvement | Ombre portée, opacité 0.8, suit le curseur                |
+| Indicateur de dépôt  | Ligne bleue horizontale entre deux produits               |
+| Désactivation        | Produits non déplaçables ont un curseur « interdit »      |
 
 ### Règles
 
@@ -772,12 +773,12 @@ Référence complète : **DEP-0617 — Action de réorganisation des catégories
 
 ### Feedback visuel
 
-| Élément              | Description                                                      |
-|----------------------|------------------------------------------------------------------|
-| Curseur              | Icône « main ouverte » au survol, « main fermée » au clic        |
-| Catégorie en mouvement | Ombre portée, opacité 0.8, suit le curseur                     |
-| Indicateur de dépôt  | Ligne bleue horizontale entre deux catégories                    |
-| Hiérarchie           | Les catégories enfants suivent leur parent automatiquement      |
+| Élément                | Description                                                |
+| ---------------------- | ---------------------------------------------------------- |
+| Curseur                | Icône « main ouverte » au survol, « main fermée » au clic  |
+| Catégorie en mouvement | Ombre portée, opacité 0.8, suit le curseur                 |
+| Indicateur de dépôt    | Ligne bleue horizontale entre deux catégories              |
+| Hiérarchie             | Les catégories enfants suivent leur parent automatiquement |
 
 ### Règles
 
@@ -806,34 +807,34 @@ Définir les règles de validation appliquées lors de la publication d'un produ
 
 ### Validations obligatoires (bloquantes pour publication)
 
-| Champ                | Règle                                                            | Message d'erreur                                 |
-|----------------------|------------------------------------------------------------------|--------------------------------------------------|
-| Nom du produit       | Non vide, ≤ 80 caractères                                        | « Le nom du produit est obligatoire (max 80 car.) » |
-| Catégorie            | Catégorie valide assignée                                        | « Veuillez sélectionner une catégorie »          |
-| Prix                 | Nombre > 0 (si produit payant)                                   | « Le prix doit être supérieur à 0 »              |
-| Unité de vente       | Valeur définie (`piece`, `litre`, `kg`, etc.)                    | « Veuillez sélectionner une unité de vente »     |
-| Disponibilité        | État défini (`en_stock`, `rupture`, `sur_commande`)              | « Veuillez définir la disponibilité »            |
-| Images               | Au moins une image présente                                      | « Au moins une image est requise »               |
+| Champ          | Règle                                               | Message d'erreur                                    |
+| -------------- | --------------------------------------------------- | --------------------------------------------------- |
+| Nom du produit | Non vide, ≤ 80 caractères                           | « Le nom du produit est obligatoire (max 80 car.) » |
+| Catégorie      | Catégorie valide assignée                           | « Veuillez sélectionner une catégorie »             |
+| Prix           | Nombre > 0 (si produit payant)                      | « Le prix doit être supérieur à 0 »                 |
+| Unité de vente | Valeur définie (`piece`, `litre`, `kg`, etc.)       | « Veuillez sélectionner une unité de vente »        |
+| Disponibilité  | État défini (`en_stock`, `rupture`, `sur_commande`) | « Veuillez définir la disponibilité »               |
+| Images         | Au moins une image présente                         | « Au moins une image est requise »                  |
 
 ### Validations recommandées (avertissements, non bloquantes)
 
-| Champ                | Règle                                                            | Message d'avertissement                          |
-|----------------------|------------------------------------------------------------------|--------------------------------------------------|
-| Description courte   | 50-80 caractères                                                 | « Description courte recommandée : 50-80 car. »  |
-| Description longue   | 150-300 caractères                                               | « Description longue recommandée : 150-300 car. » |
-| Mots-clés            | 5-15 mots-clés                                                   | « Ajoutez 5-15 mots-clés pour améliorer la recherche » |
-| Synonymes parlés     | 5-20 synonymes                                                   | « Ajoutez des synonymes pour l'assistant vocal » |
-| Images secondaires   | 2-4 images recommandées                                          | « Ajoutez plus d'images pour une meilleure présentation » |
+| Champ              | Règle                   | Message d'avertissement                                   |
+| ------------------ | ----------------------- | --------------------------------------------------------- |
+| Description courte | 50-80 caractères        | « Description courte recommandée : 50-80 car. »           |
+| Description longue | 150-300 caractères      | « Description longue recommandée : 150-300 car. »         |
+| Mots-clés          | 5-15 mots-clés          | « Ajoutez 5-15 mots-clés pour améliorer la recherche »    |
+| Synonymes parlés   | 5-20 synonymes          | « Ajoutez des synonymes pour l'assistant vocal »          |
+| Images secondaires | 2-4 images recommandées | « Ajoutez plus d'images pour une meilleure présentation » |
 
 ### Validations techniques
 
-| Règle                | Description                                                      | Traitement                                       |
-|----------------------|------------------------------------------------------------------|--------------------------------------------------|
-| SKU unique           | Le SKU doit être unique dans le tenant                           | Erreur : « SKU déjà utilisé pour un autre produit » |
-| Slug unique          | Le slug doit être unique dans le tenant                          | Erreur : « URL déjà utilisée, modifiez le nom » |
-| Catégorie existante  | La catégorie assignée doit exister                               | Erreur : « Catégorie invalide »                  |
-| Prix numérique       | Le prix doit être un nombre décimal valide                       | Erreur : « Prix invalide »                       |
-| Images accessibles   | Les URLs des images doivent être accessibles (HTTP 200)          | Avertissement : « Une image est inaccessible »   |
+| Règle               | Description                                             | Traitement                                          |
+| ------------------- | ------------------------------------------------------- | --------------------------------------------------- |
+| SKU unique          | Le SKU doit être unique dans le tenant                  | Erreur : « SKU déjà utilisé pour un autre produit » |
+| Slug unique         | Le slug doit être unique dans le tenant                 | Erreur : « URL déjà utilisée, modifiez le nom »     |
+| Catégorie existante | La catégorie assignée doit exister                      | Erreur : « Catégorie invalide »                     |
+| Prix numérique      | Le prix doit être un nombre décimal valide              | Erreur : « Prix invalide »                          |
+| Images accessibles  | Les URLs des images doivent être accessibles (HTTP 200) | Avertissement : « Une image est inaccessible »      |
 
 ### Affichage des erreurs
 

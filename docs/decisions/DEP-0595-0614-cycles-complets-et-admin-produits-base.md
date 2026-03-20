@@ -25,15 +25,15 @@ Valider qu'une commande passée en mode **manuel** suit correctement tout le cyc
 
 ### Scénario de test nominal
 
-| Étape | Acteur | Action | Attendu |
-|-------|--------|--------|---------|
-| 1 | Client | Ajoute 2 produits au panier, clique "Commander" | Création commande `en_attente` + horodatage `created_at` (DEP-0586) |
-| 2 | Dépanneur | Accepte la commande | Transition `en_attente` -> `en_preparation` + `accepted_at` (DEP-0587) |
-| 3 | Dépanneur | Marque la commande prête | Transition `en_preparation` -> `prete` + création livraison `non_assignee` |
-| 4 | Dépanneur | Assigne un livreur | Livraison `assignee`, commande reste `prete` |
-| 5 | Livreur | Confirme départ | Livraison `en_route`, commande `en_livraison` |
-| 6 | Livreur | Confirme remise + paiement collecté | Livraison `livree`, commande `livree`, paiement `paiement_collecte` (DEP-0583) |
-| 7 | Système | Journalise l'historique complet | Entrées DEP-0585 présentes, aucune transition interdite |
+| Étape | Acteur    | Action                                          | Attendu                                                                        |
+| ----- | --------- | ----------------------------------------------- | ------------------------------------------------------------------------------ |
+| 1     | Client    | Ajoute 2 produits au panier, clique "Commander" | Création commande `en_attente` + horodatage `created_at` (DEP-0586)            |
+| 2     | Dépanneur | Accepte la commande                             | Transition `en_attente` -> `en_preparation` + `accepted_at` (DEP-0587)         |
+| 3     | Dépanneur | Marque la commande prête                        | Transition `en_preparation` -> `prete` + création livraison `non_assignee`     |
+| 4     | Dépanneur | Assigne un livreur                              | Livraison `assignee`, commande reste `prete`                                   |
+| 5     | Livreur   | Confirme départ                                 | Livraison `en_route`, commande `en_livraison`                                  |
+| 6     | Livreur   | Confirme remise + paiement collecté             | Livraison `livree`, commande `livree`, paiement `paiement_collecte` (DEP-0583) |
+| 7     | Système   | Journalise l'historique complet                 | Entrées DEP-0585 présentes, aucune transition interdite                        |
 
 ### Critères de réussite
 
@@ -56,13 +56,13 @@ Valider le parcours complet via l'**assistant texte** (chat) en garantissant l'a
 
 ### Scénario de test nominal
 
-| Étape | Acteur | Action | Attendu |
-|-------|--------|--------|---------|
-| 1 | Client | Demande un produit via l'assistant, confirme les suggestions | Panier rempli, création commande `en_attente` |
-| 2 | Assistant | Affiche récapitulatif et demande confirmation | Confirmation enregistrée, pas de paiement en ligne |
-| 3 | Dépanneur | Accepte puis prépare | Transitions `en_attente` -> `en_preparation` -> `prete` |
-| 4 | Livreur | Prend en charge puis livre | Livraison `en_route` -> `arrivee` -> `livree`, commande `en_livraison` -> `livree` |
-| 5 | Assistant | Notifie le client de chaque changement | Messages reflètent les mêmes statuts que l'interface dépanneur |
+| Étape | Acteur    | Action                                                       | Attendu                                                                            |
+| ----- | --------- | ------------------------------------------------------------ | ---------------------------------------------------------------------------------- |
+| 1     | Client    | Demande un produit via l'assistant, confirme les suggestions | Panier rempli, création commande `en_attente`                                      |
+| 2     | Assistant | Affiche récapitulatif et demande confirmation                | Confirmation enregistrée, pas de paiement en ligne                                 |
+| 3     | Dépanneur | Accepte puis prépare                                         | Transitions `en_attente` -> `en_preparation` -> `prete`                            |
+| 4     | Livreur   | Prend en charge puis livre                                   | Livraison `en_route` -> `arrivee` -> `livree`, commande `en_livraison` -> `livree` |
+| 5     | Assistant | Notifie le client de chaque changement                       | Messages reflètent les mêmes statuts que l'interface dépanneur                     |
 
 ### Critères de réussite
 
@@ -85,13 +85,13 @@ Valider le parcours complet via l'**assistant voix web** (micro navigateur) en r
 
 ### Scénario de test nominal
 
-| Étape | Acteur | Action | Attendu |
-|-------|--------|--------|---------|
-| 1 | Client | Dicte la liste d'articles, confirme vocalement | Commande `en_attente` créée, transcription sauvegardée |
-| 2 | Assistant voix | Lit le récapitulatif et demande confirmation finale | Aucun prix public obligatoire (paiement à la livraison) |
-| 3 | Dépanneur | Accepte, prépare, marque prête | Transitions identiques au mode manuel |
-| 4 | Livreur | Confirme départ puis livraison | Livraison `en_route` -> `arrivee` -> `livree`, commande `livree` |
-| 5 | Système | Historise audio/transcription liée à la commande | Trace associée sans créer d'état spécifique |
+| Étape | Acteur         | Action                                              | Attendu                                                          |
+| ----- | -------------- | --------------------------------------------------- | ---------------------------------------------------------------- |
+| 1     | Client         | Dicte la liste d'articles, confirme vocalement      | Commande `en_attente` créée, transcription sauvegardée           |
+| 2     | Assistant voix | Lit le récapitulatif et demande confirmation finale | Aucun prix public obligatoire (paiement à la livraison)          |
+| 3     | Dépanneur      | Accepte, prépare, marque prête                      | Transitions identiques au mode manuel                            |
+| 4     | Livreur        | Confirme départ puis livraison                      | Livraison `en_route` -> `arrivee` -> `livree`, commande `livree` |
+| 5     | Système        | Historise audio/transcription liée à la commande    | Trace associée sans créer d'état spécifique                      |
 
 ### Critères de réussite
 
@@ -114,13 +114,13 @@ Valider le cycle complet via l'**agent téléphonique** (DEP-0441 à DEP-0456) a
 
 ### Scénario de test nominal
 
-| Étape | Acteur | Action | Attendu |
-|-------|--------|--------|---------|
-| 1 | Agent vocal | Accueille, collecte identité et commande, lit le récapitulatif | Commande `en_attente` créée dès validation orale |
-| 2 | Dépanneur | Accepte depuis l'interface réception | Passage `en_attente` -> `en_preparation` |
-| 3 | Dépanneur | Marque prête puis assigne un livreur | Commande `prete`, livraison `assignee` |
-| 4 | Livreur | Confirme départ puis livraison | Livraison `en_route` -> `livree`, commande `livree` |
-| 5 | Agent vocal | Envoie SMS de confirmation finale (optionnel V1) | Message utilise les mêmes statuts et IDs |
+| Étape | Acteur      | Action                                                         | Attendu                                             |
+| ----- | ----------- | -------------------------------------------------------------- | --------------------------------------------------- |
+| 1     | Agent vocal | Accueille, collecte identité et commande, lit le récapitulatif | Commande `en_attente` créée dès validation orale    |
+| 2     | Dépanneur   | Accepte depuis l'interface réception                           | Passage `en_attente` -> `en_preparation`            |
+| 3     | Dépanneur   | Marque prête puis assigne un livreur                           | Commande `prete`, livraison `assignee`              |
+| 4     | Livreur     | Confirme départ puis livraison                                 | Livraison `en_route` -> `livree`, commande `livree` |
+| 5     | Agent vocal | Envoie SMS de confirmation finale (optionnel V1)               | Message utilise les mêmes statuts et IDs            |
 
 ### Critères de réussite
 
@@ -182,12 +182,12 @@ Définir l'interface de base permettant au dépanneur (rôle `depanneur` ou `adm
 
 ### Structure de page
 
-| Zone | Contenu | Position |
-|------|---------|----------|
-| Header | Titre "Produits", bouton "Ajouter un produit", filtre tenant (si multi-tenant) | Haut |
-| Filtres | Recherche par nom/sku, filtre catégorie, filtre disponibilité (`en_stock`, `faible_stock`, `rupture`, `archive`), filtre vedette/populaire | Bandeau sous header |
-| Liste | Tableau produits avec colonnes : image principale, nom, sku, catégorie, disponibilité, prix interne, badges mots-clés/synonymes, actions (éditer, archiver) | Corps |
-| Panneau latéral/modal | Formulaire d'ajout/édition (champs DEP-0602 à DEP-0610) | Droite ou modal |
+| Zone                  | Contenu                                                                                                                                                     | Position            |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| Header                | Titre "Produits", bouton "Ajouter un produit", filtre tenant (si multi-tenant)                                                                              | Haut                |
+| Filtres               | Recherche par nom/sku, filtre catégorie, filtre disponibilité (`en_stock`, `faible_stock`, `rupture`, `archive`), filtre vedette/populaire                  | Bandeau sous header |
+| Liste                 | Tableau produits avec colonnes : image principale, nom, sku, catégorie, disponibilité, prix interne, badges mots-clés/synonymes, actions (éditer, archiver) | Corps               |
+| Panneau latéral/modal | Formulaire d'ajout/édition (champs DEP-0602 à DEP-0610)                                                                                                     | Droite ou modal     |
 
 ### Règles d'accès et d'usage
 
@@ -205,20 +205,20 @@ Définir les champs minimums pour créer un produit dans l'interface admin.
 
 ### Champs
 
-| Champ | Type | Obligatoire | Règles |
-|-------|------|-------------|--------|
-| Nom produit | Texte | Oui | 25-80 caractères (DEP-0256) |
-| SKU | Texte | Oui | Unique par tenant, alphanumérique simple |
-| Slug | Texte (auto) | Oui | Généré depuis le nom, éditable avant création uniquement |
-| Catégorie | Sélecteur (DEP-0605) | Oui | Catégorie active obligatoire |
-| Description courte | Texte | Oui | 50-80 caractères recommandés (DEP-0256) |
-| Description longue | Texte | Non | 150-300 caractères recommandés (DEP-0256) |
-| Variante par défaut | Select | Oui | Unité/conditionnement (DEP-0244) |
-| Disponibilité | Select (DEP-0607) | Oui | Valeur initiale `en_stock` ou `faible_stock` |
-| Prix interne | Numérique (DEP-0608) | Oui | Montant TTC interne par variante ou par produit |
-| Images | Bloc (DEP-0606) | Oui | Image principale requise avant enregistrement |
-| Mots-clés | Liste (DEP-0609) | Oui | 5 à 15 mots-clés |
-| Synonymes | Liste (DEP-0610) | Non | 5 à 20 synonymes conseillés |
+| Champ               | Type                 | Obligatoire | Règles                                                   |
+| ------------------- | -------------------- | ----------- | -------------------------------------------------------- |
+| Nom produit         | Texte                | Oui         | 25-80 caractères (DEP-0256)                              |
+| SKU                 | Texte                | Oui         | Unique par tenant, alphanumérique simple                 |
+| Slug                | Texte (auto)         | Oui         | Généré depuis le nom, éditable avant création uniquement |
+| Catégorie           | Sélecteur (DEP-0605) | Oui         | Catégorie active obligatoire                             |
+| Description courte  | Texte                | Oui         | 50-80 caractères recommandés (DEP-0256)                  |
+| Description longue  | Texte                | Non         | 150-300 caractères recommandés (DEP-0256)                |
+| Variante par défaut | Select               | Oui         | Unité/conditionnement (DEP-0244)                         |
+| Disponibilité       | Select (DEP-0607)    | Oui         | Valeur initiale `en_stock` ou `faible_stock`             |
+| Prix interne        | Numérique (DEP-0608) | Oui         | Montant TTC interne par variante ou par produit          |
+| Images              | Bloc (DEP-0606)      | Oui         | Image principale requise avant enregistrement            |
+| Mots-clés           | Liste (DEP-0609)     | Oui         | 5 à 15 mots-clés                                         |
+| Synonymes           | Liste (DEP-0610)     | Non         | 5 à 20 synonymes conseillés                              |
 
 ### Règles
 
@@ -236,18 +236,18 @@ Définir ce qui est éditable après création et comment l'interface doit le pr
 
 ### Éditable vs non éditable
 
-| Élément | Éditable ? | Détail |
-|---------|------------|--------|
-| Nom produit | Oui | Re-génération optionnelle du slug (avec confirmation) |
-| SKU | Non | Immobile pour éviter la rupture de traçabilité |
-| Slug | Non après création | Modifiable uniquement lors de l'ajout |
-| Catégorie | Oui | Changement avec avertissement sur SEO interne |
-| Description courte/longue | Oui | Avec comptage de caractères |
-| Variantes | Oui | Ajout/suppression/édition sous-reserve de stock |
-| Disponibilité | Oui | Via champ DEP-0607 |
-| Prix interne | Oui | Via champ DEP-0608 |
-| Images | Oui | Via actions DEP-0611 à DEP-0614 |
-| Mots-clés/Synonymes | Oui | Via champs DEP-0609/DEP-0610 |
+| Élément                   | Éditable ?         | Détail                                                |
+| ------------------------- | ------------------ | ----------------------------------------------------- |
+| Nom produit               | Oui                | Re-génération optionnelle du slug (avec confirmation) |
+| SKU                       | Non                | Immobile pour éviter la rupture de traçabilité        |
+| Slug                      | Non après création | Modifiable uniquement lors de l'ajout                 |
+| Catégorie                 | Oui                | Changement avec avertissement sur SEO interne         |
+| Description courte/longue | Oui                | Avec comptage de caractères                           |
+| Variantes                 | Oui                | Ajout/suppression/édition sous-reserve de stock       |
+| Disponibilité             | Oui                | Via champ DEP-0607                                    |
+| Prix interne              | Oui                | Via champ DEP-0608                                    |
+| Images                    | Oui                | Via actions DEP-0611 à DEP-0614                       |
+| Mots-clés/Synonymes       | Oui                | Via champs DEP-0609/DEP-0610                          |
 
 ### Règles
 
@@ -264,12 +264,12 @@ Définir les informations demandées lorsqu'un produit est **archivé** (passage
 
 ### Champs
 
-| Champ | Type | Obligatoire | Règles |
-|-------|------|-------------|--------|
-| Motif d'archivage | Texte court | Oui | Ex : rupture longue, fin de gamme |
-| Date d'effet | Date | Oui | Par défaut aujourd'hui |
-| Remplaçant éventuel | Sélecteur produit | Non | Option pour suggérer un substitut |
-| Note interne | Texte libre | Non | Visible équipe dépanneur uniquement |
+| Champ               | Type              | Obligatoire | Règles                              |
+| ------------------- | ----------------- | ----------- | ----------------------------------- |
+| Motif d'archivage   | Texte court       | Oui         | Ex : rupture longue, fin de gamme   |
+| Date d'effet        | Date              | Oui         | Par défaut aujourd'hui              |
+| Remplaçant éventuel | Sélecteur produit | Non         | Option pour suggérer un substitut   |
+| Note interne        | Texte libre       | Non         | Visible équipe dépanneur uniquement |
 
 ### Règles
 
@@ -287,11 +287,11 @@ Préciser les champs de catégorisation dans le formulaire produit.
 
 ### Champs
 
-| Champ | Type | Obligatoire | Règles |
-|-------|------|-------------|--------|
-| Catégorie principale | Sélecteur hiérarchique | Oui | Liste des catégories actives (DEP-0241) |
-| Sous-catégorie | Sélecteur hiérarchique | Non | Visible si la catégorie sélectionnée a des enfants |
-| Ordre d'affichage | Numérique | Non | Valeur par défaut issue de DEP-0256, éditable |
+| Champ                | Type                   | Obligatoire | Règles                                             |
+| -------------------- | ---------------------- | ----------- | -------------------------------------------------- |
+| Catégorie principale | Sélecteur hiérarchique | Oui         | Liste des catégories actives (DEP-0241)            |
+| Sous-catégorie       | Sélecteur hiérarchique | Non         | Visible si la catégorie sélectionnée a des enfants |
+| Ordre d'affichage    | Numérique              | Non         | Valeur par défaut issue de DEP-0256, éditable      |
 
 ### Règles
 
@@ -309,13 +309,13 @@ Définir les champs de gestion des images produit dans l'interface admin.
 
 ### Champs
 
-| Champ | Type | Obligatoire | Règles |
-|-------|------|-------------|--------|
-| Image principale | Upload | Oui | Format WebP/JPEG, ratio 1:1, min 800x800 (DEP-0256) |
-| Images secondaires (max 4) | Upload/drag | Non | Angles différents, ordre éditable |
-| Texte alternatif | Texte | Oui | Obligatoire pour chaque image |
-| Ordre d'affichage | Numérique | Oui | 1 pour image principale |
-| Type d'image | Sélecteur | Non | `main`, `thumb`, `hero` pour préparer les tailles |
+| Champ                      | Type        | Obligatoire | Règles                                              |
+| -------------------------- | ----------- | ----------- | --------------------------------------------------- |
+| Image principale           | Upload      | Oui         | Format WebP/JPEG, ratio 1:1, min 800x800 (DEP-0256) |
+| Images secondaires (max 4) | Upload/drag | Non         | Angles différents, ordre éditable                   |
+| Texte alternatif           | Texte       | Oui         | Obligatoire pour chaque image                       |
+| Ordre d'affichage          | Numérique   | Oui         | 1 pour image principale                             |
+| Type d'image               | Sélecteur   | Non         | `main`, `thumb`, `hero` pour préparer les tailles   |
 
 ### Règles
 
@@ -333,12 +333,12 @@ Définir les champs permettant de saisir la disponibilité et les quantités ass
 
 ### Champs
 
-| Champ | Type | Obligatoire | Règles |
-|-------|------|-------------|--------|
-| État de disponibilité | Select | Oui | Valeurs DEP-0584 |
-| Stock actuel | Numérique | Oui | >= 0, cohérent avec état |
-| Seuil faible stock | Numérique | Non | Par défaut 5 (DEP-0584) |
-| Date de réappro prévue | Date | Non | Affichée côté dépanneur uniquement |
+| Champ                  | Type      | Obligatoire | Règles                             |
+| ---------------------- | --------- | ----------- | ---------------------------------- |
+| État de disponibilité  | Select    | Oui         | Valeurs DEP-0584                   |
+| Stock actuel           | Numérique | Oui         | >= 0, cohérent avec état           |
+| Seuil faible stock     | Numérique | Non         | Par défaut 5 (DEP-0584)            |
+| Date de réappro prévue | Date      | Non         | Affichée côté dépanneur uniquement |
 
 ### Règles
 
@@ -356,13 +356,13 @@ Définir les champs pour saisir le **prix interne** (coût et prix de vente inte
 
 ### Champs
 
-| Champ | Type | Obligatoire | Règles |
-|-------|------|-------------|--------|
-| Prix d'achat TTC | Numérique | Oui | Par produit ou par variante selon configuration |
-| Prix de vente interne TTC | Numérique | Oui | Utilisé pour les totaux internes et remises |
-| Devise | Sélecteur | Oui | Devise du tenant |
-| Remise interne active | Checkbox | Non | Si cochée, champ montant ou pourcentage apparaît |
-| Date d'effet prix | Date | Non | Par défaut aujourd'hui |
+| Champ                     | Type      | Obligatoire | Règles                                           |
+| ------------------------- | --------- | ----------- | ------------------------------------------------ |
+| Prix d'achat TTC          | Numérique | Oui         | Par produit ou par variante selon configuration  |
+| Prix de vente interne TTC | Numérique | Oui         | Utilisé pour les totaux internes et remises      |
+| Devise                    | Sélecteur | Oui         | Devise du tenant                                 |
+| Remise interne active     | Checkbox  | Non         | Si cochée, champ montant ou pourcentage apparaît |
+| Date d'effet prix         | Date      | Non         | Par défaut aujourd'hui                           |
 
 ### Règles
 
@@ -380,10 +380,10 @@ Définir la saisie des mots-clés utilisés par la recherche texte (DEP-0327) et
 
 ### Champs
 
-| Champ | Type | Obligatoire | Règles |
-|-------|------|-------------|--------|
-| Liste de mots-clés | Tags | Oui | 5 à 15, minuscules, sans accents si possible |
-| Source | Badge auto | Oui | `admin` (saisie manuelle) ou `import` |
+| Champ              | Type       | Obligatoire | Règles                                       |
+| ------------------ | ---------- | ----------- | -------------------------------------------- |
+| Liste de mots-clés | Tags       | Oui         | 5 à 15, minuscules, sans accents si possible |
+| Source             | Badge auto | Oui         | `admin` (saisie manuelle) ou `import`        |
 
 ### Règles
 
@@ -401,12 +401,12 @@ Définir la saisie des synonymes utilisés par l'assistant texte, voix web et t�
 
 ### Champs
 
-| Champ | Type | Obligatoire | Règles |
-|-------|------|-------------|--------|
-| Synonymes recherche | Tags | Non | 5-15 recommandés, minuscules |
-| Synonymes assistant texte | Tags | Oui | 5-20, tournures naturelles (DEP-0361) |
-| Synonymes voix web | Tags | Oui | 5-20, articulation simple |
-| Synonymes téléphonie | Tags | Oui | 8-25, adaptés à l'agent vocal (DEP-0441) |
+| Champ                     | Type | Obligatoire | Règles                                   |
+| ------------------------- | ---- | ----------- | ---------------------------------------- |
+| Synonymes recherche       | Tags | Non         | 5-15 recommandés, minuscules             |
+| Synonymes assistant texte | Tags | Oui         | 5-20, tournures naturelles (DEP-0361)    |
+| Synonymes voix web        | Tags | Oui         | 5-20, articulation simple                |
+| Synonymes téléphonie      | Tags | Oui         | 8-25, adaptés à l'agent vocal (DEP-0441) |
 
 ### Règles
 

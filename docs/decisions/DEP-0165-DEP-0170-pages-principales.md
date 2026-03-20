@@ -21,13 +21,13 @@ mode assisté et mettre en avant les produits populaires.
 
 ### Contenu attendu
 
-| Section                | Description                                           |
-|------------------------|-------------------------------------------------------|
-| Bannière héros         | Message d'accroche + appel à l'action (CTA)           |
-| Produits populaires    | Grille des produits les plus commandés                |
-| Explication du service | Blocs « comment ça marche » en 3 étapes               |
-| Modes de commande      | Liens vers `/boutique` et `/mode-assiste`             |
-| Pied de page           | Liens légaux, contact, accessibilité                  |
+| Section                | Description                                 |
+| ---------------------- | ------------------------------------------- |
+| Bannière héros         | Message d'accroche + appel à l'action (CTA) |
+| Produits populaires    | Grille des produits les plus commandés      |
+| Explication du service | Blocs « comment ça marche » en 3 étapes     |
+| Modes de commande      | Liens vers `/boutique` et `/mode-assiste`   |
+| Pied de page           | Liens légaux, contact, accessibilité        |
 
 ### Comportement
 
@@ -49,12 +49,12 @@ panier et de passer commande de manière autonome.
 
 ### Contenu attendu
 
-| Section              | Description                                             |
-|----------------------|---------------------------------------------------------|
-| Barre de recherche   | Recherche textuelle par nom de produit                  |
-| Filtres              | Catégorie, prix, disponibilité                          |
-| Grille de produits   | Carte produit : image, nom, prix, bouton « ajouter »   |
-| Panier latéral       | Résumé du panier, quantités, total, bouton « commander »|
+| Section            | Description                                              |
+| ------------------ | -------------------------------------------------------- |
+| Barre de recherche | Recherche textuelle par nom de produit                   |
+| Filtres            | Catégorie, prix, disponibilité                           |
+| Grille de produits | Carte produit : image, nom, prix, bouton « ajouter »     |
+| Panier latéral     | Résumé du panier, quantités, total, bouton « commander » |
 
 ### Comportement
 
@@ -77,12 +77,12 @@ voix). Destiné aux personnes âgées ou peu à l'aise avec la navigation web.
 
 ### Contenu attendu
 
-| Section              | Description                                             |
-|----------------------|---------------------------------------------------------|
-| Zone de chat         | Interface conversationnelle texte                       |
-| Bouton vocal         | Activation de la commande vocale                        |
-| Suggestions          | Produits suggérés par l'assistant en fonction du contexte|
-| Panier résumé        | Panier visible en temps réel pendant l'échange          |
+| Section       | Description                                               |
+| ------------- | --------------------------------------------------------- |
+| Zone de chat  | Interface conversationnelle texte                         |
+| Bouton vocal  | Activation de la commande vocale                          |
+| Suggestions   | Produits suggérés par l'assistant en fonction du contexte |
+| Panier résumé | Panier visible en temps réel pendant l'échange            |
 
 ### Comportement
 
@@ -106,12 +106,12 @@ commandes et à son profil.
 
 ### Contenu attendu
 
-| Section              | Description                                             |
-|----------------------|---------------------------------------------------------|
-| Formulaire           | Champs courriel et mot de passe                         |
-| Lien d'inscription   | Renvoi vers `/inscription`                              |
-| Mot de passe oublié  | Lien vers le flux de réinitialisation                   |
-| Bouton de soumission | « Se connecter »                                        |
+| Section              | Description                           |
+| -------------------- | ------------------------------------- |
+| Formulaire           | Champs courriel et mot de passe       |
+| Lien d'inscription   | Renvoi vers `/inscription`            |
+| Mot de passe oublié  | Lien vers le flux de réinitialisation |
+| Bouton de soumission | « Se connecter »                      |
 
 ### Comportement
 
@@ -135,12 +135,12 @@ commande et suivre ses livraisons.
 
 ### Contenu attendu
 
-| Section              | Description                                             |
-|----------------------|---------------------------------------------------------|
+| Section              | Description                                                  |
+| -------------------- | ------------------------------------------------------------ |
 | Formulaire           | Prénom, nom, courriel, téléphone, mot de passe, confirmation |
-| Conditions           | Case à cocher : acceptation des conditions d'utilisation|
-| Lien de connexion    | Renvoi vers `/connexion`                                |
-| Bouton de soumission | « Créer mon compte »                                   |
+| Conditions           | Case à cocher : acceptation des conditions d'utilisation     |
+| Lien de connexion    | Renvoi vers `/connexion`                                     |
+| Bouton de soumission | « Créer mon compte »                                         |
 
 ### Comportement
 
@@ -163,14 +163,14 @@ Permettre au client de consulter et modifier ses informations personnelles.
 
 ### Contenu attendu
 
-| Section                  | Description                                         |
-|--------------------------|-----------------------------------------------------|
-| Informations personnelles| Prénom, nom, courriel, téléphone                    |
-| Modification             | Formulaire d'édition des champs                     |
-| Mot de passe             | Lien ou section pour changer le mot de passe        |
-| Lien adresses            | Renvoi vers `/profil/adresses`                      |
-| Lien commandes           | Renvoi vers `/commandes`                            |
-| Langue préférée          | Sélecteur `fr-CA` / `en-CA`                         |
+| Section                   | Description                                  |
+| ------------------------- | -------------------------------------------- |
+| Informations personnelles | Prénom, nom, courriel, téléphone             |
+| Modification              | Formulaire d'édition des champs              |
+| Mot de passe              | Lien ou section pour changer le mot de passe |
+| Lien adresses             | Renvoi vers `/profil/adresses`               |
+| Lien commandes            | Renvoi vers `/commandes`                     |
+| Langue préférée           | Sélecteur `fr-CA` / `en-CA`                  |
 
 ### Comportement
 
@@ -182,11 +182,11 @@ Permettre au client de consulter et modifier ses informations personnelles.
 
 ## Résumé des pages principales
 
-| DEP      | Page                | Route            | Accès       |
-|----------|---------------------|------------------|-------------|
-| DEP-0165 | Accueil publique    | `/`              | public      |
-| DEP-0166 | Boutique manuelle   | `/boutique`      | public      |
-| DEP-0167 | Mode assisté        | `/mode-assiste`  | public      |
-| DEP-0168 | Connexion           | `/connexion`     | public      |
-| DEP-0169 | Inscription         | `/inscription`   | public      |
-| DEP-0170 | Profil client       | `/profil`        | authentifié |
+| DEP      | Page              | Route           | Accès       |
+| -------- | ----------------- | --------------- | ----------- |
+| DEP-0165 | Accueil publique  | `/`             | public      |
+| DEP-0166 | Boutique manuelle | `/boutique`     | public      |
+| DEP-0167 | Mode assisté      | `/mode-assiste` | public      |
+| DEP-0168 | Connexion         | `/connexion`    | public      |
+| DEP-0169 | Inscription       | `/inscription`  | public      |
+| DEP-0170 | Profil client     | `/profil`       | authentifié |

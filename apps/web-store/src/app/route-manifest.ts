@@ -3,13 +3,23 @@ export const storeRoutes = [
   { path: '/orders/active', name: 'active-orders', label: 'Commandes en Cours', status: 'v1' },
   { path: '/order/:id', name: 'order-detail', label: 'Détail Commande', status: 'v1' },
   { path: '/order/:id/prepare', name: 'preparation', label: 'Préparation Commande', status: 'v1' },
-  { path: '/order/:id/assign', name: 'driver-assignment', label: 'Assignation Livreur', status: 'v1' },
+  {
+    path: '/order/:id/assign',
+    name: 'driver-assignment',
+    label: 'Assignation Livreur',
+    status: 'v1',
+  },
   { path: '/catalog', name: 'catalog', label: 'Catalogue Admin', status: 'v1' },
   { path: '/catalog/products', name: 'products', label: 'Produits', status: 'v1' },
   { path: '/catalog/categories', name: 'categories', label: 'Catégories', status: 'v1' },
   { path: '/settings', name: 'settings', label: 'Paramètres', status: 'v1' },
   { path: '/settings/hours', name: 'hours', label: 'Horaires', status: 'v1' },
-  { path: '/settings/delivery-zones', name: 'delivery-zone', label: 'Zone de livraison', status: 'v1' },
+  {
+    path: '/settings/delivery-zones',
+    name: 'delivery-zone',
+    label: 'Zone de livraison',
+    status: 'v1',
+  },
   { path: '/settings/alerts', name: 'alerts', label: 'Alertes', status: 'v1' },
-  { path: '/analytics', name: 'analytics', label: 'Statistiques', status: 'later' }
+  { path: '/analytics', name: 'analytics', label: 'Statistiques', status: 'later' },
 ];

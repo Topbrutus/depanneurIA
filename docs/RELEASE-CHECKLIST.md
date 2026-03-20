@@ -43,8 +43,8 @@ Checklist à suivre avant chaque merge dans `main` (release ou hotfix).
 
 ## Niveaux de version (semver simplifié)
 
-| Type | Quand | Exemple |
-|---|---|---|
-| `patch` X.X.**Y** | Bugfix sans impact API | `0.1.1` |
+| Type              | Quand                                   | Exemple |
+| ----------------- | --------------------------------------- | ------- |
+| `patch` X.X.**Y** | Bugfix sans impact API                  | `0.1.1` |
 | `minor` X.**Y**.0 | Nouvelle fonctionnalité rétrocompatible | `0.2.0` |
-| `major` **X**.0.0 | Changement cassant ou pilote officiel | `1.0.0` |
+| `major` **X**.0.0 | Changement cassant ou pilote officiel   | `1.0.0` |

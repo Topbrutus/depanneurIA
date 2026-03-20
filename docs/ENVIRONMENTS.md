@@ -9,6 +9,7 @@ Ce document décrit la configuration des différents environnements du projet.
 Environnement de développement local sur la machine du développeur.
 
 **Caractéristiques :**
+
 - Base de données SQLite locale (`dev.db`)
 - Hot reload activé (API et web)
 - Logs en mode verbose (debug)
@@ -18,6 +19,7 @@ Environnement de développement local sur la machine du développeur.
 **Variables d'environnement :**
 
 `apps/api/.env`:
+
 ```bash
 NODE_ENV=development
 PORT=3001
@@ -28,6 +30,7 @@ LOG_LEVEL=debug
 ```
 
 `apps/web/.env`:
+
 ```bash
 VITE_API_URL=http://localhost:3001
 VITE_API_BASE_PATH=/api/v1
@@ -39,6 +42,7 @@ VITE_ENV=development
 Environnement pour l'exécution des tests automatisés (CI/CD).
 
 **Caractéristiques :**
+
 - Base de données SQLite en mémoire
 - Pas de hot reload
 - Logs minimaux
@@ -47,6 +51,7 @@ Environnement pour l'exécution des tests automatisés (CI/CD).
 **Variables d'environnement :**
 
 `apps/api/.env.test`:
+
 ```bash
 NODE_ENV=test
 PORT=3002
@@ -59,6 +64,7 @@ LOG_LEVEL=error
 Environnement de production accessible aux utilisateurs finaux.
 
 **Caractéristiques :**
+
 - Base de données PostgreSQL (recommandé)
 - Build optimisé et minifié
 - Logs en mode info/warn/error uniquement
@@ -68,6 +74,7 @@ Environnement de production accessible aux utilisateurs finaux.
 **Variables d'environnement :**
 
 `apps/api/.env.production`:
+
 ```bash
 NODE_ENV=production
 PORT=3001
@@ -78,6 +85,7 @@ LOG_LEVEL=info
 ```
 
 Variables d'environnement web (injectées au build) :
+
 ```bash
 VITE_API_URL=https://api.depaneuria.com
 VITE_API_BASE_PATH=/api/v1
@@ -127,22 +135,22 @@ npx prisma migrate deploy
 
 ### API
 
-| Variable | Type | Défaut | Description |
-|----------|------|--------|-------------|
-| `NODE_ENV` | string | development | Environnement (development/test/production) |
-| `PORT` | number | 3001 | Port d'écoute de l'API |
-| `API_HOST` | string | 0.0.0.0 | Adresse d'écoute de l'API |
-| `DATABASE_URL` | string | file:./dev.db | URL de connexion à la base de données |
-| `CORS_ORIGIN` | string | http://localhost:5173 | Origine autorisée pour CORS |
-| `LOG_LEVEL` | string | info | Niveau de log (error/warn/info/debug) |
+| Variable       | Type   | Défaut                | Description                                 |
+| -------------- | ------ | --------------------- | ------------------------------------------- |
+| `NODE_ENV`     | string | development           | Environnement (development/test/production) |
+| `PORT`         | number | 3001                  | Port d'écoute de l'API                      |
+| `API_HOST`     | string | 0.0.0.0               | Adresse d'écoute de l'API                   |
+| `DATABASE_URL` | string | file:./dev.db         | URL de connexion à la base de données       |
+| `CORS_ORIGIN`  | string | http://localhost:5173 | Origine autorisée pour CORS                 |
+| `LOG_LEVEL`    | string | info                  | Niveau de log (error/warn/info/debug)       |
 
 ### Web
 
-| Variable | Type | Défaut | Description |
-|----------|------|--------|-------------|
-| `VITE_API_URL` | string | http://localhost:3001 | URL de l'API |
-| `VITE_API_BASE_PATH` | string | /api/v1 | Chemin de base de l'API |
-| `VITE_ENV` | string | development | Environnement (development/production) |
+| Variable             | Type   | Défaut                | Description                            |
+| -------------------- | ------ | --------------------- | -------------------------------------- |
+| `VITE_API_URL`       | string | http://localhost:3001 | URL de l'API                           |
+| `VITE_API_BASE_PATH` | string | /api/v1               | Chemin de base de l'API                |
+| `VITE_ENV`           | string | development           | Environnement (development/production) |
 
 ## Vérification de la configuration
 

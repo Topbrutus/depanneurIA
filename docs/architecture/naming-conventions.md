@@ -3,17 +3,20 @@
 This document defines the official naming conventions for the `depaneurIA` monorepo. Consistency is key to a maintainable codebase.
 
 ## A. File Naming Rules
+
 - **TypeScript Utilities & Libs**: Use `kebab-case.ts` (e.g., `date-formatter.ts`, `auth-guard.ts`).
 - **React Components**: Use `PascalCase.tsx` (e.g., `Button.tsx`, `ProductCard.tsx`).
 - **Tests**: Append `.test.ts` or `.test.tsx` (e.g., `date-formatter.test.ts`).
 - **Types/Contracts**: Use clear and predictable names, no random capitalizations. No ambiguous names like `utils.ts` if it can be more specific.
 
 ## B. Component Naming Rules
+
 - **React Components**: Always `PascalCase`.
 - **Shared UI Components**: Should have a clear name, prefixing is not strictly required if scoped in `@depaneuria/ui`, but clarity is essential.
 - **Avoid Vague Names**: Do not use `Thing`, `DataBox`, `Manager2`. Use `OrderList`, `CustomerProfile`, etc.
 
 ## C. Route Naming Rules
+
 - **URL Segments**: Always use `kebab-case`.
 - **Consistency**: Keep routes readable and predictable.
 - **Examples**:
@@ -25,6 +28,7 @@ This document defines the official naming conventions for the `depaneurIA` monor
   - `/driver/deliveries`
 
 ## D. Data Table Naming Rules (Conceptual)
+
 - **Format**: `snake_case` in the plural.
 - **Examples**:
   - `products`
@@ -35,6 +39,7 @@ This document defines the official naming conventions for the `depaneurIA` monor
   - `tenant_settings`
 
 ## E. Order Event Naming Rules
+
 - **Format**: `domain.action` or `domain.state_changed` in lowercase.
 - **Examples**:
   - `order.created`
@@ -45,6 +50,7 @@ This document defines the official naming conventions for the `depaneurIA` monor
   - `order.cancelled`
 
 ## F. Tenant Naming Rules
+
 - **Tenant Slug**: `kebab-case`, stable, no accents, no special characters.
 - **Examples**:
   - `depanneur-laval-centre`
@@ -52,6 +58,7 @@ This document defines the official naming conventions for the `depaneurIA` monor
 - **Separation**: Distinguish between `tenant display name` (e.g., "Dépanneur Laval Centre"), `tenant slug` (e.g., "depanneur-laval-centre"), and `tenant internal ID` (UUID or serial).
 
 ## G. Language Naming Rules
+
 - **Format**: Use standard simple codes (IETF BCP 47).
 - **Examples**:
   - `fr-CA`
@@ -59,6 +66,7 @@ This document defines the official naming conventions for the `depaneurIA` monor
 - **Note**: Distinguish between the tenant's default language and the user's active session language.
 
 ## H. Product Media Naming Rules
+
 - **Structure**: Consistent and compressed files.
 - **Format**: `tenant-slug/product-slug/view-01.webp`
 - **Examples**:

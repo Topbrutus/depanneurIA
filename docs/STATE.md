@@ -14,6 +14,7 @@
 - `docs/RELEASE-CHECKLIST.md` — checklist release et merge
 
 **Reste manuel (voir docs/GITHUB-SETUP.md) :**
+
 - Créer branche `develop`
 - Activer protection de `main` avec checks CI obligatoires
 - Activer protection de `develop`
@@ -60,6 +61,7 @@ Le bloc 0001 (DEP-0001 à DEP-0010) est complet. Le bloc GitHub de fondation (DE
 ## État Réel Vérifié (2026-03-13)
 
 **Terminé concrètement :**
+
 - DEP-0001 à DEP-0010 — vision et cadrage initial
 - DEP-0084 à DEP-0106, DEP-0120 — fondation GitHub partielle (fichiers, dossiers, templates, nommage, premier commit)
 - DEP-0121 à DEP-0127 — décisions techniques stack documentées (TypeScript, React, Node.js, monorepo pnpm)
@@ -84,6 +86,7 @@ Le bloc 0001 (DEP-0001 à DEP-0010) est complet. Le bloc GitHub de fondation (DE
 - Réinitialisation locale possible (reset session ou suppression de compte) et persistance du profil/adresses à la réouverture.
 
 **Fichiers de configuration créés :**
+
 - `tsconfig.json` — configuration TypeScript 5.3+ strict
 - `.eslintrc.json` — configuration ESLint avec règles React et TypeScript
 - `.prettierrc` — configuration Prettier pour formatage uniforme
@@ -92,6 +95,7 @@ Le bloc 0001 (DEP-0001 à DEP-0010) est complet. Le bloc GitHub de fondation (DE
 - Docs decisions : DEP-0121-0127, DEP-0136-0140, DEP-0161-0170, DEP-0171-0180, DEP-0181-0200, DEP-0201-0240, DEP-0241-0255, DEP-0256-0270, DEP-0271-0280
 
 **Résumé des 3 fichiers de décision DEP-0201 à DEP-0240 :**
+
 - `DEP-0201-0210-systeme-visuel-couleurs-typo.md` — Palette de couleurs et typographie :
   - Couleurs principales (primaire `#2563EB`, positive `#10B981`, accent ambre, neutres)
   - Couleurs secondaires (indigo, cyan, violet, rose)
@@ -110,6 +114,7 @@ Le bloc 0001 (DEP-0001 à DEP-0010) est complet. Le bloc GitHub de fondation (DE
   - Critères de validation avant implémentation (DEP-0240)
 
 **Résumé des 3 fichiers de décision DEP-0241 à DEP-0280 :**
+
 - `DEP-0241-0255-modele-catalogue-base.md` — Modèle catalogue de base :
   - Structure catégorie (id, slug, label, hiérarchie parent/enfant)
   - Structure produit (id, catégorie, sku, label, variantes, photos)
@@ -134,10 +139,12 @@ Le bloc 0001 (DEP-0001 à DEP-0010) est complet. Le bloc GitHub de fondation (DE
   - Procédure de premier chargement catalogue avec toutes validations appliquées
 
 **Non commencé :**
+
 - DEP-0011 à DEP-0083 — cadrage V1 détaillé, politiques, logique commandes
 - DEP-0281 à DEP-0320 — inscription, connexion et gestion client
 
 **Non complété (réglages GitHub manquants) :**
+
 - DEP-0103 — branche `develop` (n'existe pas)
 - DEP-0107 — protection de `main` (non active)
 - DEP-0108 — revues obligatoires (non actives)
@@ -151,20 +158,20 @@ Le bloc 0001 (DEP-0001 à DEP-0010) est complet. Le bloc GitHub de fondation (DE
 
 Les réglages GitHub suivants sont documentés comme manquants (vérification du 2026-03-13) :
 
-| DEP | Élément | État vérifié |
-|-----|---------|-------------|
-| DEP-0103 | Branche `develop` | ❌ Absente — seules `main` et des branches `copilot/*` existent |
-| DEP-0107 | Protection de `main` | ❌ Absente — `main` n'est pas protégée (`protected: false`) |
-| DEP-0108 | Revues obligatoires | ❌ Absentes — pas de règle de protection active |
-| DEP-0109 | Checks obligatoires | ❌ Absents — pas de règle de protection active |
-| DEP-0110 | Projet GitHub `DépannVite` | ❓ Non vérifiable par API |
-| DEP-0111 | Colonnes du projet | ❓ Non vérifiable par API |
-| DEP-0112–0114 | Labels domaine/priorité/risque | ❌ Absents |
-| DEP-0115 | Label V1 | ❌ Absent |
-| DEP-0116 | Label V2 | ❌ Absent |
-| DEP-0117 | Label Bug critique | ❌ Absent |
-| DEP-0118 | Label Blocage cloud | ❌ Absent |
-| DEP-0119 | Label Blocage téléphonie | ❌ Absent |
+| DEP           | Élément                        | État vérifié                                                    |
+| ------------- | ------------------------------ | --------------------------------------------------------------- |
+| DEP-0103      | Branche `develop`              | ❌ Absente — seules `main` et des branches `copilot/*` existent |
+| DEP-0107      | Protection de `main`           | ❌ Absente — `main` n'est pas protégée (`protected: false`)     |
+| DEP-0108      | Revues obligatoires            | ❌ Absentes — pas de règle de protection active                 |
+| DEP-0109      | Checks obligatoires            | ❌ Absents — pas de règle de protection active                  |
+| DEP-0110      | Projet GitHub `DépannVite`     | ❓ Non vérifiable par API                                       |
+| DEP-0111      | Colonnes du projet             | ❓ Non vérifiable par API                                       |
+| DEP-0112–0114 | Labels domaine/priorité/risque | ❌ Absents                                                      |
+| DEP-0115      | Label V1                       | ❌ Absent                                                       |
+| DEP-0116      | Label V2                       | ❌ Absent                                                       |
+| DEP-0117      | Label Bug critique             | ❌ Absent                                                       |
+| DEP-0118      | Label Blocage cloud            | ❌ Absent                                                       |
+| DEP-0119      | Label Blocage téléphonie       | ❌ Absent                                                       |
 
 Labels GitHub existants (par défaut uniquement) : `bug`, `enhancement`, `documentation`, `duplicate`.
 
@@ -190,6 +197,7 @@ La fondation technique (DEP-0121 à DEP-0160) est complète. Les blocs de docume
 ## Consignes GitHub UI
 
 ### DEP-0107 — Protection de la branche principale
+
 - Aller dans `Settings > Branches > Branch protection rules`
 - Cliquer sur `Add rule`
 - Dans `Branch name pattern` : saisir `main`
@@ -198,6 +206,7 @@ La fondation technique (DEP-0121 à DEP-0160) est complète. Les blocs de docume
 - Enregistrer (`Create`)
 
 ### DEP-0108 — Revues obligatoires
+
 - Dans la même règle de protection de `main`
 - Cocher `Require a pull request before merging`
 - Sous cette option, cocher `Require approvals`
@@ -206,6 +215,7 @@ La fondation technique (DEP-0121 à DEP-0160) est complète. Les blocs de docume
 - Enregistrer
 
 ### DEP-0109 — Checks obligatoires
+
 - Dans la même règle de protection de `main`
 - Cocher `Require status checks to pass before merging`
 - Cocher `Require branches to be up to date before merging`
@@ -213,6 +223,7 @@ La fondation technique (DEP-0121 à DEP-0160) est complète. Les blocs de docume
 - Enregistrer
 
 ### DEP-0110 — GitHub Projects
+
 - Aller dans l'onglet `Projects` du dépôt
 - Cliquer sur `Link a project` ou `New project`
 - Choisir le template `Board` (tableau Kanban)
@@ -235,6 +246,7 @@ La fondation technique (DEP-0121 à DEP-0160) est complète. Les blocs de docume
 ## Multi-tenant V1 — DEP-0641 à DEP-0680
 
 Ajouté dans cette PR :
+
 - `packages/types/src/tenant.ts` — type `Tenant` et constante `DEFAULT_TENANT_ID`
 - `apps/api/src/lib/tenant-store.ts` — store mémoire avec 2 tenants de démonstration
 - `apps/api/src/lib/tenant-context.ts` — middleware de résolution tenant
@@ -251,6 +263,7 @@ Ajouté dans cette PR :
 ## Sécurité V1 — DEP-0841 à DEP-0920
 
 Ajouté dans cette PR :
+
 - `packages/types/src/roles.ts` — 4 rôles (customer, store_operator, driver, admin) avec permissions
 - `packages/types/src/auth.ts` — types session, login, logout
 - `apps/api/src/lib/auth-store.ts` — store de sessions en mémoire avec Map

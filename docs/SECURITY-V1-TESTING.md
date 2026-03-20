@@ -76,16 +76,19 @@ curl -H "Authorization: Bearer {sessionId}" \
 ## Implementation Files
 
 ### Types
+
 - `packages/types/src/roles.ts` - Role definitions and permissions
 - `packages/types/src/auth.ts` - Session types
 
 ### API
+
 - `apps/api/src/routes/auth.ts` - Auth endpoints
 - `apps/api/src/lib/auth-store.ts` - In-memory session store
 - `apps/api/src/lib/auth-middleware.ts` - Session extraction
 - `apps/api/src/lib/role-guards.ts` - Permission guards
 
 ### Web
+
 - `apps/web/src/routes/mock-login-page.tsx` - Login UI
 - `apps/web/src/lib/auth-context.tsx` - Auth state management
 - `apps/web/src/lib/auth-storage.ts` - localStorage persistence
