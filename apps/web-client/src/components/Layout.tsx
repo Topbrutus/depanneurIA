@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet, Link, useNavigate } from 'react-router-dom';
-import { colors, spacing, radii, CartMiniature } from '@depaneuria/ui';
+import { colors, spacing, CartMiniature } from '@depaneuria/ui';
 import { useAppContext } from '../lib/AppContext';
 
 export function Layout() {

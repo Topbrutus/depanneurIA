@@ -1,5 +1,5 @@
 import React from 'react';
-import { colors, spacing, radii } from '../design-tokens';
+import { spacing, radii } from '../design-tokens';
 
 export function SearchInput({ value, onChange, placeholder, onClear }: any) {
   return (

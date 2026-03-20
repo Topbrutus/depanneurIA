@@ -1,5 +1,5 @@
 import React from 'react';
-import { colors, spacing, radii } from '../design-tokens';
+import { spacing } from '../design-tokens';
 import { ProductCard } from './ProductCard';
 
 export function Top10Card({ products, onAdd }: any) {

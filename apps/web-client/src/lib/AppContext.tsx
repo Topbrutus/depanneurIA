@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-import { mockProducts, mockLastOrder } from './mock-data';
+// Mocks are loaded dynamically when needed
 
 const AppContext = createContext<any>(null);
 
