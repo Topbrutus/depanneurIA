@@ -39,15 +39,15 @@ tenant (dépanneur) soit activé et accessible publiquement.
 
 ### Étapes de validation
 
-| # | Étape                                      | Responsable   | Critère de réussite                                     |
-|---|--------------------------------------------|---------------|---------------------------------------------------------|
-| 1 | Vérifier l'identité légale du commerce     | Super admin   | Nom, adresse et numéro d'entreprise confirmés           |
-| 2 | Valider le branding (logo, couleurs, nom)  | Super admin   | Logo affiché correctement, couleurs conformes à la charte |
-| 3 | Valider le catalogue (≥ 1 catégorie, ≥ 5 produits actifs) | Super admin | Catalogue publié avec prix et images conformes  |
-| 4 | Valider la zone de livraison               | Super admin   | Au moins une zone définie avec rayon ou code postal     |
-| 5 | Valider la configuration téléphonique      | Super admin   | Numéro attribué, message d'accueil fonctionnel          |
-| 6 | Tester un parcours complet (commande test) | Super admin   | Commande créée, reçue par le dépanneur, livrée          |
-| 7 | Obtenir l'accord écrit du client           | Super admin   | Confirmation par courriel ou signature électronique      |
+| #   | Étape                                                     | Responsable | Critère de réussite                                       |
+| --- | --------------------------------------------------------- | ----------- | --------------------------------------------------------- |
+| 1   | Vérifier l'identité légale du commerce                    | Super admin | Nom, adresse et numéro d'entreprise confirmés             |
+| 2   | Valider le branding (logo, couleurs, nom)                 | Super admin | Logo affiché correctement, couleurs conformes à la charte |
+| 3   | Valider le catalogue (≥ 1 catégorie, ≥ 5 produits actifs) | Super admin | Catalogue publié avec prix et images conformes            |
+| 4   | Valider la zone de livraison                              | Super admin | Au moins une zone définie avec rayon ou code postal       |
+| 5   | Valider la configuration téléphonique                     | Super admin | Numéro attribué, message d'accueil fonctionnel            |
+| 6   | Tester un parcours complet (commande test)                | Super admin | Commande créée, reçue par le dépanneur, livrée            |
+| 7   | Obtenir l'accord écrit du client                          | Super admin | Confirmation par courriel ou signature électronique       |
 
 ### Règles
 
@@ -59,11 +59,11 @@ tenant (dépanneur) soit activé et accessible publiquement.
 
 ### Cas attendus
 
-| Scénario                                | Résultat attendu                              |
-|-----------------------------------------|-----------------------------------------------|
-| Toutes les étapes sont validées         | Le tenant est activé et accessible publiquement |
-| Une étape est manquante                 | Le bouton d'activation est désactivé          |
-| Le client refuse de signer              | Le tenant reste en statut « brouillon »       |
+| Scénario                        | Résultat attendu                                |
+| ------------------------------- | ----------------------------------------------- |
+| Toutes les étapes sont validées | Le tenant est activé et accessible publiquement |
+| Une étape est manquante         | Le bouton d'activation est désactivé            |
+| Le client refuse de signer      | Le tenant reste en statut « brouillon »         |
 
 ---
 
@@ -76,15 +76,15 @@ mise en ligne de sa boutique.
 
 ### Contenu de la formation
 
-| # | Module                                    | Durée estimée | Format           |
-|---|-------------------------------------------|---------------|------------------|
-| 1 | Présentation générale de la plateforme    | 15 min        | Appel vidéo      |
-| 2 | Gestion du catalogue (ajout, édition, tri) | 20 min       | Appel vidéo      |
-| 3 | Réception et traitement des commandes     | 15 min        | Appel vidéo      |
-| 4 | Gestion des livraisons et livreurs        | 15 min        | Appel vidéo      |
-| 5 | Fonctionnement de la téléphonie           | 10 min        | Appel vidéo      |
-| 6 | Consultation du tableau de bord           | 10 min        | Appel vidéo      |
-| 7 | Questions et réponses                     | 15 min        | Appel vidéo      |
+| #   | Module                                     | Durée estimée | Format      |
+| --- | ------------------------------------------ | ------------- | ----------- |
+| 1   | Présentation générale de la plateforme     | 15 min        | Appel vidéo |
+| 2   | Gestion du catalogue (ajout, édition, tri) | 20 min        | Appel vidéo |
+| 3   | Réception et traitement des commandes      | 15 min        | Appel vidéo |
+| 4   | Gestion des livraisons et livreurs         | 15 min        | Appel vidéo |
+| 5   | Fonctionnement de la téléphonie            | 10 min        | Appel vidéo |
+| 6   | Consultation du tableau de bord            | 10 min        | Appel vidéo |
+| 7   | Questions et réponses                      | 15 min        | Appel vidéo |
 
 ### Règles
 
@@ -98,11 +98,11 @@ mise en ligne de sa boutique.
 
 ### Cas attendus
 
-| Scénario                                   | Résultat attendu                              |
-|--------------------------------------------|-----------------------------------------------|
-| Formation complète terminée                | Le client est marqué « formé » dans le système |
-| Client absent à la session                 | Nouvelle session planifiée sous 48 h ouvrables |
-| Client demande une session complémentaire  | Session additionnelle planifiée sous 48 h ouvrables |
+| Scénario                                  | Résultat attendu                                    |
+| ----------------------------------------- | --------------------------------------------------- |
+| Formation complète terminée               | Le client est marqué « formé » dans le système      |
+| Client absent à la session                | Nouvelle session planifiée sous 48 h ouvrables      |
+| Client demande une session complémentaire | Session additionnelle planifiée sous 48 h ouvrables |
 
 ---
 
@@ -115,21 +115,21 @@ mise en ligne d'un nouveau tenant.
 
 ### Engagements de support
 
-| Engagement                              | Valeur V1                              |
-|-----------------------------------------|----------------------------------------|
-| Délai de réponse maximal                | 2 heures ouvrables                     |
-| Canal de support principal              | Courriel ou messagerie instantanée     |
-| Disponibilité du support                | Lundi à vendredi, 9 h à 18 h (fuseau horaire du client, HE par défaut) |
-| Appel de suivi proactif                 | Jour 1, jour 3, jour 7                |
-| Rapport de lancement                    | Envoyé au jour 7                       |
+| Engagement                 | Valeur V1                                                              |
+| -------------------------- | ---------------------------------------------------------------------- |
+| Délai de réponse maximal   | 2 heures ouvrables                                                     |
+| Canal de support principal | Courriel ou messagerie instantanée                                     |
+| Disponibilité du support   | Lundi à vendredi, 9 h à 18 h (fuseau horaire du client, HE par défaut) |
+| Appel de suivi proactif    | Jour 1, jour 3, jour 7                                                 |
+| Rapport de lancement       | Envoyé au jour 7                                                       |
 
 ### Contenu des appels de suivi
 
 | Jour | Objectif de l'appel                                                |
-|------|--------------------------------------------------------------------|
+| ---- | ------------------------------------------------------------------ |
 | 1    | Vérifier que les premières commandes sont bien reçues et traitées  |
 | 3    | Identifier les difficultés rencontrées et proposer des ajustements |
-| 7    | Bilan de la première semaine, recueil de la satisfaction client     |
+| 7    | Bilan de la première semaine, recueil de la satisfaction client    |
 
 ### Règles
 
@@ -141,11 +141,11 @@ mise en ligne d'un nouveau tenant.
 
 ### Cas attendus
 
-| Scénario                                    | Résultat attendu                            |
-|---------------------------------------------|---------------------------------------------|
-| Client contacte le support dans les 2 h     | Réponse envoyée dans le délai               |
-| Problème bloquant identifié                 | Escalade immédiate au super admin           |
-| Aucun problème signalé pendant 7 jours      | Rapport de lancement positif envoyé au jour 7 |
+| Scénario                                | Résultat attendu                              |
+| --------------------------------------- | --------------------------------------------- |
+| Client contacte le support dans les 2 h | Réponse envoyée dans le délai                 |
+| Problème bloquant identifié             | Escalade immédiate au super admin             |
+| Aucun problème signalé pendant 7 jours  | Rapport de lancement positif envoyé au jour 7 |
 
 ---
 
@@ -158,23 +158,23 @@ initiale de 7 jours.
 
 ### Engagements de support mensuel
 
-| Engagement                              | Valeur V1                              |
-|-----------------------------------------|----------------------------------------|
-| Délai de réponse maximal                | 24 heures ouvrables                    |
-| Canal de support principal              | Courriel                               |
-| Disponibilité du support                | Lundi à vendredi, 9 h à 18 h (fuseau horaire du client, HE par défaut) |
-| Appel de suivi mensuel                  | 1 appel par mois (facultatif si le client décline) |
-| Rapport mensuel                         | Envoyé avant le 5 du mois suivant      |
+| Engagement                 | Valeur V1                                                              |
+| -------------------------- | ---------------------------------------------------------------------- |
+| Délai de réponse maximal   | 24 heures ouvrables                                                    |
+| Canal de support principal | Courriel                                                               |
+| Disponibilité du support   | Lundi à vendredi, 9 h à 18 h (fuseau horaire du client, HE par défaut) |
+| Appel de suivi mensuel     | 1 appel par mois (facultatif si le client décline)                     |
+| Rapport mensuel            | Envoyé avant le 5 du mois suivant                                      |
 
 ### Contenu du rapport mensuel
 
-| Élément                                 | Description                            |
-|-----------------------------------------|----------------------------------------|
-| Nombre de commandes du mois             | Total des commandes créées             |
-| Taux de complétion des commandes        | Commandes livrées / commandes créées   |
-| Nombre d'appels téléphoniques           | Total des appels entrants via la plateforme |
-| Incidents signalés                      | Résumé des tickets de support ouverts  |
-| Recommandations                         | Suggestions d'amélioration si pertinent |
+| Élément                          | Description                                 |
+| -------------------------------- | ------------------------------------------- |
+| Nombre de commandes du mois      | Total des commandes créées                  |
+| Taux de complétion des commandes | Commandes livrées / commandes créées        |
+| Nombre d'appels téléphoniques    | Total des appels entrants via la plateforme |
+| Incidents signalés               | Résumé des tickets de support ouverts       |
+| Recommandations                  | Suggestions d'amélioration si pertinent     |
 
 ### Règles
 
@@ -185,11 +185,11 @@ initiale de 7 jours.
 
 ### Cas attendus
 
-| Scénario                                    | Résultat attendu                            |
-|---------------------------------------------|---------------------------------------------|
-| Client contacte le support                  | Réponse dans les 24 h ouvrables             |
-| Aucun incident dans le mois                 | Rapport mensuel envoyé avec mention « aucun incident » |
-| Client décline l'appel mensuel              | Appel annulé, rapport envoyé par courriel uniquement   |
+| Scénario                       | Résultat attendu                                       |
+| ------------------------------ | ------------------------------------------------------ |
+| Client contacte le support     | Réponse dans les 24 h ouvrables                        |
+| Aucun incident dans le mois    | Rapport mensuel envoyé avec mention « aucun incident » |
+| Client décline l'appel mensuel | Appel annulé, rapport envoyé par courriel uniquement   |
 
 ---
 
@@ -202,23 +202,23 @@ plateforme.
 
 ### Éléments de facturation
 
-| Élément                                 | Description                            |
-|-----------------------------------------|----------------------------------------|
-| Cycle de facturation                    | Mensuel, à date anniversaire de l'activation |
-| Mode de paiement                        | Virement bancaire ou prélèvement automatique |
-| Devise                                  | Devise locale du client (CAD par défaut) |
-| Facture                                 | Envoyée par courriel au format PDF     |
-| Délai de paiement                       | 15 jours calendaires après émission    |
+| Élément              | Description                                  |
+| -------------------- | -------------------------------------------- |
+| Cycle de facturation | Mensuel, à date anniversaire de l'activation |
+| Mode de paiement     | Virement bancaire ou prélèvement automatique |
+| Devise               | Devise locale du client (CAD par défaut)     |
+| Facture              | Envoyée par courriel au format PDF           |
+| Délai de paiement    | 15 jours calendaires après émission          |
 
 ### Processus de facturation
 
-| # | Étape                                     | Responsable   | Délai                    |
-|---|-------------------------------------------|---------------|--------------------------|
-| 1 | Génération de la facture                  | Système       | Jour de la date anniversaire |
-| 2 | Envoi de la facture par courriel          | Système       | Jour de la date anniversaire |
-| 3 | Suivi du paiement                         | Super admin   | Continu                  |
-| 4 | Confirmation de réception du paiement     | Super admin   | Sous 48 h ouvrables après réception |
-| 5 | Relance en cas de non-paiement            | Super admin   | Jour 16 après émission   |
+| #   | Étape                                 | Responsable | Délai                               |
+| --- | ------------------------------------- | ----------- | ----------------------------------- |
+| 1   | Génération de la facture              | Système     | Jour de la date anniversaire        |
+| 2   | Envoi de la facture par courriel      | Système     | Jour de la date anniversaire        |
+| 3   | Suivi du paiement                     | Super admin | Continu                             |
+| 4   | Confirmation de réception du paiement | Super admin | Sous 48 h ouvrables après réception |
+| 5   | Relance en cas de non-paiement        | Super admin | Jour 16 après émission              |
 
 ### Règles
 
@@ -231,11 +231,11 @@ plateforme.
 
 ### Cas attendus
 
-| Scénario                                    | Résultat attendu                            |
-|---------------------------------------------|---------------------------------------------|
-| Paiement reçu dans les délais              | Confirmation envoyée, aucune action requise |
-| Paiement non reçu au jour 15               | Relance envoyée au jour 16                  |
-| Client conteste une facture                 | Ticket de support ouvert, traitement sous 5 jours ouvrables |
+| Scénario                      | Résultat attendu                                            |
+| ----------------------------- | ----------------------------------------------------------- |
+| Paiement reçu dans les délais | Confirmation envoyée, aucune action requise                 |
+| Paiement non reçu au jour 15  | Relance envoyée au jour 16                                  |
+| Client conteste une facture   | Ticket de support ouvert, traitement sous 5 jours ouvrables |
 
 ---
 
@@ -248,13 +248,13 @@ prolongé, applicable uniquement un jour ouvrable.
 
 ### Processus de suspension
 
-| # | Étape                                       | Délai après émission de la facture | Action                                              |
-|---|---------------------------------------------|-------------------------------------|-----------------------------------------------------|
-| 1 | Première relance                            | Jour 16                            | Courriel de rappel de paiement                      |
-| 2 | Deuxième relance                            | Jour 23                            | Courriel d'avertissement de suspension imminente     |
-| 3 | Notification finale                         | Jour 28                            | Courriel indiquant la suspension sous 48 h           |
-| 4 | Suspension du tenant                        | Jour 30 (jour ouvrable uniquement) | Tenant désactivé, boutique inaccessible publiquement |
-| 5 | Notification de suspension effective        | Jour 30                            | Courriel de confirmation de suspension               |
+| #   | Étape                                | Délai après émission de la facture | Action                                               |
+| --- | ------------------------------------ | ---------------------------------- | ---------------------------------------------------- |
+| 1   | Première relance                     | Jour 16                            | Courriel de rappel de paiement                       |
+| 2   | Deuxième relance                     | Jour 23                            | Courriel d'avertissement de suspension imminente     |
+| 3   | Notification finale                  | Jour 28                            | Courriel indiquant la suspension sous 48 h           |
+| 4   | Suspension du tenant                 | Jour 30 (jour ouvrable uniquement) | Tenant désactivé, boutique inaccessible publiquement |
+| 5   | Notification de suspension effective | Jour 30                            | Courriel de confirmation de suspension               |
 
 ### Règles
 
@@ -272,12 +272,12 @@ prolongé, applicable uniquement un jour ouvrable.
 
 ### Cas attendus
 
-| Scénario                                           | Résultat attendu                                    |
-|----------------------------------------------------|-----------------------------------------------------|
-| Non-paiement au jour 30, jour ouvrable             | Tenant suspendu, courriel envoyé                    |
-| Non-paiement au jour 30, jour non ouvrable         | Suspension reportée au prochain jour ouvrable       |
-| Paiement reçu avant le jour 30                     | Aucune suspension, relances annulées                |
-| Paiement reçu après suspension (dans les 90 jours) | Tenant réactivé sous 24 h ouvrables                 |
+| Scénario                                           | Résultat attendu                                            |
+| -------------------------------------------------- | ----------------------------------------------------------- |
+| Non-paiement au jour 30, jour ouvrable             | Tenant suspendu, courriel envoyé                            |
+| Non-paiement au jour 30, jour non ouvrable         | Suspension reportée au prochain jour ouvrable               |
+| Paiement reçu avant le jour 30                     | Aucune suspension, relances annulées                        |
+| Paiement reçu après suspension (dans les 90 jours) | Tenant réactivé sous 24 h ouvrables                         |
 | Aucun paiement après 90 jours de suspension        | Données supprimées conformément à la politique de rétention |
 
 ---
@@ -291,16 +291,16 @@ compléter pour intégrer un nouveau dépanneur sur la plateforme.
 
 ### Checklist d'onboarding
 
-| # | Tâche                                                | Responsable   | Statut par défaut |
-|---|------------------------------------------------------|---------------|-------------------|
-| 1 | Créer le tenant dans le système                      | Super admin   | À faire           |
-| 2 | Configurer le branding (voir DEP-0942)               | Super admin   | À faire           |
-| 3 | Configurer le catalogue (voir DEP-0943)              | Super admin   | À faire           |
-| 4 | Configurer la livraison (voir DEP-0944)              | Super admin   | À faire           |
-| 5 | Configurer la téléphonie (voir DEP-0945)             | Super admin   | À faire           |
-| 6 | Dispenser la formation (voir DEP-0946)               | Super admin   | À faire           |
-| 7 | Exécuter la validation avant mise en ligne (DEP-0935) | Super admin  | À faire           |
-| 8 | Activer le tenant                                    | Super admin   | À faire           |
+| #   | Tâche                                                 | Responsable | Statut par défaut |
+| --- | ----------------------------------------------------- | ----------- | ----------------- |
+| 1   | Créer le tenant dans le système                       | Super admin | À faire           |
+| 2   | Configurer le branding (voir DEP-0942)                | Super admin | À faire           |
+| 3   | Configurer le catalogue (voir DEP-0943)               | Super admin | À faire           |
+| 4   | Configurer la livraison (voir DEP-0944)               | Super admin | À faire           |
+| 5   | Configurer la téléphonie (voir DEP-0945)              | Super admin | À faire           |
+| 6   | Dispenser la formation (voir DEP-0946)                | Super admin | À faire           |
+| 7   | Exécuter la validation avant mise en ligne (DEP-0935) | Super admin | À faire           |
+| 8   | Activer le tenant                                     | Super admin | À faire           |
 
 ### Règles
 
@@ -321,14 +321,14 @@ Définir la checklist de configuration du branding pour un nouveau tenant.
 
 ### Checklist de branding
 
-| # | Tâche                                        | Critère de réussite                              |
-|---|----------------------------------------------|--------------------------------------------------|
-| 1 | Téléverser le logo du commerce               | Image au format PNG ou SVG, min 200×200 px       |
-| 2 | Définir le nom commercial                    | Nom affiché dans l'en-tête et le pied de page    |
-| 3 | Définir la couleur principale                | Code hexadécimal valide                          |
-| 4 | Définir la couleur secondaire                | Code hexadécimal valide                          |
-| 5 | Configurer le slogan (optionnel)             | Texte de 80 caractères maximum                   |
-| 6 | Vérifier l'aperçu de la boutique             | Logo, couleurs et nom affichés correctement       |
+| #   | Tâche                            | Critère de réussite                           |
+| --- | -------------------------------- | --------------------------------------------- |
+| 1   | Téléverser le logo du commerce   | Image au format PNG ou SVG, min 200×200 px    |
+| 2   | Définir le nom commercial        | Nom affiché dans l'en-tête et le pied de page |
+| 3   | Définir la couleur principale    | Code hexadécimal valide                       |
+| 4   | Définir la couleur secondaire    | Code hexadécimal valide                       |
+| 5   | Configurer le slogan (optionnel) | Texte de 80 caractères maximum                |
+| 6   | Vérifier l'aperçu de la boutique | Logo, couleurs et nom affichés correctement   |
 
 ### Règles
 
@@ -348,16 +348,16 @@ Définir la checklist de configuration du catalogue pour un nouveau tenant.
 
 ### Checklist de catalogue
 
-| # | Tâche                                          | Critère de réussite                                |
-|---|-------------------------------------------------|----------------------------------------------------|
-| 1 | Créer au moins 1 catégorie                     | Catégorie visible dans le catalogue                |
-| 2 | Ajouter au moins 5 produits actifs             | Produits avec nom, prix et image                   |
-| 3 | Associer chaque produit à une catégorie        | Aucun produit orphelin                             |
-| 4 | Vérifier les prix (format et devise)           | Prix > 0 et devise correcte                       |
-| 5 | Vérifier les images produits                   | Images affichées correctement, min 300×300 px      |
-| 6 | Définir l'ordre d'affichage des catégories     | Ordre logique vérifié visuellement                 |
-| 7 | Définir l'ordre d'affichage des produits       | Ordre logique vérifié par catégorie                |
-| 8 | Publier le catalogue                           | Statut du catalogue passé à « actif »              |
+| #   | Tâche                                      | Critère de réussite                           |
+| --- | ------------------------------------------ | --------------------------------------------- |
+| 1   | Créer au moins 1 catégorie                 | Catégorie visible dans le catalogue           |
+| 2   | Ajouter au moins 5 produits actifs         | Produits avec nom, prix et image              |
+| 3   | Associer chaque produit à une catégorie    | Aucun produit orphelin                        |
+| 4   | Vérifier les prix (format et devise)       | Prix > 0 et devise correcte                   |
+| 5   | Vérifier les images produits               | Images affichées correctement, min 300×300 px |
+| 6   | Définir l'ordre d'affichage des catégories | Ordre logique vérifié visuellement            |
+| 7   | Définir l'ordre d'affichage des produits   | Ordre logique vérifié par catégorie           |
+| 8   | Publier le catalogue                       | Statut du catalogue passé à « actif »         |
 
 ### Règles
 
@@ -378,13 +378,13 @@ Définir la checklist de configuration de la livraison pour un nouveau tenant.
 
 ### Checklist de livraison
 
-| # | Tâche                                             | Critère de réussite                             |
-|---|---------------------------------------------------|-------------------------------------------------|
-| 1 | Définir au moins une zone de livraison            | Zone définie par rayon ou codes postaux         |
-| 2 | Définir les frais de livraison                    | Montant ≥ 0 configuré                          |
-| 3 | Définir les horaires de livraison                 | Plage horaire d'ouverture et de fermeture       |
-| 4 | Enregistrer au moins un livreur                   | Livreur avec nom et téléphone                   |
-| 5 | Tester une livraison fictive                      | Commande test livrée avec succès                |
+| #   | Tâche                                  | Critère de réussite                       |
+| --- | -------------------------------------- | ----------------------------------------- |
+| 1   | Définir au moins une zone de livraison | Zone définie par rayon ou codes postaux   |
+| 2   | Définir les frais de livraison         | Montant ≥ 0 configuré                     |
+| 3   | Définir les horaires de livraison      | Plage horaire d'ouverture et de fermeture |
+| 4   | Enregistrer au moins un livreur        | Livreur avec nom et téléphone             |
+| 5   | Tester une livraison fictive           | Commande test livrée avec succès          |
 
 ### Règles
 
@@ -404,14 +404,14 @@ Définir la checklist de configuration téléphonique pour un nouveau tenant.
 
 ### Checklist téléphonique
 
-| # | Tâche                                              | Critère de réussite                             |
-|---|----------------------------------------------------|-------------------------------------------------|
-| 1 | Attribuer un numéro de téléphone dédié             | Numéro actif et joignable                       |
-| 2 | Configurer le message d'accueil                    | Message personnalisé avec le nom du commerce    |
-| 3 | Configurer les phrases de l'assistant vocal        | Phrases adaptées au catalogue du tenant         |
-| 4 | Tester un appel entrant complet                    | Appel reçu, assistant vocal fonctionnel         |
-| 5 | Tester une commande par téléphone                  | Commande créée et reçue par le dépanneur        |
-| 6 | Vérifier le journal d'appels                       | Événements enregistrés conformément à DEP-0855  |
+| #   | Tâche                                       | Critère de réussite                            |
+| --- | ------------------------------------------- | ---------------------------------------------- |
+| 1   | Attribuer un numéro de téléphone dédié      | Numéro actif et joignable                      |
+| 2   | Configurer le message d'accueil             | Message personnalisé avec le nom du commerce   |
+| 3   | Configurer les phrases de l'assistant vocal | Phrases adaptées au catalogue du tenant        |
+| 4   | Tester un appel entrant complet             | Appel reçu, assistant vocal fonctionnel        |
+| 5   | Tester une commande par téléphone           | Commande créée et reçue par le dépanneur       |
+| 6   | Vérifier le journal d'appels                | Événements enregistrés conformément à DEP-0855 |
 
 ### Règles
 
@@ -432,17 +432,17 @@ Définir la checklist de formation à compléter avec le nouveau dépanneur.
 
 ### Checklist de formation
 
-| # | Tâche                                                | Critère de réussite                            |
-|---|------------------------------------------------------|------------------------------------------------|
-| 1 | Planifier la session de formation                    | Date et heure confirmées avec le client        |
-| 2 | Présenter la plateforme (module 1, DEP-0936)         | Client comprend la navigation générale         |
-| 3 | Former à la gestion du catalogue (module 2)          | Client sait ajouter et modifier un produit     |
-| 4 | Former à la réception des commandes (module 3)       | Client sait accepter et traiter une commande   |
-| 5 | Former à la gestion des livraisons (module 4)        | Client sait assigner un livreur                |
-| 6 | Former à la téléphonie (module 5)                    | Client comprend le fonctionnement de l'assistant vocal |
-| 7 | Former au tableau de bord (module 6)                 | Client sait consulter ses statistiques         |
-| 8 | Valider la compréhension générale                    | Client confirme être à l'aise avec la plateforme |
-| 9 | Marquer la formation comme terminée                  | Statut « formé » enregistré dans le système    |
+| #   | Tâche                                          | Critère de réussite                                    |
+| --- | ---------------------------------------------- | ------------------------------------------------------ |
+| 1   | Planifier la session de formation              | Date et heure confirmées avec le client                |
+| 2   | Présenter la plateforme (module 1, DEP-0936)   | Client comprend la navigation générale                 |
+| 3   | Former à la gestion du catalogue (module 2)    | Client sait ajouter et modifier un produit             |
+| 4   | Former à la réception des commandes (module 3) | Client sait accepter et traiter une commande           |
+| 5   | Former à la gestion des livraisons (module 4)  | Client sait assigner un livreur                        |
+| 6   | Former à la téléphonie (module 5)              | Client comprend le fonctionnement de l'assistant vocal |
+| 7   | Former au tableau de bord (module 6)           | Client sait consulter ses statistiques                 |
+| 8   | Valider la compréhension générale              | Client confirme être à l'aise avec la plateforme       |
+| 9   | Marquer la formation comme terminée            | Statut « formé » enregistré dans le système            |
 
 ### Règles
 
@@ -463,23 +463,23 @@ chaque nouveau client.
 
 ### Éléments de la page
 
-| Élément                                | Description                                         |
-|----------------------------------------|-----------------------------------------------------|
-| Liste des tenants en onboarding        | Tableau des tenants avec statut d'avancement         |
-| Barre de progression par tenant        | Pourcentage des tâches complétées (DEP-0941)        |
-| Accès aux checklists détaillées        | Lien vers chaque sous-checklist (DEP-0942 à DEP-0946) |
-| Bouton d'activation du tenant          | Actif uniquement si la validation (DEP-0935) est complète |
-| Historique des activations             | Journal des tenants activés avec date et super admin |
+| Élément                         | Description                                               |
+| ------------------------------- | --------------------------------------------------------- |
+| Liste des tenants en onboarding | Tableau des tenants avec statut d'avancement              |
+| Barre de progression par tenant | Pourcentage des tâches complétées (DEP-0941)              |
+| Accès aux checklists détaillées | Lien vers chaque sous-checklist (DEP-0942 à DEP-0946)     |
+| Bouton d'activation du tenant   | Actif uniquement si la validation (DEP-0935) est complète |
+| Historique des activations      | Journal des tenants activés avec date et super admin      |
 
 ### Colonnes du tableau des tenants
 
-| Colonne                  | Type     | Description                          |
-|--------------------------|----------|--------------------------------------|
-| Nom du commerce          | Texte    | Nom commercial du tenant             |
-| Date de création         | Date     | Date de création du tenant           |
-| Progression              | Barre    | Pourcentage d'avancement             |
-| Statut                   | Badge    | Brouillon, En cours, Prêt, Actif    |
-| Actions                  | Boutons  | Voir, Activer, Suspendre             |
+| Colonne          | Type    | Description                      |
+| ---------------- | ------- | -------------------------------- |
+| Nom du commerce  | Texte   | Nom commercial du tenant         |
+| Date de création | Date    | Date de création du tenant       |
+| Progression      | Barre   | Pourcentage d'avancement         |
+| Statut           | Badge   | Brouillon, En cours, Prêt, Actif |
+| Actions          | Boutons | Voir, Activer, Suspendre         |
 
 ### Règles
 
@@ -500,26 +500,26 @@ tenant existant vers un nouveau tenant.
 
 ### Éléments de la page
 
-| Élément                                | Description                                          |
-|----------------------------------------|------------------------------------------------------|
-| Sélecteur du tenant source             | Liste déroulante des tenants actifs                  |
-| Sélecteur du tenant cible              | Liste déroulante des tenants en brouillon            |
-| Éléments clonables                     | Cases à cocher pour chaque type de configuration     |
-| Bouton de prévisualisation             | Affiche un résumé des éléments à cloner              |
-| Bouton de confirmation                 | Lance le clonage après confirmation                  |
-| Journal de clonage                     | Historique des opérations de clonage effectuées       |
+| Élément                    | Description                                      |
+| -------------------------- | ------------------------------------------------ |
+| Sélecteur du tenant source | Liste déroulante des tenants actifs              |
+| Sélecteur du tenant cible  | Liste déroulante des tenants en brouillon        |
+| Éléments clonables         | Cases à cocher pour chaque type de configuration |
+| Bouton de prévisualisation | Affiche un résumé des éléments à cloner          |
+| Bouton de confirmation     | Lance le clonage après confirmation              |
+| Journal de clonage         | Historique des opérations de clonage effectuées  |
 
 ### Éléments clonables
 
-| Élément                        | Clonable | Référence                |
-|--------------------------------|----------|--------------------------|
-| Configuration téléphonique     | Oui      | DEP-0660                 |
-| Structure du catalogue         | Oui      | DEP-0635–DEP-0654        |
-| Branding                       | Non      | Propre à chaque tenant   |
-| Données de commandes           | Non      | Propre à chaque tenant   |
-| Comptes utilisateurs           | Non      | Propre à chaque tenant   |
-| Zone de livraison              | Oui      | Modifiable après clonage |
-| Horaires d'ouverture           | Oui      | Modifiable après clonage |
+| Élément                    | Clonable | Référence                |
+| -------------------------- | -------- | ------------------------ |
+| Configuration téléphonique | Oui      | DEP-0660                 |
+| Structure du catalogue     | Oui      | DEP-0635–DEP-0654        |
+| Branding                   | Non      | Propre à chaque tenant   |
+| Données de commandes       | Non      | Propre à chaque tenant   |
+| Comptes utilisateurs       | Non      | Propre à chaque tenant   |
+| Zone de livraison          | Oui      | Modifiable après clonage |
+| Horaires d'ouverture       | Oui      | Modifiable après clonage |
 
 ### Règles
 
@@ -542,23 +542,23 @@ de la plateforme.
 
 ### Colonnes du tableau de suivi
 
-| Colonne                  | Type     | Description                                  |
-|--------------------------|----------|----------------------------------------------|
-| Nom du commerce          | Texte    | Nom commercial du tenant                     |
-| Statut                   | Badge    | Brouillon, Actif, Suspendu                   |
-| Date d'activation        | Date     | Date de mise en ligne                        |
-| Commandes du mois        | Nombre   | Total des commandes du mois en cours         |
-| Dernière activité        | Date     | Date de la dernière commande ou connexion    |
-| Paiement                 | Badge    | À jour, En retard, Impayé                   |
-| Actions                  | Boutons  | Voir, Suspendre, Réactiver                   |
+| Colonne           | Type    | Description                               |
+| ----------------- | ------- | ----------------------------------------- |
+| Nom du commerce   | Texte   | Nom commercial du tenant                  |
+| Statut            | Badge   | Brouillon, Actif, Suspendu                |
+| Date d'activation | Date    | Date de mise en ligne                     |
+| Commandes du mois | Nombre  | Total des commandes du mois en cours      |
+| Dernière activité | Date    | Date de la dernière commande ou connexion |
+| Paiement          | Badge   | À jour, En retard, Impayé                 |
+| Actions           | Boutons | Voir, Suspendre, Réactiver                |
 
 ### Filtres disponibles
 
-| Filtre                   | Options                                       |
-|--------------------------|-----------------------------------------------|
-| Statut                   | Tous, Brouillon, Actif, Suspendu              |
-| Paiement                 | Tous, À jour, En retard, Impayé              |
-| Période                  | Ce mois, 3 derniers mois, 6 derniers mois, 1 an |
+| Filtre   | Options                                         |
+| -------- | ----------------------------------------------- |
+| Statut   | Tous, Brouillon, Actif, Suspendu                |
+| Paiement | Tous, À jour, En retard, Impayé                 |
+| Période  | Ce mois, 3 derniers mois, 6 derniers mois, 1 an |
 
 ### Règles
 
@@ -580,16 +580,16 @@ plateforme, tous tenants confondus.
 
 ### Indicateurs de santé
 
-| Indicateur                              | Description                                     | Seuil d'alerte         |
-|-----------------------------------------|-------------------------------------------------|------------------------|
-| Nombre de tenants actifs                | Total des tenants en statut « Actif »           | —                      |
-| Commandes totales du jour               | Toutes commandes créées aujourd'hui             | —                      |
-| Taux de complétion des commandes        | Commandes livrées / commandes créées (7 jours)  | < 80 %                 |
-| Erreurs API (dernières 24 h)            | Nombre de réponses HTTP 5xx                     | > 10                   |
-| Disponibilité téléphonie                | Pourcentage d'appels aboutis (24 h)             | < 95 %                 |
-| Latence moyenne API                     | Temps de réponse p95 (dernière heure)           | > 3 secondes           |
-| Espace de stockage utilisé              | Volume total des images et médias               | > 80 % du quota        |
-| Tenants avec paiement en retard         | Nombre de tenants en statut « En retard »       | > 0                    |
+| Indicateur                       | Description                                    | Seuil d'alerte  |
+| -------------------------------- | ---------------------------------------------- | --------------- |
+| Nombre de tenants actifs         | Total des tenants en statut « Actif »          | —               |
+| Commandes totales du jour        | Toutes commandes créées aujourd'hui            | —               |
+| Taux de complétion des commandes | Commandes livrées / commandes créées (7 jours) | < 80 %          |
+| Erreurs API (dernières 24 h)     | Nombre de réponses HTTP 5xx                    | > 10            |
+| Disponibilité téléphonie         | Pourcentage d'appels aboutis (24 h)            | < 95 %          |
+| Latence moyenne API              | Temps de réponse p95 (dernière heure)          | > 3 secondes    |
+| Espace de stockage utilisé       | Volume total des images et médias              | > 80 % du quota |
+| Tenants avec paiement en retard  | Nombre de tenants en statut « En retard »      | > 0             |
 
 ### Règles
 
@@ -612,26 +612,26 @@ depuis un tenant source vers un deuxième tenant fictif.
 
 ### Prérequis
 
-| Prérequis                               | Description                                    |
-|-----------------------------------------|------------------------------------------------|
-| Tenant source configuré                 | Tenant actif avec catalogue, téléphonie, livraison |
-| Tenant cible créé en brouillon          | Tenant vide, prêt à recevoir le clonage        |
-| Super admin connecté                    | Rôle `super_admin` avec accès à la page de clonage |
+| Prérequis                      | Description                                        |
+| ------------------------------ | -------------------------------------------------- |
+| Tenant source configuré        | Tenant actif avec catalogue, téléphonie, livraison |
+| Tenant cible créé en brouillon | Tenant vide, prêt à recevoir le clonage            |
+| Super admin connecté           | Rôle `super_admin` avec accès à la page de clonage |
 
 ### Étapes du test
 
-| # | Action                                              | Résultat attendu                                  |
-|---|-----------------------------------------------------|---------------------------------------------------|
-| 1 | Ouvrir la page de clonage (DEP-0948)                | Page affichée avec les sélecteurs source et cible |
-| 2 | Sélectionner le tenant source                       | Éléments clonables affichés                       |
-| 3 | Sélectionner le tenant cible (brouillon)            | Confirmation que le tenant cible est vide         |
-| 4 | Cocher tous les éléments clonables                  | Tous les éléments sélectionnés                    |
-| 5 | Cliquer sur « Prévisualiser »                       | Résumé des éléments à cloner affiché              |
-| 6 | Cliquer sur « Confirmer le clonage »                | Clonage exécuté, message de succès affiché        |
-| 7 | Vérifier le catalogue du tenant cible               | Catégories et produits identiques au tenant source |
-| 8 | Vérifier la configuration téléphonique du tenant cible | Configuration identique au tenant source       |
-| 9 | Vérifier que les données transactionnelles sont vides | Aucune commande, aucun utilisateur client        |
-| 10 | Vérifier le journal de clonage                     | Entrée enregistrée avec date et détails           |
+| #   | Action                                                 | Résultat attendu                                   |
+| --- | ------------------------------------------------------ | -------------------------------------------------- |
+| 1   | Ouvrir la page de clonage (DEP-0948)                   | Page affichée avec les sélecteurs source et cible  |
+| 2   | Sélectionner le tenant source                          | Éléments clonables affichés                        |
+| 3   | Sélectionner le tenant cible (brouillon)               | Confirmation que le tenant cible est vide          |
+| 4   | Cocher tous les éléments clonables                     | Tous les éléments sélectionnés                     |
+| 5   | Cliquer sur « Prévisualiser »                          | Résumé des éléments à cloner affiché               |
+| 6   | Cliquer sur « Confirmer le clonage »                   | Clonage exécuté, message de succès affiché         |
+| 7   | Vérifier le catalogue du tenant cible                  | Catégories et produits identiques au tenant source |
+| 8   | Vérifier la configuration téléphonique du tenant cible | Configuration identique au tenant source           |
+| 9   | Vérifier que les données transactionnelles sont vides  | Aucune commande, aucun utilisateur client          |
+| 10  | Vérifier le journal de clonage                         | Entrée enregistrée avec date et détails            |
 
 ### Critères de réussite
 
@@ -650,21 +650,21 @@ répétable vers un troisième tenant fictif distinct.
 
 ### Prérequis
 
-| Prérequis                               | Description                                    |
-|-----------------------------------------|------------------------------------------------|
-| Tenant source configuré                 | Même tenant source que DEP-0951                |
-| Troisième tenant créé en brouillon      | Tenant vide, distinct du deuxième tenant       |
-| Deuxième tenant déjà cloné (DEP-0951)   | Clonage précédent terminé avec succès          |
+| Prérequis                             | Description                              |
+| ------------------------------------- | ---------------------------------------- |
+| Tenant source configuré               | Même tenant source que DEP-0951          |
+| Troisième tenant créé en brouillon    | Tenant vide, distinct du deuxième tenant |
+| Deuxième tenant déjà cloné (DEP-0951) | Clonage précédent terminé avec succès    |
 
 ### Étapes du test
 
-| # | Action                                              | Résultat attendu                                  |
-|---|-----------------------------------------------------|---------------------------------------------------|
-| 1 | Répéter les étapes 1 à 6 de DEP-0951 avec le troisième tenant | Clonage exécuté avec succès              |
-| 2 | Vérifier le catalogue du troisième tenant           | Identique au tenant source                        |
-| 3 | Vérifier que le deuxième tenant n'est pas affecté   | Données du deuxième tenant inchangées             |
-| 4 | Modifier le catalogue du troisième tenant           | Modification enregistrée sans impact sur les autres tenants |
-| 5 | Vérifier le journal de clonage                      | Deux entrées distinctes (DEP-0951 et DEP-0952)    |
+| #   | Action                                                        | Résultat attendu                                            |
+| --- | ------------------------------------------------------------- | ----------------------------------------------------------- |
+| 1   | Répéter les étapes 1 à 6 de DEP-0951 avec le troisième tenant | Clonage exécuté avec succès                                 |
+| 2   | Vérifier le catalogue du troisième tenant                     | Identique au tenant source                                  |
+| 3   | Vérifier que le deuxième tenant n'est pas affecté             | Données du deuxième tenant inchangées                       |
+| 4   | Modifier le catalogue du troisième tenant                     | Modification enregistrée sans impact sur les autres tenants |
+| 5   | Vérifier le journal de clonage                                | Deux entrées distinctes (DEP-0951 et DEP-0952)              |
 
 ### Critères de réussite
 
@@ -684,23 +684,23 @@ aux données d'un autre tenant.
 
 ### Prérequis
 
-| Prérequis                               | Description                                    |
-|-----------------------------------------|------------------------------------------------|
-| Deux tenants actifs minimum              | Tenants avec domaines ou sous-domaines distincts |
-| Domaines configurés                      | Sous-domaines de type `tenant1.example.com`, `tenant2.example.com` |
-| Utilisateur test pour chaque tenant      | Comptes distincts par tenant                   |
+| Prérequis                           | Description                                                        |
+| ----------------------------------- | ------------------------------------------------------------------ |
+| Deux tenants actifs minimum         | Tenants avec domaines ou sous-domaines distincts                   |
+| Domaines configurés                 | Sous-domaines de type `tenant1.example.com`, `tenant2.example.com` |
+| Utilisateur test pour chaque tenant | Comptes distincts par tenant                                       |
 
 ### Étapes du test
 
-| # | Action                                                   | Résultat attendu                                   |
-|---|----------------------------------------------------------|----------------------------------------------------|
-| 1 | Accéder au domaine du tenant 1                           | Boutique du tenant 1 affichée (branding, catalogue) |
-| 2 | Accéder au domaine du tenant 2                           | Boutique du tenant 2 affichée (branding, catalogue) |
-| 3 | Vérifier que le branding est différent                   | Logo, couleurs et nom distincts                    |
-| 4 | Se connecter en tant qu'admin du tenant 1                | Accès au tableau de bord du tenant 1 uniquement     |
-| 5 | Tenter d'accéder à l'URL d'admin du tenant 2             | Accès refusé ou redirection                        |
-| 6 | Vérifier les appels API avec le token du tenant 1        | Seules les données du tenant 1 sont retournées      |
-| 7 | Vérifier qu'un appel API croisé est rejeté               | Réponse HTTP 403 ou 404                            |
+| #   | Action                                            | Résultat attendu                                    |
+| --- | ------------------------------------------------- | --------------------------------------------------- |
+| 1   | Accéder au domaine du tenant 1                    | Boutique du tenant 1 affichée (branding, catalogue) |
+| 2   | Accéder au domaine du tenant 2                    | Boutique du tenant 2 affichée (branding, catalogue) |
+| 3   | Vérifier que le branding est différent            | Logo, couleurs et nom distincts                     |
+| 4   | Se connecter en tant qu'admin du tenant 1         | Accès au tableau de bord du tenant 1 uniquement     |
+| 5   | Tenter d'accéder à l'URL d'admin du tenant 2      | Accès refusé ou redirection                         |
+| 6   | Vérifier les appels API avec le token du tenant 1 | Seules les données du tenant 1 sont retournées      |
+| 7   | Vérifier qu'un appel API croisé est rejeté        | Réponse HTTP 403 ou 404                             |
 
 ### Critères de réussite
 
@@ -720,23 +720,23 @@ les autres tenants.
 
 ### Prérequis
 
-| Prérequis                               | Description                                    |
-|-----------------------------------------|------------------------------------------------|
-| Deux tenants actifs avec catalogues      | Catalogues distincts, éventuellement clonés    |
-| Produits identifiés dans chaque tenant   | Au moins 5 produits par tenant                 |
+| Prérequis                              | Description                                 |
+| -------------------------------------- | ------------------------------------------- |
+| Deux tenants actifs avec catalogues    | Catalogues distincts, éventuellement clonés |
+| Produits identifiés dans chaque tenant | Au moins 5 produits par tenant              |
 
 ### Étapes du test
 
-| # | Action                                                     | Résultat attendu                                 |
-|---|------------------------------------------------------------|--------------------------------------------------|
-| 1 | Lister les produits du tenant 1 via API                    | Seuls les produits du tenant 1 sont retournés    |
-| 2 | Lister les produits du tenant 2 via API                    | Seuls les produits du tenant 2 sont retournés    |
-| 3 | Ajouter un produit au tenant 1                             | Produit visible uniquement dans le tenant 1      |
-| 4 | Vérifier que le tenant 2 n'a pas le nouveau produit        | Liste du tenant 2 inchangée                      |
-| 5 | Modifier le prix d'un produit dans le tenant 2             | Prix modifié uniquement dans le tenant 2         |
-| 6 | Vérifier que le même produit dans le tenant 1 est inchangé | Prix original conservé dans le tenant 1          |
-| 7 | Supprimer un produit du tenant 1                           | Produit supprimé uniquement dans le tenant 1     |
-| 8 | Vérifier que le tenant 2 conserve tous ses produits        | Catalogue du tenant 2 intact                     |
+| #   | Action                                                     | Résultat attendu                              |
+| --- | ---------------------------------------------------------- | --------------------------------------------- |
+| 1   | Lister les produits du tenant 1 via API                    | Seuls les produits du tenant 1 sont retournés |
+| 2   | Lister les produits du tenant 2 via API                    | Seuls les produits du tenant 2 sont retournés |
+| 3   | Ajouter un produit au tenant 1                             | Produit visible uniquement dans le tenant 1   |
+| 4   | Vérifier que le tenant 2 n'a pas le nouveau produit        | Liste du tenant 2 inchangée                   |
+| 5   | Modifier le prix d'un produit dans le tenant 2             | Prix modifié uniquement dans le tenant 2      |
+| 6   | Vérifier que le même produit dans le tenant 1 est inchangé | Prix original conservé dans le tenant 1       |
+| 7   | Supprimer un produit du tenant 1                           | Produit supprimé uniquement dans le tenant 1  |
+| 8   | Vérifier que le tenant 2 conserve tous ses produits        | Catalogue du tenant 2 intact                  |
 
 ### Critères de réussite
 

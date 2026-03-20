@@ -623,19 +623,19 @@ l'onboarding complet d'un nouveau dépanneur sur la plateforme.
 
 Le document à rédiger (séparément, hors ce bloc DEP) devra couvrir :
 
-| Étape | Contenu                                                                   |
-|-------|---------------------------------------------------------------------------|
-| 1     | Signature de l'accord client (hors plateforme)                           |
-| 2     | Création du tenant (DEP-0676) et du sous-domaine (DEP-0887)              |
-| 3     | Branding initial (DEP-0888)                                               |
-| 4     | Saisie des catégories (DEP-0889)                                          |
-| 5     | Saisie des produits, photos, synonymes (DEP-0890, 0891, 0892)            |
-| 6     | Configuration de la zone de livraison (DEP-0893)                         |
-| 7     | Configuration des horaires (DEP-0894)                                     |
-| 8     | Création des comptes dépanneur et livreur                                 |
-| 9     | Test de commande de bout en bout                                          |
-| 10    | Remise des accès et formation rapide                                      |
-| 11    | Surveillance active pendant les 7 premiers jours                         |
+| Étape | Contenu                                                       |
+| ----- | ------------------------------------------------------------- |
+| 1     | Signature de l'accord client (hors plateforme)                |
+| 2     | Création du tenant (DEP-0676) et du sous-domaine (DEP-0887)   |
+| 3     | Branding initial (DEP-0888)                                   |
+| 4     | Saisie des catégories (DEP-0889)                              |
+| 5     | Saisie des produits, photos, synonymes (DEP-0890, 0891, 0892) |
+| 6     | Configuration de la zone de livraison (DEP-0893)              |
+| 7     | Configuration des horaires (DEP-0894)                         |
+| 8     | Création des comptes dépanneur et livreur                     |
+| 9     | Test de commande de bout en bout                              |
+| 10    | Remise des accès et formation rapide                          |
+| 11    | Surveillance active pendant les 7 premiers jours              |
 
 ### Règle
 
@@ -655,15 +655,15 @@ qui gère la plateforme en production.
 
 Le document à rédiger devra couvrir :
 
-| Thème | Contenu                                                                   |
-|-------|---------------------------------------------------------------------------|
-| Surveillance | Vérification quotidienne des alertes (DEP-0878, DEP-0879)        |
-| Coûts        | Lecture du tableau de bord coûts (DEP-0875–0877)                 |
-| Commandes    | Traitement des commandes bloquées ou problématiques              |
-| Catalogue    | Mise à jour de produits, prix, disponibilité à la demande        |
-| Sauvegardes  | Vérification de la sauvegarde quotidienne (DEP-0785)             |
-| Support      | Réponse aux demandes du dépanneur et des livreurs                |
-| Incidents    | Première réponse selon les alertes reçues (voir DEP-0996)        |
+| Thème        | Contenu                                                   |
+| ------------ | --------------------------------------------------------- |
+| Surveillance | Vérification quotidienne des alertes (DEP-0878, DEP-0879) |
+| Coûts        | Lecture du tableau de bord coûts (DEP-0875–0877)          |
+| Commandes    | Traitement des commandes bloquées ou problématiques       |
+| Catalogue    | Mise à jour de produits, prix, disponibilité à la demande |
+| Sauvegardes  | Vérification de la sauvegarde quotidienne (DEP-0785)      |
+| Support      | Réponse aux demandes du dépanneur et des livreurs         |
+| Incidents    | Première réponse selon les alertes reçues (voir DEP-0996) |
 
 ### Règle
 
@@ -683,22 +683,22 @@ chose ne fonctionne pas.
 
 Le document à rédiger devra couvrir :
 
-| Type d'incident                  | Procédure                                                     |
-|----------------------------------|---------------------------------------------------------------|
-| Plateforme inaccessible          | Vérification des services, rollback si besoin, communication |
-| Commande bloquée                 | Diagnostic via logs (DEP-0789), correction manuelle          |
-| Livreur injoignable              | Contact dépanneur, annulation ou réassignation               |
-| Données personnelles exposées    | Arrêt immédiat, notification, post-mortem (DEP-0885)         |
-| Coûts anormaux                   | Identification de la source, coupure si nécessaire           |
-| Panne d'un service tiers         | Procédure de fallback ou de communication client             |
+| Type d'incident               | Procédure                                                    |
+| ----------------------------- | ------------------------------------------------------------ |
+| Plateforme inaccessible       | Vérification des services, rollback si besoin, communication |
+| Commande bloquée              | Diagnostic via logs (DEP-0789), correction manuelle          |
+| Livreur injoignable           | Contact dépanneur, annulation ou réassignation               |
+| Données personnelles exposées | Arrêt immédiat, notification, post-mortem (DEP-0885)         |
+| Coûts anormaux                | Identification de la source, coupure si nécessaire           |
+| Panne d'un service tiers      | Procédure de fallback ou de communication client             |
 
 ### Niveaux de gravité
 
-| Niveau   | Définition                                    | Délai de réponse |
-|----------|-----------------------------------------------|------------------|
-| P1       | Plateforme totalement hors service            | < 15 minutes     |
-| P2       | Fonctionnalité majeure dégradée               | < 1 heure        |
-| P3       | Anomalie mineure sans impact critique         | < 24 heures      |
+| Niveau | Définition                            | Délai de réponse |
+| ------ | ------------------------------------- | ---------------- |
+| P1     | Plateforme totalement hors service    | < 15 minutes     |
+| P2     | Fonctionnalité majeure dégradée       | < 1 heure        |
+| P3     | Anomalie mineure sans impact critique | < 24 heures      |
 
 ### Règle
 
@@ -716,14 +716,14 @@ comment ajouter de nouvelles fonctionnalités sans régresser sur l'existant.
 
 ### Principes fondamentaux
 
-| Principe                         | Description                                                   |
-|----------------------------------|---------------------------------------------------------------|
-| Décision avant code              | Toute nouvelle fonctionnalité nécessite une décision DEP numérotée |
-| Gel avant extension              | Chaque bloc V1 doit être gelé avant d'y ajouter des éléments V2 |
-| Tests de non-régression          | Tout déploiement inclut les tests de permissions (DEP-0793, 0794) |
-| Isolation multi-tenant           | Toute nouvelle donnée porte un `tenant_id`                   |
-| Rétrocompatibilité API           | Les routes existantes ne changent jamais de contrat en V1    |
-| Changelog                        | Chaque déploiement est documenté dans un CHANGELOG           |
+| Principe                | Description                                                        |
+| ----------------------- | ------------------------------------------------------------------ |
+| Décision avant code     | Toute nouvelle fonctionnalité nécessite une décision DEP numérotée |
+| Gel avant extension     | Chaque bloc V1 doit être gelé avant d'y ajouter des éléments V2    |
+| Tests de non-régression | Tout déploiement inclut les tests de permissions (DEP-0793, 0794)  |
+| Isolation multi-tenant  | Toute nouvelle donnée porte un `tenant_id`                         |
+| Rétrocompatibilité API  | Les routes existantes ne changent jamais de contrat en V1          |
+| Changelog               | Chaque déploiement est documenté dans un CHANGELOG                 |
 
 ### Structure du document à rédiger
 
@@ -749,13 +749,13 @@ pour identifier les doublons, les redondances et les tâches obsolètes.
 
 ### Procédure de revue
 
-| Étape | Action                                                                    |
-|-------|---------------------------------------------------------------------------|
-| 1     | Lire la checklist complète de DEP-0001 à DEP-1000                       |
-| 2     | Identifier les tâches couvertes par plusieurs DEP différents             |
-| 3     | Identifier les tâches rendues obsolètes par des décisions postérieures   |
-| 4     | Identifier les tâches hors périmètre V1 déjà documentées comme futures  |
-| 5     | Marquer les doublons dans un document de revue séparé (hors ce dépôt)   |
+| Étape | Action                                                                       |
+| ----- | ---------------------------------------------------------------------------- |
+| 1     | Lire la checklist complète de DEP-0001 à DEP-1000                            |
+| 2     | Identifier les tâches couvertes par plusieurs DEP différents                 |
+| 3     | Identifier les tâches rendues obsolètes par des décisions postérieures       |
+| 4     | Identifier les tâches hors périmètre V1 déjà documentées comme futures       |
+| 5     | Marquer les doublons dans un document de revue séparé (hors ce dépôt)        |
 | 6     | Ne pas modifier `docs/1000-checklist.md` — la checklist est en lecture seule |
 
 ### Règle
@@ -775,14 +775,14 @@ tickets GitHub actionnables, au fur et à mesure de la mise en œuvre.
 
 ### Processus
 
-| Étape | Action                                                                    |
-|-------|---------------------------------------------------------------------------|
+| Étape | Action                                                                                        |
+| ----- | --------------------------------------------------------------------------------------------- |
 | 1     | Pour chaque bloc DEP documenté et gelé, créer un ticket GitHub par DEP ou par groupe cohérent |
-| 2     | Associer chaque ticket à un milestone correspondant (ex. V1 — Pilote)   |
-| 3     | Affecter les labels appropriés (front, back, mobile, doc, infra)        |
-| 4     | Lier chaque ticket au fichier de décision correspondant dans `docs/decisions/` |
-| 5     | Prioriser selon l'ordre naturel de la checklist                          |
-| 6     | Ne créer les tickets que pour les blocs entièrement documentés           |
+| 2     | Associer chaque ticket à un milestone correspondant (ex. V1 — Pilote)                         |
+| 3     | Affecter les labels appropriés (front, back, mobile, doc, infra)                              |
+| 4     | Lier chaque ticket au fichier de décision correspondant dans `docs/decisions/`                |
+| 5     | Prioriser selon l'ordre naturel de la checklist                                               |
+| 6     | Ne créer les tickets que pour les blocs entièrement documentés                                |
 
 ### Règles
 
@@ -804,13 +804,13 @@ phase d'implémentation du projet depaneurIA V1.
 
 ### Ce que signifie « démarrer officiellement »
 
-| Condition                                    | État attendu                                      |
-|----------------------------------------------|---------------------------------------------------|
-| Les 1000 DEP sont documentés ou évalués      | ✅ Accompli par ce document                       |
-| L'observabilité minimum est opérationnelle   | Requis avant pilote (DEP-0880)                   |
-| Le tenant pilote est préparé                 | Requis avant pilote (DEP-0886)                   |
-| Le backlog GitHub est initialisé             | Requis pour suivre l'avancement (DEP-0999)       |
-| L'équipe a lu les 4 documents finaux         | DEP-0994, 0995, 0996, 0997                       |
+| Condition                                  | État attendu                               |
+| ------------------------------------------ | ------------------------------------------ |
+| Les 1000 DEP sont documentés ou évalués    | ✅ Accompli par ce document                |
+| L'observabilité minimum est opérationnelle | Requis avant pilote (DEP-0880)             |
+| Le tenant pilote est préparé               | Requis avant pilote (DEP-0886)             |
+| Le backlog GitHub est initialisé           | Requis pour suivre l'avancement (DEP-0999) |
+| L'équipe a lu les 4 documents finaux       | DEP-0994, 0995, 0996, 0997                 |
 
 ### Principe directeur
 
@@ -834,31 +834,31 @@ backlog GitHub devient l'outil de pilotage actif du projet.
 
 ## Synthèse
 
-| DEP   | Titre                                                               | Statut           |
-|-------|---------------------------------------------------------------------|------------------|
-| 0975  | Intégrations POS ou caisse                                          | Évalué — V2+     |
-| 0976  | Scan de produits                                                    | Évalué — V2+     |
-| 0977  | Lecture de code-barres                                              | Évalué — V2+     |
-| 0978  | Suivi GPS complet du livreur                                        | Évalué — V2+     |
-| 0979  | Preuve photo de livraison                                           | Évalué — V2+     |
-| 0980  | Centre d'appels multi-clients                                       | Évalué — V2+     |
-| 0981  | Tableau de bord financier                                           | Évalué — V2+     |
-| 0982  | Tableau de bord marketing                                           | Évalué — V2+     |
-| 0983  | Tableau de bord fidélité                                            | Évalué — V2+     |
-| 0984  | Notifications push avancées                                         | Évalué — V2+     |
-| 0985  | Notifications SMS avancées                                          | Évalué — V2+     |
-| 0986  | Mode hors ligne partiel                                             | Évalué — V2+     |
-| 0987  | Application mobile native                                           | Évalué — V2+     |
-| 0988  | Application tablette dépanneur                                      | Évalué — V2+     |
-| 0989  | Assistant avatar visuel                                             | Évalué — V3+     |
-| 0990  | Moteur de substitution automatique intelligent                      | Évalué — V2+     |
-| 0991  | Base de connaissances par client                                    | Évalué — V2+     |
-| 0992  | Marketplace de plusieurs dépanneurs                                 | Évalué — V2+     |
-| 0993  | Console de support interne                                          | Évalué — V2+     |
-| 0994  | Document final : ouvrir un nouveau client de A à Z                 | Défini — SOP     |
-| 0995  | Document final : exploiter un client au quotidien                  | Défini — Guide   |
-| 0996  | Document final : gérer les incidents                               | Défini — Runbook |
-| 0997  | Document final : faire évoluer le produit sans casser la base      | Défini — Guide   |
-| 0998  | Revue complète de la checklist                                      | Défini           |
-| 0999  | Transformer les lignes cochées en backlog GitHub                    | Défini           |
-| 1000  | Démarrer officiellement le projet                                   | ✅ Clôturé       |
+| DEP  | Titre                                                         | Statut           |
+| ---- | ------------------------------------------------------------- | ---------------- |
+| 0975 | Intégrations POS ou caisse                                    | Évalué — V2+     |
+| 0976 | Scan de produits                                              | Évalué — V2+     |
+| 0977 | Lecture de code-barres                                        | Évalué — V2+     |
+| 0978 | Suivi GPS complet du livreur                                  | Évalué — V2+     |
+| 0979 | Preuve photo de livraison                                     | Évalué — V2+     |
+| 0980 | Centre d'appels multi-clients                                 | Évalué — V2+     |
+| 0981 | Tableau de bord financier                                     | Évalué — V2+     |
+| 0982 | Tableau de bord marketing                                     | Évalué — V2+     |
+| 0983 | Tableau de bord fidélité                                      | Évalué — V2+     |
+| 0984 | Notifications push avancées                                   | Évalué — V2+     |
+| 0985 | Notifications SMS avancées                                    | Évalué — V2+     |
+| 0986 | Mode hors ligne partiel                                       | Évalué — V2+     |
+| 0987 | Application mobile native                                     | Évalué — V2+     |
+| 0988 | Application tablette dépanneur                                | Évalué — V2+     |
+| 0989 | Assistant avatar visuel                                       | Évalué — V3+     |
+| 0990 | Moteur de substitution automatique intelligent                | Évalué — V2+     |
+| 0991 | Base de connaissances par client                              | Évalué — V2+     |
+| 0992 | Marketplace de plusieurs dépanneurs                           | Évalué — V2+     |
+| 0993 | Console de support interne                                    | Évalué — V2+     |
+| 0994 | Document final : ouvrir un nouveau client de A à Z            | Défini — SOP     |
+| 0995 | Document final : exploiter un client au quotidien             | Défini — Guide   |
+| 0996 | Document final : gérer les incidents                          | Défini — Runbook |
+| 0997 | Document final : faire évoluer le produit sans casser la base | Défini — Guide   |
+| 0998 | Revue complète de la checklist                                | Défini           |
+| 0999 | Transformer les lignes cochées en backlog GitHub              | Défini           |
+| 1000 | Démarrer officiellement le projet                             | ✅ Clôturé       |

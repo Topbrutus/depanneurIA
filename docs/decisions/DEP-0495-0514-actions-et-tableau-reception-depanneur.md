@@ -25,12 +25,12 @@ suivi (SLA, chronos internes).
 
 ### Comportement
 
-| Étape | Action                                                                          |
-|-------|---------------------------------------------------------------------------------|
-| 1     | Clic sur « En préparation »                                                     |
+| Étape | Action                                                                                 |
+| ----- | -------------------------------------------------------------------------------------- |
+| 1     | Clic sur « En préparation »                                                            |
 | 2     | Statut reste `en_preparation`, mais le champ `preparation_start_at` est posé si absent |
-| 3     | Chrono de préparation passe à l’état actif (affiché dans la fiche et la liste) |
-| 4     | Entrée ajoutée au journal d’activité (DEP-0510)                                 |
+| 3     | Chrono de préparation passe à l’état actif (affiché dans la fiche et la liste)         |
+| 4     | Entrée ajoutée au journal d’activité (DEP-0510)                                        |
 
 ### Règles
 
@@ -54,13 +54,13 @@ Basculer une commande en fin de préparation vers l’état « prête à partir 
 
 ### Comportement
 
-| Étape | Action                                                                           |
-|-------|----------------------------------------------------------------------------------|
-| 1     | Clic sur « Prête »                                                               |
-| 2     | Statut passe de `en_preparation` → `pretes_a_partir`                             |
-| 3     | Horodatage `ready_at` enregistré                                                 |
-| 4     | Notification client : « Votre commande est prête à partir » (canal SMS/push)     |
-| 5     | Journal d’activité mis à jour (DEP-0510)                                         |
+| Étape | Action                                                                       |
+| ----- | ---------------------------------------------------------------------------- |
+| 1     | Clic sur « Prête »                                                           |
+| 2     | Statut passe de `en_preparation` → `pretes_a_partir`                         |
+| 3     | Horodatage `ready_at` enregistré                                             |
+| 4     | Notification client : « Votre commande est prête à partir » (canal SMS/push) |
+| 5     | Journal d’activité mis à jour (DEP-0510)                                     |
 
 ### Règles
 
@@ -84,13 +84,13 @@ préparation.
 
 ### Comportement
 
-| Étape | Action                                                                 |
-|-------|------------------------------------------------------------------------|
-| 1     | Ouverture d’un sélecteur (liste des livreurs disponibles + ETA)        |
-| 2     | Sélection du livreur + option « Pas encore connu »                     |
-| 3     | Enregistrement de `livreur_id` et `assigned_at`                        |
-| 4     | Notification au livreur (push/SMS si configuré) et pastille « Assigné »|
-| 5     | Journal d’activité enrichi (acteur, livreur choisi, canal de notif)    |
+| Étape | Action                                                                  |
+| ----- | ----------------------------------------------------------------------- |
+| 1     | Ouverture d’un sélecteur (liste des livreurs disponibles + ETA)         |
+| 2     | Sélection du livreur + option « Pas encore connu »                      |
+| 3     | Enregistrement de `livreur_id` et `assigned_at`                         |
+| 4     | Notification au livreur (push/SMS si configuré) et pastille « Assigné » |
+| 5     | Journal d’activité enrichi (acteur, livreur choisi, canal de notif)     |
 
 ### Règles
 
@@ -117,14 +117,14 @@ d’impossibilité de traitement.
 
 ### Comportement
 
-| Étape | Action                                                                                  |
-|-------|-----------------------------------------------------------------------------------------|
-| 1     | Clic « Annuler »                                                                        |
-| 2     | Modal obligatoire avec motif (rupture totale, client injoignable, erreur adresse, autre)|
-| 3     | Statut passe vers `annulee` + horodatage `cancelled_at`                                 |
-| 4     | Désassignation du livreur éventuel + notification au livreur                            |
-| 5     | Notification client avec motif résumé                                                   |
-| 6     | Entrée journal d’activité                                                               |
+| Étape | Action                                                                                   |
+| ----- | ---------------------------------------------------------------------------------------- |
+| 1     | Clic « Annuler »                                                                         |
+| 2     | Modal obligatoire avec motif (rupture totale, client injoignable, erreur adresse, autre) |
+| 3     | Statut passe vers `annulee` + horodatage `cancelled_at`                                  |
+| 4     | Désassignation du livreur éventuel + notification au livreur                             |
+| 5     | Notification client avec motif résumé                                                    |
+| 6     | Entrée journal d’activité                                                                |
 
 ### Règles
 
@@ -150,13 +150,13 @@ traçant les impacts.
 
 ### Comportement
 
-| Étape | Action                                                                                   |
-|-------|------------------------------------------------------------------------------------------|
-| 1     | Ouverture d’un panneau d’édition (quantités, articles, notes, frais)                     |
-| 2     | Validation → recalcul des totaux (TTC, frais, taxes)                                     |
-| 3     | Statut conservé ; champ `last_modified_at` mis à jour                                    |
+| Étape | Action                                                                                         |
+| ----- | ---------------------------------------------------------------------------------------------- |
+| 1     | Ouverture d’un panneau d’édition (quantités, articles, notes, frais)                           |
+| 2     | Validation → recalcul des totaux (TTC, frais, taxes)                                           |
+| 3     | Statut conservé ; champ `last_modified_at` mis à jour                                          |
 | 4     | Notification client avec résumé des modifications si variation montant > 0 ou articles changés |
-| 5     | Entrée journal d’activité détaillant les champs modifiés                                 |
+| 5     | Entrée journal d’activité détaillant les champs modifiés                                       |
 
 ### Règles
 
@@ -182,12 +182,12 @@ Offrir un raccourci de contact direct avec journalisation du résultat.
 
 ### Comportement
 
-| Étape | Action                                                                                 |
-|-------|----------------------------------------------------------------------------------------|
-| 1     | Clic → ouverture d’un menu « Démarrer l’appel » avec numéro cliquable (`tel:`)         |
-| 2     | Après l’appel, micro-formulaire « Résultat » : connecté / pas de réponse / messagerie  |
-| 3     | Option de consigner une note courte (raison : adresse, remplacement, paiement, autre)  |
-| 4     | Journal d’activité mis à jour avec résultat et note                                    |
+| Étape | Action                                                                                |
+| ----- | ------------------------------------------------------------------------------------- |
+| 1     | Clic → ouverture d’un menu « Démarrer l’appel » avec numéro cliquable (`tel:`)        |
+| 2     | Après l’appel, micro-formulaire « Résultat » : connecté / pas de réponse / messagerie |
+| 3     | Option de consigner une note courte (raison : adresse, remplacement, paiement, autre) |
+| 4     | Journal d’activité mis à jour avec résultat et note                                   |
 
 ### Règles
 
@@ -211,13 +211,13 @@ Envoyer rapidement un message standardisé (SMS/push) sans saisie manuelle.
 
 ### Modèles de message V1
 
-| Modèle                       | Contenu                                                        | Quand l’utiliser                          |
-|------------------------------|----------------------------------------------------------------|-------------------------------------------|
-| Préparation lancée           | « Votre commande #[ID] est en préparation. »                   | Après DEP-0495 si client non notifié      |
-| Commande prête               | « Votre commande #[ID] est prête à partir. »                   | Après DEP-0496                            |
-| Confirmation adresse         | « Merci de confirmer l’adresse : [adresse]. »                 | Avant départ si doute                     |
-| Article manquant             | « Article [X] indisponible. OK pour remplacement ? »          | Avec DEP-0502/DEP-0503                    |
-| Départ livreur               | « Votre commande #[ID] est en route. »                         | Au départ livreur (hors périmètre code)   |
+| Modèle               | Contenu                                              | Quand l’utiliser                        |
+| -------------------- | ---------------------------------------------------- | --------------------------------------- |
+| Préparation lancée   | « Votre commande #[ID] est en préparation. »         | Après DEP-0495 si client non notifié    |
+| Commande prête       | « Votre commande #[ID] est prête à partir. »         | Après DEP-0496                          |
+| Confirmation adresse | « Merci de confirmer l’adresse : [adresse]. »        | Avant départ si doute                   |
+| Article manquant     | « Article [X] indisponible. OK pour remplacement ? » | Avec DEP-0502/DEP-0503                  |
+| Départ livreur       | « Votre commande #[ID] est en route. »               | Au départ livreur (hors périmètre code) |
 
 ### Règles
 
@@ -242,15 +242,15 @@ Permettre de gérer rapidement une rupture partielle pendant la préparation.
 
 ### Comportement
 
-| Étape | Action                                                                              |
-|-------|-------------------------------------------------------------------------------------|
-| 1     | Clic sur « Article manquant »                                                       |
-| 2     | Sélection du ou des articles concernés                                              |
-| 3     | Choix immédiat : proposer remplacement (DEP-0503) ou retirer l’article              |
-| 4     | Totaux recalculés (si retrait) ; badge « Manquant » sur la ligne                    |
-| 5     | Statut reste `en_preparation` mais priorité boostée (DEP-0508)                      |
-| 6     | Message automatique envoyé au client (DEP-0501, modèle « Article manquant »)        |
-| 7     | Journal d’activité mis à jour                                                       |
+| Étape | Action                                                                       |
+| ----- | ---------------------------------------------------------------------------- |
+| 1     | Clic sur « Article manquant »                                                |
+| 2     | Sélection du ou des articles concernés                                       |
+| 3     | Choix immédiat : proposer remplacement (DEP-0503) ou retirer l’article       |
+| 4     | Totaux recalculés (si retrait) ; badge « Manquant » sur la ligne             |
+| 5     | Statut reste `en_preparation` mais priorité boostée (DEP-0508)               |
+| 6     | Message automatique envoyé au client (DEP-0501, modèle « Article manquant ») |
+| 7     | Journal d’activité mis à jour                                                |
 
 ### Règles
 
@@ -276,14 +276,14 @@ client.
 
 ### Comportement
 
-| Étape | Action                                                                                   |
-|-------|------------------------------------------------------------------------------------------|
-| 1     | Sélection de l’article manquant et d’une ou deux alternatives (catalogue filtré)         |
-| 2     | Envoi automatique d’un message au client avec choix « Accepter » / « Refuser » (DEP-0501)|
-| 3     | Statut intermédiaire `en_attente_validation_client` jusqu’à réponse                      |
-| 4     | Si accepté → remplacement appliqué, totaux recalculés, retour à `en_preparation`         |
+| Étape | Action                                                                                                                  |
+| ----- | ----------------------------------------------------------------------------------------------------------------------- |
+| 1     | Sélection de l’article manquant et d’une ou deux alternatives (catalogue filtré)                                        |
+| 2     | Envoi automatique d’un message au client avec choix « Accepter » / « Refuser » (DEP-0501)                               |
+| 3     | Statut intermédiaire `en_attente_validation_client` jusqu’à réponse                                                     |
+| 4     | Si accepté → remplacement appliqué, totaux recalculés, retour à `en_preparation`                                        |
 | 5     | Si refusé ou pas de réponse sous 10 minutes → badge « Décision client manquante », le dépanneur doit appeler ou annuler |
-| 6     | Journal d’activité mis à jour (proposition, réponse, expiration)                         |
+| 6     | Journal d’activité mis à jour (proposition, réponse, expiration)                                                        |
 
 ### Règles
 
@@ -307,13 +307,13 @@ Consigner la confirmation de paiement à la remise de la commande.
 
 ### Comportement
 
-| Étape | Action                                                                   |
-|-------|--------------------------------------------------------------------------|
-| 1     | Clic « Payé »                                                            |
-| 2     | Sélection du mode (espèces, terminal, autre) + montant encaissé (auto    |
-|       | pré-rempli par total TTC)                                                |
-| 3     | Horodatage `paid_at` + statut de paiement = `paye`                       |
-| 4     | Journal d’activité (acteur, mode, montant)                              |
+| Étape | Action                                                                |
+| ----- | --------------------------------------------------------------------- |
+| 1     | Clic « Payé »                                                         |
+| 2     | Sélection du mode (espèces, terminal, autre) + montant encaissé (auto |
+|       | pré-rempli par total TTC)                                             |
+| 3     | Horodatage `paid_at` + statut de paiement = `paye`                    |
+| 4     | Journal d’activité (acteur, mode, montant)                            |
 
 ### Règles
 
@@ -337,13 +337,13 @@ Tracer un échec de paiement à la livraison.
 
 ### Comportement
 
-| Étape | Action                                                                           |
-|-------|----------------------------------------------------------------------------------|
-| 1     | Clic « Non payé »                                                                |
-| 2     | Modal motif (client sans fonds, terminal en panne, refus de payer, autre)       |
-| 3     | Statut paiement = `non_paye`, horodatage `payment_failed_at`                     |
-| 4     | Commande déplacée dans la file « Problèmes » (DEP-0490) avec badge rouge         |
-| 5     | Journal d’activité                                                                |
+| Étape | Action                                                                    |
+| ----- | ------------------------------------------------------------------------- |
+| 1     | Clic « Non payé »                                                         |
+| 2     | Modal motif (client sans fonds, terminal en panne, refus de payer, autre) |
+| 3     | Statut paiement = `non_paye`, horodatage `payment_failed_at`              |
+| 4     | Commande déplacée dans la file « Problèmes » (DEP-0490) avec badge rouge  |
+| 5     | Journal d’activité                                                        |
 
 ### Règles
 
@@ -368,13 +368,13 @@ Documenter un incident de livraison et router la commande vers la file
 
 ### Comportement
 
-| Étape | Action                                                                                   |
-|-------|------------------------------------------------------------------------------------------|
-| 1     | Clic « Problème livraison »                                                              |
-| 2     | Modal motif (client absent, adresse incorrecte, accident, colis endommagé, autre)       |
-| 3     | Statut passe à `probleme_livraison`, horodatage `problem_at`                             |
-| 4     | Commande visible dans la file « Problèmes » avec pastille rouge                          |
-| 5     | Option d’envoyer un message au client (DEP-0501) + journal d’activité                    |
+| Étape | Action                                                                            |
+| ----- | --------------------------------------------------------------------------------- |
+| 1     | Clic « Problème livraison »                                                       |
+| 2     | Modal motif (client absent, adresse incorrecte, accident, colis endommagé, autre) |
+| 3     | Statut passe à `probleme_livraison`, horodatage `problem_at`                      |
+| 4     | Commande visible dans la file « Problèmes » avec pastille rouge                   |
+| 5     | Option d’envoyer un message au client (DEP-0501) + journal d’activité             |
 
 ### Règles
 
@@ -399,11 +399,11 @@ commande dans le flux opérationnel.
 
 ### Comportement
 
-| Étape | Action                                                                                  |
-|-------|-----------------------------------------------------------------------------------------|
-| 1     | Clic « Rouvrir » + sélection du statut cible (`en_preparation` ou `pretes_a_partir`)    |
-| 2     | Suppression du motif d’annulation actif, création d’un champ `reopened_at`              |
-| 3     | Journal d’activité : acteur, raison de la réouverture, statut précédent → nouveau       |
+| Étape | Action                                                                                         |
+| ----- | ---------------------------------------------------------------------------------------------- |
+| 1     | Clic « Rouvrir » + sélection du statut cible (`en_preparation` ou `pretes_a_partir`)           |
+| 2     | Suppression du motif d’annulation actif, création d’un champ `reopened_at`                     |
+| 3     | Journal d’activité : acteur, raison de la réouverture, statut précédent → nouveau              |
 | 4     | Notifications : aucune automatique au client ; le dépanneur peut envoyer un message (DEP-0501) |
 
 ### Règles
@@ -451,20 +451,20 @@ Assurer une traçabilité précise des transitions de commande.
 
 ### Timestamps requis
 
-| Événement                               | Champ                            | Déclencheur                           |
-|-----------------------------------------|----------------------------------|---------------------------------------|
-| Réception de commande                   | `received_at`                    | Création de la commande                |
-| Acceptation (DEP-0493)                  | `accepted_at`                    | Bouton « Accepter »                    |
-| Démarrage préparation (DEP-0495)        | `preparation_start_at`           | Bouton « En préparation »             |
-| Prête (DEP-0496)                        | `ready_at`                       | Bouton « Prête »                      |
-| Assignation livreur (DEP-0497)          | `assigned_at`                    | Sélection livreur                     |
-| Départ livreur                          | `departure_at`                   | Départ confirmé (hors périmètre code) |
-| Livraison confirmée                     | `delivered_at`                   | Confirmation livraison                |
-| Annulation (DEP-0498)                   | `cancelled_at`                   | Validation modal                      |
-| Problème livraison (DEP-0506)           | `problem_at`                     | Validation modal                      |
-| Réouverture (DEP-0507)                  | `reopened_at`                    | Bouton « Rouvrir »                    |
-| Paiement confirmé (DEP-0504)            | `paid_at`                        | Bouton « Payé »                       |
-| Paiement échoué (DEP-0505)              | `payment_failed_at`              | Bouton « Non payé »                   |
+| Événement                        | Champ                  | Déclencheur                           |
+| -------------------------------- | ---------------------- | ------------------------------------- |
+| Réception de commande            | `received_at`          | Création de la commande               |
+| Acceptation (DEP-0493)           | `accepted_at`          | Bouton « Accepter »                   |
+| Démarrage préparation (DEP-0495) | `preparation_start_at` | Bouton « En préparation »             |
+| Prête (DEP-0496)                 | `ready_at`             | Bouton « Prête »                      |
+| Assignation livreur (DEP-0497)   | `assigned_at`          | Sélection livreur                     |
+| Départ livreur                   | `departure_at`         | Départ confirmé (hors périmètre code) |
+| Livraison confirmée              | `delivered_at`         | Confirmation livraison                |
+| Annulation (DEP-0498)            | `cancelled_at`         | Validation modal                      |
+| Problème livraison (DEP-0506)    | `problem_at`           | Validation modal                      |
+| Réouverture (DEP-0507)           | `reopened_at`          | Bouton « Rouvrir »                    |
+| Paiement confirmé (DEP-0504)     | `paid_at`              | Bouton « Payé »                       |
+| Paiement échoué (DEP-0505)       | `payment_failed_at`    | Bouton « Non payé »                   |
 
 ### Règles
 
@@ -485,7 +485,7 @@ chronologique lisible.
 ### Contenu d’une entrée
 
 | Champ          | Description                                                         |
-|----------------|---------------------------------------------------------------------|
+| -------------- | ------------------------------------------------------------------- |
 | `timestamp`    | Date/heure de l’événement                                           |
 | `acteur`       | Utilisateur ou système (dépanneur, livreur, système)                |
 | `action`       | Type d’action (acceptation, appel, message, modification, paiement) |
@@ -517,13 +517,13 @@ Fournir une vue unique temps réel pour prioriser et exécuter les commandes.
 
 ### Sections du tableau
 
-| Zone                         | Contenu                                                                 |
-|------------------------------|-------------------------------------------------------------------------|
-| Bandeau KPI                  | Compteurs par file (en attente, préparation, prêtes, problèmes), SLA en retard |
-| Filtres et recherche         | Recherche par ID/client, filtres par statut, livreur, urgence           |
-| Onglets de files             | En attente, En préparation, Prêtes à partir, En livraison, Annulées, Problèmes |
-| Liste principale             | Lignes de commandes triées selon DEP-0508, actions rapides contextuelles|
-| Panneau détail (split view)  | Fiche DEP-0512 + actions (0495–0507)                                    |
+| Zone                        | Contenu                                                                        |
+| --------------------------- | ------------------------------------------------------------------------------ |
+| Bandeau KPI                 | Compteurs par file (en attente, préparation, prêtes, problèmes), SLA en retard |
+| Filtres et recherche        | Recherche par ID/client, filtres par statut, livreur, urgence                  |
+| Onglets de files            | En attente, En préparation, Prêtes à partir, En livraison, Annulées, Problèmes |
+| Liste principale            | Lignes de commandes triées selon DEP-0508, actions rapides contextuelles       |
+| Panneau détail (split view) | Fiche DEP-0512 + actions (0495–0507)                                           |
 
 ### Règles
 
@@ -567,13 +567,13 @@ défini fonctionnellement (DEP-0493).
 
 ### Spécifications UI
 
-| Élément          | Valeur                                                         |
-|------------------|----------------------------------------------------------------|
-| Label            | « Accepter »                                                   |
-| Style            | Bouton primaire (fond bleu, texte blanc, léger relief)         |
-| Emplacement      | Ligne (actions rapides) + bas de fiche détail                  |
-| États            | Normal, hover, loading (spinner ≤ 700 ms), disabled (si statut ≠ `en_attente`) |
-| Accessibilité    | Focus visible, raccourci clavier `A` sur desktop               |
+| Élément       | Valeur                                                                         |
+| ------------- | ------------------------------------------------------------------------------ |
+| Label         | « Accepter »                                                                   |
+| Style         | Bouton primaire (fond bleu, texte blanc, léger relief)                         |
+| Emplacement   | Ligne (actions rapides) + bas de fiche détail                                  |
+| États         | Normal, hover, loading (spinner ≤ 700 ms), disabled (si statut ≠ `en_attente`) |
+| Accessibilité | Focus visible, raccourci clavier `A` sur desktop                               |
 
 ### Règles
 
@@ -590,14 +590,14 @@ Définir la présentation du bouton « Refuser » aligné avec DEP-0494.
 
 ### Spécifications UI
 
-| Élément          | Valeur                                                         |
-|------------------|----------------------------------------------------------------|
-| Label            | « Refuser »                                                    |
-| Style            | Bouton secondaire danger (fond rouge clair, texte rouge foncé) |
-| Emplacement      | Ligne (actions rapides) + bas de fiche détail, à droite de « Accepter » |
-| États            | Normal, hover, disabled (si statut ≠ `en_attente`)             |
-| Modal            | S’ouvre systématiquement au clic pour sélectionner le motif     |
-| Accessibilité    | Focus visible, raccourci clavier `R` sur desktop               |
+| Élément       | Valeur                                                                  |
+| ------------- | ----------------------------------------------------------------------- |
+| Label         | « Refuser »                                                             |
+| Style         | Bouton secondaire danger (fond rouge clair, texte rouge foncé)          |
+| Emplacement   | Ligne (actions rapides) + bas de fiche détail, à droite de « Accepter » |
+| États         | Normal, hover, disabled (si statut ≠ `en_attente`)                      |
+| Modal         | S’ouvre systématiquement au clic pour sélectionner le motif             |
+| Accessibilité | Focus visible, raccourci clavier `R` sur desktop                        |
 
 ### Règles
 
@@ -608,25 +608,25 @@ Définir la présentation du bouton « Refuser » aligné avec DEP-0494.
 
 ## Synthèse du bloc DEP-0495–DEP-0514
 
-| DEP     | Sujet                                 | Décision clé                                                    |
-|---------|---------------------------------------|-----------------------------------------------------------------|
-| 0495    | Marquer en préparation                | Pose `preparation_start_at`, chrono actif                       |
-| 0496    | Marquer prête                         | Statut `pretes_a_partir`, notification client, `ready_at`       |
-| 0497    | Assigner à un livreur                 | Sélecteur livreur, `assigned_at`, badge « Assigné »             |
-| 0498    | Annuler une commande                  | Modal motif, statut `annulee`, notifs client/livreur            |
-| 0499    | Modifier avant départ                 | Éditeur contrôlé, recalcul totaux, notif si montant change       |
-| 0500    | Appeler le client                     | Raccourci `tel:`, résultat consigné, pas de statut auto         |
-| 0501    | Message automatique client            | Modèles SMS/push avec anti-spam et journalisation               |
-| 0502    | Signaler article manquant             | Badge, recalcul, priorité boostée, message client               |
-| 0503    | Proposer remplacement                 | Attente validation client, délai 10 min, retour en préparation  |
-| 0504    | Marquer payé à la livraison           | Mode paiement, `paid_at`, clôture du statut de paiement         |
-| 0505    | Marquer non payé                      | `non_paye`, `payment_failed_at`, file Problèmes                 |
-| 0506    | Marquer problème de livraison         | Statut `probleme_livraison`, `problem_at`, pastille rouge        |
-| 0507    | Rouvrir une commande                  | Rôle restreint, `reopened_at`, choix statut cible               |
-| 0508    | Logique de priorité                   | Tri par statut, SLA, incidents, puis ordre d’arrivée            |
-| 0509    | Horodatage des changements            | Champs timestamp obligatoires par transition                    |
-| 0510    | Journal d’activité                    | Timeline immuable avec acteur, action, statuts avant/après      |
-| 0511    | Tableau de bord réception             | Bandeau KPI, filtres, onglets, liste triée, split view           |
-| 0512    | Vue détaillée                         | Chrono, contact, livraison, articles, paiement, journal         |
-| 0513    | Bouton d’acceptation                  | Bouton primaire, états, raccourci `A`, déclenche DEP-0493       |
-| 0514    | Bouton de refus                       | Bouton danger + modal motif, raccourci `R`, flux DEP-0494       |
+| DEP  | Sujet                         | Décision clé                                                   |
+| ---- | ----------------------------- | -------------------------------------------------------------- |
+| 0495 | Marquer en préparation        | Pose `preparation_start_at`, chrono actif                      |
+| 0496 | Marquer prête                 | Statut `pretes_a_partir`, notification client, `ready_at`      |
+| 0497 | Assigner à un livreur         | Sélecteur livreur, `assigned_at`, badge « Assigné »            |
+| 0498 | Annuler une commande          | Modal motif, statut `annulee`, notifs client/livreur           |
+| 0499 | Modifier avant départ         | Éditeur contrôlé, recalcul totaux, notif si montant change     |
+| 0500 | Appeler le client             | Raccourci `tel:`, résultat consigné, pas de statut auto        |
+| 0501 | Message automatique client    | Modèles SMS/push avec anti-spam et journalisation              |
+| 0502 | Signaler article manquant     | Badge, recalcul, priorité boostée, message client              |
+| 0503 | Proposer remplacement         | Attente validation client, délai 10 min, retour en préparation |
+| 0504 | Marquer payé à la livraison   | Mode paiement, `paid_at`, clôture du statut de paiement        |
+| 0505 | Marquer non payé              | `non_paye`, `payment_failed_at`, file Problèmes                |
+| 0506 | Marquer problème de livraison | Statut `probleme_livraison`, `problem_at`, pastille rouge      |
+| 0507 | Rouvrir une commande          | Rôle restreint, `reopened_at`, choix statut cible              |
+| 0508 | Logique de priorité           | Tri par statut, SLA, incidents, puis ordre d’arrivée           |
+| 0509 | Horodatage des changements    | Champs timestamp obligatoires par transition                   |
+| 0510 | Journal d’activité            | Timeline immuable avec acteur, action, statuts avant/après     |
+| 0511 | Tableau de bord réception     | Bandeau KPI, filtres, onglets, liste triée, split view         |
+| 0512 | Vue détaillée                 | Chrono, contact, livraison, articles, paiement, journal        |
+| 0513 | Bouton d’acceptation          | Bouton primaire, états, raccourci `A`, déclenche DEP-0493      |
+| 0514 | Bouton de refus               | Bouton danger + modal motif, raccourci `R`, flux DEP-0494      |

@@ -10,11 +10,11 @@ accessibilité et aide vocale.
 
 ## DEP-0171 — Page d'adresses client
 
-| Attribut     | Valeur                                       |
-|--------------|----------------------------------------------|
-| Route        | `/profil/adresses`                           |
-| Accès        | Authentifié (client)                          |
-| Profils      | Client                                        |
+| Attribut | Valeur               |
+| -------- | -------------------- |
+| Route    | `/profil/adresses`   |
+| Accès    | Authentifié (client) |
+| Profils  | Client               |
 
 ### Objectif
 
@@ -39,11 +39,11 @@ Permettre au client de gérer ses adresses de livraison enregistrées.
 
 ## DEP-0172 — Page d'historique des commandes
 
-| Attribut     | Valeur                                       |
-|--------------|----------------------------------------------|
-| Route        | `/commandes`                                 |
-| Accès        | Authentifié (client)                          |
-| Profils      | Client                                        |
+| Attribut | Valeur               |
+| -------- | -------------------- |
+| Route    | `/commandes`         |
+| Accès    | Authentifié (client) |
+| Profils  | Client               |
 
 ### Objectif
 
@@ -69,11 +69,11 @@ leur statut.
 
 ## DEP-0173 — Page de dernière commande
 
-| Attribut     | Valeur                                       |
-|--------------|----------------------------------------------|
-| Route        | `/commandes/derniere`                        |
-| Accès        | Authentifié (client)                          |
-| Profils      | Client                                        |
+| Attribut | Valeur                |
+| -------- | --------------------- |
+| Route    | `/commandes/derniere` |
+| Accès    | Authentifié (client)  |
+| Profils  | Client                |
 
 ### Objectif
 
@@ -100,11 +100,11 @@ ou terminée.
 
 ## DEP-0174 — Page des produits populaires
 
-| Attribut     | Valeur                                       |
-|--------------|----------------------------------------------|
-| Route        | `/produits-populaires`                       |
-| Accès        | Public                                        |
-| Profils      | Client                                        |
+| Attribut | Valeur                 |
+| -------- | ---------------------- |
+| Route    | `/produits-populaires` |
+| Accès    | Public                 |
+| Profils  | Client                 |
 
 ### Objectif
 
@@ -129,11 +129,11 @@ accélérer la commande.
 
 ## DEP-0175 — Page de suivi de commande
 
-| Attribut     | Valeur                                       |
-|--------------|----------------------------------------------|
-| Route        | `/commandes/:id`                             |
-| Accès        | Authentifié (client)                          |
-| Profils      | Client                                        |
+| Attribut | Valeur               |
+| -------- | -------------------- |
+| Route    | `/commandes/:id`     |
+| Accès    | Authentifié (client) |
+| Profils  | Client               |
 
 ### Objectif
 
@@ -163,11 +163,11 @@ Permettre au client de suivre l'état d'une commande spécifique en temps réel.
 
 ## DEP-0176 — Page de contact du dépanneur
 
-| Attribut     | Valeur                                       |
-|--------------|----------------------------------------------|
-| Route        | `/contact`                                   |
-| Accès        | Public                                        |
-| Profils      | Client                                        |
+| Attribut | Valeur     |
+| -------- | ---------- |
+| Route    | `/contact` |
+| Accès    | Public     |
+| Profils  | Client     |
 
 ### Objectif
 
@@ -194,11 +194,11 @@ Fournir au client les moyens de contacter le dépanneur directement.
 
 ## DEP-0177 — Page de conditions d'utilisation
 
-| Attribut     | Valeur                                       |
-|--------------|----------------------------------------------|
-| Route        | `/conditions-utilisation`                    |
-| Accès        | Public                                        |
-| Profils      | Tous                                          |
+| Attribut | Valeur                    |
+| -------- | ------------------------- |
+| Route    | `/conditions-utilisation` |
+| Accès    | Public                    |
+| Profils  | Tous                      |
 
 ### Objectif
 
@@ -227,11 +227,11 @@ Présenter les conditions générales d'utilisation du service DépannVite.
 
 ## DEP-0178 — Page de confidentialité
 
-| Attribut     | Valeur                                       |
-|--------------|----------------------------------------------|
-| Route        | `/confidentialite`                           |
-| Accès        | Public                                        |
-| Profils      | Tous                                          |
+| Attribut | Valeur             |
+| -------- | ------------------ |
+| Route    | `/confidentialite` |
+| Accès    | Public             |
+| Profils  | Tous               |
 
 ### Objectif
 
@@ -260,11 +260,11 @@ leurs données personnelles.
 
 ## DEP-0179 — Page d'accessibilité
 
-| Attribut     | Valeur                                       |
-|--------------|----------------------------------------------|
-| Route        | `/accessibilite`                             |
-| Accès        | Public                                        |
-| Profils      | Tous                                          |
+| Attribut | Valeur           |
+| -------- | ---------------- |
+| Route    | `/accessibilite` |
+| Accès    | Public           |
+| Profils  | Tous             |
 
 ### Objectif
 
@@ -294,11 +294,11 @@ Décrire les engagements d'accessibilité de DépannVite et les moyens mis en
 
 ## DEP-0180 — Page d'aide vocale
 
-| Attribut     | Valeur                                       |
-|--------------|----------------------------------------------|
-| Route        | `/aide-vocale`                               |
-| Accès        | Public                                        |
-| Profils      | Client                                        |
+| Attribut | Valeur         |
+| -------- | -------------- |
+| Route    | `/aide-vocale` |
+| Accès    | Public         |
+| Profils  | Client         |
 
 ### Objectif
 
@@ -335,15 +335,15 @@ l'appel à l'assistant vocal.
 
 ## Résumé des pages secondaires (V1)
 
-| Route                     | Page                          | Accès           |
-|---------------------------|-------------------------------|-----------------|
-| `/profil/adresses`        | Adresses client               | Authentifié     |
-| `/commandes`              | Historique des commandes      | Authentifié     |
-| `/commandes/derniere`     | Dernière commande             | Authentifié     |
-| `/produits-populaires`    | Produits populaires           | Public          |
-| `/commandes/:id`          | Suivi de commande             | Authentifié     |
-| `/contact`                | Contact du dépanneur          | Public          |
-| `/conditions-utilisation` | Conditions d'utilisation      | Public          |
-| `/confidentialite`        | Confidentialité               | Public          |
-| `/accessibilite`          | Accessibilité                 | Public          |
-| `/aide-vocale`            | Aide vocale                   | Public          |
+| Route                     | Page                     | Accès       |
+| ------------------------- | ------------------------ | ----------- |
+| `/profil/adresses`        | Adresses client          | Authentifié |
+| `/commandes`              | Historique des commandes | Authentifié |
+| `/commandes/derniere`     | Dernière commande        | Authentifié |
+| `/produits-populaires`    | Produits populaires      | Public      |
+| `/commandes/:id`          | Suivi de commande        | Authentifié |
+| `/contact`                | Contact du dépanneur     | Public      |
+| `/conditions-utilisation` | Conditions d'utilisation | Public      |
+| `/confidentialite`        | Confidentialité          | Public      |
+| `/accessibilite`          | Accessibilité            | Public      |
+| `/aide-vocale`            | Aide vocale              | Public      |

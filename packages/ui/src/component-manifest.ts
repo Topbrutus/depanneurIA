@@ -1,0 +1,20 @@
+// Liste des composants prévus dans la V1 (Contrat)
+export const ComponentManifest = [
+  'ButtonPrimary',
+  'ButtonSecondary',
+  'VoiceButton',
+  'SearchInput',
+  'AddressInput',
+  'ProductCard',
+  'CartItem',
+  'CartMiniature',
+  'SuggestionTile',
+  'AssistantMessage',
+  'ClientMessage',
+  'OrderStatusBadge',
+  'DeliveryStatusIndicator',
+  'LastOrderCard',
+  'Top10Card',
+  'ConfirmModal',
+  'ToastNotification',
+];

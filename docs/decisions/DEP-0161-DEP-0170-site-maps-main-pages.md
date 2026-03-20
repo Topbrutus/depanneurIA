@@ -132,11 +132,11 @@ livreurs, et gère les accès.
 
 ## DEP-0165 — Page d'accueil publique
 
-| Attribut     | Valeur                                       |
-|--------------|----------------------------------------------|
-| Route        | `/`                                          |
-| Accès        | Public (aucune authentification requise)      |
-| Profils      | Tous (client, dépanneur, livreur, visiteur)   |
+| Attribut | Valeur                                      |
+| -------- | ------------------------------------------- |
+| Route    | `/`                                         |
+| Accès    | Public (aucune authentification requise)    |
+| Profils  | Tous (client, dépanneur, livreur, visiteur) |
 
 ### Objectif
 
@@ -167,11 +167,11 @@ modes de commande principaux (en ligne ou par téléphone).
 
 ## DEP-0166 — Page boutique manuelle
 
-| Attribut     | Valeur                                       |
-|--------------|----------------------------------------------|
-| Route        | `/boutique`                                  |
-| Accès        | Public (panier accessible sans compte)        |
-| Profils      | Client                                        |
+| Attribut | Valeur                                 |
+| -------- | -------------------------------------- |
+| Route    | `/boutique`                            |
+| Accès    | Public (panier accessible sans compte) |
+| Profils  | Client                                 |
 
 ### Objectif
 
@@ -199,11 +199,11 @@ manuellement des articles à son panier sans assistance.
 
 ## DEP-0167 — Page mode assisté
 
-| Attribut     | Valeur                                       |
-|--------------|----------------------------------------------|
-| Route        | `/mode-assiste`                              |
-| Accès        | Public                                        |
-| Profils      | Client                                        |
+| Attribut | Valeur          |
+| -------- | --------------- |
+| Route    | `/mode-assiste` |
+| Accès    | Public          |
+| Profils  | Client          |
 
 ### Objectif
 
@@ -217,8 +217,7 @@ intégré à l'écran.
 - **Panneau récapitulatif** : mis à jour en temps réel à chaque ajout (articles,
   quantités, adresse, mode de remise, paiement à la livraison, montant estimé
   ou « à confirmer »).
-- **Étapes visibles** : indicateur de progression (1. Articles, 2. Coordonnées,
-  3. Mode de remise, 4. Vérification et envoi).
+- **Étapes visibles** : indicateur de progression (1. Articles, 2. Coordonnées, 3. Mode de remise, 4. Vérification et envoi).
 - **Suggestions rapides** : boutons de suggestion contextuelle (articles
   populaires, adresses récentes si connecté).
 - **Bouton de bascule** : « Passer en mode manuel » → `/boutique`.
@@ -234,11 +233,11 @@ intégré à l'écran.
 
 ## DEP-0168 — Page de connexion
 
-| Attribut     | Valeur                                       |
-|--------------|----------------------------------------------|
-| Route        | `/connexion`                                 |
-| Accès        | Public                                        |
-| Profils      | Tous (client, dépanneur, livreur, admin)      |
+| Attribut | Valeur                                   |
+| -------- | ---------------------------------------- |
+| Route    | `/connexion`                             |
+| Accès    | Public                                   |
+| Profils  | Tous (client, dépanneur, livreur, admin) |
 
 ### Objectif
 
@@ -265,11 +264,11 @@ Permettre à un utilisateur existant de se connecter à son compte.
 
 ## DEP-0169 — Page d'inscription
 
-| Attribut     | Valeur                                       |
-|--------------|----------------------------------------------|
-| Route        | `/inscription`                               |
-| Accès        | Public                                        |
-| Profils      | Client (V1 — inscription dépanneur/livreur via admin) |
+| Attribut | Valeur                                                |
+| -------- | ----------------------------------------------------- |
+| Route    | `/inscription`                                        |
+| Accès    | Public                                                |
+| Profils  | Client (V1 — inscription dépanneur/livreur via admin) |
 
 ### Objectif
 
@@ -297,11 +296,11 @@ Permettre à un nouveau client de créer un compte minimal pour commander.
 
 ## DEP-0170 — Page de profil client
 
-| Attribut     | Valeur                                       |
-|--------------|----------------------------------------------|
-| Route        | `/profil`                                    |
-| Accès        | Authentifié (client)                          |
-| Profils      | Client                                        |
+| Attribut | Valeur               |
+| -------- | -------------------- |
+| Route    | `/profil`            |
+| Accès    | Authentifié (client) |
+| Profils  | Client               |
 
 ### Objectif
 
@@ -324,11 +323,11 @@ Permettre au client de consulter et modifier ses informations personnelles.
 
 ## Résumé des routes principales (V1)
 
-| Route              | Page                    | Accès           |
-|--------------------|-------------------------|-----------------|
-| `/`                | Accueil public          | Public          |
-| `/boutique`        | Boutique manuelle       | Public          |
-| `/mode-assiste`    | Mode assisté            | Public          |
-| `/connexion`       | Connexion               | Public          |
-| `/inscription`     | Inscription             | Public          |
-| `/profil`          | Profil client           | Authentifié     |
+| Route           | Page              | Accès       |
+| --------------- | ----------------- | ----------- |
+| `/`             | Accueil public    | Public      |
+| `/boutique`     | Boutique manuelle | Public      |
+| `/mode-assiste` | Mode assisté      | Public      |
+| `/connexion`    | Connexion         | Public      |
+| `/inscription`  | Inscription       | Public      |
+| `/profil`       | Profil client     | Authentifié |

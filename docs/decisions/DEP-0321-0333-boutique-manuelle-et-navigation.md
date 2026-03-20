@@ -28,24 +28,24 @@ conversationnelle.
 
 ### Structure de la page
 
-| Zone              | Contenu                                                         | Position desktop    | Position mobile       |
-|-------------------|-----------------------------------------------------------------|---------------------|-----------------------|
-| Header            | Logo, mode actif, icône panier avec badge                       | Haut — pleine largeur | Haut — pleine largeur |
-| Navigation gauche | Catégories (DEP-0322), filtres (DEP-0325–DEP-0328)             | Colonne gauche fixe | Menu burger (repliable) |
-| Zone centrale     | Barre de recherche (DEP-0324), barre de tri (DEP-0329), grille | Colonne centrale    | Corps principal |
-| Zone droite       | Panier (DEP-0183)                                               | Colonne droite fixe | Bouton flottant bas |
+| Zone              | Contenu                                                        | Position desktop      | Position mobile         |
+| ----------------- | -------------------------------------------------------------- | --------------------- | ----------------------- |
+| Header            | Logo, mode actif, icône panier avec badge                      | Haut — pleine largeur | Haut — pleine largeur   |
+| Navigation gauche | Catégories (DEP-0322), filtres (DEP-0325–DEP-0328)             | Colonne gauche fixe   | Menu burger (repliable) |
+| Zone centrale     | Barre de recherche (DEP-0324), barre de tri (DEP-0329), grille | Colonne centrale      | Corps principal         |
+| Zone droite       | Panier (DEP-0183)                                              | Colonne droite fixe   | Bouton flottant bas     |
 
 ### Grille de produits
 
-| Attribut           | Valeur                                                          |
-|--------------------|-----------------------------------------------------------------|
-| Colonnes desktop   | 3 colonnes (≥ 1024px)                                           |
-| Colonnes tablette  | 2 colonnes (768px–1023px)                                       |
-| Colonnes mobile    | 2 colonnes (< 768px), basculement liste vertical possible       |
-| Espacement         | Gap de 16px entre les cartes                                    |
-| Chargement         | Pagination ou défilement infini — V1 : pagination simple        |
-| État vide          | Message « Aucun produit disponible pour le moment. »            |
-| État chargement    | Squelettes de cartes (skeleton loaders)                         |
+| Attribut          | Valeur                                                    |
+| ----------------- | --------------------------------------------------------- |
+| Colonnes desktop  | 3 colonnes (≥ 1024px)                                     |
+| Colonnes tablette | 2 colonnes (768px–1023px)                                 |
+| Colonnes mobile   | 2 colonnes (< 768px), basculement liste vertical possible |
+| Espacement        | Gap de 16px entre les cartes                              |
+| Chargement        | Pagination ou défilement infini — V1 : pagination simple  |
+| État vide         | Message « Aucun produit disponible pour le moment. »      |
+| État chargement   | Squelettes de cartes (skeleton loaders)                   |
 
 ### Comportement général
 
@@ -72,14 +72,14 @@ restreindre la grille à une catégorie de produits spécifique.
 
 ### Structure
 
-| Élément              | Description                                                    |
-|----------------------|----------------------------------------------------------------|
-| Emplacement desktop  | Colonne gauche, au-dessus des filtres                          |
-| Emplacement mobile   | Menu burger, premier niveau                                    |
-| Entrée « Tout »      | Toujours présente en premier — affiche tous les produits actifs|
-| Entrées catégories   | Triées par `display_order` (DEP-0241), une par ligne           |
-| Indicateur actif     | Catégorie sélectionnée surlignée (fond coloré ou bordure)      |
-| Compteur produits    | Optionnel — affiche le nombre de produits disponibles          |
+| Élément             | Description                                                     |
+| ------------------- | --------------------------------------------------------------- |
+| Emplacement desktop | Colonne gauche, au-dessus des filtres                           |
+| Emplacement mobile  | Menu burger, premier niveau                                     |
+| Entrée « Tout »     | Toujours présente en premier — affiche tous les produits actifs |
+| Entrées catégories  | Triées par `display_order` (DEP-0241), une par ligne            |
+| Indicateur actif    | Catégorie sélectionnée surlignée (fond coloré ou bordure)       |
+| Compteur produits   | Optionnel — affiche le nombre de produits disponibles           |
 
 ### Comportement
 
@@ -115,13 +115,13 @@ une sous-catégorie contient des produits actifs.
 
 ### Structure
 
-| Élément                | Description                                                    |
-|------------------------|----------------------------------------------------------------|
-| Déclencheur            | Clic sur une catégorie parente ayant des enfants               |
-| Affichage              | Sous-liste indentée sous la catégorie parente (accordéon)      |
-| Emplacement desktop    | Sous la catégorie parente, indentée de 16px                    |
-| Emplacement mobile     | Deuxième niveau dans le menu burger                            |
-| Indicateur actif       | Sous-catégorie sélectionnée surlignée                          |
+| Élément             | Description                                               |
+| ------------------- | --------------------------------------------------------- |
+| Déclencheur         | Clic sur une catégorie parente ayant des enfants          |
+| Affichage           | Sous-liste indentée sous la catégorie parente (accordéon) |
+| Emplacement desktop | Sous la catégorie parente, indentée de 16px               |
+| Emplacement mobile  | Deuxième niveau dans le menu burger                       |
+| Indicateur actif    | Sous-catégorie sélectionnée surlignée                     |
 
 ### Comportement
 
@@ -152,36 +152,36 @@ mot-clé, nom, marque ou synonyme.
 
 ### Structure
 
-| Attribut           | Valeur                                                         |
-|--------------------|----------------------------------------------------------------|
-| Emplacement        | En-tête de la zone centrale, au-dessus de la barre de tri     |
-| Largeur            | Pleine largeur de la zone centrale                             |
-| Placeholder        | « Rechercher un produit… »                                     |
-| Icône              | Loupe à gauche du champ                                        |
-| Bouton effacer     | Croix [✕] à droite, visible uniquement si le champ est non vide|
-| Icône micro        | Non présente en mode manuel (réservée au mode assisté)         |
+| Attribut       | Valeur                                                          |
+| -------------- | --------------------------------------------------------------- |
+| Emplacement    | En-tête de la zone centrale, au-dessus de la barre de tri       |
+| Largeur        | Pleine largeur de la zone centrale                              |
+| Placeholder    | « Rechercher un produit… »                                      |
+| Icône          | Loupe à gauche du champ                                         |
+| Bouton effacer | Croix [✕] à droite, visible uniquement si le champ est non vide |
+| Icône micro    | Non présente en mode manuel (réservée au mode assisté)          |
 
 ### Comportement
 
-| Action                       | Résultat                                                      |
-|------------------------------|---------------------------------------------------------------|
-| Saisie de 2 caractères min   | Filtrage en temps réel de la grille (debounce 300 ms)         |
-| Saisie + touche Entrée       | Soumission de la recherche, mise à jour URL                   |
-| Clic sur [✕]                 | Réinitialisation du champ et restauration de la grille complète|
-| Aucun résultat               | Message « Aucun produit trouvé pour "[terme]". »              |
-| Résultats partiels           | Grille mise à jour avec les produits correspondants           |
+| Action                     | Résultat                                                        |
+| -------------------------- | --------------------------------------------------------------- |
+| Saisie de 2 caractères min | Filtrage en temps réel de la grille (debounce 300 ms)           |
+| Saisie + touche Entrée     | Soumission de la recherche, mise à jour URL                     |
+| Clic sur [✕]               | Réinitialisation du champ et restauration de la grille complète |
+| Aucun résultat             | Message « Aucun produit trouvé pour "[terme]". »                |
+| Résultats partiels         | Grille mise à jour avec les produits correspondants             |
 
 ### Sources de recherche
 
 La recherche porte sur les champs suivants du catalogue (DEP-0242–DEP-0246) :
 
-| Champ recherché     | Priorité |
-|---------------------|----------|
-| `label` (nom produit) | Haute   |
-| `brand` (marque)    | Haute    |
-| `tags`              | Moyenne  |
-| Synonymes (DEP-0246)| Moyenne  |
-| `description`       | Basse    |
+| Champ recherché       | Priorité |
+| --------------------- | -------- |
+| `label` (nom produit) | Haute    |
+| `brand` (marque)      | Haute    |
+| `tags`                | Moyenne  |
+| Synonymes (DEP-0246)  | Moyenne  |
+| `description`         | Basse    |
 
 ### Règles
 
@@ -203,12 +203,12 @@ ou le menu burger (mobile), complémentaire à DEP-0322.
 
 ### Comportement
 
-| Action                          | Résultat                                            |
-|---------------------------------|-----------------------------------------------------|
-| Clic sur une catégorie          | Grille filtrée sur cette catégorie uniquement        |
-| Clic sur « Tout »               | Filtre catégorie supprimé, grille complète affichée  |
-| Catégorie active + recherche    | Les deux filtres s'appliquent simultanément          |
-| Catégorie active + tri          | Le tri s'applique sur les résultats filtrés          |
+| Action                       | Résultat                                            |
+| ---------------------------- | --------------------------------------------------- |
+| Clic sur une catégorie       | Grille filtrée sur cette catégorie uniquement       |
+| Clic sur « Tout »            | Filtre catégorie supprimé, grille complète affichée |
+| Catégorie active + recherche | Les deux filtres s'appliquent simultanément         |
+| Catégorie active + tri       | Le tri s'applique sur les résultats filtrés         |
 
 ### Indicateurs visuels
 
@@ -233,10 +233,10 @@ disponibles (en stock), ou d'inclure les produits en rupture.
 
 ### Options du filtre
 
-| Option               | Description                                           | État par défaut |
-|----------------------|-------------------------------------------------------|-----------------|
-| En stock uniquement  | Affiche uniquement les variantes `en_stock`           | Activé          |
-| Tout afficher        | Affiche aussi les variantes `rupture` et `faible_stock`| Désactivé      |
+| Option              | Description                                             | État par défaut |
+| ------------------- | ------------------------------------------------------- | --------------- |
+| En stock uniquement | Affiche uniquement les variantes `en_stock`             | Activé          |
+| Tout afficher       | Affiche aussi les variantes `rupture` et `faible_stock` | Désactivé       |
 
 ### Comportement
 
@@ -249,11 +249,11 @@ disponibles (en stock), ou d'inclure les produits en rupture.
 
 ### Indicateur visuel
 
-| État variante  | Badge affiché       | Bouton panier          |
-|----------------|---------------------|------------------------|
-| `en_stock`     | Aucun               | Actif                  |
-| `faible_stock` | « Faible stock »    | Actif                  |
-| `rupture`      | « Rupture »         | Désactivé (grisé)      |
+| État variante  | Badge affiché    | Bouton panier     |
+| -------------- | ---------------- | ----------------- |
+| `en_stock`     | Aucun            | Actif             |
+| `faible_stock` | « Faible stock » | Actif             |
+| `rupture`      | « Rupture »      | Désactivé (grisé) |
 
 ### Règles
 
@@ -272,17 +272,18 @@ identifiés comme populaires sur la période récente.
 ### Source des données
 
 Les produits populaires sont définis par la structure DEP-0250 :
+
 - `period = "30j"` par défaut.
 - Triés par `rank` croissant (1 = plus populaire).
 
 ### Comportement
 
-| Action                         | Résultat                                              |
-|--------------------------------|-------------------------------------------------------|
-| Activation du filtre           | Grille limitée aux produits avec un rang populaire    |
-| Désactivation                  | Retour à la grille sans filtre populaire              |
-| Filtre populaire + catégorie   | Produits populaires dans la catégorie sélectionnée    |
-| Filtre populaire + recherche   | Produits populaires correspondant au terme recherché  |
+| Action                       | Résultat                                             |
+| ---------------------------- | ---------------------------------------------------- |
+| Activation du filtre         | Grille limitée aux produits avec un rang populaire   |
+| Désactivation                | Retour à la grille sans filtre populaire             |
+| Filtre populaire + catégorie | Produits populaires dans la catégorie sélectionnée   |
+| Filtre populaire + recherche | Produits populaires correspondant au terme recherché |
 
 ### Indicateur visuel
 
@@ -311,12 +312,12 @@ moins une commande précédente** (DEP-0316).
 
 ### Comportement
 
-| Action                       | Résultat                                                    |
-|------------------------------|-------------------------------------------------------------|
-| Activation du filtre         | Grille limitée aux produits de la dernière commande         |
-| Désactivation                | Retour à la grille sans filtre                              |
-| Produit absent du catalogue  | Produit masqué (non affiché même s'il était dans la commande)|
-| Produit en rupture           | Affiché avec badge « Rupture », bouton panier désactivé     |
+| Action                      | Résultat                                                      |
+| --------------------------- | ------------------------------------------------------------- |
+| Activation du filtre        | Grille limitée aux produits de la dernière commande           |
+| Désactivation               | Retour à la grille sans filtre                                |
+| Produit absent du catalogue | Produit masqué (non affiché même s'il était dans la commande) |
+| Produit en rupture          | Affiché avec badge « Rupture », bouton panier désactivé       |
 
 ### Indicateur visuel
 
@@ -344,22 +345,22 @@ dans la grille.
 
 ### Options de tri
 
-| ID tri          | Label affiché              | Critère de tri                     | Par défaut |
-|-----------------|----------------------------|------------------------------------|------------|
-| `pertinence`    | Pertinence                 | Ordre catalogue tenant (DEP-0252)  | Oui        |
-| `prix_asc`      | Prix croissant             | Prix public croissant              | Non        |
-| `prix_desc`     | Prix décroissant           | Prix public décroissant            | Non        |
-| `populaire`     | Les plus populaires        | Rank DEP-0250 croissant            | Non        |
-| `alpha_asc`     | A → Z                      | Label produit alphabétique         | Non        |
+| ID tri       | Label affiché       | Critère de tri                    | Par défaut |
+| ------------ | ------------------- | --------------------------------- | ---------- |
+| `pertinence` | Pertinence          | Ordre catalogue tenant (DEP-0252) | Oui        |
+| `prix_asc`   | Prix croissant      | Prix public croissant             | Non        |
+| `prix_desc`  | Prix décroissant    | Prix public décroissant           | Non        |
+| `populaire`  | Les plus populaires | Rank DEP-0250 croissant           | Non        |
+| `alpha_asc`  | A → Z               | Label produit alphabétique        | Non        |
 
 ### Structure du composant
 
-| Attribut       | Valeur                                                          |
-|----------------|-----------------------------------------------------------------|
-| Emplacement    | À droite de la barre de recherche, en haut de la zone centrale  |
-| Forme          | Menu déroulant (select ou dropdown)                             |
-| Label          | « Trier par : [Option active] »                                 |
-| Largeur        | Adaptative (min 160px)                                          |
+| Attribut    | Valeur                                                         |
+| ----------- | -------------------------------------------------------------- |
+| Emplacement | À droite de la barre de recherche, en haut de la zone centrale |
+| Forme       | Menu déroulant (select ou dropdown)                            |
+| Label       | « Trier par : [Option active] »                                |
+| Largeur     | Adaptative (min 160px)                                         |
 
 ### Comportement
 
@@ -386,44 +387,44 @@ affichée dans la grille.
 
 ### Structure de la carte
 
-| Élément              | Contenu                                             | Obligatoire |
-|----------------------|-----------------------------------------------------|-------------|
-| Photo produit        | Image principale (DEP-0244), format carré           | Oui         |
-| Nom du produit       | `label` (DEP-0242), tronqué à 2 lignes max          | Oui         |
-| Marque               | `brand` (DEP-0242), si disponible                   | Non         |
-| Format / variante    | Label de la variante par défaut (DEP-0243)          | Oui         |
-| Prix                 | Prix public de la variante par défaut               | Oui         |
-| Badge disponibilité  | Affiché selon DEP-0326                              | Conditionnel|
-| Badge populaire      | « Populaire » si rang ≤ 10 sur 30j (DEP-0250)      | Conditionnel|
-| Bouton « Ajouter »   | Bouton primaire compact, icône + label              | Oui         |
+| Élément             | Contenu                                       | Obligatoire  |
+| ------------------- | --------------------------------------------- | ------------ |
+| Photo produit       | Image principale (DEP-0244), format carré     | Oui          |
+| Nom du produit      | `label` (DEP-0242), tronqué à 2 lignes max    | Oui          |
+| Marque              | `brand` (DEP-0242), si disponible             | Non          |
+| Format / variante   | Label de la variante par défaut (DEP-0243)    | Oui          |
+| Prix                | Prix public de la variante par défaut         | Oui          |
+| Badge disponibilité | Affiché selon DEP-0326                        | Conditionnel |
+| Badge populaire     | « Populaire » si rang ≤ 10 sur 30j (DEP-0250) | Conditionnel |
+| Bouton « Ajouter »  | Bouton primaire compact, icône + label        | Oui          |
 
 ### Dimensions et style
 
-| Attribut         | Valeur                                            |
-|------------------|---------------------------------------------------|
-| Forme            | Rectangle arrondi (border-radius 8px)             |
-| Fond             | Blanc (`--color-surface`)                         |
-| Ombre            | Légère (`box-shadow: 0 2px 8px rgba(0,0,0,0.08)`)|
-| Photo            | Ratio 1:1, `object-fit: cover`                    |
-| Hauteur carte    | Variable selon contenu — min 220px                |
-| Hover desktop    | Élévation ombre + légère translation haut (2px)   |
+| Attribut      | Valeur                                            |
+| ------------- | ------------------------------------------------- |
+| Forme         | Rectangle arrondi (border-radius 8px)             |
+| Fond          | Blanc (`--color-surface`)                         |
+| Ombre         | Légère (`box-shadow: 0 2px 8px rgba(0,0,0,0.08)`) |
+| Photo         | Ratio 1:1, `object-fit: cover`                    |
+| Hauteur carte | Variable selon contenu — min 220px                |
+| Hover desktop | Élévation ombre + légère translation haut (2px)   |
 
 ### États visuels
 
-| État             | Description visuelle                                          |
-|------------------|---------------------------------------------------------------|
-| Normal           | Style standard décrit ci-dessus                               |
-| Hover            | Ombre renforcée, translation 2px vers le haut                 |
-| Produit en rupture| Opacity 0.6, badge « Rupture », bouton « Ajouter » grisé    |
-| Ajout en cours   | Animation flyout vers le panier (DEP-0189)                    |
-| Déjà dans panier | Badge quantité sur la carte (ex. « × 2 dans le panier »)     |
+| État               | Description visuelle                                     |
+| ------------------ | -------------------------------------------------------- |
+| Normal             | Style standard décrit ci-dessus                          |
+| Hover              | Ombre renforcée, translation 2px vers le haut            |
+| Produit en rupture | Opacity 0.6, badge « Rupture », bouton « Ajouter » grisé |
+| Ajout en cours     | Animation flyout vers le panier (DEP-0189)               |
+| Déjà dans panier   | Badge quantité sur la carte (ex. « × 2 dans le panier ») |
 
 ### Comportements de clic
 
-| Zone cliquée          | Action déclenchée                        | Référence |
-|-----------------------|------------------------------------------|-----------|
-| Corps de la carte     | Ouvrir le détail produit                 | DEP-0332  |
-| Bouton « Ajouter »    | Ajout direct au panier (sans modal)      | DEP-0331  |
+| Zone cliquée       | Action déclenchée                   | Référence |
+| ------------------ | ----------------------------------- | --------- |
+| Corps de la carte  | Ouvrir le détail produit            | DEP-0332  |
+| Bouton « Ajouter » | Ajout direct au panier (sans modal) | DEP-0331  |
 
 ### Règles
 
@@ -449,14 +450,14 @@ Clic sur le bouton « Ajouter » de la carte produit (DEP-0330).
 
 ### Comportement
 
-| Étape | Action                                                                    |
-|-------|---------------------------------------------------------------------------|
-| 1     | Validation : le produit est disponible (`en_stock` ou `faible_stock`)     |
-| 2     | Si client non connecté : demande de connexion avant ajout                 |
-| 3     | Ajout de 1 unité de la variante par défaut au panier                      |
-| 4     | Animation flyout : translation visuelle de la carte vers l'icône panier   |
-| 5     | Badge de quantité du panier incrémenté (+1)                               |
-| 6     | Micro-animation de pulsation sur l'icône panier                           |
+| Étape | Action                                                                     |
+| ----- | -------------------------------------------------------------------------- |
+| 1     | Validation : le produit est disponible (`en_stock` ou `faible_stock`)      |
+| 2     | Si client non connecté : demande de connexion avant ajout                  |
+| 3     | Ajout de 1 unité de la variante par défaut au panier                       |
+| 4     | Animation flyout : translation visuelle de la carte vers l'icône panier    |
+| 5     | Badge de quantité du panier incrémenté (+1)                                |
+| 6     | Micro-animation de pulsation sur l'icône panier                            |
 | 7     | Si déjà dans le panier : quantité incrémentée (+1), badge carte mis à jour |
 
 ### Quantité par défaut
@@ -472,12 +473,12 @@ Clic sur le bouton « Ajouter » de la carte produit (DEP-0330).
 
 ### Feedback visuel
 
-| Moment                  | Feedback                                           |
-|-------------------------|----------------------------------------------------|
-| Clic → ajout réussi     | Animation flyout + badge panier incrémenté         |
-| Déjà dans le panier     | Badge « × N dans le panier » visible sur la carte  |
-| Produit en rupture      | Bouton grisé, curseur « interdit »                 |
-| Erreur (réseau, etc.)   | Toast d'erreur discret en bas d'écran              |
+| Moment                | Feedback                                          |
+| --------------------- | ------------------------------------------------- |
+| Clic → ajout réussi   | Animation flyout + badge panier incrémenté        |
+| Déjà dans le panier   | Badge « × N dans le panier » visible sur la carte |
+| Produit en rupture    | Bouton grisé, curseur « interdit »                |
+| Erreur (réseau, etc.) | Toast d'erreur discret en bas d'écran             |
 
 ---
 
@@ -494,28 +495,28 @@ Clic sur le corps de la carte produit (hors bouton « Ajouter »).
 
 ### Comportement d'ouverture
 
-| Attribut          | Valeur                                                         |
-|-------------------|----------------------------------------------------------------|
-| Type              | Modal / overlay pleine hauteur sur mobile, centré sur desktop  |
-| Animation         | Fade-in (200ms) + légère montée (translateY de 8px → 0)        |
-| Fond              | Overlay sombre semi-transparent (`rgba(0,0,0,0.5)`)            |
-| Fermeture         | Clic sur [✕], clic hors du modal, ou touche Échap              |
-| URL               | Mise à jour optionnelle (ex. `/boutique?produit=slug`)          |
+| Attribut  | Valeur                                                        |
+| --------- | ------------------------------------------------------------- |
+| Type      | Modal / overlay pleine hauteur sur mobile, centré sur desktop |
+| Animation | Fade-in (200ms) + légère montée (translateY de 8px → 0)       |
+| Fond      | Overlay sombre semi-transparent (`rgba(0,0,0,0.5)`)           |
+| Fermeture | Clic sur [✕], clic hors du modal, ou touche Échap             |
+| URL       | Mise à jour optionnelle (ex. `/boutique?produit=slug`)        |
 
 ### Contenu du modal de détail
 
-| Élément                  | Description                                          |
-|--------------------------|------------------------------------------------------|
-| Photo(s) produit         | Carousel si plusieurs photos (DEP-0244)              |
-| Nom du produit           | `label` complet (DEP-0242)                           |
-| Marque                   | `brand` si disponible                                |
-| Description              | `description` complète (DEP-0242)                    |
-| Sélecteur de variante    | Boutons ou select pour choisir le format (DEP-0243)  |
-| Prix                     | Prix de la variante sélectionnée                     |
-| Indicateur disponibilité | Badge DEP-0326 pour la variante sélectionnée         |
-| Sélecteur de quantité    | [−] [N] [+], valeur initiale = 1                     |
-| Bouton « Ajouter »       | Bouton primaire pleine largeur dans le modal         |
-| Bouton « Fermer »        | Icône [✕] en haut à droite du modal                  |
+| Élément                  | Description                                         |
+| ------------------------ | --------------------------------------------------- |
+| Photo(s) produit         | Carousel si plusieurs photos (DEP-0244)             |
+| Nom du produit           | `label` complet (DEP-0242)                          |
+| Marque                   | `brand` si disponible                               |
+| Description              | `description` complète (DEP-0242)                   |
+| Sélecteur de variante    | Boutons ou select pour choisir le format (DEP-0243) |
+| Prix                     | Prix de la variante sélectionnée                    |
+| Indicateur disponibilité | Badge DEP-0326 pour la variante sélectionnée        |
+| Sélecteur de quantité    | [−] [N] [+], valeur initiale = 1                    |
+| Bouton « Ajouter »       | Bouton primaire pleine largeur dans le modal        |
+| Bouton « Fermer »        | Icône [✕] en haut à droite du modal                 |
 
 ### Comportement du sélecteur de variante
 
@@ -546,13 +547,13 @@ Définir les mécanismes de fermeture du modal de détail produit.
 
 ### Déclencheurs de fermeture
 
-| Déclencheur                        | Comportement                                              |
-|------------------------------------|-----------------------------------------------------------|
-| Clic sur le bouton [✕]             | Fermeture immédiate du modal                              |
-| Clic sur l'overlay sombre          | Fermeture immédiate du modal                              |
-| Touche Échap (clavier)             | Fermeture immédiate du modal                              |
-| Clic sur « Ajouter au panier »     | Ajout au panier **puis** fermeture automatique du modal   |
-| Navigation vers une autre page     | Fermeture et réinitialisation du modal                    |
+| Déclencheur                    | Comportement                                            |
+| ------------------------------ | ------------------------------------------------------- |
+| Clic sur le bouton [✕]         | Fermeture immédiate du modal                            |
+| Clic sur l'overlay sombre      | Fermeture immédiate du modal                            |
+| Touche Échap (clavier)         | Fermeture immédiate du modal                            |
+| Clic sur « Ajouter au panier » | Ajout au panier **puis** fermeture automatique du modal |
+| Navigation vers une autre page | Fermeture et réinitialisation du modal                  |
 
 ### Animation de fermeture
 
@@ -579,18 +580,18 @@ Définir les mécanismes de fermeture du modal de détail produit.
 
 ## Synthèse du bloc DEP-0321–DEP-0333
 
-| DEP      | Sujet                              | Décision clé                                               |
-|----------|------------------------------------|------------------------------------------------------------|
-| DEP-0321 | Page boutique manuelle             | Grille 3 col desktop / 2 col mobile, pagination V1         |
-| DEP-0322 | Navigation par catégories          | Colonne gauche desktop, menu burger mobile, une active     |
-| DEP-0323 | Navigation par sous-catégories     | Accordéon, 2 niveaux max, uniquement si enfants actifs     |
-| DEP-0324 | Champ de recherche                 | Filtre temps réel dès 2 chars, debounce 300ms, sans micro  |
-| DEP-0325 | Filtre par catégorie               | Exclusif, mis à jour URL, combinable avec tri et recherche |
-| DEP-0326 | Filtre par disponibilité           | En stock par défaut, rupture masquée, badge par état       |
-| DEP-0327 | Filtre par produits populaires     | Rang DEP-0250, incompatible filtre dernière commande       |
-| DEP-0328 | Filtre par dernière commande       | Client connecté requis, incompatible filtre populaires     |
-| DEP-0329 | Tri simple                         | 5 options, pertinence par défaut, mis à jour URL           |
-| DEP-0330 | Carte produit de base              | Photo, nom, prix, badge, bouton ajouter, 2 zones de clic   |
-| DEP-0331 | Ajout au panier depuis la carte    | 1 unité par défaut, flyout, badge carte, rupture bloquante |
-| DEP-0332 | Voir détail produit                | Modal overlay, carousel photo, sélecteur variante/quantité |
-| DEP-0333 | Fermer le détail produit           | 3 déclencheurs, fermeture auto après ajout, focus retour   |
+| DEP      | Sujet                           | Décision clé                                               |
+| -------- | ------------------------------- | ---------------------------------------------------------- |
+| DEP-0321 | Page boutique manuelle          | Grille 3 col desktop / 2 col mobile, pagination V1         |
+| DEP-0322 | Navigation par catégories       | Colonne gauche desktop, menu burger mobile, une active     |
+| DEP-0323 | Navigation par sous-catégories  | Accordéon, 2 niveaux max, uniquement si enfants actifs     |
+| DEP-0324 | Champ de recherche              | Filtre temps réel dès 2 chars, debounce 300ms, sans micro  |
+| DEP-0325 | Filtre par catégorie            | Exclusif, mis à jour URL, combinable avec tri et recherche |
+| DEP-0326 | Filtre par disponibilité        | En stock par défaut, rupture masquée, badge par état       |
+| DEP-0327 | Filtre par produits populaires  | Rang DEP-0250, incompatible filtre dernière commande       |
+| DEP-0328 | Filtre par dernière commande    | Client connecté requis, incompatible filtre populaires     |
+| DEP-0329 | Tri simple                      | 5 options, pertinence par défaut, mis à jour URL           |
+| DEP-0330 | Carte produit de base           | Photo, nom, prix, badge, bouton ajouter, 2 zones de clic   |
+| DEP-0331 | Ajout au panier depuis la carte | 1 unité par défaut, flyout, badge carte, rupture bloquante |
+| DEP-0332 | Voir détail produit             | Modal overlay, carousel photo, sélecteur variante/quantité |
+| DEP-0333 | Fermer le détail produit        | 3 déclencheurs, fermeture auto après ajout, focus retour   |

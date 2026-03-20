@@ -20,12 +20,12 @@ Permettre au client de gérer ses adresses de livraison enregistrées.
 
 ### Contenu attendu
 
-| Section                 | Description                                          |
-|-------------------------|------------------------------------------------------|
-| Liste des adresses      | Adresses existantes avec étiquette (maison, bureau…) |
-| Adresse par défaut      | Indicateur visuel de l'adresse principale            |
-| Ajout d'adresse         | Formulaire : adresse, ville, code postal, province   |
-| Modification / suppression | Actions sur chaque adresse existante              |
+| Section                    | Description                                          |
+| -------------------------- | ---------------------------------------------------- |
+| Liste des adresses         | Adresses existantes avec étiquette (maison, bureau…) |
+| Adresse par défaut         | Indicateur visuel de l'adresse principale            |
+| Ajout d'adresse            | Formulaire : adresse, ville, code postal, province   |
+| Modification / suppression | Actions sur chaque adresse existante                 |
 
 ### Comportement
 
@@ -48,12 +48,12 @@ décroissante.
 
 ### Contenu attendu
 
-| Section               | Description                                           |
-|-----------------------|-------------------------------------------------------|
-| Liste des commandes   | Date, numéro, statut, montant total                   |
-| Filtre par statut     | En cours, livrée, annulée                             |
-| Lien détail           | Clic sur une commande → page de suivi ou récapitulatif|
-| Pagination            | Navigation par page si plus de 10 commandes           |
+| Section             | Description                                            |
+| ------------------- | ------------------------------------------------------ |
+| Liste des commandes | Date, numéro, statut, montant total                    |
+| Filtre par statut   | En cours, livrée, annulée                              |
+| Lien détail         | Clic sur une commande → page de suivi ou récapitulatif |
+| Pagination          | Navigation par page si plus de 10 commandes            |
 
 ### Comportement
 
@@ -76,12 +76,12 @@ terminée. Raccourci depuis la page d'accueil.
 
 ### Contenu attendu
 
-| Section               | Description                                           |
-|-----------------------|-------------------------------------------------------|
-| Résumé de la commande | Numéro, date, statut actuel                           |
-| Liste des articles    | Produits commandés avec quantités et prix              |
-| Statut de livraison   | Barre de progression si en cours                      |
-| Action rapide         | « Recommander » pour dupliquer la commande            |
+| Section               | Description                                |
+| --------------------- | ------------------------------------------ |
+| Résumé de la commande | Numéro, date, statut actuel                |
+| Liste des articles    | Produits commandés avec quantités et prix  |
+| Statut de livraison   | Barre de progression si en cours           |
+| Action rapide         | « Recommander » pour dupliquer la commande |
 
 ### Comportement
 
@@ -104,11 +104,11 @@ et accélérer la prise de commande.
 
 ### Contenu attendu
 
-| Section               | Description                                           |
-|-----------------------|-------------------------------------------------------|
-| Grille de produits    | Produits triés par popularité (nombre de commandes)   |
-| Carte produit         | Image, nom, prix, bouton « ajouter au panier »       |
-| Période               | Basé sur les 30 derniers jours                        |
+| Section            | Description                                         |
+| ------------------ | --------------------------------------------------- |
+| Grille de produits | Produits triés par popularité (nombre de commandes) |
+| Carte produit      | Image, nom, prix, bouton « ajouter au panier »      |
+| Période            | Basé sur les 30 derniers jours                      |
 
 ### Comportement
 
@@ -131,12 +131,12 @@ préparation, prise en charge, en route, livrée.
 
 ### Contenu attendu
 
-| Section                 | Description                                          |
-|-------------------------|------------------------------------------------------|
-| Barre de progression    | Étapes : confirmée → en préparation → en route → livrée |
-| Détail de la commande   | Articles, quantités, montant                         |
-| Informations livreur    | Prénom du livreur, estimation d'arrivée              |
-| Mise à jour en direct   | Rafraîchissement automatique du statut               |
+| Section               | Description                                             |
+| --------------------- | ------------------------------------------------------- |
+| Barre de progression  | Étapes : confirmée → en préparation → en route → livrée |
+| Détail de la commande | Articles, quantités, montant                            |
+| Informations livreur  | Prénom du livreur, estimation d'arrivée                 |
+| Mise à jour en direct | Rafraîchissement automatique du statut                  |
 
 ### Comportement
 
@@ -159,11 +159,11 @@ question ou problème.
 
 ### Contenu attendu
 
-| Section               | Description                                           |
-|-----------------------|-------------------------------------------------------|
-| Coordonnées           | Adresse, téléphone, courriel du dépanneur             |
-| Horaires              | Heures d'ouverture                                    |
-| Formulaire de contact | Nom, courriel, sujet, message                         |
+| Section               | Description                                               |
+| --------------------- | --------------------------------------------------------- |
+| Coordonnées           | Adresse, téléphone, courriel du dépanneur                 |
+| Horaires              | Heures d'ouverture                                        |
+| Formulaire de contact | Nom, courriel, sujet, message                             |
 | Carte                 | Localisation du dépanneur (intégration carte optionnelle) |
 
 ### Comportement
@@ -186,11 +186,11 @@ Présenter les conditions générales d'utilisation du service depaneurIA.
 
 ### Contenu attendu
 
-| Section               | Description                                           |
-|-----------------------|-------------------------------------------------------|
-| Titre et date         | Date de dernière mise à jour des conditions            |
-| Sections numérotées   | Objet, inscription, commande, paiement, livraison, responsabilité, résiliation |
-| Langue                | Disponible en `fr-CA` et `en-CA`                      |
+| Section             | Description                                                                    |
+| ------------------- | ------------------------------------------------------------------------------ |
+| Titre et date       | Date de dernière mise à jour des conditions                                    |
+| Sections numérotées | Objet, inscription, commande, paiement, livraison, responsabilité, résiliation |
+| Langue              | Disponible en `fr-CA` et `en-CA`                                               |
 
 ### Comportement
 
@@ -213,14 +213,14 @@ applicable.
 
 ### Contenu attendu
 
-| Section                   | Description                                       |
-|---------------------------|---------------------------------------------------|
-| Titre et date             | Date de dernière mise à jour                      |
-| Données collectées        | Quelles données, pourquoi, base légale            |
-| Conservation              | Durée de conservation des données                 |
-| Partage                   | Tiers éventuels (livreurs, passerelle de paiement)|
-| Droits de l'utilisateur   | Accès, rectification, suppression, portabilité    |
-| Contact DPO               | Courriel du responsable des données               |
+| Section                 | Description                                        |
+| ----------------------- | -------------------------------------------------- |
+| Titre et date           | Date de dernière mise à jour                       |
+| Données collectées      | Quelles données, pourquoi, base légale             |
+| Conservation            | Durée de conservation des données                  |
+| Partage                 | Tiers éventuels (livreurs, passerelle de paiement) |
+| Droits de l'utilisateur | Accès, rectification, suppression, portabilité     |
+| Contact DPO             | Courriel du responsable des données                |
 
 ### Comportement
 
@@ -242,13 +242,13 @@ les mesures prises pour rendre le site utilisable par tous.
 
 ### Contenu attendu
 
-| Section                    | Description                                      |
-|----------------------------|--------------------------------------------------|
-| Déclaration d'engagement   | Objectif d'accessibilité WCAG 2.1 niveau AA      |
-| Fonctionnalités            | Navigation au clavier, lecteur d'écran, contrastes|
-| Mode assisté               | Mention du mode assisté vocal (lien `/mode-assiste`) |
-| Limites connues            | Éléments non encore accessibles                   |
-| Contact                    | Courriel pour signaler un problème d'accessibilité|
+| Section                  | Description                                          |
+| ------------------------ | ---------------------------------------------------- |
+| Déclaration d'engagement | Objectif d'accessibilité WCAG 2.1 niveau AA          |
+| Fonctionnalités          | Navigation au clavier, lecteur d'écran, contrastes   |
+| Mode assisté             | Mention du mode assisté vocal (lien `/mode-assiste`) |
+| Limites connues          | Éléments non encore accessibles                      |
+| Contact                  | Courriel pour signaler un problème d'accessibilité   |
 
 ### Comportement
 
@@ -270,13 +270,13 @@ utilisation. Destiné aux personnes âgées ou malvoyantes.
 
 ### Contenu attendu
 
-| Section                  | Description                                        |
-|--------------------------|----------------------------------------------------|
-| Présentation             | À quoi sert l'aide vocale, pour qui                |
-| Comment ça marche        | Étapes simples : activer le micro, parler, confirmer|
-| Exemples de commandes    | « Je voudrais du lait », « Ajoute du pain »         |
-| Compatibilité            | Navigateurs et appareils supportés                  |
-| Lien vers le mode assisté| Bouton vers `/mode-assiste`                         |
+| Section                   | Description                                          |
+| ------------------------- | ---------------------------------------------------- |
+| Présentation              | À quoi sert l'aide vocale, pour qui                  |
+| Comment ça marche         | Étapes simples : activer le micro, parler, confirmer |
+| Exemples de commandes     | « Je voudrais du lait », « Ajoute du pain »          |
+| Compatibilité             | Navigateurs et appareils supportés                   |
+| Lien vers le mode assisté | Bouton vers `/mode-assiste`                          |
 
 ### Comportement
 
@@ -288,15 +288,15 @@ utilisation. Destiné aux personnes âgées ou malvoyantes.
 
 ## Résumé des pages secondaires
 
-| DEP      | Page                       | Route                      | Accès       |
-|----------|----------------------------|----------------------------|-------------|
-| DEP-0171 | Adresses client            | `/profil/adresses`         | authentifié |
-| DEP-0172 | Historique des commandes   | `/commandes`               | authentifié |
-| DEP-0173 | Dernière commande          | `/commandes/derniere`      | authentifié |
-| DEP-0174 | Produits populaires        | `/produits-populaires`     | public      |
-| DEP-0175 | Suivi de commande          | `/commandes/:id/suivi`     | authentifié |
-| DEP-0176 | Contact du dépanneur       | `/contact`                 | public      |
-| DEP-0177 | Conditions d'utilisation   | `/conditions-utilisation`  | public      |
-| DEP-0178 | Confidentialité            | `/confidentialite`         | public      |
-| DEP-0179 | Accessibilité              | `/accessibilite`           | public      |
-| DEP-0180 | Aide vocale                | `/aide-vocale`             | public      |
+| DEP      | Page                     | Route                     | Accès       |
+| -------- | ------------------------ | ------------------------- | ----------- |
+| DEP-0171 | Adresses client          | `/profil/adresses`        | authentifié |
+| DEP-0172 | Historique des commandes | `/commandes`              | authentifié |
+| DEP-0173 | Dernière commande        | `/commandes/derniere`     | authentifié |
+| DEP-0174 | Produits populaires      | `/produits-populaires`    | public      |
+| DEP-0175 | Suivi de commande        | `/commandes/:id/suivi`    | authentifié |
+| DEP-0176 | Contact du dépanneur     | `/contact`                | public      |
+| DEP-0177 | Conditions d'utilisation | `/conditions-utilisation` | public      |
+| DEP-0178 | Confidentialité          | `/confidentialite`        | public      |
+| DEP-0179 | Accessibilité            | `/accessibilite`          | public      |
+| DEP-0180 | Aide vocale              | `/aide-vocale`            | public      |

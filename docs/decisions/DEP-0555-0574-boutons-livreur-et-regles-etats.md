@@ -33,14 +33,14 @@ nouvelle commande est disponible et non encore assignée.
 
 ### Spécifications
 
-| Attribut         | Valeur                                                          |
-|------------------|-----------------------------------------------------------------|
-| Libellé          | « J'accepte »                                                  |
-| Couleur          | Vert (#388E3C)                                                  |
-| Position         | Bas de la fiche commande, bouton primaire                       |
-| Action déclenchée| Transition état commande `en_attente` → `acceptée`             |
-| Confirmation     | Non — action immédiate (le livreur sait ce qu'il fait)         |
-| Disponibilité    | Uniquement si commande en état `en_attente` et livreur libre   |
+| Attribut          | Valeur                                                       |
+| ----------------- | ------------------------------------------------------------ |
+| Libellé           | « J'accepte »                                                |
+| Couleur           | Vert (#388E3C)                                               |
+| Position          | Bas de la fiche commande, bouton primaire                    |
+| Action déclenchée | Transition état commande `en_attente` → `acceptée`           |
+| Confirmation      | Non — action immédiate (le livreur sait ce qu'il fait)       |
+| Disponibilité     | Uniquement si commande en état `en_attente` et livreur libre |
 
 ### Règles
 
@@ -66,14 +66,14 @@ le livreur a accepté la commande et récupéré le colis.
 
 ### Spécifications
 
-| Attribut         | Valeur                                                          |
-|------------------|-----------------------------------------------------------------|
-| Libellé          | « Je pars »                                                    |
-| Couleur          | Bleu (#1976D2)                                                  |
-| Position         | Bas de l'écran livraison en cours, bouton primaire              |
-| Action déclenchée| Transition état commande `acceptée` → `en_route`               |
-| Confirmation     | Non — action immédiate                                          |
-| Disponibilité    | Uniquement si commande en état `acceptée`                       |
+| Attribut          | Valeur                                             |
+| ----------------- | -------------------------------------------------- |
+| Libellé           | « Je pars »                                        |
+| Couleur           | Bleu (#1976D2)                                     |
+| Position          | Bas de l'écran livraison en cours, bouton primaire |
+| Action déclenchée | Transition état commande `acceptée` → `en_route`   |
+| Confirmation      | Non — action immédiate                             |
+| Disponibilité     | Uniquement si commande en état `acceptée`          |
 
 ### Règles
 
@@ -100,14 +100,14 @@ le livreur est en état `en_route`.
 
 ### Spécifications
 
-| Attribut         | Valeur                                                          |
-|------------------|-----------------------------------------------------------------|
-| Libellé          | « Livré »                                                      |
-| Couleur          | Vert foncé (#1B5E20)                                            |
-| Position         | Bas de l'écran livraison en cours, bouton primaire              |
-| Action déclenchée| Transition état commande `en_route` → `livrée`                 |
-| Confirmation     | Oui — dialogue de confirmation (« Confirmes-tu la remise ? »)  |
-| Disponibilité    | Uniquement si commande en état `en_route`                       |
+| Attribut          | Valeur                                                        |
+| ----------------- | ------------------------------------------------------------- |
+| Libellé           | « Livré »                                                     |
+| Couleur           | Vert foncé (#1B5E20)                                          |
+| Position          | Bas de l'écran livraison en cours, bouton primaire            |
+| Action déclenchée | Transition état commande `en_route` → `livrée`                |
+| Confirmation      | Oui — dialogue de confirmation (« Confirmes-tu la remise ? ») |
+| Disponibilité     | Uniquement si commande en état `en_route`                     |
 
 ### Règles
 
@@ -135,19 +135,19 @@ Le bouton est toujours disponible sur l'écran « livraison en cours »
 
 ### Spécifications
 
-| Attribut         | Valeur                                                          |
-|------------------|-----------------------------------------------------------------|
-| Libellé          | « Problème »                                                   |
-| Couleur          | Orange (#E65100)                                                |
-| Position         | Haut ou bas de l'écran, bouton secondaire visible              |
-| Action déclenchée| Ouverture d'un formulaire de signalement                        |
-| Confirmation     | Oui — choix du type de problème requis avant envoi             |
-| Disponibilité    | Dès que la commande est en état `acceptée` ou `en_route`       |
+| Attribut          | Valeur                                                   |
+| ----------------- | -------------------------------------------------------- |
+| Libellé           | « Problème »                                             |
+| Couleur           | Orange (#E65100)                                         |
+| Position          | Haut ou bas de l'écran, bouton secondaire visible        |
+| Action déclenchée | Ouverture d'un formulaire de signalement                 |
+| Confirmation      | Oui — choix du type de problème requis avant envoi       |
+| Disponibilité     | Dès que la commande est en état `acceptée` ou `en_route` |
 
 ### Types de problèmes disponibles (V1)
 
-| Code            | Libellé affiché               |
-|-----------------|-------------------------------|
+| Code            | Libellé affiché              |
+| --------------- | ---------------------------- |
 | `CLIENT_ABSENT` | « Client absent »            |
 | `WRONG_ADDRESS` | « Adresse incorrecte »       |
 | `REFUSED`       | « Client a refusé »          |
@@ -173,14 +173,14 @@ livraison complète de bout en bout sans incident.
 
 ### Scénario de test
 
-| Étape | Action / Événement                                     | Résultat attendu                                          |
-|-------|--------------------------------------------------------|-----------------------------------------------------------|
-| 1     | Une commande apparaît dans l'écran « livraisons à faire » | ✅ Commande visible avec les détails (client, adresse, articles) |
-| 2     | Livreur appuie sur « J'accepte »                       | ✅ Commande passe en `acceptée`, disparaît pour les autres livreurs |
-| 3     | Livreur récupère le colis et appuie sur « Je pars »    | ✅ Commande passe en `en_route`, dépanneur notifié        |
-| 4     | Livreur arrive chez le client et remet la commande     | ✅ Livreur appuie sur « Livré », confirmation demandée    |
-| 5     | Livreur confirme la remise                             | ✅ Commande passe en `livrée`, client notifié             |
-| 6     | Commande apparaît dans l'historique du livreur         | ✅ Entrée visible dans DEP-0554                           |
+| Étape | Action / Événement                                        | Résultat attendu                                                    |
+| ----- | --------------------------------------------------------- | ------------------------------------------------------------------- |
+| 1     | Une commande apparaît dans l'écran « livraisons à faire » | ✅ Commande visible avec les détails (client, adresse, articles)    |
+| 2     | Livreur appuie sur « J'accepte »                          | ✅ Commande passe en `acceptée`, disparaît pour les autres livreurs |
+| 3     | Livreur récupère le colis et appuie sur « Je pars »       | ✅ Commande passe en `en_route`, dépanneur notifié                  |
+| 4     | Livreur arrive chez le client et remet la commande        | ✅ Livreur appuie sur « Livré », confirmation demandée              |
+| 5     | Livreur confirme la remise                                | ✅ Commande passe en `livrée`, client notifié                       |
+| 6     | Commande apparaît dans l'historique du livreur            | ✅ Entrée visible dans DEP-0554                                     |
 
 ### Critères de succès
 
@@ -201,22 +201,22 @@ explicite documentée.
 
 ### Périmètre gelé
 
-| Bloc          | Contenu                                                                  |
-|---------------|--------------------------------------------------------------------------|
-| DEP-0521–0530 | Rôle du livreur, assignation, notifications, accès catalogue livraison   |
-| DEP-0531–0540 | Logique de prise en charge, départ, remise, paiement, retour, problème  |
-| DEP-0541–0550 | Phrases livreur, logique de remise réussie                               |
-| DEP-0551–0554 | Application mobile livreur, écrans (liste, en cours, historique)         |
-| DEP-0555–0559 | Boutons d'action (j'accepte, je pars, livré, problème) + test tournée   |
+| Bloc          | Contenu                                                                |
+| ------------- | ---------------------------------------------------------------------- |
+| DEP-0521–0530 | Rôle du livreur, assignation, notifications, accès catalogue livraison |
+| DEP-0531–0540 | Logique de prise en charge, départ, remise, paiement, retour, problème |
+| DEP-0541–0550 | Phrases livreur, logique de remise réussie                             |
+| DEP-0551–0554 | Application mobile livreur, écrans (liste, en cours, historique)       |
+| DEP-0555–0559 | Boutons d'action (j'accepte, je pars, livré, problème) + test tournée  |
 
 ### Critères de gel validés
 
-| Critère                                              | Statut  |
-|------------------------------------------------------|---------|
-| Tous les boutons d'action sont définis               | ✅ Fait |
-| Le scénario de tournée simple est testé              | ✅ Fait |
-| Les transitions d'état livreur sont documentées      | ✅ Fait |
-| Le parcours livreur est cohérent de bout en bout     | ✅ Fait |
+| Critère                                          | Statut  |
+| ------------------------------------------------ | ------- |
+| Tous les boutons d'action sont définis           | ✅ Fait |
+| Le scénario de tournée simple est testé          | ✅ Fait |
+| Les transitions d'état livreur sont documentées  | ✅ Fait |
+| Le parcours livreur est cohérent de bout en bout | ✅ Fait |
 
 ---
 
@@ -229,20 +229,20 @@ le cycle de vie depaneurIA V1.
 
 ### États officiels
 
-| Code état         | Libellé lisible         | Description                                                      |
-|-------------------|-------------------------|------------------------------------------------------------------|
-| `panier`          | Panier en cours         | Articles en cours de sélection, non soumis                      |
-| `soumise`         | Commande soumise        | Client a validé le panier, commande créée, en attente de confirmation dépanneur |
-| `confirmée`       | Confirmée               | Dépanneur a accepté la commande, préparation en cours           |
-| `en_préparation`  | En préparation          | Dépanneur prépare les articles                                  |
-| `prête`           | Prête à partir          | Commande préparée, en attente du livreur                        |
-| `acceptée`        | Acceptée par le livreur | Livreur a accepté la livraison (DEP-0555)                       |
-| `en_route`        | En route                | Livreur en déplacement vers le client (DEP-0556)                |
-| `livrée`          | Livrée                  | Livreur a confirmé la remise au client (DEP-0557)               |
-| `payée`           | Payée                   | Paiement confirmé (en ligne ou à la livraison)                  |
-| `annulée`         | Annulée                 | Commande annulée avant livraison (voir DEP-0567)                |
-| `problème`        | Problème signalé        | Incident signalé par le livreur (DEP-0558), en attente décision |
-| `archivée`        | Archivée                | Commande clôturée, conservée comme preuve historique (DEP-0574) |
+| Code état        | Libellé lisible         | Description                                                                     |
+| ---------------- | ----------------------- | ------------------------------------------------------------------------------- |
+| `panier`         | Panier en cours         | Articles en cours de sélection, non soumis                                      |
+| `soumise`        | Commande soumise        | Client a validé le panier, commande créée, en attente de confirmation dépanneur |
+| `confirmée`      | Confirmée               | Dépanneur a accepté la commande, préparation en cours                           |
+| `en_préparation` | En préparation          | Dépanneur prépare les articles                                                  |
+| `prête`          | Prête à partir          | Commande préparée, en attente du livreur                                        |
+| `acceptée`       | Acceptée par le livreur | Livreur a accepté la livraison (DEP-0555)                                       |
+| `en_route`       | En route                | Livreur en déplacement vers le client (DEP-0556)                                |
+| `livrée`         | Livrée                  | Livreur a confirmé la remise au client (DEP-0557)                               |
+| `payée`          | Payée                   | Paiement confirmé (en ligne ou à la livraison)                                  |
+| `annulée`        | Annulée                 | Commande annulée avant livraison (voir DEP-0567)                                |
+| `problème`       | Problème signalé        | Incident signalé par le livreur (DEP-0558), en attente décision                 |
+| `archivée`       | Archivée                | Commande clôturée, conservée comme preuve historique (DEP-0574)                 |
 
 ### Règle générale
 
@@ -309,19 +309,19 @@ même si techniquement déclenchables.
 
 ### Transitions interdites
 
-| De            | Vers               | Raison                                                     |
-|---------------|--------------------|------------------------------------------------------------|
-| `panier`      | `livrée`           | Impossible de livrer sans soumettre ni confirmer           |
-| `panier`      | `payée`            | Impossible de payer un panier non soumis                   |
-| `soumise`     | `en_route`         | Le dépanneur doit confirmer et préparer avant la livraison |
-| `soumise`     | `livrée`           | Toutes les étapes intermédiaires sont obligatoires         |
-| `confirmée`   | `acceptée`         | La commande doit être prête avant d'être acceptée          |
-| `confirmée`   | `livrée`           | Le livreur ne peut livrer sans partir                      |
+| De               | Vers            | Raison                                                     |
+| ---------------- | --------------- | ---------------------------------------------------------- |
+| `panier`         | `livrée`        | Impossible de livrer sans soumettre ni confirmer           |
+| `panier`         | `payée`         | Impossible de payer un panier non soumis                   |
+| `soumise`        | `en_route`      | Le dépanneur doit confirmer et préparer avant la livraison |
+| `soumise`        | `livrée`        | Toutes les étapes intermédiaires sont obligatoires         |
+| `confirmée`      | `acceptée`      | La commande doit être prête avant d'être acceptée          |
+| `confirmée`      | `livrée`        | Le livreur ne peut livrer sans partir                      |
 | `en_préparation` | `en_route`      | La commande doit être prête avant le départ du livreur     |
-| `prête`       | `livrée`           | Le livreur doit accepter et partir avant de livrer         |
-| `livrée`      | `soumise`          | Une commande livrée ne peut pas retourner au début         |
-| `annulée`     | tout état actif    | Une commande annulée est définitivement terminée           |
-| `archivée`    | tout état actif    | Une commande archivée est immuable                         |
+| `prête`          | `livrée`        | Le livreur doit accepter et partir avant de livrer         |
+| `livrée`         | `soumise`       | Une commande livrée ne peut pas retourner au début         |
+| `annulée`        | tout état actif | Une commande annulée est définitivement terminée           |
+| `archivée`       | tout état actif | Une commande archivée est immuable                         |
 
 ### Règle générale
 
@@ -339,12 +339,12 @@ Définir les rares cas où une commande peut régresser vers un état antérieur
 
 ### Régressions autorisées
 
-| De            | Vers          | Condition                                              | Qui          |
-|---------------|---------------|--------------------------------------------------------|--------------|
-| `confirmée`   | `soumise`     | Dépanneur annule sa confirmation (ex. : rupture)       | Dépanneur    |
-| `en_préparation` | `confirmée`| Dépanneur remet la préparation en attente              | Dépanneur    |
-| `problème`    | `en_route`    | Problème résolu, livreur reprend la livraison          | Dépanneur    |
-| `acceptée`    | `prête`       | Livreur libère la commande (ne peut plus la prendre)   | Livreur      |
+| De               | Vers        | Condition                                            | Qui       |
+| ---------------- | ----------- | ---------------------------------------------------- | --------- |
+| `confirmée`      | `soumise`   | Dépanneur annule sa confirmation (ex. : rupture)     | Dépanneur |
+| `en_préparation` | `confirmée` | Dépanneur remet la préparation en attente            | Dépanneur |
+| `problème`       | `en_route`  | Problème résolu, livreur reprend la livraison        | Dépanneur |
+| `acceptée`       | `prête`     | Livreur libère la commande (ne peut plus la prendre) | Livreur   |
 
 ### Régressions interdites
 
@@ -370,20 +370,20 @@ d'état d'une commande.
 
 ### Tableau des événements
 
-| Événement                          | État avant         | État après          | Déclencheur              |
-|------------------------------------|--------------------|---------------------|--------------------------|
-| Client valide son panier           | `panier`           | `soumise`           | Client (boutique / tel)  |
-| Paiement en ligne confirmé         | `soumise`          | `payée` (anticipé)  | Système paiement         |
-| Dépanneur accepte la commande      | `soumise`          | `confirmée`         | Dépanneur                |
-| Dépanneur démarre la préparation   | `confirmée`        | `en_préparation`    | Dépanneur                |
-| Dépanneur marque commande prête    | `en_préparation`   | `prête`             | Dépanneur                |
-| Livreur appuie sur « J'accepte »   | `prête`            | `acceptée`          | Livreur (DEP-0555)       |
-| Livreur appuie sur « Je pars »     | `acceptée`         | `en_route`          | Livreur (DEP-0556)       |
-| Livreur appuie sur « Livré »       | `en_route`         | `livrée`            | Livreur (DEP-0557)       |
-| Paiement à la livraison confirmé   | `livrée`           | `payée`             | Livreur / Système        |
-| Commande annulée (voir DEP-0567)   | tout état éligible | `annulée`           | Client / Dépanneur       |
-| Livreur appuie sur « Problème »    | `acceptée`/`en_route` | `problème`       | Livreur (DEP-0558)       |
-| Dépanneur clôture après résolution | `livrée` / `annulée` | `archivée`        | Système (automatique)    |
+| Événement                          | État avant            | État après         | Déclencheur             |
+| ---------------------------------- | --------------------- | ------------------ | ----------------------- |
+| Client valide son panier           | `panier`              | `soumise`          | Client (boutique / tel) |
+| Paiement en ligne confirmé         | `soumise`             | `payée` (anticipé) | Système paiement        |
+| Dépanneur accepte la commande      | `soumise`             | `confirmée`        | Dépanneur               |
+| Dépanneur démarre la préparation   | `confirmée`           | `en_préparation`   | Dépanneur               |
+| Dépanneur marque commande prête    | `en_préparation`      | `prête`            | Dépanneur               |
+| Livreur appuie sur « J'accepte »   | `prête`               | `acceptée`         | Livreur (DEP-0555)      |
+| Livreur appuie sur « Je pars »     | `acceptée`            | `en_route`         | Livreur (DEP-0556)      |
+| Livreur appuie sur « Livré »       | `en_route`            | `livrée`           | Livreur (DEP-0557)      |
+| Paiement à la livraison confirmé   | `livrée`              | `payée`            | Livreur / Système       |
+| Commande annulée (voir DEP-0567)   | tout état éligible    | `annulée`          | Client / Dépanneur      |
+| Livreur appuie sur « Problème »    | `acceptée`/`en_route` | `problème`         | Livreur (DEP-0558)      |
+| Dépanneur clôture après résolution | `livrée` / `annulée`  | `archivée`         | Système (automatique)   |
 
 ### Règle générale
 
@@ -404,19 +404,19 @@ le système (client, dépanneur, livreur, système automatique).
 ### Matrice des permissions
 
 | Transition                          | Client | Dépanneur | Livreur | Système |
-|-------------------------------------|:------:|:---------:|:-------:|:-------:|
-| `panier` → `soumise`                | ✅     | ❌        | ❌      | ❌      |
-| `soumise` → `payée` (en ligne)      | ❌     | ❌        | ❌      | ✅      |
-| `soumise` → `confirmée`             | ❌     | ✅        | ❌      | ❌      |
-| `confirmée` → `en_préparation`      | ❌     | ✅        | ❌      | ❌      |
-| `en_préparation` → `prête`          | ❌     | ✅        | ❌      | ❌      |
-| `prête` → `acceptée`                | ❌     | ❌        | ✅      | ❌      |
-| `acceptée` → `en_route`             | ❌     | ❌        | ✅      | ❌      |
-| `en_route` → `livrée`               | ❌     | ❌        | ✅      | ❌      |
-| `livrée` → `payée` (à la livraison) | ❌     | ❌        | ✅      | ✅      |
-| tout état éligible → `annulée`      | ✅ *   | ✅ *      | ❌      | ❌      |
-| tout état → `problème`              | ❌     | ❌        | ✅      | ❌      |
-| `livrée`/`annulée` → `archivée`    | ❌     | ❌        | ❌      | ✅      |
+| ----------------------------------- | :----: | :-------: | :-----: | :-----: |
+| `panier` → `soumise`                |   ✅   |    ❌     |   ❌    |   ❌    |
+| `soumise` → `payée` (en ligne)      |   ❌   |    ❌     |   ❌    |   ✅    |
+| `soumise` → `confirmée`             |   ❌   |    ✅     |   ❌    |   ❌    |
+| `confirmée` → `en_préparation`      |   ❌   |    ✅     |   ❌    |   ❌    |
+| `en_préparation` → `prête`          |   ❌   |    ✅     |   ❌    |   ❌    |
+| `prête` → `acceptée`                |   ❌   |    ❌     |   ✅    |   ❌    |
+| `acceptée` → `en_route`             |   ❌   |    ❌     |   ✅    |   ❌    |
+| `en_route` → `livrée`               |   ❌   |    ❌     |   ✅    |   ❌    |
+| `livrée` → `payée` (à la livraison) |   ❌   |    ❌     |   ✅    |   ✅    |
+| tout état éligible → `annulée`      | ✅ \*  |   ✅ \*   |   ❌    |   ❌    |
+| tout état → `problème`              |   ❌   |    ❌     |   ✅    |   ❌    |
+| `livrée`/`annulée` → `archivée`     |   ❌   |    ❌     |   ❌    |   ✅    |
 
 > \* L'annulation est soumise aux conditions définies en DEP-0567.
 
@@ -438,12 +438,12 @@ Définir précisément les règles d'annulation : qui peut annuler, dans quels
 
 ### Règles d'annulation
 
-| Acteur     | États autorisés pour annuler          | Condition supplémentaire                         |
-|------------|---------------------------------------|--------------------------------------------------|
-| Client     | `soumise`, `confirmée`                | Avant le début de la préparation (`en_préparation`) |
-| Dépanneur  | `soumise`, `confirmée`, `en_préparation`, `prête` | À tout moment avant la prise en charge livreur |
-| Livreur    | ❌ Ne peut pas annuler                | Doit utiliser « Problème » (DEP-0558)            |
-| Système    | `soumise` (timeout paiement)          | Si le paiement en ligne n'est pas reçu sous X minutes |
+| Acteur    | États autorisés pour annuler                      | Condition supplémentaire                              |
+| --------- | ------------------------------------------------- | ----------------------------------------------------- |
+| Client    | `soumise`, `confirmée`                            | Avant le début de la préparation (`en_préparation`)   |
+| Dépanneur | `soumise`, `confirmée`, `en_préparation`, `prête` | À tout moment avant la prise en charge livreur        |
+| Livreur   | ❌ Ne peut pas annuler                            | Doit utiliser « Problème » (DEP-0558)                 |
+| Système   | `soumise` (timeout paiement)                      | Si le paiement en ligne n'est pas reçu sous X minutes |
 
 ### Comportement après annulation
 
@@ -469,12 +469,12 @@ dans quelles conditions.
 
 ### Règles de correction
 
-| Acteur     | Type de correction autorisée                   | Condition                                      |
-|------------|------------------------------------------------|------------------------------------------------|
-| Client     | Modification du panier (ajout, retrait, quantité) | Uniquement en état `panier` (avant soumission) |
-| Dépanneur  | Ajout d'une note interne, marquage indisponibilité produit | États `soumise`, `confirmée`, `en_préparation` |
-| Livreur    | Aucune correction de contenu                   | Seul le bouton « Problème » est disponible     |
-| Système    | Aucune correction automatique de contenu       | —                                              |
+| Acteur    | Type de correction autorisée                               | Condition                                      |
+| --------- | ---------------------------------------------------------- | ---------------------------------------------- |
+| Client    | Modification du panier (ajout, retrait, quantité)          | Uniquement en état `panier` (avant soumission) |
+| Dépanneur | Ajout d'une note interne, marquage indisponibilité produit | États `soumise`, `confirmée`, `en_préparation` |
+| Livreur   | Aucune correction de contenu                               | Seul le bouton « Problème » est disponible     |
+| Système   | Aucune correction automatique de contenu                   | —                                              |
 
 ### Règle fondamentale
 
@@ -505,12 +505,12 @@ au client et dans quelles conditions.
 
 ### Règle
 
-| Acteur  | Peut confirmer la livraison | Condition                                    |
-|---------|-----------------------------|----------------------------------------------|
-| Livreur | ✅ Oui                      | Commande en état `en_route` — bouton « Livré » (DEP-0557) |
-| Client  | ❌ Non (V1)                 | La confirmation par le client est hors scope V1 |
-| Dépanneur | ❌ Non                    | Le dépanneur ne confirme pas la livraison     |
-| Système | ❌ Non                      | Aucune confirmation automatique de livraison  |
+| Acteur    | Peut confirmer la livraison | Condition                                                 |
+| --------- | --------------------------- | --------------------------------------------------------- |
+| Livreur   | ✅ Oui                      | Commande en état `en_route` — bouton « Livré » (DEP-0557) |
+| Client    | ❌ Non (V1)                 | La confirmation par le client est hors scope V1           |
+| Dépanneur | ❌ Non                      | Le dépanneur ne confirme pas la livraison                 |
+| Système   | ❌ Non                      | Aucune confirmation automatique de livraison              |
 
 ### Comportement
 
@@ -531,12 +531,12 @@ Définir qui confirme le paiement lorsque le mode de paiement choisi est
 
 ### Règle
 
-| Acteur  | Peut confirmer le paiement à la livraison | Condition                               |
-|---------|-------------------------------------------|-----------------------------------------|
-| Livreur | ✅ Oui                                    | Commande en état `livrée`, mode de paiement = `à la livraison` |
-| Système | ✅ Oui (terminal de paiement intégré)     | Si TPE connecté — hors scope V1 simple  |
-| Client  | ❌ Non                                    | Le client paie, il ne confirme pas      |
-| Dépanneur | ❌ Non                                  | —                                       |
+| Acteur    | Peut confirmer le paiement à la livraison | Condition                                                      |
+| --------- | ----------------------------------------- | -------------------------------------------------------------- |
+| Livreur   | ✅ Oui                                    | Commande en état `livrée`, mode de paiement = `à la livraison` |
+| Système   | ✅ Oui (terminal de paiement intégré)     | Si TPE connecté — hors scope V1 simple                         |
+| Client    | ❌ Non                                    | Le client paie, il ne confirme pas                             |
+| Dépanneur | ❌ Non                                    | —                                                              |
 
 ### Comportement
 
@@ -570,12 +570,12 @@ une commande immuable et ne peut plus être modifié par le client.
 
 ### Détail
 
-| Moment                                           | Panier modifiable ? |
-|--------------------------------------------------|---------------------|
-| Client navigue et ajoute des produits            | ✅ Oui              |
-| Client est sur l'écran de récapitulatif          | ✅ Oui              |
-| Client appuie sur « Valider » (en cours d'envoi) | ⏳ En attente       |
-| Serveur répond 201 Created (`soumise`)           | ❌ Non — définitif  |
+| Moment                                           | Panier modifiable ?            |
+| ------------------------------------------------ | ------------------------------ |
+| Client navigue et ajoute des produits            | ✅ Oui                         |
+| Client est sur l'écran de récapitulatif          | ✅ Oui                         |
+| Client appuie sur « Valider » (en cours d'envoi) | ⏳ En attente                  |
+| Serveur répond 201 Created (`soumise`)           | ❌ Non — définitif             |
 | Serveur répond une erreur                        | ✅ Oui — le panier reste actif |
 
 ### Règle
@@ -602,12 +602,12 @@ Définir le moment exact de la création formelle de la commande dans le systèm
 
 ### Détail
 
-| Moment                                           | Statut                    |
-|--------------------------------------------------|---------------------------|
-| Panier en cours de remplissage                   | Panier — aucune commande  |
-| Client soumet — requête en transit               | Transition                |
-| Serveur crée la commande → retourne `order_id`   | ✅ Commande créée (`soumise`) |
-| Client reçoit la confirmation avec `order_id`    | Commande tracée et notifiée|
+| Moment                                         | Statut                        |
+| ---------------------------------------------- | ----------------------------- |
+| Panier en cours de remplissage                 | Panier — aucune commande      |
+| Client soumet — requête en transit             | Transition                    |
+| Serveur crée la commande → retourne `order_id` | ✅ Commande créée (`soumise`) |
+| Client reçoit la confirmation avec `order_id`  | Commande tracée et notifiée   |
 
 ### Conséquences immédiates
 
@@ -633,11 +633,11 @@ c'est-à-dire le moment où elle entre dans la responsabilité du livreur.
 
 ### Détail
 
-| Moment                                           | Statut               |
-|--------------------------------------------------|----------------------|
-| Commande en état `prête`                         | Commande — pas de livreur |
-| Livreur appuie sur « J'accepte »                 | Transition           |
-| Serveur confirme `acceptée` + assigne `driver_id`| ✅ Livraison active  |
+| Moment                                            | Statut                    |
+| ------------------------------------------------- | ------------------------- |
+| Commande en état `prête`                          | Commande — pas de livreur |
+| Livreur appuie sur « J'accepte »                  | Transition                |
+| Serveur confirme `acceptée` + assigne `driver_id` | ✅ Livraison active       |
 
 ### Conséquences immédiates
 
@@ -664,10 +664,10 @@ plus être modifiée — elle devient une entrée immuable dans l'historique.
 
 ### Conditions d'archivage automatique (V1)
 
-| Condition                                        | Délai après confirmation    |
-|--------------------------------------------------|-----------------------------|
-| Commande `livrée` + `payée`                      | Archivage immédiat en V1    |
-| Commande `annulée`                               | Archivage immédiat en V1    |
+| Condition                   | Délai après confirmation |
+| --------------------------- | ------------------------ |
+| Commande `livrée` + `payée` | Archivage immédiat en V1 |
+| Commande `annulée`          | Archivage immédiat en V1 |
 
 > En V1, le délai de réclamation post-livraison est hors scope.
 > L'archivage est immédiat après la clôture du flux.

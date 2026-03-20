@@ -29,12 +29,12 @@ de produits exprimée en langage naturel.
 
 ### Règles d'interprétation
 
-| Entrée client               | Interprétation                              | Action déclenchée       |
-|-----------------------------|---------------------------------------------|-------------------------|
-| « Je veux des boissons »    | Catégorie = `boissons`                      | `ACTION_FILTER` catégorie|
-| « Montre-moi les snacks »   | Catégorie = `snacks`                        | `ACTION_FILTER` catégorie|
-| « Quelque chose à boire »   | Catégorie = `boissons` (synonyme)           | `ACTION_FILTER` catégorie|
-| « J'ai faim »               | Trop vague — pas de catégorie identifiable  | Basculer vers DEP-0371  |
+| Entrée client             | Interprétation                             | Action déclenchée         |
+| ------------------------- | ------------------------------------------ | ------------------------- |
+| « Je veux des boissons »  | Catégorie = `boissons`                     | `ACTION_FILTER` catégorie |
+| « Montre-moi les snacks » | Catégorie = `snacks`                       | `ACTION_FILTER` catégorie |
+| « Quelque chose à boire » | Catégorie = `boissons` (synonyme)          | `ACTION_FILTER` catégorie |
+| « J'ai faim »             | Trop vague — pas de catégorie identifiable | Basculer vers DEP-0371    |
 
 ### Mécanisme
 
@@ -62,12 +62,12 @@ de produit spécifique.
 
 ### Règles d'interprétation
 
-| Entrée client          | Interprétation                                | Action déclenchée              |
-|------------------------|-----------------------------------------------|--------------------------------|
-| « Du Pepsi »           | Marque = `Pepsi`                              | `ACTION_SEARCH` marque=Pepsi   |
-| « Un Coca »            | Marque = `Coca-Cola` (synonyme)               | `ACTION_SEARCH` marque=Coca-Cola|
-| « De la Red Bull »     | Marque = `Red Bull`                           | `ACTION_SEARCH` marque=Red Bull|
-| « Une boisson connue » | Marque non identifiable                       | Basculer vers DEP-0371         |
+| Entrée client          | Interprétation                  | Action déclenchée                |
+| ---------------------- | ------------------------------- | -------------------------------- |
+| « Du Pepsi »           | Marque = `Pepsi`                | `ACTION_SEARCH` marque=Pepsi     |
+| « Un Coca »            | Marque = `Coca-Cola` (synonyme) | `ACTION_SEARCH` marque=Coca-Cola |
+| « De la Red Bull »     | Marque = `Red Bull`             | `ACTION_SEARCH` marque=Red Bull  |
+| « Une boisson connue » | Marque non identifiable         | Basculer vers DEP-0371           |
 
 ### Mécanisme
 
@@ -96,11 +96,11 @@ une saveur ou un goût de produit.
 
 ### Règles d'interprétation
 
-| Entrée client              | Interprétation                              | Action déclenchée               |
-|----------------------------|---------------------------------------------|---------------------------------|
-| « Du Pepsi cerise »        | Marque = Pepsi, parfum = cerise             | `ACTION_SEARCH` marque + parfum |
-| « Chips saveur ketchup »   | Catégorie = chips, parfum = ketchup         | `ACTION_SEARCH` catégorie + parfum|
-| « Quelque chose de sucré » | Trop vague — parfum non identifiable        | Basculer vers DEP-0371          |
+| Entrée client              | Interprétation                       | Action déclenchée                  |
+| -------------------------- | ------------------------------------ | ---------------------------------- |
+| « Du Pepsi cerise »        | Marque = Pepsi, parfum = cerise      | `ACTION_SEARCH` marque + parfum    |
+| « Chips saveur ketchup »   | Catégorie = chips, parfum = ketchup  | `ACTION_SEARCH` catégorie + parfum |
+| « Quelque chose de sucré » | Trop vague — parfum non identifiable | Basculer vers DEP-0371             |
 
 ### Mécanisme
 
@@ -129,13 +129,13 @@ client.
 
 ### Règles d'interprétation
 
-| Entrée client                | Quantité extraite | Comportement                               |
-|------------------------------|-------------------|--------------------------------------------|
-| « Un Pepsi »                 | 1                 | Ajout de 1 unité                           |
-| « Deux Pepsi »               | 2                 | Ajout de 2 unités                          |
-| « 3 canettes de Coca »       | 3                 | Ajout de 3 unités                          |
-| « Beaucoup de chips »        | Non déterminable  | Demander clarification quantité            |
-| « Quelques bouteilles »      | Non déterminable  | Demander clarification quantité            |
+| Entrée client           | Quantité extraite | Comportement                    |
+| ----------------------- | ----------------- | ------------------------------- |
+| « Un Pepsi »            | 1                 | Ajout de 1 unité                |
+| « Deux Pepsi »          | 2                 | Ajout de 2 unités               |
+| « 3 canettes de Coca »  | 3                 | Ajout de 3 unités               |
+| « Beaucoup de chips »   | Non déterminable  | Demander clarification quantité |
+| « Quelques bouteilles » | Non déterminable  | Demander clarification quantité |
 
 ### Mécanisme
 
@@ -165,12 +165,12 @@ sur une action précédemment réalisée.
 
 ### Exemples de corrections
 
-| Entrée client                           | Interprétation                                  |
-|-----------------------------------------|-------------------------------------------------|
-| « Non, je voulais du Coca, pas Pepsi »  | Retirer Pepsi, chercher Coca                    |
-| « Pas ça, l'autre format »              | Afficher les autres variantes du même produit   |
-| « Annule ce que tu viens d'ajouter »    | Retirer le dernier produit ajouté               |
-| « En fait non »                         | Annuler la dernière action de l'assistant       |
+| Entrée client                          | Interprétation                                |
+| -------------------------------------- | --------------------------------------------- |
+| « Non, je voulais du Coca, pas Pepsi » | Retirer Pepsi, chercher Coca                  |
+| « Pas ça, l'autre format »             | Afficher les autres variantes du même produit |
+| « Annule ce que tu viens d'ajouter »   | Retirer le dernier produit ajouté             |
+| « En fait non »                        | Annuler la dernière action de l'assistant     |
 
 ### Mécanisme
 
@@ -198,12 +198,12 @@ du panier.
 
 ### Exemples
 
-| Entrée client                   | Interprétation                                   |
-|---------------------------------|--------------------------------------------------|
-| « Retire le Pepsi »             | Retirer Pepsi du panier (quantité → 0)           |
-| « Enlève les chips »            | Retirer les chips du panier                      |
-| « Je ne veux plus le Coca »     | Retirer Coca du panier                           |
-| « Vide mon panier »             | Retirer tous les produits du panier              |
+| Entrée client               | Interprétation                         |
+| --------------------------- | -------------------------------------- |
+| « Retire le Pepsi »         | Retirer Pepsi du panier (quantité → 0) |
+| « Enlève les chips »        | Retirer les chips du panier            |
+| « Je ne veux plus le Coca » | Retirer Coca du panier                 |
+| « Vide mon panier »         | Retirer tous les produits du panier    |
 
 ### Mécanisme
 
@@ -233,11 +233,11 @@ produit par un autre dans le panier.
 
 ### Exemples
 
-| Entrée client                           | Interprétation                                  |
-|-----------------------------------------|-------------------------------------------------|
-| « Remplace le Pepsi par du Coca »       | Retirer Pepsi, ajouter Coca (même quantité)     |
-| « Change le format, je veux le grand »  | Retirer variante actuelle, ajouter grande variante|
-| « Plutôt des chips sel que ketchup »    | Retirer chips ketchup, ajouter chips sel        |
+| Entrée client                          | Interprétation                                     |
+| -------------------------------------- | -------------------------------------------------- |
+| « Remplace le Pepsi par du Coca »      | Retirer Pepsi, ajouter Coca (même quantité)        |
+| « Change le format, je veux le grand » | Retirer variante actuelle, ajouter grande variante |
+| « Plutôt des chips sel que ketchup »   | Retirer chips ketchup, ajouter chips sel           |
 
 ### Mécanisme
 
@@ -267,12 +267,12 @@ vide ou un compte incomplet.
 
 ### Cas couverts
 
-| Situation                        | Réponse de l'assistant                                             |
-|----------------------------------|--------------------------------------------------------------------|
-| Panier vide + demande commande   | « Ton panier est vide. Ajoute d'abord des articles. »              |
-| Client non connecté              | « Pour commander, connecte-toi d'abord à ton compte. »            |
-| Adresse de livraison manquante   | « Il manque une adresse de livraison. Ajoute-la dans ton profil. » |
-| Compte incomplet (DEP-0313)      | « Ton compte est incomplet. Complète ton profil pour continuer. »  |
+| Situation                      | Réponse de l'assistant                                             |
+| ------------------------------ | ------------------------------------------------------------------ |
+| Panier vide + demande commande | « Ton panier est vide. Ajoute d'abord des articles. »              |
+| Client non connecté            | « Pour commander, connecte-toi d'abord à ton compte. »             |
+| Adresse de livraison manquante | « Il manque une adresse de livraison. Ajoute-la dans ton profil. » |
+| Compte incomplet (DEP-0313)    | « Ton compte est incomplet. Complète ton profil pour continuer. »  |
 
 ### Mécanisme
 
@@ -401,14 +401,14 @@ de chat de l'assistant texte.
 
 ### Structure
 
-| Élément              | Description                                                    |
-|----------------------|----------------------------------------------------------------|
-| Emplacement desktop  | Section 3 (droite), sous le panier (DEP-0184)                  |
-| Emplacement mobile   | Panneau déployable depuis l'icône flottante (DEP-0187)         |
-| Hauteur desktop      | Fixe — occupe l'espace résiduel sous le panier                 |
-| Hauteur mobile       | 70% de la hauteur d'écran en mode déployé                      |
-| Structure interne    | Zone messages (scrollable) + zone saisie (fixe en bas)         |
-| Ordre des messages   | Chronologique, le plus récent en bas                           |
+| Élément             | Description                                            |
+| ------------------- | ------------------------------------------------------ |
+| Emplacement desktop | Section 3 (droite), sous le panier (DEP-0184)          |
+| Emplacement mobile  | Panneau déployable depuis l'icône flottante (DEP-0187) |
+| Hauteur desktop     | Fixe — occupe l'espace résiduel sous le panier         |
+| Hauteur mobile      | 70% de la hauteur d'écran en mode déployé              |
+| Structure interne   | Zone messages (scrollable) + zone saisie (fixe en bas) |
+| Ordre des messages  | Chronologique, le plus récent en bas                   |
 
 ### Comportement
 
@@ -422,11 +422,11 @@ de chat de l'assistant texte.
 
 ### États
 
-| État             | Description visuelle                                          |
-|------------------|---------------------------------------------------------------|
-| Actif            | Boîte visible, entrée texte active                            |
-| Chargement       | Indicateur de frappe animé (trois points) pendant le traitement|
-| Fermé            | Boîte masquée ou réduite à l'icône (mobile)                   |
+| État       | Description visuelle                                            |
+| ---------- | --------------------------------------------------------------- |
+| Actif      | Boîte visible, entrée texte active                              |
+| Chargement | Indicateur de frappe animé (trois points) pendant le traitement |
+| Fermé      | Boîte masquée ou réduite à l'icône (mobile)                     |
 
 ---
 
@@ -439,23 +439,23 @@ l'assistant.
 
 ### Structure
 
-| Attribut           | Valeur                                                         |
-|--------------------|----------------------------------------------------------------|
-| Type               | Champ texte mono-ligne (extensible à 3 lignes si long texte)  |
-| Placeholder        | « Écris ta demande… »                                          |
-| Longueur max       | 280 caractères                                                 |
-| Emplacement        | Bas de la boîte de chat, à gauche du bouton envoi              |
-| Largeur            | Pleine largeur disponible (hors bouton envoi et micro)         |
+| Attribut     | Valeur                                                       |
+| ------------ | ------------------------------------------------------------ |
+| Type         | Champ texte mono-ligne (extensible à 3 lignes si long texte) |
+| Placeholder  | « Écris ta demande… »                                        |
+| Longueur max | 280 caractères                                               |
+| Emplacement  | Bas de la boîte de chat, à gauche du bouton envoi            |
+| Largeur      | Pleine largeur disponible (hors bouton envoi et micro)       |
 
 ### Comportement
 
-| Action                   | Résultat                                                     |
-|--------------------------|--------------------------------------------------------------|
-| Saisie libre             | Affichage en temps réel dans le champ                        |
-| Touche Entrée            | Envoi du message (équivalent bouton envoi)                   |
-| Maj + Entrée             | Saut de ligne (si multi-ligne activé)                        |
-| Champ vide + Entrée      | Aucune action — bouton envoi désactivé                       |
-| Après envoi              | Champ vidé automatiquement, focus maintenu                   |
+| Action              | Résultat                                   |
+| ------------------- | ------------------------------------------ |
+| Saisie libre        | Affichage en temps réel dans le champ      |
+| Touche Entrée       | Envoi du message (équivalent bouton envoi) |
+| Maj + Entrée        | Saut de ligne (si multi-ligne activé)      |
+| Champ vide + Entrée | Aucune action — bouton envoi désactivé     |
+| Après envoi         | Champ vidé automatiquement, focus maintenu |
 
 ### Règles
 
@@ -474,20 +474,20 @@ Définir le bouton permettant au client d'envoyer son message à l'assistant.
 
 ### Structure
 
-| Attribut     | Valeur                                                          |
-|--------------|-----------------------------------------------------------------|
-| Forme        | Bouton carré compact, icône flèche envoi (→ ou ↑)              |
-| Emplacement  | À droite du champ de saisie, dans la zone saisie               |
-| Couleur      | `--color-primary` (actif) / grisé (inactif)                    |
-| Label        | Icône uniquement (pas de texte), `aria-label="Envoyer"`        |
+| Attribut    | Valeur                                                  |
+| ----------- | ------------------------------------------------------- |
+| Forme       | Bouton carré compact, icône flèche envoi (→ ou ↑)       |
+| Emplacement | À droite du champ de saisie, dans la zone saisie        |
+| Couleur     | `--color-primary` (actif) / grisé (inactif)             |
+| Label       | Icône uniquement (pas de texte), `aria-label="Envoyer"` |
 
 ### États
 
-| État        | Condition                        | Apparence                    |
-|-------------|----------------------------------|------------------------------|
-| Actif       | Champ de saisie non vide         | Couleur primaire, cliquable  |
-| Inactif     | Champ de saisie vide             | Grisé, non cliquable         |
-| Chargement  | Réponse en cours de traitement   | Spinner ou désactivé          |
+| État       | Condition                      | Apparence                   |
+| ---------- | ------------------------------ | --------------------------- |
+| Actif      | Champ de saisie non vide       | Couleur primaire, cliquable |
+| Inactif    | Champ de saisie vide           | Grisé, non cliquable        |
+| Chargement | Réponse en cours de traitement | Spinner ou désactivé        |
 
 ### Comportement
 
@@ -505,21 +505,21 @@ le mode assisté (réservé au mode assisté, absent du mode manuel).
 
 ### Structure
 
-| Attribut     | Valeur                                                          |
-|--------------|-----------------------------------------------------------------|
-| Forme        | Bouton carré compact, icône micro 🎤                            |
-| Emplacement  | À droite du bouton envoi, dans la zone saisie                  |
-| Couleur      | `--color-neutral` (inactif) / `--color-accent` (en écoute)     |
-| Label        | Icône uniquement, `aria-label="Activer le micro"`              |
+| Attribut    | Valeur                                                     |
+| ----------- | ---------------------------------------------------------- |
+| Forme       | Bouton carré compact, icône micro 🎤                       |
+| Emplacement | À droite du bouton envoi, dans la zone saisie              |
+| Couleur     | `--color-neutral` (inactif) / `--color-accent` (en écoute) |
+| Label       | Icône uniquement, `aria-label="Activer le micro"`          |
 
 ### États
 
-| État        | Condition                  | Apparence                             |
-|-------------|----------------------------|---------------------------------------|
-| Disponible  | Micro non actif            | Icône neutre, cliquable               |
-| En écoute   | Micro actif (enregistrement)| Icône colorée + animation pulse       |
-| Traitement  | Audio en cours de traitement| Spinner, désactivé                   |
-| Indisponible| Permissions micro refusées | Icône grisée + tooltip explicatif     |
+| État         | Condition                    | Apparence                         |
+| ------------ | ---------------------------- | --------------------------------- |
+| Disponible   | Micro non actif              | Icône neutre, cliquable           |
+| En écoute    | Micro actif (enregistrement) | Icône colorée + animation pulse   |
+| Traitement   | Audio en cours de traitement | Spinner, désactivé                |
+| Indisponible | Permissions micro refusées   | Icône grisée + tooltip explicatif |
 
 ### Comportement
 
@@ -545,13 +545,13 @@ Définir comment l'assistant affiche les produits qu'il suggère en réponse
 
 ### Structure des suggestions
 
-| Attribut            | Valeur                                                        |
-|---------------------|---------------------------------------------------------------|
-| Emplacement desktop | Section suggestions (DEP-0185), sous le panier               |
-| Emplacement mobile  | Bandeau horizontal scrollable au-dessus de la zone saisie    |
-| Format              | Cartes produits compactes (mini-version de DEP-0330)          |
-| Nombre affiché      | 2 à 4 suggestions maximum                                     |
-| Contenu d'une carte | Photo, nom, prix, bouton « Ajouter »                         |
+| Attribut            | Valeur                                                    |
+| ------------------- | --------------------------------------------------------- |
+| Emplacement desktop | Section suggestions (DEP-0185), sous le panier            |
+| Emplacement mobile  | Bandeau horizontal scrollable au-dessus de la zone saisie |
+| Format              | Cartes produits compactes (mini-version de DEP-0330)      |
+| Nombre affiché      | 2 à 4 suggestions maximum                                 |
+| Contenu d'une carte | Photo, nom, prix, bouton « Ajouter »                      |
 
 ### Comportement
 
@@ -579,10 +579,10 @@ de suggestion.
 
 ### Zones de clic
 
-| Zone cliquée           | Action déclenchée                                  |
-|------------------------|----------------------------------------------------|
-| Corps de la carte      | `ACTION_SHOW_PRODUCT` — ouverture du détail        |
-| Bouton « Ajouter »     | `ACTION_ADD_TO_CART` — ajout direct au panier      |
+| Zone cliquée       | Action déclenchée                             |
+| ------------------ | --------------------------------------------- |
+| Corps de la carte  | `ACTION_SHOW_PRODUCT` — ouverture du détail   |
+| Bouton « Ajouter » | `ACTION_ADD_TO_CART` — ajout direct au panier |
 
 ### Comportement après clic « Ajouter »
 
@@ -610,12 +610,12 @@ Définir ce qui se passe avec la zone de suggestions après qu'un produit a
 
 ### Comportement
 
-| Action du client                    | Résultat sur les suggestions                              |
-|-------------------------------------|-----------------------------------------------------------|
-| Clic « Ajouter » sur une suggestion | La suggestion cliquée disparaît, les autres restent       |
-| Ajout de tous les produits suggérés | Zone de suggestions vidée                                 |
-| Nouvelle demande dans le chat       | Zone de suggestions remplacée par les nouveaux résultats  |
-| Clic sur le corps (voir détail)     | Suggestions maintenues pendant l'ouverture du modal       |
+| Action du client                    | Résultat sur les suggestions                             |
+| ----------------------------------- | -------------------------------------------------------- |
+| Clic « Ajouter » sur une suggestion | La suggestion cliquée disparaît, les autres restent      |
+| Ajout de tous les produits suggérés | Zone de suggestions vidée                                |
+| Nouvelle demande dans le chat       | Zone de suggestions remplacée par les nouveaux résultats |
+| Clic sur le corps (voir détail)     | Suggestions maintenues pendant l'ouverture du modal      |
 
 ### Règles
 
@@ -635,13 +635,13 @@ automatiquement suite à une mise à jour du panier.
 
 ### Déclencheurs de fermeture automatique
 
-| Déclencheur                              | Résultat                              |
-|------------------------------------------|---------------------------------------|
-| Ajout d'un produit via l'assistant       | Fermeture après animation flyout      |
-| Ajout d'un produit via la grille         | Fermeture immédiate des suggestions   |
-| Retrait d'un produit du panier           | Les suggestions restent affichées     |
-| Vidage complet du panier                 | Les suggestions restent affichées     |
-| Validation de la commande               | Fermeture + réinitialisation des suggestions |
+| Déclencheur                        | Résultat                                     |
+| ---------------------------------- | -------------------------------------------- |
+| Ajout d'un produit via l'assistant | Fermeture après animation flyout             |
+| Ajout d'un produit via la grille   | Fermeture immédiate des suggestions          |
+| Retrait d'un produit du panier     | Les suggestions restent affichées            |
+| Vidage complet du panier           | Les suggestions restent affichées            |
+| Validation de la commande          | Fermeture + réinitialisation des suggestions |
 
 ### Animation de fermeture
 
@@ -672,13 +672,13 @@ tenant.
 
 ### Vérifications
 
-| Vérification                                         | Résultat attendu                               |
-|------------------------------------------------------|------------------------------------------------|
-| Produit demandé présent dans le catalogue            | ✅ Affiché via `ACTION_SHOW_PRODUCT`           |
-| Produit demandé absent du catalogue                  | ✅ DEP-0370 — refus + alternative proposée     |
-| Produit demandé retiré (archivé, DEP-0251)           | ✅ Traité comme absent — DEP-0370              |
-| Assistant invente un produit non référencé           | ❌ Comportement interdit — violation DEP-0363  |
-| Assistant décrit un produit avec des données erronées| ❌ Comportement interdit — violation DEP-0363  |
+| Vérification                                          | Résultat attendu                              |
+| ----------------------------------------------------- | --------------------------------------------- |
+| Produit demandé présent dans le catalogue             | ✅ Affiché via `ACTION_SHOW_PRODUCT`          |
+| Produit demandé absent du catalogue                   | ✅ DEP-0370 — refus + alternative proposée    |
+| Produit demandé retiré (archivé, DEP-0251)            | ✅ Traité comme absent — DEP-0370             |
+| Assistant invente un produit non référencé            | ❌ Comportement interdit — violation DEP-0363 |
+| Assistant décrit un produit avec des données erronées | ❌ Comportement interdit — violation DEP-0363 |
 
 ### Mécanisme de contrôle
 
@@ -704,12 +704,12 @@ provient pas directement de la boutique.
 
 ### Vérifications
 
-| Vérification                                       | Résultat attendu                                   |
-|----------------------------------------------------|----------------------------------------------------|
-| Prix affiché dans une suggestion                   | ✅ Provient de la variante du catalogue (DEP-0255)  |
-| Assistant cite un prix en réponse textuelle        | ❌ Comportement interdit — le prix est sur la carte |
-| Prix affiché après changement de variante          | ✅ Mis à jour depuis la boutique                    |
-| Prix calculé par l'assistant (total panier, etc.)  | ❌ Comportement interdit — le total est dans le panier|
+| Vérification                                      | Résultat attendu                                       |
+| ------------------------------------------------- | ------------------------------------------------------ |
+| Prix affiché dans une suggestion                  | ✅ Provient de la variante du catalogue (DEP-0255)     |
+| Assistant cite un prix en réponse textuelle       | ❌ Comportement interdit — le prix est sur la carte    |
+| Prix affiché après changement de variante         | ✅ Mis à jour depuis la boutique                       |
+| Prix calculé par l'assistant (total panier, etc.) | ❌ Comportement interdit — le total est dans le panier |
 
 ### Règles
 
@@ -736,14 +736,14 @@ composants de la boutique.
 
 ### Vérifications
 
-| Comportement attendu                                     | Résultat attendu                              |
-|----------------------------------------------------------|-----------------------------------------------|
-| Afficher un produit → déclenche `ACTION_SHOW_PRODUCT`    | ✅ Fiche produit affichée dans la boutique    |
-| Ajouter au panier → déclenche `ACTION_ADD_TO_CART`       | ✅ Panier mis à jour dans la boutique         |
-| Montrer le panier → déclenche `ACTION_SHOW_CART`         | ✅ Panier ouvert dans la boutique             |
-| Assistant décrit le panier en texte libre                | ❌ Comportement interdit                      |
-| Assistant liste les produits en texte libre              | ❌ Comportement interdit                      |
-| Assistant confirme une commande sans passer par l'écran  | ❌ Comportement interdit                      |
+| Comportement attendu                                    | Résultat attendu                           |
+| ------------------------------------------------------- | ------------------------------------------ |
+| Afficher un produit → déclenche `ACTION_SHOW_PRODUCT`   | ✅ Fiche produit affichée dans la boutique |
+| Ajouter au panier → déclenche `ACTION_ADD_TO_CART`      | ✅ Panier mis à jour dans la boutique      |
+| Montrer le panier → déclenche `ACTION_SHOW_CART`        | ✅ Panier ouvert dans la boutique          |
+| Assistant décrit le panier en texte libre               | ❌ Comportement interdit                   |
+| Assistant liste les produits en texte libre             | ❌ Comportement interdit                   |
+| Assistant confirme une commande sans passer par l'écran | ❌ Comportement interdit                   |
 
 ### Règles
 
@@ -768,14 +768,14 @@ l'interface.
 
 ### Vérifications
 
-| Intention détectée           | Réponse attendue                                             |
-|------------------------------|--------------------------------------------------------------|
-| Chercher un produit          | `ACTION_SEARCH` + résultats dans la grille                   |
-| Ajouter un produit           | `ACTION_ADD_TO_CART` + feedback visuel                       |
-| Voir le panier               | `ACTION_SHOW_CART` + panier ouvert                           |
-| Afficher les populaires      | `ACTION_SHOW_POPULAR` + grille filtrée                       |
-| Confirmer la commande        | `ACTION_CONFIRM_ORDER` + redirection récapitulatif           |
-| Demande hors périmètre       | Phrase DEP-0371 + aucune action déclenchée                   |
+| Intention détectée      | Réponse attendue                                   |
+| ----------------------- | -------------------------------------------------- |
+| Chercher un produit     | `ACTION_SEARCH` + résultats dans la grille         |
+| Ajouter un produit      | `ACTION_ADD_TO_CART` + feedback visuel             |
+| Voir le panier          | `ACTION_SHOW_CART` + panier ouvert                 |
+| Afficher les populaires | `ACTION_SHOW_POPULAR` + grille filtrée             |
+| Confirmer la commande   | `ACTION_CONFIRM_ORDER` + redirection récapitulatif |
+| Demande hors périmètre  | Phrase DEP-0371 + aucune action déclenchée         |
 
 ### Règles
 
@@ -797,13 +797,13 @@ DEP-0399) est **complet, cohérent et gelé**. Aucune modification ne doit
 
 ### Périmètre gelé
 
-| Bloc           | Contenu                                                             |
-|----------------|---------------------------------------------------------------------|
-| DEP-0361–0366  | Rôle, actions autorisées/interdites, tons par interlocuteur         |
-| DEP-0367–0376  | Phrases système canoniques (bienvenue → fin de conversation)        |
-| DEP-0377–0387  | Logiques de compréhension (catégorie, marque, parfum, quantité, corrections, ambiguïtés) |
-| DEP-0388–0395  | Composants UI (boîte chat, saisie, envoi, micro, suggestions)       |
-| DEP-0396–0399  | Validations comportementales (pas d'invention, pilotage boutique)   |
+| Bloc          | Contenu                                                                                  |
+| ------------- | ---------------------------------------------------------------------------------------- |
+| DEP-0361–0366 | Rôle, actions autorisées/interdites, tons par interlocuteur                              |
+| DEP-0367–0376 | Phrases système canoniques (bienvenue → fin de conversation)                             |
+| DEP-0377–0387 | Logiques de compréhension (catégorie, marque, parfum, quantité, corrections, ambiguïtés) |
+| DEP-0388–0395 | Composants UI (boîte chat, saisie, envoi, micro, suggestions)                            |
+| DEP-0396–0399 | Validations comportementales (pas d'invention, pilotage boutique)                        |
 
 ### Règles du gel
 
@@ -819,45 +819,45 @@ DEP-0399) est **complet, cohérent et gelé**. Aucune modification ne doit
 
 ### Critères de gel validés
 
-| Critère                                                   | Statut   |
-|-----------------------------------------------------------|----------|
-| Rôle et périmètre de l'assistant définis                  | ✅ Fait   |
-| Actions autorisées et interdites listées exhaustivement   | ✅ Fait   |
-| Tons par interlocuteur définis                            | ✅ Fait   |
-| Phrases système canoniques définies                       | ✅ Fait   |
-| Logiques de compréhension définies                        | ✅ Fait   |
-| Logiques d'ambiguïté définies                             | ✅ Fait   |
-| Composants UI de l'assistant définis                      | ✅ Fait   |
-| Validations comportementales documentées                  | ✅ Fait   |
-| Périmètre gelé explicitement listé                        | ✅ Fait   |
+| Critère                                                 | Statut  |
+| ------------------------------------------------------- | ------- |
+| Rôle et périmètre de l'assistant définis                | ✅ Fait |
+| Actions autorisées et interdites listées exhaustivement | ✅ Fait |
+| Tons par interlocuteur définis                          | ✅ Fait |
+| Phrases système canoniques définies                     | ✅ Fait |
+| Logiques de compréhension définies                      | ✅ Fait |
+| Logiques d'ambiguïté définies                           | ✅ Fait |
+| Composants UI de l'assistant définis                    | ✅ Fait |
+| Validations comportementales documentées                | ✅ Fait |
+| Périmètre gelé explicitement listé                      | ✅ Fait |
 
 ---
 
 ## Synthèse du bloc DEP-0377–DEP-0400
 
-| DEP      | Sujet                                   | Décision clé                                               |
-|----------|-----------------------------------------|------------------------------------------------------------|
-| DEP-0377 | Compréhension catégorie                 | Match sur label/tags/synonymes, une catégorie active       |
-| DEP-0378 | Compréhension marque                    | Match sur brand/synonymes, aucune invention de marque      |
-| DEP-0379 | Compréhension parfum                    | Modificateur de variante, variante par défaut si absent    |
-| DEP-0380 | Compréhension quantité                  | 1 par défaut, vague → clarification, max 99 en V1          |
-| DEP-0381 | Compréhension correction                | Mots-clés de correction, annule action précédente seulement|
-| DEP-0382 | Compréhension retrait                   | ACTION_UPDATE_QTY à 0, vidage total avec confirmation      |
-| DEP-0383 | Compréhension remplacement              | Retrait puis ajout, même quantité, produit dispo requis    |
-| DEP-0384 | Commande incomplète                     | 3 vérifications avant ACTION_CONFIRM_ORDER, une à la fois  |
-| DEP-0385 | Ambiguïté chips ketchup / multi-marques | Max 4 marques proposées, client choisit toujours           |
-| DEP-0386 | Ambiguïté Pepsi / multi-formats         | Variante par défaut proposée en premier, max 3 formats     |
-| DEP-0387 | Ambiguïté lait / multi-sortes           | Axe de distinction le plus significatif d'abord            |
-| DEP-0388 | Boîte de chat                           | Section droite desktop, panneau mobile, historique session |
-| DEP-0389 | Entrée texte                            | 280 chars max, Entrée = envoi, désactivée pendant traitement|
-| DEP-0390 | Bouton envoi                            | Inactif si champ vide, désactivé pendant traitement        |
-| DEP-0391 | Bouton micro                            | Mode assisté uniquement, transcription → champ saisie      |
-| DEP-0392 | Affichage suggestions                   | 2–4 cartes compactes, produits catalogue exclusivement     |
-| DEP-0393 | Clic sur suggestion                     | Corps → détail, bouton → ajout direct, même logique grille |
-| DEP-0394 | Réduction suggestions après sélection   | Carte cliquée retire, autres restent, zone vide disparaît  |
-| DEP-0395 | Fermeture suggestions / panier          | Auto après ajout assistant, manuelle après ajout grille    |
-| DEP-0396 | Validation — pas d'invention produit    | Tout produit = id valide du catalogue, jamais de texte libre|
-| DEP-0397 | Validation — pas d'invention prix       | Prix toujours de la boutique, jamais cité en texte         |
-| DEP-0398 | Validation — pilote la boutique         | Chaque réponse → action boutique, pas de simulation texte  |
-| DEP-0399 | Validation — fonctions structurées      | Toute intention → action DEP-0362, pas de narratif libre   |
-| DEP-0400 | Gel comportement V1 assistant texte     | DEP-0361–0399 gelés, toute extension = nouveau bloc DEP    |
+| DEP      | Sujet                                   | Décision clé                                                 |
+| -------- | --------------------------------------- | ------------------------------------------------------------ |
+| DEP-0377 | Compréhension catégorie                 | Match sur label/tags/synonymes, une catégorie active         |
+| DEP-0378 | Compréhension marque                    | Match sur brand/synonymes, aucune invention de marque        |
+| DEP-0379 | Compréhension parfum                    | Modificateur de variante, variante par défaut si absent      |
+| DEP-0380 | Compréhension quantité                  | 1 par défaut, vague → clarification, max 99 en V1            |
+| DEP-0381 | Compréhension correction                | Mots-clés de correction, annule action précédente seulement  |
+| DEP-0382 | Compréhension retrait                   | ACTION_UPDATE_QTY à 0, vidage total avec confirmation        |
+| DEP-0383 | Compréhension remplacement              | Retrait puis ajout, même quantité, produit dispo requis      |
+| DEP-0384 | Commande incomplète                     | 3 vérifications avant ACTION_CONFIRM_ORDER, une à la fois    |
+| DEP-0385 | Ambiguïté chips ketchup / multi-marques | Max 4 marques proposées, client choisit toujours             |
+| DEP-0386 | Ambiguïté Pepsi / multi-formats         | Variante par défaut proposée en premier, max 3 formats       |
+| DEP-0387 | Ambiguïté lait / multi-sortes           | Axe de distinction le plus significatif d'abord              |
+| DEP-0388 | Boîte de chat                           | Section droite desktop, panneau mobile, historique session   |
+| DEP-0389 | Entrée texte                            | 280 chars max, Entrée = envoi, désactivée pendant traitement |
+| DEP-0390 | Bouton envoi                            | Inactif si champ vide, désactivé pendant traitement          |
+| DEP-0391 | Bouton micro                            | Mode assisté uniquement, transcription → champ saisie        |
+| DEP-0392 | Affichage suggestions                   | 2–4 cartes compactes, produits catalogue exclusivement       |
+| DEP-0393 | Clic sur suggestion                     | Corps → détail, bouton → ajout direct, même logique grille   |
+| DEP-0394 | Réduction suggestions après sélection   | Carte cliquée retire, autres restent, zone vide disparaît    |
+| DEP-0395 | Fermeture suggestions / panier          | Auto après ajout assistant, manuelle après ajout grille      |
+| DEP-0396 | Validation — pas d'invention produit    | Tout produit = id valide du catalogue, jamais de texte libre |
+| DEP-0397 | Validation — pas d'invention prix       | Prix toujours de la boutique, jamais cité en texte           |
+| DEP-0398 | Validation — pilote la boutique         | Chaque réponse → action boutique, pas de simulation texte    |
+| DEP-0399 | Validation — fonctions structurées      | Toute intention → action DEP-0362, pas de narratif libre     |
+| DEP-0400 | Gel comportement V1 assistant texte     | DEP-0361–0399 gelés, toute extension = nouveau bloc DEP      |

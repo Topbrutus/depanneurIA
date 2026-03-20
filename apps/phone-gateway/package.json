@@ -1,0 +1,12 @@
+{
+  "name": "@depaneuria/phone-gateway",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "lint": "eslint .",
+    "test": "echo 'test not implemented'",
+    "typecheck": "tsc --noEmit"
+  }
+}

@@ -1,29 +1,35 @@
 {
-  "name": "depaneuria",
-  "version": "0.1.0",
+  "name": "depaneuria-monorepo",
+  "version": "0.0.0",
   "private": true,
-  "description": "Monorepo depaneurIA — commander simplement, livrer clairement.",
-  "engines": {
-    "node": ">=20.0.0",
-    "pnpm": ">=9.0.0"
-  },
   "packageManager": "pnpm@9.0.0",
   "scripts": {
-    "dev": "pnpm --parallel --filter './apps/*' dev",
-    "dev:web": "pnpm --filter @depaneuria/web dev",
-    "dev:api": "pnpm --filter @depaneuria/api dev",
-    "build": "pnpm --filter './packages/*' build && pnpm --filter './apps/*' build",
-    "test": "pnpm --filter './packages/*' test && pnpm --filter './apps/*' test",
-    "lint": "pnpm -r lint",
-    "format": "pnpm -r format",
-    "typecheck": "pnpm -r typecheck",
-    "db:migrate": "pnpm --filter @depaneuria/api db:push",
-    "db:seed": "pnpm --filter @depaneuria/api db:seed",
-    "db:seed:reset": "pnpm --filter @depaneuria/api db:seed:reset"
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "eslint .",
+    "test": "turbo run test",
+    "typecheck": "turbo run typecheck",
+    "dev:web": "turbo run dev --filter=\"./apps/web-*\"",
+    "dev:api": "turbo run dev --filter=\"./apps/api\" --filter=\"./apps/phone-gateway\"",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "db:migrate": "tsx scripts/dev/migrate.ts",
+    "db:seed": "tsx scripts/dev/seed-demo.ts",
+    "db:clear": "tsx scripts/dev/clear-demo.ts",
+    "verify:local": "pnpm run lint && pnpm run typecheck && pnpm run build"
   },
-  "devDependencies": {},
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ]
+  "devDependencies": {
+    "turbo": "latest",
+    "typescript": "latest",
+    "prettier": "^3.0.0",
+    "eslint": "^9.0.0",
+    "typescript-eslint": "^8.0.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "tsx": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "pnpm": ">=9.0.0"
+  }
 }

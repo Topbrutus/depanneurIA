@@ -19,12 +19,12 @@ Aucun fichier `.env` n'est présent sur les serveurs de production.
 
 ## Sources par plateforme
 
-| Plateforme        | Mécanisme de configuration                              |
-|-------------------|---------------------------------------------------------|
-| GitHub Actions    | `Settings > Secrets and variables > Actions`            |
-| Vercel (web)      | `Project > Settings > Environment Variables`            |
-| Railway / Render  | Interface web ou CLI de la plateforme                   |
-| Docker / K8s      | `env:` dans le manifest ou secrets Kubernetes           |
+| Plateforme       | Mécanisme de configuration                    |
+| ---------------- | --------------------------------------------- |
+| GitHub Actions   | `Settings > Secrets and variables > Actions`  |
+| Vercel (web)     | `Project > Settings > Environment Variables`  |
+| Railway / Render | Interface web ou CLI de la plateforme         |
+| Docker / K8s     | `env:` dans le manifest ou secrets Kubernetes |
 
 ## Variables requises par environnement (à compléter)
 
@@ -33,12 +33,12 @@ application au fur et à mesure du développement.
 
 ### Variables globales attendues
 
-| Variable          | Environnement | Description                               |
-|-------------------|---------------|-------------------------------------------|
-| `NODE_ENV`        | Tous          | `development`, `staging` ou `production`  |
-| `DATABASE_URL`    | API           | URL de connexion PostgreSQL               |
-| `JWT_SECRET`      | API           | Clé de signature des tokens JWT           |
-| `OPENAI_API_KEY`  | API           | Clé API OpenAI pour l'assistant           |
+| Variable         | Environnement | Description                              |
+| ---------------- | ------------- | ---------------------------------------- |
+| `NODE_ENV`       | Tous          | `development`, `staging` ou `production` |
+| `DATABASE_URL`   | API           | URL de connexion PostgreSQL              |
+| `JWT_SECRET`     | API           | Clé de signature des tokens JWT          |
+| `OPENAI_API_KEY` | API           | Clé API OpenAI pour l'assistant          |
 
 ## Références croisées
 

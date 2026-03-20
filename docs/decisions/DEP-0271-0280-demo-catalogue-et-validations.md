@@ -21,16 +21,16 @@ valider l'affichage, la navigation et le filtrage dans l'interface.
 
 ### Catégories retenues
 
-| ID   | Slug              | Nom affiché           | Icône suggérée   |
-|------|-------------------|-----------------------|------------------|
-| C-01 | freins            | Freins                | 🛑               |
-| C-02 | filtres           | Filtres               | 🔧               |
-| C-03 | eclairage         | Éclairage             | 💡               |
-| C-04 | huiles-fluides    | Huiles et fluides     | 🛢️               |
-| C-05 | batteries         | Batteries             | 🔋               |
-| C-06 | pneus             | Pneus                 | ⚫               |
-| C-07 | essuyage          | Essuyage              | 🌧️               |
-| C-08 | demarrage         | Démarrage             | 🔑               |
+| ID   | Slug           | Nom affiché       | Icône suggérée |
+| ---- | -------------- | ----------------- | -------------- |
+| C-01 | freins         | Freins            | 🛑             |
+| C-02 | filtres        | Filtres           | 🔧             |
+| C-03 | eclairage      | Éclairage         | 💡             |
+| C-04 | huiles-fluides | Huiles et fluides | 🛢️             |
+| C-05 | batteries      | Batteries         | 🔋             |
+| C-06 | pneus          | Pneus             | ⚫             |
+| C-07 | essuyage       | Essuyage          | 🌧️             |
+| C-08 | demarrage      | Démarrage         | 🔑             |
 
 ### Règles
 
@@ -49,20 +49,20 @@ en DEP-0271, suffisant pour tester recherche, tri et affichage carte/liste.
 
 ### Produits retenus
 
-| ID   | Nom court                    | Catégorie (slug)  | Prix TTC (€) | Dispo       |
-|------|------------------------------|--------------------|--------------|-------------|
-| P-01 | Plaquettes frein avant       | freins             | 34.90        | en_stock    |
-| P-02 | Disque frein ventilé 280 mm  | freins             | 52.50        | en_stock    |
-| P-03 | Filtre à huile               | filtres            | 8.90         | en_stock    |
-| P-04 | Filtre à air                 | filtres            | 12.50        | en_stock    |
-| P-05 | Ampoule H7 55W              | eclairage          | 6.90         | en_stock    |
-| P-06 | Kit xénon H1                 | eclairage          | 45.00        | rupture     |
-| P-07 | Huile moteur 5W-30 5L        | huiles-fluides     | 38.90        | en_stock    |
-| P-08 | Liquide de refroidissement   | huiles-fluides     | 14.90        | en_stock    |
-| P-09 | Batterie 60Ah 540A           | batteries          | 89.90        | en_stock    |
-| P-10 | Pneu été 205/55 R16          | pneus              | 62.00        | en_stock    |
-| P-11 | Balai essuie-glace 600 mm    | essuyage           | 11.90        | en_stock    |
-| P-12 | Démarreur reconditionné      | demarrage          | 149.00       | sur_commande|
+| ID   | Nom court                   | Catégorie (slug) | Prix TTC (€) | Dispo        |
+| ---- | --------------------------- | ---------------- | ------------ | ------------ |
+| P-01 | Plaquettes frein avant      | freins           | 34.90        | en_stock     |
+| P-02 | Disque frein ventilé 280 mm | freins           | 52.50        | en_stock     |
+| P-03 | Filtre à huile              | filtres          | 8.90         | en_stock     |
+| P-04 | Filtre à air                | filtres          | 12.50        | en_stock     |
+| P-05 | Ampoule H7 55W              | eclairage        | 6.90         | en_stock     |
+| P-06 | Kit xénon H1                | eclairage        | 45.00        | rupture      |
+| P-07 | Huile moteur 5W-30 5L       | huiles-fluides   | 38.90        | en_stock     |
+| P-08 | Liquide de refroidissement  | huiles-fluides   | 14.90        | en_stock     |
+| P-09 | Batterie 60Ah 540A          | batteries        | 89.90        | en_stock     |
+| P-10 | Pneu été 205/55 R16         | pneus            | 62.00        | en_stock     |
+| P-11 | Balai essuie-glace 600 mm   | essuyage         | 11.90        | en_stock     |
+| P-12 | Démarreur reconditionné     | demarrage        | 149.00       | sur_commande |
 
 ### Règles
 
@@ -90,20 +90,20 @@ Exemple : `/images/products/P-01/P-01-1.webp`
 
 ### Images prévues
 
-| Produit | Nombre d'images | Fichiers attendus                 |
-|---------|-----------------|-----------------------------------|
-| P-01    | 2               | P-01-1.webp, P-01-2.webp         |
-| P-02    | 1               | P-02-1.webp                       |
-| P-03    | 1               | P-03-1.webp                       |
-| P-04    | 1               | P-04-1.webp                       |
-| P-05    | 1               | P-05-1.webp                       |
-| P-06    | 2               | P-06-1.webp, P-06-2.webp         |
-| P-07    | 1               | P-07-1.webp                       |
-| P-08    | 1               | P-08-1.webp                       |
-| P-09    | 2               | P-09-1.webp, P-09-2.webp         |
-| P-10    | 1               | P-10-1.webp                       |
-| P-11    | 1               | P-11-1.webp                       |
-| P-12    | 1               | P-12-1.webp                       |
+| Produit | Nombre d'images | Fichiers attendus        |
+| ------- | --------------- | ------------------------ |
+| P-01    | 2               | P-01-1.webp, P-01-2.webp |
+| P-02    | 1               | P-02-1.webp              |
+| P-03    | 1               | P-03-1.webp              |
+| P-04    | 1               | P-04-1.webp              |
+| P-05    | 1               | P-05-1.webp              |
+| P-06    | 2               | P-06-1.webp, P-06-2.webp |
+| P-07    | 1               | P-07-1.webp              |
+| P-08    | 1               | P-08-1.webp              |
+| P-09    | 2               | P-09-1.webp, P-09-2.webp |
+| P-10    | 1               | P-10-1.webp              |
+| P-11    | 1               | P-11-1.webp              |
+| P-12    | 1               | P-12-1.webp              |
 
 ### Règles
 
@@ -123,19 +123,19 @@ pertinence des résultats dès la démonstration.
 
 ### Synonymes retenus
 
-| Terme principal          | Synonymes                                      |
-|--------------------------|-------------------------------------------------|
-| plaquettes frein         | plaquettes de frein, garnitures, pads           |
-| disque frein             | disque de frein, rotor                          |
-| filtre à huile           | filtre huile                                    |
-| filtre à air             | filtre air, filtre admission                    |
-| ampoule                  | lampe, bulbe                                    |
-| huile moteur             | huile 5W-30, lubrifiant moteur                  |
-| liquide de refroidissement | liquide refroidissement, antigel, coolant     |
-| batterie                 | accumulateur, batterie auto                     |
-| pneu                     | pneumatique, gomme                              |
-| balai essuie-glace       | essuie-glace, wiper                             |
-| démarreur                | starter, moteur de démarrage                    |
+| Terme principal            | Synonymes                                 |
+| -------------------------- | ----------------------------------------- |
+| plaquettes frein           | plaquettes de frein, garnitures, pads     |
+| disque frein               | disque de frein, rotor                    |
+| filtre à huile             | filtre huile                              |
+| filtre à air               | filtre air, filtre admission              |
+| ampoule                    | lampe, bulbe                              |
+| huile moteur               | huile 5W-30, lubrifiant moteur            |
+| liquide de refroidissement | liquide refroidissement, antigel, coolant |
+| batterie                   | accumulateur, batterie auto               |
+| pneu                       | pneumatique, gomme                        |
+| balai essuie-glace         | essuie-glace, wiper                       |
+| démarreur                  | starter, moteur de démarrage              |
 
 ### Règles
 
@@ -154,13 +154,13 @@ l'affichage du bloc « les plus commandés » sur la page d'accueil.
 
 ### Classement retenu
 
-| Rang | Produit (ID) | Nom court                    | Commandes fictives |
-|------|-------------|------------------------------|--------------------|
-| 1    | P-01        | Plaquettes frein avant       | 342                |
-| 2    | P-07        | Huile moteur 5W-30 5L        | 287                |
-| 3    | P-03        | Filtre à huile               | 256                |
-| 4    | P-10        | Pneu été 205/55 R16          | 198                |
-| 5    | P-09        | Batterie 60Ah 540A           | 176                |
+| Rang | Produit (ID) | Nom court              | Commandes fictives |
+| ---- | ------------ | ---------------------- | ------------------ |
+| 1    | P-01         | Plaquettes frein avant | 342                |
+| 2    | P-07         | Huile moteur 5W-30 5L  | 287                |
+| 3    | P-03         | Filtre à huile         | 256                |
+| 4    | P-10         | Pneu été 205/55 R16    | 198                |
+| 5    | P-09         | Batterie 60Ah 540A     | 176                |
 
 ### Règles
 
@@ -185,11 +185,11 @@ correspond à un `slug` existant dans le jeu de catégories (DEP-0271).
 
 ### Cas d'erreur attendus
 
-| Cas                          | Résultat attendu            |
-|------------------------------|------------------------------|
-| Catégorie vide               | ❌ Rejet — champ obligatoire |
-| Catégorie inexistante        | ❌ Rejet — slug inconnu      |
-| Catégorie valide             | ✅ Accepté                   |
+| Cas                   | Résultat attendu             |
+| --------------------- | ---------------------------- |
+| Catégorie vide        | ❌ Rejet — champ obligatoire |
+| Catégorie inexistante | ❌ Rejet — slug inconnu      |
+| Catégorie valide      | ✅ Accepté                   |
 
 ---
 
@@ -209,11 +209,11 @@ chemin respecte la convention DEP-0273.
 
 ### Cas d'erreur attendus
 
-| Cas                          | Résultat attendu            |
-|------------------------------|------------------------------|
-| Aucune image associée        | ❌ Rejet — image obligatoire |
-| Chemin image mal formaté     | ❌ Rejet — format invalide   |
-| Au moins 1 image valide      | ✅ Accepté                   |
+| Cas                      | Résultat attendu             |
+| ------------------------ | ---------------------------- |
+| Aucune image associée    | ❌ Rejet — image obligatoire |
+| Chemin image mal formaté | ❌ Rejet — format invalide   |
+| Au moins 1 image valide  | ✅ Accepté                   |
 
 ---
 
@@ -233,12 +233,12 @@ contraintes de longueur.
 
 ### Cas d'erreur attendus
 
-| Cas                          | Résultat attendu              |
-|------------------------------|--------------------------------|
-| Nom vide                     | ❌ Rejet — champ obligatoire   |
-| Nom > 80 caractères          | ❌ Rejet — trop long           |
-| Nom contenant du HTML        | ❌ Rejet — contenu non autorisé|
-| Nom valide ≤ 80 caractères   | ✅ Accepté                     |
+| Cas                        | Résultat attendu                |
+| -------------------------- | ------------------------------- |
+| Nom vide                   | ❌ Rejet — champ obligatoire    |
+| Nom > 80 caractères        | ❌ Rejet — trop long            |
+| Nom contenant du HTML      | ❌ Rejet — contenu non autorisé |
+| Nom valide ≤ 80 caractères | ✅ Accepté                      |
 
 ---
 
@@ -250,11 +250,11 @@ Le champ `dispo` de chaque produit doit correspondre à l'un des états autoris�
 
 ### États autorisés
 
-| Valeur         | Signification                                |
-|----------------|----------------------------------------------|
-| `en_stock`     | Disponible immédiatement                     |
-| `rupture`      | Temporairement indisponible                  |
-| `sur_commande` | Disponible sur commande (délai fournisseur)  |
+| Valeur         | Signification                               |
+| -------------- | ------------------------------------------- |
+| `en_stock`     | Disponible immédiatement                    |
+| `rupture`      | Temporairement indisponible                 |
+| `sur_commande` | Disponible sur commande (délai fournisseur) |
 
 ### Critères
 
@@ -264,11 +264,11 @@ Le champ `dispo` de chaque produit doit correspondre à l'un des états autoris�
 
 ### Cas d'erreur attendus
 
-| Cas                          | Résultat attendu              |
-|------------------------------|--------------------------------|
-| Champ vide                   | ❌ Rejet — champ obligatoire   |
-| Valeur inconnue              | ❌ Rejet — état non reconnu    |
-| Valeur autorisée             | ✅ Accepté                     |
+| Cas              | Résultat attendu             |
+| ---------------- | ---------------------------- |
+| Champ vide       | ❌ Rejet — champ obligatoire |
+| Valeur inconnue  | ❌ Rejet — état non reconnu  |
+| Valeur autorisée | ✅ Accepté                   |
 
 ---
 
@@ -289,12 +289,12 @@ Décrire la procédure de premier chargement qui utilisera les données de démo
 
 ### Validations appliquées à chaque étape
 
-| Étape          | Validation(s)                  |
-|----------------|--------------------------------|
-| Produits       | DEP-0276 (catégorie valide)    |
-| Produits       | DEP-0278 (nom court valide)    |
-| Produits       | DEP-0279 (disponibilité valide)|
-| Images         | DEP-0277 (≥ 1 image/produit)  |
+| Étape    | Validation(s)                   |
+| -------- | ------------------------------- |
+| Produits | DEP-0276 (catégorie valide)     |
+| Produits | DEP-0278 (nom court valide)     |
+| Produits | DEP-0279 (disponibilité valide) |
+| Images   | DEP-0277 (≥ 1 image/produit)    |
 
 ### Critères de succès
 

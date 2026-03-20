@@ -39,15 +39,15 @@ Bouton « Remise effectuée » dans l'écran « Livraison en cours »
 
 ### Comportement
 
-| Étape | Action                                                                              |
-|-------|-------------------------------------------------------------------------------------|
-| 1     | Clic sur « Remise effectuée »                                                       |
-| 2     | Toast de confirmation non bloquant : « Livraison confirmée »                        |
-| 3     | Statut de la livraison passe à `livree`                                             |
-| 4     | Statut de la commande passe à `livree` (DEP-0194)                                  |
-| 5     | Notification envoyée au client : « Votre commande a bien été livrée »              |
-| 6     | La livraison quitte l'écran « En cours » et bascule vers « Historique »            |
-| 7     | Si paiement à la livraison non encore marqué → invite à confirmer le paiement       |
+| Étape | Action                                                                        |
+| ----- | ----------------------------------------------------------------------------- |
+| 1     | Clic sur « Remise effectuée »                                                 |
+| 2     | Toast de confirmation non bloquant : « Livraison confirmée »                  |
+| 3     | Statut de la livraison passe à `livree`                                       |
+| 4     | Statut de la commande passe à `livree` (DEP-0194)                             |
+| 5     | Notification envoyée au client : « Votre commande a bien été livrée »         |
+| 6     | La livraison quitte l'écran « En cours » et bascule vers « Historique »       |
+| 7     | Si paiement à la livraison non encore marqué → invite à confirmer le paiement |
 
 ### Conditions
 
@@ -59,11 +59,11 @@ Bouton « Remise effectuée » dans l'écran « Livraison en cours »
 
 ### Feedback visuel
 
-| Moment                | Feedback                                             |
-|-----------------------|------------------------------------------------------|
-| Clic                  | Bouton en état chargement (spinner, 500 ms max)      |
-| Succès                | Toast vert « Livraison #[ID] confirmée »             |
-| Erreur réseau         | Toast rouge « Erreur — réessaie »                    |
+| Moment        | Feedback                                        |
+| ------------- | ----------------------------------------------- |
+| Clic          | Bouton en état chargement (spinner, 500 ms max) |
+| Succès        | Toast vert « Livraison #[ID] confirmée »        |
+| Erreur réseau | Toast rouge « Erreur — réessaie »               |
 
 ### Règles
 
@@ -88,28 +88,28 @@ disponible lorsque le statut est `en_livraison`.
 
 ### Comportement
 
-| Étape | Action                                                                              |
-|-------|-------------------------------------------------------------------------------------|
-| 1     | Clic sur « Client absent »                                                          |
-| 2     | Modal de confirmation avec indication du temps d'attente recommandé (2 min)         |
-| 3     | Confirmation → statut passe à `client_absent`                                       |
+| Étape | Action                                                                             |
+| ----- | ---------------------------------------------------------------------------------- |
+| 1     | Clic sur « Client absent »                                                         |
+| 2     | Modal de confirmation avec indication du temps d'attente recommandé (2 min)        |
+| 3     | Confirmation → statut passe à `client_absent`                                      |
 | 4     | Notification automatique envoyée au client : « Votre livreur est à votre porte »   |
 | 5     | Chronomètre d'attente affiché (2 minutes par défaut)                               |
 | 6     | Après expiration → nouvelles options proposées au livreur (retour ou second essai) |
 
 ### Options après le délai d'attente
 
-| Option                  | Action                                              |
-|-------------------------|-----------------------------------------------------|
-| Retenter la sonnette    | Réinitialise le chronomètre, envoie un second SMS   |
-| Retour au dépanneur     | Déclenche DEP-0537                                  |
+| Option               | Action                                            |
+| -------------------- | ------------------------------------------------- |
+| Retenter la sonnette | Réinitialise le chronomètre, envoie un second SMS |
+| Retour au dépanneur  | Déclenche DEP-0537                                |
 
 ### Feedback visuel
 
-| Moment          | Feedback                                                   |
-|-----------------|------------------------------------------------------------|
-| Confirmation    | Chronomètre visible dans l'écran, notification client     |
-| Fin du délai    | Alerte sonore discrète + options présentées au livreur    |
+| Moment       | Feedback                                               |
+| ------------ | ------------------------------------------------------ |
+| Confirmation | Chronomètre visible dans l'écran, notification client  |
+| Fin du délai | Alerte sonore discrète + options présentées au livreur |
 
 ### Règles
 
@@ -138,14 +138,14 @@ depuis le menu contextuel de la fiche livraison.
 
 ### Comportement
 
-| Étape | Action                                                                              |
-|-------|-------------------------------------------------------------------------------------|
-| 1     | Clic sur « Retour au dépanneur »                                                    |
-| 2     | Modal de confirmation : « Confirmer le retour avec la commande ? »                  |
-| 3     | Confirmation → statut passe à `retour_en_cours`                                     |
-| 4     | Notification envoyée au client : « Nous n'avons pas pu vous livrer… »              |
-| 5     | Notification envoyée au dépanneur : « Retour en cours — commande #[ID] »           |
-| 6     | La fiche livraison passe en mode « retour » dans l'écran en cours                  |
+| Étape | Action                                                                   |
+| ----- | ------------------------------------------------------------------------ |
+| 1     | Clic sur « Retour au dépanneur »                                         |
+| 2     | Modal de confirmation : « Confirmer le retour avec la commande ? »       |
+| 3     | Confirmation → statut passe à `retour_en_cours`                          |
+| 4     | Notification envoyée au client : « Nous n'avons pas pu vous livrer… »    |
+| 5     | Notification envoyée au dépanneur : « Retour en cours — commande #[ID] » |
+| 6     | La fiche livraison passe en mode « retour » dans l'écran en cours        |
 
 ### Conditions
 
@@ -157,10 +157,10 @@ depuis le menu contextuel de la fiche livraison.
 
 ### Feedback visuel
 
-| Moment          | Feedback                                              |
-|-----------------|-------------------------------------------------------|
-| Confirmation    | Toast orange « Retour enregistré »                    |
-| Erreur réseau   | Toast rouge « Erreur — réessaie »                     |
+| Moment        | Feedback                           |
+| ------------- | ---------------------------------- |
+| Confirmation  | Toast orange « Retour enregistré » |
+| Erreur réseau | Toast rouge « Erreur — réessaie »  |
 
 ### Règles
 
@@ -186,13 +186,13 @@ visible uniquement si le mode de paiement de la commande est
 
 ### Comportement
 
-| Étape | Action                                                                              |
-|-------|-------------------------------------------------------------------------------------|
-| 1     | Clic sur « Marquer payé »                                                           |
-| 2     | Confirmation rapide : affichage du montant total à encaisser                        |
-| 3     | Confirmation → statut paiement passe à `paye`                                      |
-| 4     | Enregistrement de l'heure et du montant encaissé                                   |
-| 5     | Invitation à finaliser la remise (DEP-0535) si ce n'est pas encore fait            |
+| Étape | Action                                                                  |
+| ----- | ----------------------------------------------------------------------- |
+| 1     | Clic sur « Marquer payé »                                               |
+| 2     | Confirmation rapide : affichage du montant total à encaisser            |
+| 3     | Confirmation → statut paiement passe à `paye`                           |
+| 4     | Enregistrement de l'heure et du montant encaissé                        |
+| 5     | Invitation à finaliser la remise (DEP-0535) si ce n'est pas encore fait |
 
 ### Conditions
 
@@ -204,10 +204,10 @@ visible uniquement si le mode de paiement de la commande est
 
 ### Feedback visuel
 
-| Moment        | Feedback                                         |
-|---------------|--------------------------------------------------|
-| Confirmation  | Indicateur vert « Paiement confirmé »            |
-| Erreur réseau | Toast rouge « Erreur — réessaie »                |
+| Moment        | Feedback                              |
+| ------------- | ------------------------------------- |
+| Confirmation  | Indicateur vert « Paiement confirmé » |
+| Erreur réseau | Toast rouge « Erreur — réessaie »     |
 
 ### Règles
 
@@ -235,30 +235,30 @@ Bouton « Problème de paiement » dans l'écran « Livraison en cours »
 
 ### Comportement
 
-| Étape | Action                                                                              |
-|-------|-------------------------------------------------------------------------------------|
-| 1     | Clic sur « Problème de paiement »                                                   |
-| 2     | Modal avec sélection du motif (obligatoire)                                         |
+| Étape | Action                                                                                         |
+| ----- | ---------------------------------------------------------------------------------------------- |
+| 1     | Clic sur « Problème de paiement »                                                              |
+| 2     | Modal avec sélection du motif (obligatoire)                                                    |
 | 3     | Confirmation → statut paiement passe à `incident_paiement`; livraison passe à `echec_paiement` |
-| 4     | Commande bascule en statut `probleme` (file « Problèmes » — DEP-0490)               |
-| 5     | Notification envoyée au dépanneur : « Incident paiement — commande #[ID] »         |
-| 6     | Le livreur peut choisir de retourner au dépanneur (DEP-0537)                       |
+| 4     | Commande bascule en statut `probleme` (file « Problèmes » — DEP-0490)                          |
+| 5     | Notification envoyée au dépanneur : « Incident paiement — commande #[ID] »                     |
+| 6     | Le livreur peut choisir de retourner au dépanneur (DEP-0537)                                   |
 
 ### Motifs disponibles
 
-| Motif                       | Identifiant               |
-|-----------------------------|---------------------------|
-| Client sans espèces         | `client_sans_especes`     |
-| Montant insuffisant         | `montant_insuffisant`     |
-| Refus de payer              | `refus_paiement`          |
-| Autre                       | `autre` + texte libre     |
+| Motif               | Identifiant           |
+| ------------------- | --------------------- |
+| Client sans espèces | `client_sans_especes` |
+| Montant insuffisant | `montant_insuffisant` |
+| Refus de payer      | `refus_paiement`      |
+| Autre               | `autre` + texte libre |
 
 ### Feedback visuel
 
-| Moment          | Feedback                                               |
-|-----------------|--------------------------------------------------------|
-| Confirmation    | Toast orange « Incident paiement enregistré »          |
-| Erreur réseau   | Toast rouge « Erreur — réessaie »                      |
+| Moment        | Feedback                                      |
+| ------------- | --------------------------------------------- |
+| Confirmation  | Toast orange « Incident paiement enregistré » |
+| Erreur réseau | Toast rouge « Erreur — réessaie »             |
 
 ### Règles
 
@@ -285,7 +285,7 @@ l'écran « Livraison en cours » (DEP-0553).
 ### Comportement
 
 | Étape | Action                                                                       |
-|-------|------------------------------------------------------------------------------|
+| ----- | ---------------------------------------------------------------------------- |
 | 1     | Clic sur le bouton « Appeler »                                               |
 | 2     | L'application ouvre l'application téléphone native avec le numéro pré-rempli |
 | 3     | Le livreur confirme l'appel depuis l'application téléphone native            |
@@ -321,19 +321,19 @@ l'écran « Livraison en cours » (DEP-0553).
 
 ### Comportement
 
-| Étape | Action                                                                              |
-|-------|-------------------------------------------------------------------------------------|
-| 1     | Clic sur « Naviguer »                                                               |
+| Étape | Action                                                                                                                                                  |
+| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1     | Clic sur « Naviguer »                                                                                                                                   |
 | 2     | Sélecteur d'application GPS si plusieurs applications détectées (Google Maps, Apple Plans, Waze), sinon ouverture directe dans l'application par défaut |
-| 3     | L'adresse complète de livraison est passée en paramètre de l'URL de navigation     |
+| 3     | L'adresse complète de livraison est passée en paramètre de l'URL de navigation                                                                          |
 
 ### Format d'URL
 
-| Plateforme  | URL de navigation                                        |
-|-------------|----------------------------------------------------------|
-| Universel   | `https://maps.google.com/?q=[adresse encodée]`           |
-| iOS natif   | `maps://?q=[adresse encodée]`                            |
-| Android     | `geo:0,0?q=[adresse encodée]`                            |
+| Plateforme | URL de navigation                              |
+| ---------- | ---------------------------------------------- |
+| Universel  | `https://maps.google.com/?q=[adresse encodée]` |
+| iOS natif  | `maps://?q=[adresse encodée]`                  |
+| Android    | `geo:0,0?q=[adresse encodée]`                  |
 
 ### Conditions
 
@@ -364,13 +364,13 @@ cours » (DEP-0553). L'action est **optionnelle** en V1.
 
 ### Comportement
 
-| Étape | Action                                                                       |
-|-------|------------------------------------------------------------------------------|
-| 1     | Clic sur « Preuve »                                                          |
-| 2     | Ouverture de l'appareil photo natif du téléphone                             |
-| 3     | Prise de photo ou sélection depuis la galerie                                |
-| 4     | Miniature de confirmation affichée dans la fiche                             |
-| 5     | Photo liée à la livraison et enregistrée côté serveur (stockage sécurisé)   |
+| Étape | Action                                                                    |
+| ----- | ------------------------------------------------------------------------- |
+| 1     | Clic sur « Preuve »                                                       |
+| 2     | Ouverture de l'appareil photo natif du téléphone                          |
+| 3     | Prise de photo ou sélection depuis la galerie                             |
+| 4     | Miniature de confirmation affichée dans la fiche                          |
+| 5     | Photo liée à la livraison et enregistrée côté serveur (stockage sécurisé) |
 
 ### Conditions
 
@@ -406,13 +406,13 @@ activation future.
 
 ### Principes retenus pour V2
 
-| Aspect                 | Principe                                                              |
-|------------------------|-----------------------------------------------------------------------|
-| Signal GPS             | Position GPS du téléphone du livreur, mise à jour toutes les 10–30 s |
-| Visibilité             | Position visible par le dépanneur, optionnellement par le client      |
-| Consentement           | Le livreur doit consentir explicitement à la géolocalisation          |
-| Désactivation          | Le livreur peut désactiver la géolocalisation entre les livraisons    |
-| Stockage               | Coordonnées horodatées, rétention limitée (24 h après livraison)      |
+| Aspect        | Principe                                                             |
+| ------------- | -------------------------------------------------------------------- |
+| Signal GPS    | Position GPS du téléphone du livreur, mise à jour toutes les 10–30 s |
+| Visibilité    | Position visible par le dépanneur, optionnellement par le client     |
+| Consentement  | Le livreur doit consentir explicitement à la géolocalisation         |
+| Désactivation | Le livreur peut désactiver la géolocalisation entre les livraisons   |
+| Stockage      | Coordonnées horodatées, rétention limitée (24 h après livraison)     |
 
 ### Contraintes techniques
 
@@ -439,12 +439,12 @@ statuts.
 
 ### Statuts
 
-| Statut             | Identifiant          | Description                                          |
-|--------------------|----------------------|------------------------------------------------------|
-| Disponible         | `disponible`         | Connecté, prêt à recevoir une livraison              |
-| En livraison       | `en_livraison`       | Actuellement en train d'effectuer une livraison      |
-| Indisponible       | `indisponible`       | Connecté mais ne souhaite pas recevoir de livraison  |
-| Déconnecté         | `deconnecte`         | Hors ligne ou session expirée                        |
+| Statut       | Identifiant    | Description                                         |
+| ------------ | -------------- | --------------------------------------------------- |
+| Disponible   | `disponible`   | Connecté, prêt à recevoir une livraison             |
+| En livraison | `en_livraison` | Actuellement en train d'effectuer une livraison     |
+| Indisponible | `indisponible` | Connecté mais ne souhaite pas recevoir de livraison |
+| Déconnecté   | `deconnecte`   | Hors ligne ou session expirée                       |
 
 ### Transitions de statut
 
@@ -478,14 +478,14 @@ livreur.
 
 ### Sources de disponibilité
 
-| Source                        | Effet                                               |
-|-------------------------------|-----------------------------------------------------|
-| Connexion active à l'app      | Passe à `disponible` (si pas déjà `indisponible`)   |
-| Déconnexion ou session expirée| Passe à `deconnecte`                                |
-| Pause manuelle du livreur     | Passe à `indisponible`                              |
-| Reprise manuelle              | Passe à `disponible`                                |
-| Assignation automatique       | Passe à `en_livraison`                              |
-| Fin de livraison              | Passe à `disponible`                                |
+| Source                         | Effet                                             |
+| ------------------------------ | ------------------------------------------------- |
+| Connexion active à l'app       | Passe à `disponible` (si pas déjà `indisponible`) |
+| Déconnexion ou session expirée | Passe à `deconnecte`                              |
+| Pause manuelle du livreur      | Passe à `indisponible`                            |
+| Reprise manuelle               | Passe à `disponible`                              |
+| Assignation automatique        | Passe à `en_livraison`                            |
+| Fin de livraison               | Passe à `disponible`                              |
 
 ### Règles
 
@@ -514,22 +514,22 @@ est disponible.
 
 ### Algorithme V1
 
-| Priorité | Critère                                             |
-|----------|-----------------------------------------------------|
-| 1        | Livreur en statut `disponible`                      |
+| Priorité | Critère                                            |
+| -------- | -------------------------------------------------- |
+| 1        | Livreur en statut `disponible`                     |
 | 2        | Livreur avec le moins de livraisons en cours (= 0) |
-| 3        | Premier connecté (FIFO sur la disponibilité)        |
+| 3        | Premier connecté (FIFO sur la disponibilité)       |
 
 ### Comportement
 
-| Étape | Action                                                                              |
-|-------|-------------------------------------------------------------------------------------|
-| 1     | Système identifie les livreurs `disponibles`                                        |
-| 2     | Sélection selon l'algorithme ci-dessus                                              |
-| 3     | Proposition de livraison envoyée au livreur sélectionné (notification push)         |
-| 4     | Le livreur a **2 minutes** pour accepter ou refuser                                 |
-| 5     | Si refus ou délai dépassé → passage au livreur suivant dans la liste                |
-| 6     | Si aucun livreur disponible → la commande reste dans la file (DEP-0487)             |
+| Étape | Action                                                                      |
+| ----- | --------------------------------------------------------------------------- |
+| 1     | Système identifie les livreurs `disponibles`                                |
+| 2     | Sélection selon l'algorithme ci-dessus                                      |
+| 3     | Proposition de livraison envoyée au livreur sélectionné (notification push) |
+| 4     | Le livreur a **2 minutes** pour accepter ou refuser                         |
+| 5     | Si refus ou délai dépassé → passage au livreur suivant dans la liste        |
+| 6     | Si aucun livreur disponible → la commande reste dans la file (DEP-0487)     |
 
 ### Conditions
 
@@ -561,15 +561,15 @@ Le dépanneur clique sur « Assigner un livreur » dans la fiche commande
 
 ### Comportement
 
-| Étape | Action                                                                              |
-|-------|-------------------------------------------------------------------------------------|
-| 1     | Le dépanneur ouvre le sélecteur de livreur dans la fiche commande                  |
-| 2     | Liste des livreurs disponibles affichée (nom, statut, livraisons en cours)         |
-| 3     | Sélection d'un livreur dans la liste                                                |
-| 4     | Confirmation → assignation enregistrée                                              |
-| 5     | Notification envoyée au livreur sélectionné                                         |
-| 6     | Statut de la commande passe à `en_livraison`                                        |
-| 7     | Statut du livreur passe à `en_livraison`                                            |
+| Étape | Action                                                                     |
+| ----- | -------------------------------------------------------------------------- |
+| 1     | Le dépanneur ouvre le sélecteur de livreur dans la fiche commande          |
+| 2     | Liste des livreurs disponibles affichée (nom, statut, livraisons en cours) |
+| 3     | Sélection d'un livreur dans la liste                                       |
+| 4     | Confirmation → assignation enregistrée                                     |
+| 5     | Notification envoyée au livreur sélectionné                                |
+| 6     | Statut de la commande passe à `en_livraison`                               |
+| 7     | Statut du livreur passe à `en_livraison`                                   |
 
 ### Conditions
 
@@ -580,11 +580,11 @@ Le dépanneur clique sur « Assigner un livreur » dans la fiche commande
 
 ### Affichage du sélecteur
 
-| Colonne      | Contenu                                                         |
-|--------------|-----------------------------------------------------------------|
-| Nom          | Prénom + nom du livreur                                         |
-| Statut       | Badge coloré (disponible / indisponible / en livraison)         |
-| En cours     | Nombre de livraisons actives                                    |
+| Colonne  | Contenu                                                 |
+| -------- | ------------------------------------------------------- |
+| Nom      | Prénom + nom du livreur                                 |
+| Statut   | Badge coloré (disponible / indisponible / en livraison) |
+| En cours | Nombre de livraisons actives                            |
 
 ### Règles
 
@@ -609,22 +609,22 @@ paiement » (DEP-0539) ou « Retour au dépanneur » (DEP-0537).
 
 ### Statuts d'échec
 
-| Situation                  | Statut livraison         | Statut commande   |
-|----------------------------|--------------------------|-------------------|
-| Client absent (timeout)    | `echec_client_absent`    | `probleme`        |
-| Problème de paiement       | `echec_paiement`         | `probleme`        |
-| Adresse introuvable        | `echec_adresse`          | `probleme`        |
-| Retour déclenché           | `retour_en_cours`        | `retour_en_cours` |
+| Situation               | Statut livraison      | Statut commande   |
+| ----------------------- | --------------------- | ----------------- |
+| Client absent (timeout) | `echec_client_absent` | `probleme`        |
+| Problème de paiement    | `echec_paiement`      | `probleme`        |
+| Adresse introuvable     | `echec_adresse`       | `probleme`        |
+| Retour déclenché        | `retour_en_cours`     | `retour_en_cours` |
 
 ### Comportement après l'échec
 
-| Étape | Action                                                                              |
-|-------|-------------------------------------------------------------------------------------|
-| 1     | Statut de livraison mis à jour                                                      |
-| 2     | Notification au dépanneur avec le motif d'échec                                    |
-| 3     | Notification au client (message adapté au motif, DEP-0196)                         |
-| 4     | La commande passe dans la file « Problèmes » (DEP-0490) côté dépanneur             |
-| 5     | Livreur revient à `disponible` après dépôt de la commande si retour               |
+| Étape | Action                                                                 |
+| ----- | ---------------------------------------------------------------------- |
+| 1     | Statut de livraison mis à jour                                         |
+| 2     | Notification au dépanneur avec le motif d'échec                        |
+| 3     | Notification au client (message adapté au motif, DEP-0196)             |
+| 4     | La commande passe dans la file « Problèmes » (DEP-0490) côté dépanneur |
+| 5     | Livreur revient à `disponible` après dépôt de la commande si retour    |
 
 ### Règles
 
@@ -650,15 +650,15 @@ Action « Retour au dépanneur » (DEP-0537) confirmée.
 
 ### Flux de retour
 
-| Étape | Action                                                                              |
-|-------|-------------------------------------------------------------------------------------|
-| 1     | Statut livraison passe à `retour_en_cours`                                          |
-| 2     | Le livreur transporte la commande vers le dépanneur                                 |
-| 3     | À l'arrivée, le livreur clique sur « Retour déposé »                               |
-| 4     | Statut livraison passe à `retour_depose`                                            |
-| 5     | Statut commande passe à `retournee`                                                 |
-| 6     | Notification au dépanneur : « Retour déposé — commande #[ID] »                     |
-| 7     | Statut livreur repasse à `disponible`                                               |
+| Étape | Action                                                         |
+| ----- | -------------------------------------------------------------- |
+| 1     | Statut livraison passe à `retour_en_cours`                     |
+| 2     | Le livreur transporte la commande vers le dépanneur            |
+| 3     | À l'arrivée, le livreur clique sur « Retour déposé »           |
+| 4     | Statut livraison passe à `retour_depose`                       |
+| 5     | Statut commande passe à `retournee`                            |
+| 6     | Notification au dépanneur : « Retour déposé — commande #[ID] » |
+| 7     | Statut livreur repasse à `disponible`                          |
 
 ### Conditions
 
@@ -689,16 +689,16 @@ Action « Remise effectuée » (DEP-0535) confirmée.
 
 ### Flux de clôture
 
-| Étape | Action                                                                              |
-|-------|-------------------------------------------------------------------------------------|
-| 1     | Statut livraison passe à `livree`                                                   |
-| 2     | Statut commande passe à `livree` (DEP-0194)                                         |
-| 3     | Heure de remise enregistrée (`delivered_at`)                                        |
-| 4     | Notification client : « Votre commande a bien été livrée »                         |
-| 5     | Si paiement à la livraison → vérification du marquage paiement (DEP-0538)          |
-| 6     | Livreur repassé à `disponible` (DEP-0544)                                           |
-| 7     | La livraison bascule dans l'historique du livreur (DEP-0554)                       |
-| 8     | Statistiques de livraison mises à jour (durée totale, distance si V2)              |
+| Étape | Action                                                                    |
+| ----- | ------------------------------------------------------------------------- |
+| 1     | Statut livraison passe à `livree`                                         |
+| 2     | Statut commande passe à `livree` (DEP-0194)                               |
+| 3     | Heure de remise enregistrée (`delivered_at`)                              |
+| 4     | Notification client : « Votre commande a bien été livrée »                |
+| 5     | Si paiement à la livraison → vérification du marquage paiement (DEP-0538) |
+| 6     | Livreur repassé à `disponible` (DEP-0544)                                 |
+| 7     | La livraison bascule dans l'historique du livreur (DEP-0554)              |
+| 8     | Statistiques de livraison mises à jour (durée totale, distance si V2)     |
 
 ### Règles
 
@@ -726,12 +726,12 @@ application native (iOS / Android) pourra être envisagée en V2.
 
 ### Points d'entrée
 
-| Chemin              | Description                                              |
-|---------------------|----------------------------------------------------------|
-| `/livreur`          | Tableau de bord principal du livreur (redirige selon statut) |
-| `/livreur/livraisons` | Écran « Livraisons à faire » (DEP-0552)              |
-| `/livreur/en-cours` | Écran « Livraison en cours » (DEP-0553)                  |
-| `/livreur/historique` | Écran « Historique du livreur » (DEP-0554)           |
+| Chemin                | Description                                                  |
+| --------------------- | ------------------------------------------------------------ |
+| `/livreur`            | Tableau de bord principal du livreur (redirige selon statut) |
+| `/livreur/livraisons` | Écran « Livraisons à faire » (DEP-0552)                      |
+| `/livreur/en-cours`   | Écran « Livraison en cours » (DEP-0553)                      |
+| `/livreur/historique` | Écran « Historique du livreur » (DEP-0554)                   |
 
 ### Accès et authentification
 
@@ -741,13 +741,13 @@ application native (iOS / Android) pourra être envisagée en V2.
 
 ### Caractéristiques générales de l'interface
 
-| Aspect             | Valeur                                                         |
-|--------------------|----------------------------------------------------------------|
-| Orientation        | Portrait (principale), paysage supporté                        |
+| Aspect             | Valeur                                                             |
+| ------------------ | ------------------------------------------------------------------ |
+| Orientation        | Portrait (principale), paysage supporté                            |
 | Navigation         | Barre de navigation basse (tabs) : À faire / En cours / Historique |
-| Thème              | Identique au design system V1 (DEP-0201–DEP-0210)             |
-| Taille des cibles  | Boutons d'action ≥ 48 × 48 px (accessibilité mobile)          |
-| Notifications push | Activées via la PWA pour les nouvelles assignations            |
+| Thème              | Identique au design system V1 (DEP-0201–DEP-0210)                  |
+| Taille des cibles  | Boutons d'action ≥ 48 × 48 px (accessibilité mobile)               |
+| Notifications push | Activées via la PWA pour les nouvelles assignations                |
 
 ### Règles
 
@@ -768,23 +768,23 @@ disponibles ou assignées que le livreur doit effectuer.
 
 ### Structure de l'écran
 
-| Zone          | Contenu                                                              |
-|---------------|----------------------------------------------------------------------|
-| Header        | Logo, nom du livreur, indicateur de statut (disponible / indisponible) |
-| Bascule statut| Toggle « Disponible / Indisponible » (DEP-0545)                     |
-| Liste         | Cartes de livraison à effectuer, triées par heure de préparation     |
-| Vide          | Message « Aucune livraison en attente » si la liste est vide         |
+| Zone           | Contenu                                                                |
+| -------------- | ---------------------------------------------------------------------- |
+| Header         | Logo, nom du livreur, indicateur de statut (disponible / indisponible) |
+| Bascule statut | Toggle « Disponible / Indisponible » (DEP-0545)                        |
+| Liste          | Cartes de livraison à effectuer, triées par heure de préparation       |
+| Vide           | Message « Aucune livraison en attente » si la liste est vide           |
 
 ### Carte de livraison
 
-| Élément          | Contenu                                                       |
-|------------------|---------------------------------------------------------------|
-| ID commande      | `#CMD-AAAAMMJJ-NNN`                                           |
-| Adresse          | Rue + ville (adresse complète au clic)                        |
-| Nombre d'articles| N article(s)                                                  |
-| Mode de paiement | Icône paiement + libellé (à la livraison / prépayé)           |
-| Temps écoulé     | Durée depuis préparation (mis à jour en temps réel)           |
-| Actions rapides  | Bouton « Accepter » / « Refuser » si assignation automatique  |
+| Élément           | Contenu                                                      |
+| ----------------- | ------------------------------------------------------------ |
+| ID commande       | `#CMD-AAAAMMJJ-NNN`                                          |
+| Adresse           | Rue + ville (adresse complète au clic)                       |
+| Nombre d'articles | N article(s)                                                 |
+| Mode de paiement  | Icône paiement + libellé (à la livraison / prépayé)          |
+| Temps écoulé      | Durée depuis préparation (mis à jour en temps réel)          |
+| Actions rapides   | Bouton « Accepter » / « Refuser » si assignation automatique |
 
 ### Comportement
 
@@ -812,23 +812,23 @@ pendant qu'il effectue une livraison active.
 
 ### Structure de l'écran
 
-| Zone           | Contenu                                                               |
-|----------------|-----------------------------------------------------------------------|
-| Header         | ID commande + statut courant (badge coloré)                           |
-| Fiche client   | Nom, adresse de livraison, notes de livraison, téléphone (clic = appel) |
-| Résumé commande| Liste abrégée des articles (N articles — total TTC)                   |
-| Mode paiement  | Libellé + montant à encaisser si paiement à la livraison              |
-| Zone d'actions | Boutons d'action contextuels (voir tableau ci-dessous)                |
-| Navigation     | Bouton « Naviguer » (DEP-0541) toujours visible                       |
+| Zone            | Contenu                                                                 |
+| --------------- | ----------------------------------------------------------------------- |
+| Header          | ID commande + statut courant (badge coloré)                             |
+| Fiche client    | Nom, adresse de livraison, notes de livraison, téléphone (clic = appel) |
+| Résumé commande | Liste abrégée des articles (N articles — total TTC)                     |
+| Mode paiement   | Libellé + montant à encaisser si paiement à la livraison                |
+| Zone d'actions  | Boutons d'action contextuels (voir tableau ci-dessous)                  |
+| Navigation      | Bouton « Naviguer » (DEP-0541) toujours visible                         |
 
 ### Actions contextuelles par statut
 
-| Statut courant         | Actions disponibles                                                 |
-|------------------------|---------------------------------------------------------------------|
-| `en_livraison`         | Appeler (DEP-0540), Naviguer (DEP-0541), Client absent (DEP-0536)  |
-| `en_livraison`         | Remise effectuée (DEP-0535), Marquer payé (DEP-0538) si applicable |
-| `client_absent`        | Retenter, Retour au dépanneur (DEP-0537)                           |
-| `retour_en_cours`      | Retour déposé (DEP-0549)                                           |
+| Statut courant    | Actions disponibles                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| `en_livraison`    | Appeler (DEP-0540), Naviguer (DEP-0541), Client absent (DEP-0536)  |
+| `en_livraison`    | Remise effectuée (DEP-0535), Marquer payé (DEP-0538) si applicable |
+| `client_absent`   | Retenter, Retour au dépanneur (DEP-0537)                           |
+| `retour_en_cours` | Retour déposé (DEP-0549)                                           |
 
 ### Bouton de preuve
 
@@ -855,22 +855,22 @@ de consulter l'historique de ses livraisons passées.
 
 ### Structure de l'écran
 
-| Zone       | Contenu                                                                    |
-|------------|----------------------------------------------------------------------------|
-| Header     | Titre « Historique » + filtre par période (aujourd'hui / 7 j / 30 j)      |
-| Résumé     | Nombre de livraisons effectuées + total remis pour la période sélectionnée |
-| Liste      | Cartes de livraisons passées, triées par date décroissante                 |
-| Vide       | Message « Aucune livraison pour cette période » si la liste est vide       |
+| Zone   | Contenu                                                                    |
+| ------ | -------------------------------------------------------------------------- |
+| Header | Titre « Historique » + filtre par période (aujourd'hui / 7 j / 30 j)       |
+| Résumé | Nombre de livraisons effectuées + total remis pour la période sélectionnée |
+| Liste  | Cartes de livraisons passées, triées par date décroissante                 |
+| Vide   | Message « Aucune livraison pour cette période » si la liste est vide       |
 
 ### Carte de livraison passée
 
-| Élément            | Contenu                                                     |
-|--------------------|-------------------------------------------------------------|
-| ID commande        | `#CMD-AAAAMMJJ-NNN`                                         |
-| Date et heure      | Date + heure de remise                                      |
-| Adresse            | Rue + ville                                                 |
-| Statut final       | Badge : « Livrée », « Retournée », « Incident »             |
-| Paiement           | Montant encaissé (si paiement à la livraison)               |
+| Élément       | Contenu                                         |
+| ------------- | ----------------------------------------------- |
+| ID commande   | `#CMD-AAAAMMJJ-NNN`                             |
+| Date et heure | Date + heure de remise                          |
+| Adresse       | Rue + ville                                     |
+| Statut final  | Badge : « Livrée », « Retournée », « Incident » |
+| Paiement      | Montant encaissé (si paiement à la livraison)   |
 
 ### Comportement
 
@@ -892,25 +892,25 @@ de consulter l'historique de ses livraisons passées.
 
 ## Synthèse du bloc DEP-0535–DEP-0554
 
-| DEP      | Sujet                              | Décision clé                                                              |
-|----------|------------------------------------|---------------------------------------------------------------------------|
-| DEP-0535 | Action remise effectuée            | Irréversible, clôture livraison, notifie client, vérifie paiement         |
-| DEP-0536 | Action client absent               | Modal + chrono 2 min, 2 tentatives max puis bascule en échec si absent    |
-| DEP-0537 | Action retour au dépanneur         | Modal obligatoire, motif optionnel V1, notifie dépanneur et client        |
+| DEP      | Sujet                              | Décision clé                                                               |
+| -------- | ---------------------------------- | -------------------------------------------------------------------------- |
+| DEP-0535 | Action remise effectuée            | Irréversible, clôture livraison, notifie client, vérifie paiement          |
+| DEP-0536 | Action client absent               | Modal + chrono 2 min, 2 tentatives max puis bascule en échec si absent     |
+| DEP-0537 | Action retour au dépanneur         | Modal obligatoire, motif optionnel V1, notifie dépanneur et client         |
 | DEP-0538 | Action marquer payé à la livraison | Confirmation du montant exact, statut paiement `paye`, événement `paid_at` |
-| DEP-0539 | Action marquer problème paiement   | Motif obligatoire, passe en `incident_paiement` + commande `probleme`     |
-| DEP-0540 | Action appeler le client           | Ouverture app téléphone native, numéro masqué à l'affichage               |
-| DEP-0541 | Action navigation externe          | Deep link vers GPS natif (Google Maps / Apple Plans / Waze)               |
-| DEP-0542 | Action preuve simple               | Photo optionnelle, compression 80 %, rétention 30 j, liée à la livraison  |
-| DEP-0543 | Suivi temps réel livreur           | Hors périmètre V1 — prérequis documentés pour activation V2              |
-| DEP-0544 | Statut du livreur                  | 4 statuts (disponible / en_livraison / indisponible / deconnecte)         |
-| DEP-0545 | Disponibilité du livreur           | Calculée dynamiquement selon session et état des livraisons               |
-| DEP-0546 | Assignation automatique simple     | FIFO sur disponibilité, délai 2 min pour accepter, rotation si refus      |
-| DEP-0547 | Assignation manuelle simple        | Sélecteur dépanneur, avertissement si livreur indisponible                |
-| DEP-0548 | Logique d'échec de livraison       | Statuts distincts selon motif, file Problèmes côté dépanneur              |
-| DEP-0549 | Logique de retour de commande      | Flux retour_en_cours → retour_depose, bouton « Retour déposé »            |
-| DEP-0550 | Logique de remise réussie          | Clôture complète : statuts, notifications, disponibilité livreur          |
-| DEP-0551 | App/vue mobile livreur             | PWA V1, 4 routes, tabs basse navigation, session 4 h                     |
-| DEP-0552 | Écran « Livraisons à faire »       | Liste temps réel, toggle disponibilité, cartes accept/refus rapide        |
-| DEP-0553 | Écran « Livraison en cours »       | Actions contextuelles par statut, navigation toujours visible             |
-| DEP-0554 | Écran « Historique du livreur »    | Lecture seule, filtres période, rétention 30 j, badge statut final        |
+| DEP-0539 | Action marquer problème paiement   | Motif obligatoire, passe en `incident_paiement` + commande `probleme`      |
+| DEP-0540 | Action appeler le client           | Ouverture app téléphone native, numéro masqué à l'affichage                |
+| DEP-0541 | Action navigation externe          | Deep link vers GPS natif (Google Maps / Apple Plans / Waze)                |
+| DEP-0542 | Action preuve simple               | Photo optionnelle, compression 80 %, rétention 30 j, liée à la livraison   |
+| DEP-0543 | Suivi temps réel livreur           | Hors périmètre V1 — prérequis documentés pour activation V2                |
+| DEP-0544 | Statut du livreur                  | 4 statuts (disponible / en_livraison / indisponible / deconnecte)          |
+| DEP-0545 | Disponibilité du livreur           | Calculée dynamiquement selon session et état des livraisons                |
+| DEP-0546 | Assignation automatique simple     | FIFO sur disponibilité, délai 2 min pour accepter, rotation si refus       |
+| DEP-0547 | Assignation manuelle simple        | Sélecteur dépanneur, avertissement si livreur indisponible                 |
+| DEP-0548 | Logique d'échec de livraison       | Statuts distincts selon motif, file Problèmes côté dépanneur               |
+| DEP-0549 | Logique de retour de commande      | Flux retour_en_cours → retour_depose, bouton « Retour déposé »             |
+| DEP-0550 | Logique de remise réussie          | Clôture complète : statuts, notifications, disponibilité livreur           |
+| DEP-0551 | App/vue mobile livreur             | PWA V1, 4 routes, tabs basse navigation, session 4 h                       |
+| DEP-0552 | Écran « Livraisons à faire »       | Liste temps réel, toggle disponibilité, cartes accept/refus rapide         |
+| DEP-0553 | Écran « Livraison en cours »       | Actions contextuelles par statut, navigation toujours visible              |
+| DEP-0554 | Écran « Historique du livreur »    | Lecture seule, filtres période, rétention 30 j, badge statut final         |

@@ -49,12 +49,12 @@ vocale.
 
 ### UI
 
-| État               | Apparence                                                       | Action              |
-|--------------------|-----------------------------------------------------------------|---------------------|
-| Inactif            | Icône `mic` grise, contour discret, tooltip « Activer le micro »| Active l'écoute     |
-| Écoute active      | Icône `mic` blanche sur fond bleu principal (#2563EB), halo     | Stoppe l'écoute     |
-| Traitement         | Icône `mic` bleu + spinner fin autour                          | Attente (disabled)  |
-| Erreur             | Icône `mic-off` rouge (#EF4444) + badge « Erreur micro »       | Réessaie / ouvre aide|
+| État          | Apparence                                                        | Action                |
+| ------------- | ---------------------------------------------------------------- | --------------------- |
+| Inactif       | Icône `mic` grise, contour discret, tooltip « Activer le micro » | Active l'écoute       |
+| Écoute active | Icône `mic` blanche sur fond bleu principal (#2563EB), halo      | Stoppe l'écoute       |
+| Traitement    | Icône `mic` bleu + spinner fin autour                            | Attente (disabled)    |
+| Erreur        | Icône `mic-off` rouge (#EF4444) + badge « Erreur micro »         | Réessaie / ouvre aide |
 
 ### Placement et accès
 
@@ -109,7 +109,7 @@ Signaler la phase de conversion audio → texte ou traitement commande.
 - Texte : « Traitement… ».
 - Bouton micro en lecture seule (clics ignorés) jusqu'à fin de traitement.
 - Timeout visuel : si >10s, afficher message « Traitement long, réessaye »
-  + bouton « Annuler ».
+  - bouton « Annuler ».
 
 ---
 
@@ -355,4 +355,3 @@ Geler le périmètre V1 du mode voix web pour stabiliser la suite.
 - Aucune nouvelle fonctionnalité vocale n'est ajoutée sans nouveau DEP.
 - Toute évolution devra préserver la compatibilité avec le panier partagé et
   les règles d'accessibilité établies ici.
-

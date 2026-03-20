@@ -1,41 +1,31 @@
 ---
-name: "💡 Idée produit"
-about: Proposer une nouvelle fonctionnalité ou amélioration pour DépannVite
-title: "[IDEA] "
+name: Idée produit
+about: Proposer une nouvelle fonctionnalité ou concept
+title: '[IDEA] : '
 labels: idea
-assignees: ""
+assignees: ''
 ---
 
-## Idée
+### Problème
 
-Décris l'idée de façon concise.
+Quel besoin cette idée adresse-t-elle ?
 
-## Problème résolu
+### Idée
 
-Quel problème utilisateur cette idée adresse-t-elle ?
+Description de la solution proposée.
 
-## Profil concerné
+### Valeur business
 
-- [ ] Client
-- [ ] Dépanneur
-- [ ] Livreur
-- [ ] Administrateur
+Pourquoi est-ce important de le faire ?
 
-## Solution proposée
+### Impact technique
 
-Décris comment tu imagines que cette idée pourrait être implémentée.
+Changements prévus ou complexité.
 
-## Alternatives envisagées
+### Priorité estimée
 
-D'autres façons d'aborder le problème que tu as considérées.
+Faible / Moyenne / Haute
 
-## Périmètre V1
+### Hors V1 ou pas ?
 
-Cette idée est-elle dans le périmètre de la V1 ?
-
-- [ ] Oui
-- [ ] Non — à placer dans le backlog futur
-
-## Contexte supplémentaire
-
-Tout autre détail, maquette ou référence utile.
+Oui / Non

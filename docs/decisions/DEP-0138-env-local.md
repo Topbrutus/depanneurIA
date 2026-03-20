@@ -39,12 +39,12 @@ pnpm dev
 
 ## Fichiers concernés
 
-| Fichier                 | Versionné | Rôle                                        |
-|-------------------------|-----------|---------------------------------------------|
-| `.env.example`          | Oui       | Template documenté pour les développeurs    |
-| `.env.local`            | Non       | Valeurs locales réelles (développeur)        |
-| `apps/web/.env.example` | Oui       | Template pour les variables du front-end    |
-| `apps/api/.env.example` | Oui       | Template pour les variables de l'API        |
+| Fichier                 | Versionné | Rôle                                     |
+| ----------------------- | --------- | ---------------------------------------- |
+| `.env.example`          | Oui       | Template documenté pour les développeurs |
+| `.env.local`            | Non       | Valeurs locales réelles (développeur)    |
+| `apps/web/.env.example` | Oui       | Template pour les variables du front-end |
+| `apps/api/.env.example` | Oui       | Template pour les variables de l'API     |
 
 ## Références croisées
 

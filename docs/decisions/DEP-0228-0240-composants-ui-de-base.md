@@ -39,11 +39,11 @@ comportement et accessibilité.
 
 ### Tailles
 
-| Taille | Hauteur | Font  | Padding        |
-|--------|---------|-------|----------------|
-| Large  | 52px    | 16px  | 14px 28px      |
-| Medium | 44px    | 15px  | 10px 20px      |
-| Small  | 36px    | 14px  | 8px 16px       |
+| Taille | Hauteur | Font | Padding   |
+| ------ | ------- | ---- | --------- |
+| Large  | 52px    | 16px | 14px 28px |
+| Medium | 44px    | 15px | 10px 20px |
+| Small  | 36px    | 14px | 8px 16px  |
 
 ### États
 

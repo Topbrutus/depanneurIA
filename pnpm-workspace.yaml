@@ -1,5 +1,3 @@
-name: depaneuria
-
 packages:
   - 'apps/*'
   - 'packages/*'

@@ -28,29 +28,29 @@ un nouveau tenant (dépanneur client) dans le système depaneurIA.
 
 ### Séquence de création
 
-| Étape | Action système                                              | Résultat                                      |
-|-------|-------------------------------------------------------------|-----------------------------------------------|
-| 1     | Super admin soumet le formulaire de création (DEP-0673)     | Données de base validées                      |
-| 2     | Génération d'un `tenant_id` unique (UUID v4)                | Identifiant permanent et immuable             |
-| 3     | Création de l'enregistrement dans la table `tenants` (DEP-0671) | Tenant en état `provisioning`             |
-| 4     | Isolation des données : création du namespace ou schéma dédié | Séparation physique ou logique garantie    |
-| 5     | Création du compte super utilisateur du tenant              | Accès propriétaire prêt                       |
-| 6     | Application de la configuration par défaut ou clonée        | Catalogue, thème, livraison, téléphonie       |
-| 7     | Attribution du sous-domaine ou domaine (DEP-0661, DEP-0662) | URL du tenant active                          |
-| 8     | Application des quotas initiaux (DEP-0664)                  | Limites définies dès la création              |
-| 9     | Passage en état `actif`                                     | Tenant opérationnel                           |
-| 10    | Journalisation de la création avec horodatage et auteur     | Traçabilité complète                          |
+| Étape | Action système                                                  | Résultat                                |
+| ----- | --------------------------------------------------------------- | --------------------------------------- |
+| 1     | Super admin soumet le formulaire de création (DEP-0673)         | Données de base validées                |
+| 2     | Génération d'un `tenant_id` unique (UUID v4)                    | Identifiant permanent et immuable       |
+| 3     | Création de l'enregistrement dans la table `tenants` (DEP-0671) | Tenant en état `provisioning`           |
+| 4     | Isolation des données : création du namespace ou schéma dédié   | Séparation physique ou logique garantie |
+| 5     | Création du compte super utilisateur du tenant                  | Accès propriétaire prêt                 |
+| 6     | Application de la configuration par défaut ou clonée            | Catalogue, thème, livraison, téléphonie |
+| 7     | Attribution du sous-domaine ou domaine (DEP-0661, DEP-0662)     | URL du tenant active                    |
+| 8     | Application des quotas initiaux (DEP-0664)                      | Limites définies dès la création        |
+| 9     | Passage en état `actif`                                         | Tenant opérationnel                     |
+| 10    | Journalisation de la création avec horodatage et auteur         | Traçabilité complète                    |
 
 ### Données minimales requises à la création
 
-| Champ                    | Type      | Obligatoire | Description                              |
-|--------------------------|-----------|-------------|------------------------------------------|
-| `name`                   | `string`  | Oui         | Nom commercial du dépanneur              |
-| `owner_email`            | `string`  | Oui         | Email du propriétaire (super user tenant)|
-| `owner_phone`            | `string`  | Oui         | Téléphone du propriétaire                |
-| `subdomain` ou `domain`  | `string`  | Oui         | Adresse d'accès au tenant                |
-| `plan`                   | `string`  | Oui         | Plan tarifaire (`starter`, `pro`, etc.)  |
-| `clone_from`             | `uuid`    | Non         | Si clonage depuis un tenant demo         |
+| Champ                   | Type     | Obligatoire | Description                               |
+| ----------------------- | -------- | ----------- | ----------------------------------------- |
+| `name`                  | `string` | Oui         | Nom commercial du dépanneur               |
+| `owner_email`           | `string` | Oui         | Email du propriétaire (super user tenant) |
+| `owner_phone`           | `string` | Oui         | Téléphone du propriétaire                 |
+| `subdomain` ou `domain` | `string` | Oui         | Adresse d'accès au tenant                 |
+| `plan`                  | `string` | Oui         | Plan tarifaire (`starter`, `pro`, etc.)   |
+| `clone_from`            | `uuid`   | Non         | Si clonage depuis un tenant demo          |
 
 ### Règles
 
@@ -88,17 +88,17 @@ système et données de test.
 
 ### Éléments copiés vs non copiés
 
-| Élément                    | Copié ? | Référence    |
-|----------------------------|---------|--------------|
-| Catalogue de démonstration | ✅ Oui  | DEP-0657     |
-| Thème visuel               | ✅ Oui  | DEP-0658     |
-| Configuration livraison    | ✅ Oui  | DEP-0659     |
-| Configuration téléphonique | ✅ Oui  | DEP-0660     |
-| Phrases système            | ✅ Oui  | DEP-0361–0376|
-| Commandes passées          | ❌ Non  | Données privées |
-| Clients inscrits           | ❌ Non  | Données privées |
+| Élément                    | Copié ? | Référence           |
+| -------------------------- | ------- | ------------------- |
+| Catalogue de démonstration | ✅ Oui  | DEP-0657            |
+| Thème visuel               | ✅ Oui  | DEP-0658            |
+| Configuration livraison    | ✅ Oui  | DEP-0659            |
+| Configuration téléphonique | ✅ Oui  | DEP-0660            |
+| Phrases système            | ✅ Oui  | DEP-0361–0376       |
+| Commandes passées          | ❌ Non  | Données privées     |
+| Clients inscrits           | ❌ Non  | Données privées     |
 | Transactions               | ❌ Non  | Données financières |
-| Journaux                   | ❌ Non  | DEP-0670     |
+| Journaux                   | ❌ Non  | DEP-0670            |
 
 ### Règles
 
@@ -118,14 +118,14 @@ un nouveau tenant pour lui fournir un point de départ réaliste.
 
 ### Éléments du catalogue copiés
 
-| Élément           | Copié ?  | Remarque                                      |
-|-------------------|----------|-----------------------------------------------|
-| Catégories        | ✅ Oui   | Structure et noms                             |
-| Produits          | ✅ Oui   | Nom, description, catégorie, unité, format    |
-| Prix              | ✅ Oui   | Prix de démonstration — à ajuster par le client|
-| Images produits   | ✅ Oui   | Images génériques de démonstration            |
-| Stocks            | ❌ Non   | Chaque tenant gère ses propres stocks         |
-| Codes promotions  | ❌ Non   | Non clonables                                 |
+| Élément          | Copié ? | Remarque                                        |
+| ---------------- | ------- | ----------------------------------------------- |
+| Catégories       | ✅ Oui  | Structure et noms                               |
+| Produits         | ✅ Oui  | Nom, description, catégorie, unité, format      |
+| Prix             | ✅ Oui  | Prix de démonstration — à ajuster par le client |
+| Images produits  | ✅ Oui  | Images génériques de démonstration              |
+| Stocks           | ❌ Non  | Chaque tenant gère ses propres stocks           |
+| Codes promotions | ❌ Non  | Non clonables                                   |
 
 ### Séquence
 
@@ -153,14 +153,14 @@ défaut, espacement) d'un tenant demo est copiée vers un nouveau tenant.
 
 ### Éléments du thème copiés
 
-| Élément               | Copié ? | Remarque                                         |
-|-----------------------|---------|--------------------------------------------------|
-| Palette de couleurs   | ✅ Oui  | Variables CSS ou tokens — à personnaliser        |
-| Typographie           | ✅ Oui  | Familles de polices et tailles de base           |
-| Logo placeholder      | ✅ Oui  | Logo générique de démonstration                  |
-| Espacement / layout   | ✅ Oui  | Grille et marges de base                         |
-| Favicon               | ✅ Oui  | Favicon générique                                |
-| Images de fond        | ❌ Non  | Chaque tenant fournit ses propres images         |
+| Élément             | Copié ? | Remarque                                  |
+| ------------------- | ------- | ----------------------------------------- |
+| Palette de couleurs | ✅ Oui  | Variables CSS ou tokens — à personnaliser |
+| Typographie         | ✅ Oui  | Familles de polices et tailles de base    |
+| Logo placeholder    | ✅ Oui  | Logo générique de démonstration           |
+| Espacement / layout | ✅ Oui  | Grille et marges de base                  |
+| Favicon             | ✅ Oui  | Favicon générique                         |
+| Images de fond      | ❌ Non  | Chaque tenant fournit ses propres images  |
 
 ### Règles
 
@@ -181,14 +181,14 @@ délais) d'un tenant demo est copiée vers un nouveau tenant.
 
 ### Éléments de configuration copiés
 
-| Élément                    | Copié ? | Remarque                                        |
-|----------------------------|---------|-------------------------------------------------|
-| Zones de livraison         | ✅ Oui  | Périmètres géographiques de démonstration       |
-| Tarifs de livraison        | ✅ Oui  | Tarifs à ajuster selon la réalité du client     |
-| Horaires de livraison      | ✅ Oui  | Plages horaires de démonstration                |
-| Délais estimés             | ✅ Oui  | Délais de démonstration                         |
-| Paramètres livreur         | ✅ Oui  | Nombre max de livraisons simultanées, etc.      |
-| Livreurs assignés          | ❌ Non  | Chaque tenant gère ses propres livreurs         |
+| Élément               | Copié ? | Remarque                                    |
+| --------------------- | ------- | ------------------------------------------- |
+| Zones de livraison    | ✅ Oui  | Périmètres géographiques de démonstration   |
+| Tarifs de livraison   | ✅ Oui  | Tarifs à ajuster selon la réalité du client |
+| Horaires de livraison | ✅ Oui  | Plages horaires de démonstration            |
+| Délais estimés        | ✅ Oui  | Délais de démonstration                     |
+| Paramètres livreur    | ✅ Oui  | Nombre max de livraisons simultanées, etc.  |
+| Livreurs assignés     | ❌ Non  | Chaque tenant gère ses propres livreurs     |
 
 ### Règles
 
@@ -208,15 +208,15 @@ copiée vers un nouveau tenant.
 
 ### Éléments copiés
 
-| Élément                          | Copié ? | Remarque                                       |
-|----------------------------------|---------|------------------------------------------------|
-| Paramètres TTS (voix, langue)    | ✅ Oui  | Voix fr-FR par défaut                          |
-| Phrases vocales canoniques       | ✅ Oui  | Basées sur DEP-0451–0459                       |
-| Délais de timeout appel          | ✅ Oui  | Valeurs de démonstration à ajuster             |
-| Logique de répétition            | ✅ Oui  | Paramètres DEP-0460–0463                       |
-| Numéro de téléphone virtuel      | ❌ Non  | Chaque tenant reçoit son propre numéro         |
-| Credentials fournisseur          | ❌ Non  | Jamais partagés entre tenants                  |
-| Historique d'appels              | ❌ Non  | Données privées                                |
+| Élément                       | Copié ? | Remarque                               |
+| ----------------------------- | ------- | -------------------------------------- |
+| Paramètres TTS (voix, langue) | ✅ Oui  | Voix fr-FR par défaut                  |
+| Phrases vocales canoniques    | ✅ Oui  | Basées sur DEP-0451–0459               |
+| Délais de timeout appel       | ✅ Oui  | Valeurs de démonstration à ajuster     |
+| Logique de répétition         | ✅ Oui  | Paramètres DEP-0460–0463               |
+| Numéro de téléphone virtuel   | ❌ Non  | Chaque tenant reçoit son propre numéro |
+| Credentials fournisseur       | ❌ Non  | Jamais partagés entre tenants          |
+| Historique d'appels           | ❌ Non  | Données privées                        |
 
 ### Règles
 
@@ -248,13 +248,13 @@ Définir comment un tenant peut utiliser son propre nom de domaine
 
 ### États du domaine personnalisé
 
-| État            | Description                                           |
-|-----------------|-------------------------------------------------------|
-| `pending_dns`   | En attente de configuration DNS par le tenant        |
-| `verifying`     | Vérification de la propagation DNS en cours          |
-| `active`        | Domaine actif et certificat TLS valide               |
-| `error`         | Échec de vérification — action requise               |
-| `revoked`       | Domaine retiré (désactivation ou changement)         |
+| État          | Description                                   |
+| ------------- | --------------------------------------------- |
+| `pending_dns` | En attente de configuration DNS par le tenant |
+| `verifying`   | Vérification de la propagation DNS en cours   |
+| `active`      | Domaine actif et certificat TLS valide        |
+| `error`       | Échec de vérification — action requise        |
+| `revoked`     | Domaine retiré (désactivation ou changement)  |
 
 ### Règles
 
@@ -321,13 +321,13 @@ le service sous sa propre identité.
 
 ### Éléments concernés par la marque blanche (futur)
 
-| Élément                        | Action marque blanche                         |
-|--------------------------------|-----------------------------------------------|
-| Logo depaneurIA dans l'en-tête | Remplacé par le logo du tenant                |
-| Mentions « Propulsé par depaneurIA » | Masquées ou remplacées                 |
-| URL (sous-domaine depaneuría)  | Remplacée par le domaine personnalisé (DEP-0661)|
-| Emails système                 | Envoyés depuis le domaine du tenant           |
-| Numéro de téléphone virtuel    | Numéro propre au tenant (déjà prévu)          |
+| Élément                              | Action marque blanche                            |
+| ------------------------------------ | ------------------------------------------------ |
+| Logo depaneurIA dans l'en-tête       | Remplacé par le logo du tenant                   |
+| Mentions « Propulsé par depaneurIA » | Masquées ou remplacées                           |
+| URL (sous-domaine depaneuría)        | Remplacée par le domaine personnalisé (DEP-0661) |
+| Emails système                       | Envoyés depuis le domaine du tenant              |
+| Numéro de téléphone virtuel          | Numéro propre au tenant (déjà prévu)             |
 
 ### Règles (pour implémentation future)
 
@@ -347,24 +347,24 @@ service pour tous.
 
 ### Quotas V1
 
-| Quota                          | Plan Starter | Plan Pro | Illimité |
-|--------------------------------|:------------:|:--------:|:--------:|
-| Produits dans le catalogue     | 100          | 500      | —        |
-| Commandes par mois             | 200          | 2 000    | —        |
-| Livreurs actifs simultanément  | 2            | 10       | —        |
-| Numéros de téléphone virtuels  | 1            | 3        | —        |
-| Appels téléphoniques par mois  | 100          | 1 000    | —        |
-| Stockage fichiers (images)     | 500 Mo       | 5 Go     | —        |
-| Utilisateurs admin             | 1            | 5        | —        |
+| Quota                         | Plan Starter | Plan Pro | Illimité |
+| ----------------------------- | :----------: | :------: | :------: |
+| Produits dans le catalogue    |     100      |   500    |    —     |
+| Commandes par mois            |     200      |  2 000   |    —     |
+| Livreurs actifs simultanément |      2       |    10    |    —     |
+| Numéros de téléphone virtuels |      1       |    3     |    —     |
+| Appels téléphoniques par mois |     100      |  1 000   |    —     |
+| Stockage fichiers (images)    |    500 Mo    |   5 Go   |    —     |
+| Utilisateurs admin            |      1       |    5     |    —     |
 
 ### Comportement en cas de dépassement
 
-| Quota dépassé               | Comportement                                                |
-|-----------------------------|-------------------------------------------------------------|
-| Produits                    | Ajout bloqué — message d'erreur dans l'admin                |
-| Commandes                   | Nouvelles commandes bloquées — notification super admin     |
-| Appels téléphoniques        | Appels supplémentaires rejetés — message d'indisponibilité  |
-| Stockage                    | Upload bloqué — message d'erreur dans l'admin               |
+| Quota dépassé        | Comportement                                               |
+| -------------------- | ---------------------------------------------------------- |
+| Produits             | Ajout bloqué — message d'erreur dans l'admin               |
+| Commandes            | Nouvelles commandes bloquées — notification super admin    |
+| Appels téléphoniques | Appels supplémentaires rejetés — message d'indisponibilité |
+| Stockage             | Upload bloqué — message d'erreur dans l'admin              |
 
 ### Règles
 
@@ -392,23 +392,23 @@ en attente de paiement), sans suppression de ses données.
 
 ### Comportement
 
-| Élément                        | Comportement après désactivation                       |
-|--------------------------------|--------------------------------------------------------|
-| Boutique publique du tenant    | Page d'indisponibilité affichée (pas de 404)           |
-| Interface admin du tenant      | Accessible en lecture seule uniquement                 |
-| Téléphonie du tenant           | Appels entrants rejetés avec message vocal             |
-| Nouvelles commandes            | Bloquées                                               |
-| Commandes en cours             | Complétées si déjà en route — bloquées sinon           |
-| Données du tenant              | Conservées intégralement                               |
-| Sous-domaine / domaine         | Redirige vers la page d'indisponibilité                |
+| Élément                     | Comportement après désactivation             |
+| --------------------------- | -------------------------------------------- |
+| Boutique publique du tenant | Page d'indisponibilité affichée (pas de 404) |
+| Interface admin du tenant   | Accessible en lecture seule uniquement       |
+| Téléphonie du tenant        | Appels entrants rejetés avec message vocal   |
+| Nouvelles commandes         | Bloquées                                     |
+| Commandes en cours          | Complétées si déjà en route — bloquées sinon |
+| Données du tenant           | Conservées intégralement                     |
+| Sous-domaine / domaine      | Redirige vers la page d'indisponibilité      |
 
 ### États de désactivation
 
-| Code              | Libellé                        | Réactivation possible ? |
-|-------------------|--------------------------------|-------------------------|
-| `suspended`       | Suspendu (non-paiement)        | ✅ Oui — paiement régularisé |
-| `paused`          | En pause (demande tenant)      | ✅ Oui — demande tenant  |
-| `admin_locked`    | Verrouillé par super admin     | ✅ Oui — décision admin  |
+| Code           | Libellé                    | Réactivation possible ?      |
+| -------------- | -------------------------- | ---------------------------- |
+| `suspended`    | Suspendu (non-paiement)    | ✅ Oui — paiement régularisé |
+| `paused`       | En pause (demande tenant)  | ✅ Oui — demande tenant      |
+| `admin_locked` | Verrouillé par super admin | ✅ Oui — décision admin      |
 
 ### Règles
 
@@ -428,12 +428,12 @@ potentielle.
 
 ### Différence avec la désactivation
 
-| Critère            | Désactivation         | Archivage                        |
-|--------------------|-----------------------|----------------------------------|
-| Durée prévue       | Temporaire            | Longue durée ou indéfinie        |
-| Réactivation       | Facile et rapide      | Possible mais avec effort        |
-| Accès admin tenant | Lecture seule         | Lecture seule (accès super admin uniquement) |
-| Visibilité dans la liste tenants | Visible | Masqué par défaut (filtrable) |
+| Critère                          | Désactivation    | Archivage                                    |
+| -------------------------------- | ---------------- | -------------------------------------------- |
+| Durée prévue                     | Temporaire       | Longue durée ou indéfinie                    |
+| Réactivation                     | Facile et rapide | Possible mais avec effort                    |
+| Accès admin tenant               | Lecture seule    | Lecture seule (accès super admin uniquement) |
+| Visibilité dans la liste tenants | Visible          | Masqué par défaut (filtrable)                |
 
 ### Séquence d'archivage
 
@@ -505,15 +505,15 @@ pour portabilité, archivage légal ou avant suppression.
 
 ### Données exportées
 
-| Catégorie              | Format export | Inclus                                          |
-|------------------------|---------------|-------------------------------------------------|
-| Profil tenant          | JSON          | Nom, plan, dates, configuration                 |
-| Catalogue              | JSON + CSV    | Catégories, produits, prix, images (URLs)       |
-| Commandes              | JSON + CSV    | Toutes les commandes avec statuts et horodatages|
-| Clients                | JSON + CSV    | Profils clients (données RGPD)                  |
-| Transactions           | JSON + CSV    | Paiements enregistrés                           |
-| Journaux du tenant     | JSON          | Journaux d'activité (DEP-0670)                  |
-| Configuration          | JSON          | Thème, livraison, téléphonie                    |
+| Catégorie          | Format export | Inclus                                           |
+| ------------------ | ------------- | ------------------------------------------------ |
+| Profil tenant      | JSON          | Nom, plan, dates, configuration                  |
+| Catalogue          | JSON + CSV    | Catégories, produits, prix, images (URLs)        |
+| Commandes          | JSON + CSV    | Toutes les commandes avec statuts et horodatages |
+| Clients            | JSON + CSV    | Profils clients (données RGPD)                   |
+| Transactions       | JSON + CSV    | Paiements enregistrés                            |
+| Journaux du tenant | JSON          | Journaux d'activité (DEP-0670)                   |
+| Configuration      | JSON          | Thème, livraison, téléphonie                     |
 
 ### Séquence d'export
 
@@ -549,14 +549,14 @@ souhaite conserver son catalogue et son historique partiel.
 
 ### Données importables en V1
 
-| Catégorie    | Importable ? | Format accepté | Remarque                             |
-|--------------|:------------:|----------------|--------------------------------------|
-| Catalogue    | ✅ Oui       | CSV, JSON      | Catégories et produits               |
-| Prix         | ✅ Oui       | CSV, JSON      | Vérifiés avant import                |
-| Images       | ❌ Non (V1)  | —              | À uploader manuellement              |
-| Clients      | ✅ Oui       | CSV            | Avec consentement RGPD obligatoire   |
-| Commandes historiques | ❌ Non (V1) | —     | Hors scope V1                        |
-| Configuration | ❌ Non      | —              | Via clonage demo (DEP-0656–0660)     |
+| Catégorie             | Importable ? | Format accepté | Remarque                           |
+| --------------------- | :----------: | -------------- | ---------------------------------- |
+| Catalogue             |    ✅ Oui    | CSV, JSON      | Catégories et produits             |
+| Prix                  |    ✅ Oui    | CSV, JSON      | Vérifiés avant import              |
+| Images                | ❌ Non (V1)  | —              | À uploader manuellement            |
+| Clients               |    ✅ Oui    | CSV            | Avec consentement RGPD obligatoire |
+| Commandes historiques | ❌ Non (V1)  | —              | Hors scope V1                      |
+| Configuration         |    ❌ Non    | —              | Via clonage demo (DEP-0656–0660)   |
 
 ### Séquence d'import
 
@@ -590,12 +590,12 @@ tenants et le niveau super admin.
 
 ### Niveaux de journaux
 
-| Niveau               | Contenu                                                   | Accès                  |
-|----------------------|-----------------------------------------------------------|------------------------|
-| Journaux super admin | Créations, modifications, suppressions de tenants, exports| Super admin uniquement |
-| Journaux tenant      | Actions admin du tenant (catalogue, commandes, config)    | Tenant + super admin   |
-| Journaux applicatifs | Erreurs techniques, appels API, performances              | Super admin uniquement |
-| Journaux téléphoniques| Événements d'appels (DEP-0475), sans contenu vocal       | Tenant + super admin   |
+| Niveau                 | Contenu                                                    | Accès                  |
+| ---------------------- | ---------------------------------------------------------- | ---------------------- |
+| Journaux super admin   | Créations, modifications, suppressions de tenants, exports | Super admin uniquement |
+| Journaux tenant        | Actions admin du tenant (catalogue, commandes, config)     | Tenant + super admin   |
+| Journaux applicatifs   | Erreurs techniques, appels API, performances               | Super admin uniquement |
+| Journaux téléphoniques | Événements d'appels (DEP-0475), sans contenu vocal         | Tenant + super admin   |
 
 ### Règles de séparation
 
@@ -610,12 +610,12 @@ tenants et le niveau super admin.
 
 ### Rétention des journaux (V1)
 
-| Type                  | Durée de rétention |
-|-----------------------|--------------------|
-| Journaux super admin  | Indéfinie          |
-| Journaux tenant       | 12 mois glissants  |
-| Journaux applicatifs  | 90 jours           |
-| Journaux téléphoniques| 6 mois             |
+| Type                   | Durée de rétention |
+| ---------------------- | ------------------ |
+| Journaux super admin   | Indéfinie          |
+| Journaux tenant        | 12 mois glissants  |
+| Journaux applicatifs   | 90 jours           |
+| Journaux téléphoniques | 6 mois             |
 
 ### Règles d'accès
 
@@ -633,37 +633,37 @@ métadonnées de tous les tenants du système.
 
 ### Structure de la table `tenants`
 
-| Champ                  | Type        | Obligatoire | Description                                      |
-|------------------------|-------------|-------------|--------------------------------------------------|
-| `tenant_id`            | `uuid`      | Oui         | Identifiant unique immuable                      |
-| `name`                 | `string`    | Oui         | Nom commercial du dépanneur                      |
-| `slug`                 | `string`    | Oui         | Slug du sous-domaine (unique, immuable)           |
-| `custom_domain`        | `string`    | Non         | Domaine personnalisé (si configuré — DEP-0661)   |
-| `custom_domain_status` | `string`    | Non         | État du domaine personnalisé (DEP-0661)          |
-| `owner_email`          | `string`    | Oui         | Email du propriétaire                            |
-| `owner_phone`          | `string`    | Oui         | Téléphone du propriétaire                        |
-| `plan`                 | `string`    | Oui         | Plan tarifaire (`starter`, `pro`, etc.)          |
-| `status`               | `string`    | Oui         | État du tenant (voir ci-dessous)                 |
-| `is_demo`              | `bool`      | Oui         | `true` si c'est un tenant de démonstration       |
-| `cloned_from`          | `uuid`      | Non         | `tenant_id` source si cloné                      |
-| `quotas`               | `jsonb`     | Oui         | Quotas appliqués (DEP-0664)                      |
-| `created_at`           | `datetime`  | Oui         | Horodatage de création                           |
-| `created_by`           | `uuid`      | Oui         | ID du super admin créateur                       |
-| `updated_at`           | `datetime`  | Oui         | Dernière modification                            |
-| `archived_at`          | `datetime`  | Non         | Horodatage d'archivage (DEP-0666)                |
-| `deleted_at`           | `datetime`  | Non         | Horodatage de suppression logique (DEP-0667)     |
+| Champ                  | Type       | Obligatoire | Description                                    |
+| ---------------------- | ---------- | ----------- | ---------------------------------------------- |
+| `tenant_id`            | `uuid`     | Oui         | Identifiant unique immuable                    |
+| `name`                 | `string`   | Oui         | Nom commercial du dépanneur                    |
+| `slug`                 | `string`   | Oui         | Slug du sous-domaine (unique, immuable)        |
+| `custom_domain`        | `string`   | Non         | Domaine personnalisé (si configuré — DEP-0661) |
+| `custom_domain_status` | `string`   | Non         | État du domaine personnalisé (DEP-0661)        |
+| `owner_email`          | `string`   | Oui         | Email du propriétaire                          |
+| `owner_phone`          | `string`   | Oui         | Téléphone du propriétaire                      |
+| `plan`                 | `string`   | Oui         | Plan tarifaire (`starter`, `pro`, etc.)        |
+| `status`               | `string`   | Oui         | État du tenant (voir ci-dessous)               |
+| `is_demo`              | `bool`     | Oui         | `true` si c'est un tenant de démonstration     |
+| `cloned_from`          | `uuid`     | Non         | `tenant_id` source si cloné                    |
+| `quotas`               | `jsonb`    | Oui         | Quotas appliqués (DEP-0664)                    |
+| `created_at`           | `datetime` | Oui         | Horodatage de création                         |
+| `created_by`           | `uuid`     | Oui         | ID du super admin créateur                     |
+| `updated_at`           | `datetime` | Oui         | Dernière modification                          |
+| `archived_at`          | `datetime` | Non         | Horodatage d'archivage (DEP-0666)              |
+| `deleted_at`           | `datetime` | Non         | Horodatage de suppression logique (DEP-0667)   |
 
 ### États (`status`) du tenant
 
-| Valeur           | Description                              |
-|------------------|------------------------------------------|
-| `provisioning`   | En cours de création                     |
-| `active`         | Opérationnel                             |
-| `suspended`      | Suspendu (non-paiement)                  |
-| `paused`         | En pause (demande tenant)                |
-| `admin_locked`   | Verrouillé par super admin               |
-| `archived`       | Archivé (DEP-0666)                       |
-| `deleted`        | Supprimé logiquement (DEP-0667)          |
+| Valeur         | Description                     |
+| -------------- | ------------------------------- |
+| `provisioning` | En cours de création            |
+| `active`       | Opérationnel                    |
+| `suspended`    | Suspendu (non-paiement)         |
+| `paused`       | En pause (demande tenant)       |
+| `admin_locked` | Verrouillé par super admin      |
+| `archived`     | Archivé (DEP-0666)              |
+| `deleted`      | Supprimé logiquement (DEP-0667) |
 
 ### Règles
 
@@ -685,15 +685,15 @@ accessible uniquement aux super admins.
 
 Chaque ligne du tableau affiche :
 
-| Colonne           | Contenu                                           |
-|-------------------|---------------------------------------------------|
-| Nom               | Nom commercial du tenant                          |
-| Slug / domaine    | Sous-domaine ou domaine personnalisé actif        |
-| Plan              | Plan tarifaire actuel                             |
-| État              | Badge coloré (actif, suspendu, archivé…)          |
-| Créé le           | Date de création                                  |
-| Dernière activité | Date de dernière action dans le tenant            |
-| Actions           | Voir, Modifier, Désactiver, Archiver              |
+| Colonne           | Contenu                                    |
+| ----------------- | ------------------------------------------ |
+| Nom               | Nom commercial du tenant                   |
+| Slug / domaine    | Sous-domaine ou domaine personnalisé actif |
+| Plan              | Plan tarifaire actuel                      |
+| État              | Badge coloré (actif, suspendu, archivé…)   |
+| Créé le           | Date de création                           |
+| Dernière activité | Date de dernière action dans le tenant     |
+| Actions           | Voir, Modifier, Désactiver, Archiver       |
 
 ### Filtres disponibles
 
@@ -727,22 +727,26 @@ l'interface super admin.
 ### Sections du formulaire
 
 **Section 1 — Informations de base**
+
 - Nom commercial du dépanneur (obligatoire)
 - Email du propriétaire (obligatoire, validé format email)
 - Téléphone du propriétaire (obligatoire)
 - Plan tarifaire (liste déroulante — obligatoire)
 
 **Section 2 — Adresse d'accès**
+
 - Slug du sous-domaine (obligatoire, validé unicité en temps réel)
 - Domaine personnalisé (optionnel)
 
 **Section 3 — Initialisation**
+
 - Mode d'initialisation :
   - ○ Créer vide (catalogue et config à renseigner manuellement)
   - ○ Cloner depuis un tenant de démonstration → liste des demos dispo
   - ○ Importer des données (DEP-0669)
 
 **Section 4 — Quotas**
+
 - Affichage des quotas du plan sélectionné
 - Option de quota personnalisé (super admin seulement)
 
@@ -777,15 +781,18 @@ vers un tenant déjà créé.
 ### Sections de la page de clonage
 
 **Section 1 — Source**
+
 - Sélection du tenant source à cloner (liste des tenants `is_demo: true`
   ou sélection libre pour super admin)
 - Aperçu des éléments disponibles dans la source
 
 **Section 2 — Destination**
+
 - Sélection du tenant de destination (nouveau tenant ou existant vide)
 
 **Section 3 — Éléments à cloner**
 Sélection individuelle des éléments à copier :
+
 - ☑ Catalogue (DEP-0657)
 - ☑ Thème visuel (DEP-0658)
 - ☑ Configuration livraison (DEP-0659)
@@ -793,6 +800,7 @@ Sélection individuelle des éléments à copier :
 - ☑ Phrases système
 
 **Section 4 — Confirmation**
+
 - Résumé des éléments sélectionnés et de la destination
 - Bouton « Lancer le clonage »
 

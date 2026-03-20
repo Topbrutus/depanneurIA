@@ -13,10 +13,10 @@ export interface AssistantMessage {
 
 /** Intention détectée dans le message de l'utilisateur */
 export type IntentType =
-  | 'add'     // "je veux du lait", "mets 2 coke"
-  | 'remove'  // "enlève le lait"
+  | 'add' // "je veux du lait", "mets 2 coke"
+  | 'remove' // "enlève le lait"
   | 'replace' // "remplace par autre chose"
-  | 'vague'   // "je sais pas quoi prendre"
+  | 'vague' // "je sais pas quoi prendre"
   | 'unknown';
 
 export interface ParsedIntent {

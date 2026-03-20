@@ -39,24 +39,24 @@ données ni de configuration.
 
 ### Cas d'usage
 
-| Cas                              | Description                                                    |
-|----------------------------------|----------------------------------------------------------------|
-| Non-paiement                     | Le tenant n'a pas réglé son abonnement                        |
-| Violation de conditions          | Contenu interdit détecté ou signalement grave                 |
-| Demande du dépanneur             | Le dépanneur demande une pause temporaire                     |
-| Maintenance critique             | Intervention technique urgente sur les données du tenant      |
+| Cas                     | Description                                              |
+| ----------------------- | -------------------------------------------------------- |
+| Non-paiement            | Le tenant n'a pas réglé son abonnement                   |
+| Violation de conditions | Contenu interdit détecté ou signalement grave            |
+| Demande du dépanneur    | Le dépanneur demande une pause temporaire                |
+| Maintenance critique    | Intervention technique urgente sur les données du tenant |
 
 ### Éléments de la page
 
-| Élément                          | Description                                                    |
-|----------------------------------|----------------------------------------------------------------|
-| En-tête                          | Nom du tenant, identifiant, domaine, date de création         |
-| Statut actuel                    | Badge coloré : `actif`, `suspendu`, `archivé`                 |
-| Bouton « Suspendre »             | Visible uniquement si statut = `actif`                        |
-| Bouton « Réactiver »             | Visible uniquement si statut = `suspendu`                     |
-| Champ motif de suspension        | Texte libre obligatoire (min. 10 caractères)                  |
-| Historique des suspensions       | Liste horodatée des suspensions passées avec motif            |
-| Confirmation modale              | Dialogue de confirmation avant toute action de suspension     |
+| Élément                    | Description                                               |
+| -------------------------- | --------------------------------------------------------- |
+| En-tête                    | Nom du tenant, identifiant, domaine, date de création     |
+| Statut actuel              | Badge coloré : `actif`, `suspendu`, `archivé`             |
+| Bouton « Suspendre »       | Visible uniquement si statut = `actif`                    |
+| Bouton « Réactiver »       | Visible uniquement si statut = `suspendu`                 |
+| Champ motif de suspension  | Texte libre obligatoire (min. 10 caractères)              |
+| Historique des suspensions | Liste horodatée des suspensions passées avec motif        |
+| Confirmation modale        | Dialogue de confirmation avant toute action de suspension |
 
 ### Comportement lors de la suspension
 
@@ -85,18 +85,18 @@ d'un nouveau tenant, garantissant un état de départ cohérent et minimal.
 
 ### Étapes d'initialisation
 
-| Étape | Action                                                                    |
-|-------|---------------------------------------------------------------------------|
-| 1     | Créer l'enregistrement tenant avec `tenant_id` unique (UUID)             |
-| 2     | Créer le compte dépanneur principal (email + mot de passe temporaire)    |
-| 3     | Créer le catalogue vide (aucun produit, aucune catégorie)                |
-| 4     | Créer la configuration de livraison par défaut (zones vides)             |
+| Étape | Action                                                                  |
+| ----- | ----------------------------------------------------------------------- |
+| 1     | Créer l'enregistrement tenant avec `tenant_id` unique (UUID)            |
+| 2     | Créer le compte dépanneur principal (email + mot de passe temporaire)   |
+| 3     | Créer le catalogue vide (aucun produit, aucune catégorie)               |
+| 4     | Créer la configuration de livraison par défaut (zones vides)            |
 | 5     | Créer la configuration de paiement par défaut (cash uniquement en V1)   |
-| 6     | Créer la configuration visuelle par défaut (thème neutre)                |
+| 6     | Créer la configuration visuelle par défaut (thème neutre)               |
 | 7     | Créer les paramètres de langue par défaut (FR pour le Québec, DEP-0683) |
 | 8     | Initialiser les files de commandes vides (DEP-0485–DEP-0490)            |
-| 9     | Initialiser les journaux d'activité vides                                |
-| 10    | Marquer le tenant en statut `actif`                                       |
+| 9     | Initialiser les journaux d'activité vides                               |
+| 10    | Marquer le tenant en statut `actif`                                     |
 
 ### Données NON créées lors de l'initialisation
 
@@ -124,25 +124,25 @@ tenant source (modèle ou démonstration) vers un nouveau tenant cible.
 
 ### Données clonées
 
-| Données                          | Notes                                                          |
-|----------------------------------|----------------------------------------------------------------|
-| Structure des catégories         | Arborescence complète, sans les produits si désiré            |
-| Catalogue de produits            | Produits, descriptions, images, prix — `tenant_id` remplacé  |
-| Configuration visuelle           | Thème, couleurs, logo par défaut (remplaçable ensuite)        |
-| Configuration de livraison       | Zones, frais, délais — à adapter par le dépanneur             |
-| Configuration de langue          | Langue par défaut copiée depuis le modèle                     |
-| Catégories traduisibles          | Clés de traduction copiées (DEP-0694)                         |
+| Données                    | Notes                                                       |
+| -------------------------- | ----------------------------------------------------------- |
+| Structure des catégories   | Arborescence complète, sans les produits si désiré          |
+| Catalogue de produits      | Produits, descriptions, images, prix — `tenant_id` remplacé |
+| Configuration visuelle     | Thème, couleurs, logo par défaut (remplaçable ensuite)      |
+| Configuration de livraison | Zones, frais, délais — à adapter par le dépanneur           |
+| Configuration de langue    | Langue par défaut copiée depuis le modèle                   |
+| Catégories traduisibles    | Clés de traduction copiées (DEP-0694)                       |
 
 ### Données NON clonées
 
-| Données exclues                  | Raison                                                         |
-|----------------------------------|----------------------------------------------------------------|
-| Commandes historiques            | Appartiennent au tenant source — séparation stricte           |
-| Comptes clients                  | Appartiennent au tenant source — séparation stricte           |
-| Comptes livreurs                 | Doivent être créés spécifiquement pour le nouveau tenant      |
-| Journaux d'activité              | Non transférables                                             |
-| Numéro de téléphone vocal        | Chaque tenant a le sien                                       |
-| Identifiants internes des produits| Remplacés par de nouveaux UUIDs pour le tenant cible         |
+| Données exclues                    | Raison                                                   |
+| ---------------------------------- | -------------------------------------------------------- |
+| Commandes historiques              | Appartiennent au tenant source — séparation stricte      |
+| Comptes clients                    | Appartiennent au tenant source — séparation stricte      |
+| Comptes livreurs                   | Doivent être créés spécifiquement pour le nouveau tenant |
+| Journaux d'activité                | Non transférables                                        |
+| Numéro de téléphone vocal          | Chaque tenant a le sien                                  |
+| Identifiants internes des produits | Remplacés par de nouveaux UUIDs pour le tenant cible     |
 
 ### Règles
 
@@ -163,18 +163,18 @@ Définir le scénario de test validant qu'aucune donnée d'un tenant A ne peut
 
 ### Scénario de test
 
-| Étape | Action de test                                                             |
-|-------|----------------------------------------------------------------------------|
-| 1     | Créer le tenant A avec un catalogue de 5 produits distincts               |
-| 2     | Créer le tenant B avec un catalogue de 5 produits distincts               |
-| 3     | Créer un client CA sur le tenant A, passer une commande                   |
-| 4     | Créer un client CB sur le tenant B, passer une commande                   |
-| 5     | Vérifier que CA ne voit pas les produits de B                             |
-| 6     | Vérifier que CB ne voit pas les produits de A                             |
-| 7     | Vérifier que le dépanneur A ne voit pas les commandes de B                |
-| 8     | Vérifier que le dépanneur B ne voit pas les commandes de A                |
-| 9     | Vérifier que le livreur A ne peut pas accepter une livraison de B         |
-| 10    | Vérifier que les journaux A et B sont totalement séparés                  |
+| Étape | Action de test                                                    |
+| ----- | ----------------------------------------------------------------- |
+| 1     | Créer le tenant A avec un catalogue de 5 produits distincts       |
+| 2     | Créer le tenant B avec un catalogue de 5 produits distincts       |
+| 3     | Créer un client CA sur le tenant A, passer une commande           |
+| 4     | Créer un client CB sur le tenant B, passer une commande           |
+| 5     | Vérifier que CA ne voit pas les produits de B                     |
+| 6     | Vérifier que CB ne voit pas les produits de A                     |
+| 7     | Vérifier que le dépanneur A ne voit pas les commandes de B        |
+| 8     | Vérifier que le dépanneur B ne voit pas les commandes de A        |
+| 9     | Vérifier que le livreur A ne peut pas accepter une livraison de B |
+| 10    | Vérifier que les journaux A et B sont totalement séparés          |
 
 ### Critères de réussite
 
@@ -197,16 +197,16 @@ l'interface ou l'API du tenant B.
 
 ### Scénario de test
 
-| Étape | Action de test                                                              |
-|-------|-----------------------------------------------------------------------------|
-| 1     | Créer 10 commandes sur le tenant A avec des clients distincts               |
-| 2     | Créer 10 commandes sur le tenant B avec des clients distincts               |
-| 3     | Lister toutes les commandes depuis l'interface dépanneur B → 10 seulement  |
-| 4     | Lister toutes les commandes depuis l'interface dépanneur A → 10 seulement  |
-| 5     | Tenter d'accéder à l'ID d'une commande A depuis un token tenant B          |
-| 6     | Vérifier que la réponse est 403 ou 404 — jamais les données de A           |
-| 7     | Tenter de modifier l'état d'une commande A depuis le dépanneur B           |
-| 8     | Vérifier que la modification est refusée                                   |
+| Étape | Action de test                                                            |
+| ----- | ------------------------------------------------------------------------- |
+| 1     | Créer 10 commandes sur le tenant A avec des clients distincts             |
+| 2     | Créer 10 commandes sur le tenant B avec des clients distincts             |
+| 3     | Lister toutes les commandes depuis l'interface dépanneur B → 10 seulement |
+| 4     | Lister toutes les commandes depuis l'interface dépanneur A → 10 seulement |
+| 5     | Tenter d'accéder à l'ID d'une commande A depuis un token tenant B         |
+| 6     | Vérifier que la réponse est 403 ou 404 — jamais les données de A          |
+| 7     | Tenter de modifier l'état d'une commande A depuis le dépanneur B          |
+| 8     | Vérifier que la modification est refusée                                  |
 
 ### Critères de réussite
 
@@ -228,16 +228,16 @@ toute dérive future non planifiée, et définir ce qui est hors périmètre V1.
 
 ### Architecture multi-tenant V1 gelée
 
-| Dimension                        | Décision gelée                                                 |
-|----------------------------------|----------------------------------------------------------------|
-| Isolation des données            | Par `tenant_id` dans chaque table — pas de base séparée en V1|
-| Isolation des API                | Chaque route filtre systématiquement sur `tenant_id` du token |
-| Isolation des médias             | Chaque tenant a un répertoire de stockage distinct            |
-| Isolation des domaines           | Sous-domaine par tenant (ex. `nom.depaneuIA.com`)             |
-| Comptes partagés                 | Aucun — chaque compte appartient à un seul tenant             |
-| Super admin                      | Accès cross-tenant en lecture uniquement pour le monitoring   |
-| Clonage                          | Disponible via script manuel (DEP-0677)                       |
-| Facturation                      | Hors périmètre V1                                             |
+| Dimension              | Décision gelée                                                |
+| ---------------------- | ------------------------------------------------------------- |
+| Isolation des données  | Par `tenant_id` dans chaque table — pas de base séparée en V1 |
+| Isolation des API      | Chaque route filtre systématiquement sur `tenant_id` du token |
+| Isolation des médias   | Chaque tenant a un répertoire de stockage distinct            |
+| Isolation des domaines | Sous-domaine par tenant (ex. `nom.depaneuIA.com`)             |
+| Comptes partagés       | Aucun — chaque compte appartient à un seul tenant             |
+| Super admin            | Accès cross-tenant en lecture uniquement pour le monitoring   |
+| Clonage                | Disponible via script manuel (DEP-0677)                       |
+| Facturation            | Hors périmètre V1                                             |
 
 ### Hors périmètre V1 (gelé comme exclus)
 
@@ -264,10 +264,10 @@ plateforme en V1.
 
 ### Langues supportées en V1
 
-| Code | Langue               | Interface disponible | Téléphone vocal disponible |
-|------|----------------------|----------------------|---------------------------|
-| `fr` | Français             | Oui                  | Oui                       |
-| `en` | Anglais              | Oui                  | Non (V2+)                 |
+| Code | Langue   | Interface disponible | Téléphone vocal disponible |
+| ---- | -------- | -------------------- | -------------------------- |
+| `fr` | Français | Oui                  | Oui                        |
+| `en` | Anglais  | Oui                  | Non (V2+)                  |
 
 ### Règles
 
@@ -311,13 +311,13 @@ régionales futures).
 
 ### Variantes terminologiques québécoises retenues
 
-| Terme standard FR  | Terme québécois retenu   | Contexte d'utilisation              |
-|--------------------|--------------------------|-------------------------------------|
-| Épicerie / Magasin | Dépanneur                | Nom du type de commerce             |
-| Panier             | Panier                   | Identique — conservé                |
-| Livraison          | Livraison                | Identique — conservé                |
-| Commandé           | Commandé                 | Identique — conservé                |
-| Confirmation       | Confirmation             | Identique — conservé                |
+| Terme standard FR  | Terme québécois retenu | Contexte d'utilisation  |
+| ------------------ | ---------------------- | ----------------------- |
+| Épicerie / Magasin | Dépanneur              | Nom du type de commerce |
+| Panier             | Panier                 | Identique — conservé    |
+| Livraison          | Livraison              | Identique — conservé    |
+| Commandé           | Commandé               | Identique — conservé    |
+| Confirmation       | Confirmation           | Identique — conservé    |
 
 ### Règle
 
@@ -336,12 +336,12 @@ Définir comment un client change la langue de l'interface boutique.
 
 ### Logique
 
-| Étape | Action                                                                    |
-|-------|---------------------------------------------------------------------------|
-| 1     | Un sélecteur de langue est visible dans l'en-tête de la boutique         |
-| 2     | Le client choisit une langue parmi celles supportées (DEP-0681)          |
-| 3     | La langue choisie est appliquée immédiatement sans rechargement de page  |
-| 4     | Si le client est connecté, la préférence est sauvegardée sur son compte  |
+| Étape | Action                                                                                 |
+| ----- | -------------------------------------------------------------------------------------- |
+| 1     | Un sélecteur de langue est visible dans l'en-tête de la boutique                       |
+| 2     | Le client choisit une langue parmi celles supportées (DEP-0681)                        |
+| 3     | La langue choisie est appliquée immédiatement sans rechargement de page                |
+| 4     | Si le client est connecté, la préférence est sauvegardée sur son compte                |
 | 5     | Si le client n'est pas connecté, la langue est mémorisée dans le navigateur (DEP-0690) |
 
 ### Règles
@@ -361,12 +361,12 @@ Définir comment un dépanneur change la langue de son interface d'administratio
 
 ### Logique
 
-| Étape | Action                                                                    |
-|-------|---------------------------------------------------------------------------|
-| 1     | Un sélecteur de langue est disponible dans les paramètres du compte      |
-| 2     | La langue choisie s'applique à toute l'interface dépanneur               |
-| 3     | La préférence est sauvegardée sur le compte dépanneur                    |
-| 4     | La langue du dépanneur n'affecte pas la langue affichée aux clients      |
+| Étape | Action                                                              |
+| ----- | ------------------------------------------------------------------- |
+| 1     | Un sélecteur de langue est disponible dans les paramètres du compte |
+| 2     | La langue choisie s'applique à toute l'interface dépanneur          |
+| 3     | La préférence est sauvegardée sur le compte dépanneur               |
+| 4     | La langue du dépanneur n'affecte pas la langue affichée aux clients |
 
 ### Règles
 
@@ -386,12 +386,12 @@ Définir comment un livreur change la langue de son interface mobile.
 
 ### Logique
 
-| Étape | Action                                                                    |
-|-------|---------------------------------------------------------------------------|
+| Étape | Action                                                                             |
+| ----- | ---------------------------------------------------------------------------------- |
 | 1     | Un sélecteur de langue est disponible dans les paramètres de l'application livreur |
-| 2     | La langue choisie s'applique à toute l'interface livreur                 |
-| 3     | La préférence est sauvegardée sur le compte livreur                      |
-| 4     | La langue du livreur n'affecte pas la langue des clients ni du dépanneur |
+| 2     | La langue choisie s'applique à toute l'interface livreur                           |
+| 3     | La préférence est sauvegardée sur le compte livreur                                |
+| 4     | La langue du livreur n'affecte pas la langue des clients ni du dépanneur           |
 
 ### Règles
 
@@ -411,11 +411,11 @@ canal téléphonique vocal (IVR / assistant vocal).
 
 ### Logique V1
 
-| Étape | Action                                                                    |
-|-------|---------------------------------------------------------------------------|
-| 1     | Le système détecte la langue configurée pour le tenant appelé            |
-| 2     | La langue du tenant est utilisée pour l'ensemble de l'appel en V1        |
-| 3     | Aucun menu de sélection de langue n'est proposé en V1                    |
+| Étape | Action                                                            |
+| ----- | ----------------------------------------------------------------- |
+| 1     | Le système détecte la langue configurée pour le tenant appelé     |
+| 2     | La langue du tenant est utilisée pour l'ensemble de l'appel en V1 |
+| 3     | Aucun menu de sélection de langue n'est proposé en V1             |
 
 ### Règles
 
@@ -437,11 +437,11 @@ clients.
 ### Logique
 
 | Étape | Action                                                                    |
-|-------|---------------------------------------------------------------------------|
-| 1     | Le dépanneur accède aux paramètres de langue de sa boutique              |
-| 2     | Il active ou désactive les langues disponibles parmi celles supportées   |
-| 3     | Seules les langues activées apparaissent dans le sélecteur client        |
-| 4     | La langue par défaut du tenant est configurable parmi les langues actives|
+| ----- | ------------------------------------------------------------------------- |
+| 1     | Le dépanneur accède aux paramètres de langue de sa boutique               |
+| 2     | Il active ou désactive les langues disponibles parmi celles supportées    |
+| 3     | Seules les langues activées apparaissent dans le sélecteur client         |
+| 4     | La langue par défaut du tenant est configurable parmi les langues actives |
 
 ### Règles
 
@@ -462,10 +462,10 @@ appliquée.
 
 ### Structure de la préférence
 
-| Champ                  | Valeur                                    | Notes                             |
-|------------------------|-------------------------------------------|-----------------------------------|
-| `preferred_language`   | Code ISO 639-1 (ex. `fr`, `en`)          | Sauvegardé sur le profil compte   |
-| `tenant_id`            | Identifiant du tenant concerné            | La préférence est par tenant      |
+| Champ                | Valeur                          | Notes                           |
+| -------------------- | ------------------------------- | ------------------------------- |
+| `preferred_language` | Code ISO 639-1 (ex. `fr`, `en`) | Sauvegardé sur le profil compte |
+| `tenant_id`          | Identifiant du tenant concerné  | La préférence est par tenant    |
 
 ### Ordre de priorité d'application
 
@@ -491,12 +491,12 @@ pour les utilisateurs non connectés.
 
 ### Logique
 
-| Étape | Action                                                                    |
-|-------|---------------------------------------------------------------------------|
-| 1     | Si aucun compte n'est connecté, on lit l'en-tête `Accept-Language` HTTP  |
-| 2     | On extrait le premier code de langue reconnu parmi ceux supportés        |
-| 3     | Si la langue détectée est active sur le tenant, elle est appliquée       |
-| 4     | Le choix manuel du client est mémorisé dans un cookie ou `localStorage`  |
+| Étape | Action                                                                                     |
+| ----- | ------------------------------------------------------------------------------------------ |
+| 1     | Si aucun compte n'est connecté, on lit l'en-tête `Accept-Language` HTTP                    |
+| 2     | On extrait le premier code de langue reconnu parmi ceux supportés                          |
+| 3     | Si la langue détectée est active sur le tenant, elle est appliquée                         |
+| 4     | Le choix manuel du client est mémorisé dans un cookie ou `localStorage`                    |
 | 5     | Le cookie/localStorage est lu en priorité sur `Accept-Language` lors des visites suivantes |
 
 ### Règles
@@ -517,11 +517,11 @@ en l'absence de sélection manuelle de l'appelant.
 
 ### Logique V1
 
-| Source de détection              | Comportement                                                   |
-|----------------------------------|----------------------------------------------------------------|
-| Configuration du tenant          | Langue principale utilisée pour les prompts vocaux            |
-| Numéro de l'appelant             | Non utilisé pour détecter la langue en V1                     |
-| Sélection manuelle en IVR        | Non disponible en V1                                          |
+| Source de détection       | Comportement                                       |
+| ------------------------- | -------------------------------------------------- |
+| Configuration du tenant   | Langue principale utilisée pour les prompts vocaux |
+| Numéro de l'appelant      | Non utilisé pour détecter la langue en V1          |
+| Sélection manuelle en IVR | Non disponible en V1                               |
 
 ### Règles
 
@@ -549,17 +549,17 @@ de la plateforme.
 
 ### Exemples
 
-| Clé                                    | Texte FR                                      |
-|----------------------------------------|-----------------------------------------------|
-| `ui.cart.add_button`                   | « Ajouter au panier »                         |
-| `ui.cart.empty_message`                | « Votre panier est vide. »                    |
-| `assistant.phrase.welcome`             | « Bonjour ! Qu'est-ce que je vous sers ? »   |
-| `assistant.phrase.clarification`       | « Pouvez-vous préciser ce que vous cherchez ? » |
-| `order.status.pending`                 | « En attente »                                |
-| `order.status.in_preparation`          | « En préparation »                            |
-| `notification.new_order.title`         | « Nouvelle commande reçue »                   |
-| `catalogue.category.beverages`         | « Boissons »                                  |
-| `error.product.not_found`              | « Ce produit n'est pas disponible. »          |
+| Clé                              | Texte FR                                        |
+| -------------------------------- | ----------------------------------------------- |
+| `ui.cart.add_button`             | « Ajouter au panier »                           |
+| `ui.cart.empty_message`          | « Votre panier est vide. »                      |
+| `assistant.phrase.welcome`       | « Bonjour ! Qu'est-ce que je vous sers ? »      |
+| `assistant.phrase.clarification` | « Pouvez-vous préciser ce que vous cherchez ? » |
+| `order.status.pending`           | « En attente »                                  |
+| `order.status.in_preparation`    | « En préparation »                              |
+| `notification.new_order.title`   | « Nouvelle commande reçue »                     |
+| `catalogue.category.beverages`   | « Boissons »                                    |
+| `error.product.not_found`        | « Ce produit n'est pas disponible. »            |
 
 ### Règles
 
@@ -581,25 +581,25 @@ traduction, et lesquels sont hors périmètre.
 
 ### Textes traduisibles (obligatoire)
 
-| Type de texte                    | Exemples                                                       |
-|----------------------------------|----------------------------------------------------------------|
-| Libellés d'interface             | Boutons, titres, labels de champs                             |
-| Messages système                 | Erreurs, confirmations, alertes                               |
-| Phrases de l'assistant texte     | Les 10 phrases canoniques DEP-0367–DEP-0376                  |
-| Notifications client             | Emails, SMS, push — corps et sujet                            |
-| États de commande affichés       | « En attente », « En livraison », etc.                        |
-| Messages d'indisponibilité       | Page suspendue, produit indisponible                          |
-| Prompts vocaux IVR               | Toutes les phrases audio de l'assistant vocal                 |
+| Type de texte                | Exemples                                      |
+| ---------------------------- | --------------------------------------------- |
+| Libellés d'interface         | Boutons, titres, labels de champs             |
+| Messages système             | Erreurs, confirmations, alertes               |
+| Phrases de l'assistant texte | Les 10 phrases canoniques DEP-0367–DEP-0376   |
+| Notifications client         | Emails, SMS, push — corps et sujet            |
+| États de commande affichés   | « En attente », « En livraison », etc.        |
+| Messages d'indisponibilité   | Page suspendue, produit indisponible          |
+| Prompts vocaux IVR           | Toutes les phrases audio de l'assistant vocal |
 
 ### Textes NON traduisibles en V1
 
-| Type de texte                    | Raison                                                         |
-|----------------------------------|----------------------------------------------------------------|
-| Noms des produits du catalogue   | Gérés par le tenant lui-même (DEP-0695, hors bloc)           |
-| Descriptions longues de produits | Idem                                                           |
-| Noms des catégories du catalogue | Couverts en DEP-0694                                          |
-| Contenu des journaux internes    | Toujours en `fr` pour la traçabilité                          |
-| Clés de traduction elles-mêmes   | Par définition non traduisibles                               |
+| Type de texte                    | Raison                                             |
+| -------------------------------- | -------------------------------------------------- |
+| Noms des produits du catalogue   | Gérés par le tenant lui-même (DEP-0695, hors bloc) |
+| Descriptions longues de produits | Idem                                               |
+| Noms des catégories du catalogue | Couverts en DEP-0694                               |
+| Contenu des journaux internes    | Toujours en `fr` pour la traçabilité               |
+| Clés de traduction elles-mêmes   | Par définition non traduisibles                    |
 
 ### Règles
 
@@ -625,12 +625,12 @@ la langue par défaut du tenant s'affiche.
 
 ### Structure d'une catégorie traduisible
 
-| Champ                    | Type   | Description                                     |
-|--------------------------|--------|-------------------------------------------------|
-| `category_id`            | UUID   | Identifiant unique de la catégorie              |
-| `tenant_id`              | UUID   | Identifiant du tenant propriétaire              |
-| `default_name`           | string | Nom dans la langue par défaut du tenant         |
-| `translations`           | objet  | Clé = code langue, valeur = nom traduit         |
+| Champ          | Type   | Description                             |
+| -------------- | ------ | --------------------------------------- |
+| `category_id`  | UUID   | Identifiant unique de la catégorie      |
+| `tenant_id`    | UUID   | Identifiant du tenant propriétaire      |
+| `default_name` | string | Nom dans la langue par défaut du tenant |
+| `translations` | objet  | Clé = code langue, valeur = nom traduit |
 
 ### Exemple de structure de traductions
 
@@ -643,12 +643,12 @@ translations: {
 
 ### Affichage
 
-| Condition                                | Texte affiché                         |
-|------------------------------------------|---------------------------------------|
-| Langue du client = `fr`, traduction `fr` disponible | Nom FR                   |
-| Langue du client = `en`, traduction `en` disponible | Nom EN                   |
-| Langue du client = `en`, traduction `en` absente     | `default_name`           |
-| Langue du client = `fr`, `default_name` en `fr`     | `default_name`           |
+| Condition                                           | Texte affiché  |
+| --------------------------------------------------- | -------------- |
+| Langue du client = `fr`, traduction `fr` disponible | Nom FR         |
+| Langue du client = `en`, traduction `en` disponible | Nom EN         |
+| Langue du client = `en`, traduction `en` absente    | `default_name` |
+| Langue du client = `fr`, `default_name` en `fr`     | `default_name` |
 
 ### Règles
 
@@ -662,25 +662,25 @@ translations: {
 
 ## Synthèse
 
-| DEP   | Titre                                             | Statut  |
-|-------|---------------------------------------------------|---------|
-| 0675  | Page super admin suspension de tenant             | Défini  |
-| 0676  | Script d'initialisation d'un nouveau tenant       | Défini  |
-| 0677  | Script de clonage d'un tenant modèle              | Défini  |
-| 0678  | Test séparation complète entre deux tenants       | Défini  |
-| 0679  | Test aucune commande ne fuit entre tenants        | Défini  |
-| 0680  | Gel architecture multi-tenant V1                  | Défini  |
-| 0681  | Langues supportées au lancement                   | Défini  |
-| 0682  | Langue par défaut de la plateforme                | Défini  |
-| 0683  | Langue par défaut pour le Québec                  | Défini  |
-| 0684  | Changement de langue côté client                  | Défini  |
-| 0685  | Changement de langue côté dépanneur               | Défini  |
-| 0686  | Changement de langue côté livreur                 | Défini  |
-| 0687  | Changement de langue côté téléphone vocal         | Défini  |
-| 0688  | Changement de langue par tenant client            | Défini  |
-| 0689  | Langue préférée par compte                        | Défini  |
-| 0690  | Langue préférée par navigateur                    | Défini  |
-| 0691  | Langue préférée par téléphone                     | Défini  |
-| 0692  | Convention de clés de traduction                  | Défini  |
-| 0693  | Convention des textes traduisibles                | Défini  |
-| 0694  | Convention des catégories traduisibles            | Défini  |
+| DEP  | Titre                                       | Statut |
+| ---- | ------------------------------------------- | ------ |
+| 0675 | Page super admin suspension de tenant       | Défini |
+| 0676 | Script d'initialisation d'un nouveau tenant | Défini |
+| 0677 | Script de clonage d'un tenant modèle        | Défini |
+| 0678 | Test séparation complète entre deux tenants | Défini |
+| 0679 | Test aucune commande ne fuit entre tenants  | Défini |
+| 0680 | Gel architecture multi-tenant V1            | Défini |
+| 0681 | Langues supportées au lancement             | Défini |
+| 0682 | Langue par défaut de la plateforme          | Défini |
+| 0683 | Langue par défaut pour le Québec            | Défini |
+| 0684 | Changement de langue côté client            | Défini |
+| 0685 | Changement de langue côté dépanneur         | Défini |
+| 0686 | Changement de langue côté livreur           | Défini |
+| 0687 | Changement de langue côté téléphone vocal   | Défini |
+| 0688 | Changement de langue par tenant client      | Défini |
+| 0689 | Langue préférée par compte                  | Défini |
+| 0690 | Langue préférée par navigateur              | Défini |
+| 0691 | Langue préférée par téléphone               | Défini |
+| 0692 | Convention de clés de traduction            | Défini |
+| 0693 | Convention des textes traduisibles          | Défini |
+| 0694 | Convention des catégories traduisibles      | Défini |

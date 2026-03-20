@@ -19,8 +19,8 @@ n'est codée en dur dans le code source.
 
 ## Niveaux d'environnement
 
-| Environnement | Source des variables              |
-|---------------|-----------------------------------|
+| Environnement | Source des variables               |
+| ------------- | ---------------------------------- |
 | Local         | Fichier `.env.local` (non commité) |
 | CI            | Secrets GitHub Actions             |
 | Staging       | Variables de la plateforme cloud   |

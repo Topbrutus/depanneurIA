@@ -30,17 +30,17 @@ catalogue.
 
 ### Règles de validation
 
-| Champ           | Type     | Obligatoire | Règle                                                        |
-|-----------------|----------|-------------|--------------------------------------------------------------|
-| `label`         | string   | ✅ Oui      | 2–60 caractères, pas de caractères spéciaux hors tirets      |
-| `slug`          | string   | ✅ Oui      | Généré automatiquement depuis `label`, kebab-case, unique par tenant |
-| `description`   | string   | ❌ Non      | 0–200 caractères                                             |
-| `parent_id`     | uuid     | ❌ Non      | Doit référencer une catégorie existante du même tenant       |
-| `depth`         | integer  | ✅ Oui      | Calculé automatiquement, maximum 3 niveaux                   |
-| `path`          | string   | ✅ Oui      | Calculé automatiquement depuis la hiérarchie parent          |
-| `display_order` | integer  | ✅ Oui      | ≥ 0, unique au sein du même parent et du même tenant         |
-| `is_active`     | boolean  | ✅ Oui      | Par défaut `true` à la création                              |
-| `icon`          | string   | ❌ Non      | Emoji ou référence icône valide, 1 seul caractère ou slug    |
+| Champ           | Type    | Obligatoire | Règle                                                                |
+| --------------- | ------- | ----------- | -------------------------------------------------------------------- |
+| `label`         | string  | ✅ Oui      | 2–60 caractères, pas de caractères spéciaux hors tirets              |
+| `slug`          | string  | ✅ Oui      | Généré automatiquement depuis `label`, kebab-case, unique par tenant |
+| `description`   | string  | ❌ Non      | 0–200 caractères                                                     |
+| `parent_id`     | uuid    | ❌ Non      | Doit référencer une catégorie existante du même tenant               |
+| `depth`         | integer | ✅ Oui      | Calculé automatiquement, maximum 3 niveaux                           |
+| `path`          | string  | ✅ Oui      | Calculé automatiquement depuis la hiérarchie parent                  |
+| `display_order` | integer | ✅ Oui      | ≥ 0, unique au sein du même parent et du même tenant                 |
+| `is_active`     | boolean | ✅ Oui      | Par défaut `true` à la création                                      |
+| `icon`          | string  | ❌ Non      | Emoji ou référence icône valide, 1 seul caractère ou slug            |
 
 ### Règles
 
@@ -63,13 +63,13 @@ sera visible par le client final, avant de publier les modifications.
 
 ### Fonctionnement
 
-| Étape | Action                          | Résultat attendu                                             |
-|-------|---------------------------------|--------------------------------------------------------------|
-| 1     | Cliquer sur « Aperçu »         | Ouverture d'un panneau ou d'une modale pleine largeur        |
-| 2     | Navigation dans l'aperçu       | Catégories, produits, prix et images affichés tels que vus par le client |
-| 3     | Vérification                    | L'administrateur identifie les anomalies visuelles           |
-| 4     | Fermer l'aperçu                 | Retour à l'interface d'administration sans modification      |
-| 5     | Publier                         | Les modifications sont appliquées et visibles côté client    |
+| Étape | Action                   | Résultat attendu                                                         |
+| ----- | ------------------------ | ------------------------------------------------------------------------ |
+| 1     | Cliquer sur « Aperçu »   | Ouverture d'un panneau ou d'une modale pleine largeur                    |
+| 2     | Navigation dans l'aperçu | Catégories, produits, prix et images affichés tels que vus par le client |
+| 3     | Vérification             | L'administrateur identifie les anomalies visuelles                       |
+| 4     | Fermer l'aperçu          | Retour à l'interface d'administration sans modification                  |
+| 5     | Publier                  | Les modifications sont appliquées et visibles côté client                |
 
 ### Règles
 
@@ -92,19 +92,19 @@ via l'interface d'administration du catalogue.
 
 ### Scénario
 
-| Étape | Action                                           | Résultat attendu                                             |
-|-------|--------------------------------------------------|--------------------------------------------------------------|
-| 1     | Ouvrir l'écran d'ajout de produit                | Formulaire vide avec tous les champs requis visibles         |
-| 2     | Renseigner le nom court (25–40 caractères)       | Champ accepté, compteur de caractères affiché                |
-| 3     | Sélectionner une catégorie                       | Liste des catégories actives du tenant affichée              |
-| 4     | Renseigner le SKU                                | Format validé (alphanumérique, tirets autorisés)             |
-| 5     | Renseigner le prix par défaut (DEP-0255)         | Montant décimal positif accepté                              |
-| 6     | Ajouter au moins une image (DEP-0258)            | Upload réussi, vignette affichée                             |
-| 7     | Renseigner la description courte (50–80 car.)    | Champ accepté                                                |
-| 8     | Renseigner la description longue (150–300 car.)  | Champ accepté                                                |
-| 9     | Ajouter des mots-clés (5–15)                     | Tags ajoutés un par un, affichés sous forme de badges        |
-| 10    | Enregistrer                                      | Produit créé avec statut `brouillon`, message de succès      |
-| 11    | Vérifier dans la liste des produits              | Le nouveau produit apparaît avec ses données correctes       |
+| Étape | Action                                          | Résultat attendu                                        |
+| ----- | ----------------------------------------------- | ------------------------------------------------------- |
+| 1     | Ouvrir l'écran d'ajout de produit               | Formulaire vide avec tous les champs requis visibles    |
+| 2     | Renseigner le nom court (25–40 caractères)      | Champ accepté, compteur de caractères affiché           |
+| 3     | Sélectionner une catégorie                      | Liste des catégories actives du tenant affichée         |
+| 4     | Renseigner le SKU                               | Format validé (alphanumérique, tirets autorisés)        |
+| 5     | Renseigner le prix par défaut (DEP-0255)        | Montant décimal positif accepté                         |
+| 6     | Ajouter au moins une image (DEP-0258)           | Upload réussi, vignette affichée                        |
+| 7     | Renseigner la description courte (50–80 car.)   | Champ accepté                                           |
+| 8     | Renseigner la description longue (150–300 car.) | Champ accepté                                           |
+| 9     | Ajouter des mots-clés (5–15)                    | Tags ajoutés un par un, affichés sous forme de badges   |
+| 10    | Enregistrer                                     | Produit créé avec statut `brouillon`, message de succès |
+| 11    | Vérifier dans la liste des produits             | Le nouveau produit apparaît avec ses données correctes  |
 
 ### Critères de réussite
 
@@ -125,17 +125,17 @@ existant via l'interface d'administration du catalogue.
 
 ### Scénario
 
-| Étape | Action                                           | Résultat attendu                                             |
-|-------|--------------------------------------------------|--------------------------------------------------------------|
-| 1     | Sélectionner un produit existant                 | Formulaire pré-rempli avec les données actuelles             |
-| 2     | Modifier le nom court                            | Ancien nom remplacé, `slug` recalculé automatiquement        |
-| 3     | Changer la catégorie                             | Nouvelle catégorie assignée, ancienne catégorie libérée      |
-| 4     | Modifier le prix                                 | Nouveau montant accepté, ancien prix conservé en historique  |
-| 5     | Remplacer une image                              | Nouvelle image uploadée, ancienne supprimée                  |
-| 6     | Modifier les mots-clés                           | Tags ajoutés ou retirés                                      |
-| 7     | Enregistrer                                      | Produit mis à jour, message de succès                        |
-| 8     | Vérifier dans la liste des produits              | Les modifications sont reflétées                             |
-| 9     | Vérifier dans l'aperçu (DEP-0636)               | Le produit modifié apparaît avec les nouvelles données       |
+| Étape | Action                              | Résultat attendu                                            |
+| ----- | ----------------------------------- | ----------------------------------------------------------- |
+| 1     | Sélectionner un produit existant    | Formulaire pré-rempli avec les données actuelles            |
+| 2     | Modifier le nom court               | Ancien nom remplacé, `slug` recalculé automatiquement       |
+| 3     | Changer la catégorie                | Nouvelle catégorie assignée, ancienne catégorie libérée     |
+| 4     | Modifier le prix                    | Nouveau montant accepté, ancien prix conservé en historique |
+| 5     | Remplacer une image                 | Nouvelle image uploadée, ancienne supprimée                 |
+| 6     | Modifier les mots-clés              | Tags ajoutés ou retirés                                     |
+| 7     | Enregistrer                         | Produit mis à jour, message de succès                       |
+| 8     | Vérifier dans la liste des produits | Les modifications sont reflétées                            |
+| 9     | Vérifier dans l'aperçu (DEP-0636)   | Le produit modifié apparaît avec les nouvelles données      |
 
 ### Critères de réussite
 
@@ -156,21 +156,21 @@ d'administration.
 
 ### Scénario — Catégories
 
-| Étape | Action                                           | Résultat attendu                                             |
-|-------|--------------------------------------------------|--------------------------------------------------------------|
-| 1     | Ouvrir la liste des catégories                   | Catégories affichées dans l'ordre actuel (`display_order`)   |
-| 2     | Glisser une catégorie vers une autre position    | Indicateur visuel de la position cible                       |
-| 3     | Déposer la catégorie                             | `display_order` recalculé pour toutes les catégories du même niveau |
-| 4     | Vérifier l'aperçu (DEP-0636)                    | Nouvel ordre reflété côté client                             |
+| Étape | Action                                        | Résultat attendu                                                    |
+| ----- | --------------------------------------------- | ------------------------------------------------------------------- |
+| 1     | Ouvrir la liste des catégories                | Catégories affichées dans l'ordre actuel (`display_order`)          |
+| 2     | Glisser une catégorie vers une autre position | Indicateur visuel de la position cible                              |
+| 3     | Déposer la catégorie                          | `display_order` recalculé pour toutes les catégories du même niveau |
+| 4     | Vérifier l'aperçu (DEP-0636)                  | Nouvel ordre reflété côté client                                    |
 
 ### Scénario — Produits
 
-| Étape | Action                                           | Résultat attendu                                             |
-|-------|--------------------------------------------------|--------------------------------------------------------------|
-| 1     | Ouvrir la liste des produits d'une catégorie     | Produits affichés dans l'ordre actuel (`sort_weight`)        |
-| 2     | Glisser un produit vers une autre position       | Indicateur visuel de la position cible                       |
-| 3     | Déposer le produit                               | `sort_weight` recalculé pour tous les produits de la catégorie |
-| 4     | Vérifier l'aperçu (DEP-0636)                    | Nouvel ordre reflété côté client                             |
+| Étape | Action                                       | Résultat attendu                                               |
+| ----- | -------------------------------------------- | -------------------------------------------------------------- |
+| 1     | Ouvrir la liste des produits d'une catégorie | Produits affichés dans l'ordre actuel (`sort_weight`)          |
+| 2     | Glisser un produit vers une autre position   | Indicateur visuel de la position cible                         |
+| 3     | Déposer le produit                           | `sort_weight` recalculé pour tous les produits de la catégorie |
+| 4     | Vérifier l'aperçu (DEP-0636)                 | Nouvel ordre reflété côté client                               |
 
 ### Règles
 
@@ -192,20 +192,20 @@ version 1 de depaneurIA.
 
 ### Périmètre gelé V1
 
-| Fonctionnalité                         | Incluse V1 | Référence       |
-|----------------------------------------|------------|-----------------|
-| CRUD catégories                        | ✅ Oui     | DEP-0241        |
-| Validation champs catégorie            | ✅ Oui     | DEP-0635        |
-| CRUD produits + variantes              | ✅ Oui     | DEP-0242–0244   |
-| Gestion des images produit             | ✅ Oui     | DEP-0258–0260   |
-| Gestion des prix par tenant            | ✅ Oui     | DEP-0255        |
-| Aperçu avant publication               | ✅ Oui     | DEP-0636        |
-| Glisser-déposer pour l'ordre           | ✅ Oui     | DEP-0639        |
-| Mots-clés et synonymes                 | ✅ Oui     | DEP-0265–0267   |
-| Import CSV en masse                    | ❌ Non     | Reporté V2      |
-| Gestion de promotions                  | ❌ Non     | Reporté V2      |
-| Historique des modifications           | ❌ Non     | Reporté V2      |
-| Duplication de produit                 | ❌ Non     | Reporté V2      |
+| Fonctionnalité               | Incluse V1 | Référence     |
+| ---------------------------- | ---------- | ------------- |
+| CRUD catégories              | ✅ Oui     | DEP-0241      |
+| Validation champs catégorie  | ✅ Oui     | DEP-0635      |
+| CRUD produits + variantes    | ✅ Oui     | DEP-0242–0244 |
+| Gestion des images produit   | ✅ Oui     | DEP-0258–0260 |
+| Gestion des prix par tenant  | ✅ Oui     | DEP-0255      |
+| Aperçu avant publication     | ✅ Oui     | DEP-0636      |
+| Glisser-déposer pour l'ordre | ✅ Oui     | DEP-0639      |
+| Mots-clés et synonymes       | ✅ Oui     | DEP-0265–0267 |
+| Import CSV en masse          | ❌ Non     | Reporté V2    |
+| Gestion de promotions        | ❌ Non     | Reporté V2    |
+| Historique des modifications | ❌ Non     | Reporté V2    |
+| Duplication de produit       | ❌ Non     | Reporté V2    |
 
 ### Règles
 
@@ -231,14 +231,14 @@ propres clients. Chaque tenant est identifié par un `tenant_id` unique (uuid).
 
 ### Principes fondamentaux
 
-| Principe                        | Description                                                                 |
-|---------------------------------|-----------------------------------------------------------------------------|
-| Isolation des données           | Un tenant ne peut jamais accéder aux données d'un autre tenant              |
-| Identification systématique     | Toute entité liée à un tenant porte un champ `tenant_id`                   |
-| Résolution automatique          | Le tenant est résolu automatiquement depuis le contexte (URL, token, numéro de téléphone) |
-| Base de données partagée        | Tous les tenants partagent la même base de données physique (schéma partagé, données isolées par `tenant_id`) |
-| Filtrage par défaut             | Toute requête est **toujours** filtrée par `tenant_id` — aucune requête globale non autorisée |
-| Super administrateur            | Seul le rôle super administrateur peut consulter les données de plusieurs tenants |
+| Principe                    | Description                                                                                                   |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Isolation des données       | Un tenant ne peut jamais accéder aux données d'un autre tenant                                                |
+| Identification systématique | Toute entité liée à un tenant porte un champ `tenant_id`                                                      |
+| Résolution automatique      | Le tenant est résolu automatiquement depuis le contexte (URL, token, numéro de téléphone)                     |
+| Base de données partagée    | Tous les tenants partagent la même base de données physique (schéma partagé, données isolées par `tenant_id`) |
+| Filtrage par défaut         | Toute requête est **toujours** filtrée par `tenant_id` — aucune requête globale non autorisée                 |
+| Super administrateur        | Seul le rôle super administrateur peut consulter les données de plusieurs tenants                             |
 
 ### Règles
 
@@ -260,23 +260,23 @@ inclut un champ `tenant_id` permettant l'isolation des données par tenant.
 
 ### Tables concernées
 
-| Table                    | Champ ajouté   | Type   | Contrainte                       | Référence       |
-|--------------------------|----------------|--------|----------------------------------|-----------------|
-| `categories`             | `tenant_id`    | uuid   | NOT NULL, FK → tenants           | DEP-0253        |
-| `products`               | `tenant_id`    | uuid   | NOT NULL, FK → tenants           | DEP-0252        |
-| `product_variants`       | `tenant_id`    | uuid   | NOT NULL, FK → tenants           | DEP-0244        |
-| `product_images`         | `tenant_id`    | uuid   | NOT NULL, FK → tenants           | DEP-0258        |
-| `orders`                 | `tenant_id`    | uuid   | NOT NULL, FK → tenants           | DEP-0648        |
-| `order_items`            | `tenant_id`    | uuid   | NOT NULL, FK → tenants           | DEP-0648        |
-| `delivery_addresses`     | `tenant_id`    | uuid   | NOT NULL, FK → tenants           | DEP-0647        |
-| `delivery_zones`         | `tenant_id`    | uuid   | NOT NULL, FK → tenants           | DEP-0254        |
-| `customers`              | `tenant_id`    | uuid   | NOT NULL, FK → tenants           | DEP-0281        |
-| `carts`                  | `tenant_id`    | uuid   | NOT NULL, FK → tenants           | DEP-0334        |
-| `notifications`          | `tenant_id`    | uuid   | NOT NULL, FK → tenants           | DEP-0645        |
-| `phone_connections`      | `tenant_id`    | uuid   | NOT NULL, FK → tenants           | DEP-0646        |
-| `statistics`             | `tenant_id`    | uuid   | NOT NULL, FK → tenants           | DEP-0649        |
-| `media`                  | `tenant_id`    | uuid   | NOT NULL, FK → tenants           | DEP-0650        |
-| `prices`                 | `tenant_id`    | uuid   | NOT NULL, FK → tenants           | DEP-0255        |
+| Table                | Champ ajouté | Type | Contrainte             | Référence |
+| -------------------- | ------------ | ---- | ---------------------- | --------- |
+| `categories`         | `tenant_id`  | uuid | NOT NULL, FK → tenants | DEP-0253  |
+| `products`           | `tenant_id`  | uuid | NOT NULL, FK → tenants | DEP-0252  |
+| `product_variants`   | `tenant_id`  | uuid | NOT NULL, FK → tenants | DEP-0244  |
+| `product_images`     | `tenant_id`  | uuid | NOT NULL, FK → tenants | DEP-0258  |
+| `orders`             | `tenant_id`  | uuid | NOT NULL, FK → tenants | DEP-0648  |
+| `order_items`        | `tenant_id`  | uuid | NOT NULL, FK → tenants | DEP-0648  |
+| `delivery_addresses` | `tenant_id`  | uuid | NOT NULL, FK → tenants | DEP-0647  |
+| `delivery_zones`     | `tenant_id`  | uuid | NOT NULL, FK → tenants | DEP-0254  |
+| `customers`          | `tenant_id`  | uuid | NOT NULL, FK → tenants | DEP-0281  |
+| `carts`              | `tenant_id`  | uuid | NOT NULL, FK → tenants | DEP-0334  |
+| `notifications`      | `tenant_id`  | uuid | NOT NULL, FK → tenants | DEP-0645  |
+| `phone_connections`  | `tenant_id`  | uuid | NOT NULL, FK → tenants | DEP-0646  |
+| `statistics`         | `tenant_id`  | uuid | NOT NULL, FK → tenants | DEP-0649  |
+| `media`              | `tenant_id`  | uuid | NOT NULL, FK → tenants | DEP-0650  |
+| `prices`             | `tenant_id`  | uuid | NOT NULL, FK → tenants | DEP-0255  |
 
 ### Règles
 
@@ -298,11 +298,11 @@ tout accès inter-tenant non autorisé.
 
 ### Résolution du tenant
 
-| Méthode de résolution      | Contexte                        | Exemple                                       |
-|----------------------------|---------------------------------|-----------------------------------------------|
-| URL (sous-domaine)         | Interface web                   | `mon-depanneur.depaneuria.com/api/…`          |
-| Token JWT                  | Authentification API             | Champ `tenant_id` dans le payload du token    |
-| Numéro de téléphone        | Appel téléphonique (DEP-0473)   | Table `tenant_phone_numbers` → `tenant_id`    |
+| Méthode de résolution | Contexte                      | Exemple                                    |
+| --------------------- | ----------------------------- | ------------------------------------------ |
+| URL (sous-domaine)    | Interface web                 | `mon-depanneur.depaneuria.com/api/…`       |
+| Token JWT             | Authentification API          | Champ `tenant_id` dans le payload du token |
+| Numéro de téléphone   | Appel téléphonique (DEP-0473) | Table `tenant_phone_numbers` → `tenant_id` |
 
 ### Convention de routage
 
@@ -331,8 +331,8 @@ administrateur) affiche uniquement les données du tenant actif.
 
 ### Règles par rôle
 
-| Rôle                 | Contexte tenant                                  | Données affichées                       |
-|----------------------|--------------------------------------------------|-----------------------------------------|
+| Rôle                 | Contexte tenant                                  | Données affichées                        |
+| -------------------- | ------------------------------------------------ | ---------------------------------------- |
 | Client               | Résolu par URL ou numéro de téléphone            | Catalogue, commandes et profil du tenant |
 | Dépanneur            | Résolu par authentification                      | Commandes et catalogue du tenant         |
 | Livreur              | Résolu par authentification                      | Livraisons assignées au tenant           |
@@ -368,14 +368,14 @@ contexte du bon tenant et ne contient que des données appartenant à ce tenant.
 
 ### Types de notifications concernées
 
-| Type              | Canal           | Données tenant incluses                                    |
-|-------------------|-----------------|------------------------------------------------------------|
-| Nouvelle commande | Push            | `tenant_name`, numéro de commande, montant                 |
-| Commande prête    | Push + SMS      | `tenant_name`, numéro de commande, adresse de retrait      |
-| Livreur en route  | Push            | `tenant_name`, ETA estimé                                  |
-| Commande livrée   | Push + SMS      | `tenant_name`, numéro de commande, montant final           |
-| Panier abandonné  | Push            | `tenant_name`, rappel (DEP-0580)                           |
-| Alerte stock      | Push (admin)    | `tenant_name`, produit, seuil atteint (DEP-0584)           |
+| Type              | Canal        | Données tenant incluses                               |
+| ----------------- | ------------ | ----------------------------------------------------- |
+| Nouvelle commande | Push         | `tenant_name`, numéro de commande, montant            |
+| Commande prête    | Push + SMS   | `tenant_name`, numéro de commande, adresse de retrait |
+| Livreur en route  | Push         | `tenant_name`, ETA estimé                             |
+| Commande livrée   | Push + SMS   | `tenant_name`, numéro de commande, montant final      |
+| Panier abandonné  | Push         | `tenant_name`, rappel (DEP-0580)                      |
+| Alerte stock      | Push (admin) | `tenant_name`, produit, seuil atteint (DEP-0584)      |
 
 ### Règles
 
@@ -397,11 +397,11 @@ associée au bon tenant via la résolution du numéro virtuel (DEP-0473).
 
 ### Résolution
 
-| Élément                  | Source                        | Résultat                                  |
-|--------------------------|-------------------------------|-------------------------------------------|
-| Numéro virtuel appelé    | Table `tenant_phone_numbers`  | `tenant_id` du dépanneur associé          |
-| Configuration agent vocal| Table `tenant_voice_config`   | Salutation, catalogue, horaires du tenant |
-| Numéro client appelant   | Table `customers`             | Profil client du tenant (si connu)        |
+| Élément                   | Source                       | Résultat                                  |
+| ------------------------- | ---------------------------- | ----------------------------------------- |
+| Numéro virtuel appelé     | Table `tenant_phone_numbers` | `tenant_id` du dépanneur associé          |
+| Configuration agent vocal | Table `tenant_voice_config`  | Salutation, catalogue, horaires du tenant |
+| Numéro client appelant    | Table `customers`            | Profil client du tenant (si connu)        |
 
 ### Règles
 
@@ -409,7 +409,7 @@ associée au bon tenant via la résolution du numéro virtuel (DEP-0473).
 - L'agent vocal (DEP-0441–DEP-0456) utilise le catalogue et les horaires du
   tenant résolu pour toutes ses réponses.
 - Les phrases de salutation incluent le `tenant_name` (ex. : « Bienvenue chez
-  *Mon Dépanneur* »).
+  _Mon Dépanneur_ »).
 - Les enregistrements d'appels sont stockés avec le `tenant_id` et ne sont
   accessibles qu'au tenant propriétaire et au super administrateur.
 - Un appel vers un numéro non attribué à un tenant retourne le message d'erreur
@@ -426,18 +426,18 @@ zone de livraison est validée par rapport aux zones du tenant (DEP-0254).
 
 ### Structure
 
-| Champ            | Type     | Description                                          |
-|------------------|----------|------------------------------------------------------|
-| `id`             | uuid     | Identifiant unique                                   |
-| `tenant_id`      | uuid     | FK → tenants, NOT NULL                               |
-| `customer_id`    | uuid     | FK → customers                                       |
-| `label`          | string   | Libellé (ex. : « Maison », « Bureau »)               |
-| `street`         | string   | Adresse complète                                     |
-| `city`           | string   | Ville                                                |
-| `postal_code`    | string   | Code postal                                          |
-| `coordinates`    | point    | Latitude / longitude                                 |
-| `notes`          | string   | Notes de livraison (DEP-0291)                        |
-| `is_default`     | boolean  | Adresse par défaut du client pour ce tenant          |
+| Champ         | Type    | Description                                 |
+| ------------- | ------- | ------------------------------------------- |
+| `id`          | uuid    | Identifiant unique                          |
+| `tenant_id`   | uuid    | FK → tenants, NOT NULL                      |
+| `customer_id` | uuid    | FK → customers                              |
+| `label`       | string  | Libellé (ex. : « Maison », « Bureau »)      |
+| `street`      | string  | Adresse complète                            |
+| `city`        | string  | Ville                                       |
+| `postal_code` | string  | Code postal                                 |
+| `coordinates` | point   | Latitude / longitude                        |
+| `notes`       | string  | Notes de livraison (DEP-0291)               |
+| `is_default`  | boolean | Adresse par défaut du client pour ce tenant |
 
 ### Règles
 
@@ -462,10 +462,10 @@ elles ont été passées.
 
 ### Champs tenant dans les commandes
 
-| Table          | Champ        | Contrainte                                                  |
-|----------------|--------------|-------------------------------------------------------------|
-| `orders`       | `tenant_id`  | NOT NULL, FK → tenants, index composé (tenant_id, status)   |
-| `order_items`  | `tenant_id`  | NOT NULL, FK → tenants, cohérent avec `orders.tenant_id`    |
+| Table         | Champ       | Contrainte                                                |
+| ------------- | ----------- | --------------------------------------------------------- |
+| `orders`      | `tenant_id` | NOT NULL, FK → tenants, index composé (tenant_id, status) |
+| `order_items` | `tenant_id` | NOT NULL, FK → tenants, cohérent avec `orders.tenant_id`  |
 
 ### Règles
 
@@ -490,16 +490,16 @@ le contexte d'un tenant unique, sauf pour le super administrateur.
 
 ### Statistiques par tenant
 
-| Statistique                     | Calculée par tenant | Agrégeable (super admin) | Référence       |
-|---------------------------------|---------------------|--------------------------|-----------------|
-| Nombre de commandes             | ✅ Oui              | ✅ Oui                   | DEP-0581        |
-| Chiffre d'affaires              | ✅ Oui              | ✅ Oui                   | DEP-0590        |
-| Panier moyen                    | ✅ Oui              | ✅ Oui                   | DEP-0590        |
-| Popularité produits             | ✅ Oui              | ❌ Non                   | DEP-0575        |
-| Taux de livraison réussie       | ✅ Oui              | ✅ Oui                   | DEP-0589        |
-| Paniers abandonnés              | ✅ Oui              | ✅ Oui                   | DEP-0578        |
-| Délai moyen de préparation      | ✅ Oui              | ✅ Oui                   | DEP-0587        |
-| Délai moyen de livraison        | ✅ Oui              | ✅ Oui                   | DEP-0588–0589   |
+| Statistique                | Calculée par tenant | Agrégeable (super admin) | Référence     |
+| -------------------------- | ------------------- | ------------------------ | ------------- |
+| Nombre de commandes        | ✅ Oui              | ✅ Oui                   | DEP-0581      |
+| Chiffre d'affaires         | ✅ Oui              | ✅ Oui                   | DEP-0590      |
+| Panier moyen               | ✅ Oui              | ✅ Oui                   | DEP-0590      |
+| Popularité produits        | ✅ Oui              | ❌ Non                   | DEP-0575      |
+| Taux de livraison réussie  | ✅ Oui              | ✅ Oui                   | DEP-0589      |
+| Paniers abandonnés         | ✅ Oui              | ✅ Oui                   | DEP-0578      |
+| Délai moyen de préparation | ✅ Oui              | ✅ Oui                   | DEP-0587      |
+| Délai moyen de livraison   | ✅ Oui              | ✅ Oui                   | DEP-0588–0589 |
 
 ### Règles
 
@@ -554,19 +554,19 @@ et ne doivent jamais être partagées ou accessibles entre tenants.
 
 ### Entités à isolation totale
 
-| Entité                  | Justification                                                    |
-|-------------------------|------------------------------------------------------------------|
-| Commandes               | Confidentialité commerciale et financière                        |
-| Lignes de commande      | Liées aux commandes, même niveau d'isolation                     |
-| Clients                 | Données personnelles, RGPD                                       |
-| Adresses de livraison   | Données personnelles, RGPD                                       |
-| Paniers                 | Données personnelles en cours de transaction                     |
-| Paiements               | Données financières sensibles                                    |
-| Enregistrements d'appels| Données vocales personnelles                                     |
-| Statistiques            | Données commerciales confidentielles                             |
-| Notifications envoyées  | Contiennent des données personnelles et commerciales             |
-| Historique d'état       | Traçabilité interne au tenant (DEP-0585)                         |
-| Préférences client      | Données personnelles, liées au profil client                     |
+| Entité                   | Justification                                        |
+| ------------------------ | ---------------------------------------------------- |
+| Commandes                | Confidentialité commerciale et financière            |
+| Lignes de commande       | Liées aux commandes, même niveau d'isolation         |
+| Clients                  | Données personnelles, RGPD                           |
+| Adresses de livraison    | Données personnelles, RGPD                           |
+| Paniers                  | Données personnelles en cours de transaction         |
+| Paiements                | Données financières sensibles                        |
+| Enregistrements d'appels | Données vocales personnelles                         |
+| Statistiques             | Données commerciales confidentielles                 |
+| Notifications envoyées   | Contiennent des données personnelles et commerciales |
+| Historique d'état        | Traçabilité interne au tenant (DEP-0585)             |
+| Préférences client       | Données personnelles, liées au profil client         |
 
 ### Règles
 
@@ -588,15 +588,15 @@ car elles ne contiennent pas d'information spécifique à un tenant.
 
 ### Entités mutualisables
 
-| Entité                       | Justification                                               |
-|------------------------------|-------------------------------------------------------------|
-| Catalogue canonique produits | Référentiel commun de produits automobiles (DEP-0241–0242)  |
-| Unités de mesure             | Standardisées (DEP-0256)                                    |
-| Devises                      | Référentiel ISO                                             |
-| Types de paiement            | Standardisés (espèces, carte, etc.)                         |
-| Icônes et emojis catégorie   | Partagés entre tous les tenants                             |
-| Formats d'image              | Standardisés (DEP-0258–0260)                                |
-| Templates de notification    | Templates par défaut depaneurIA (personnalisables par tenant)|
+| Entité                       | Justification                                                 |
+| ---------------------------- | ------------------------------------------------------------- |
+| Catalogue canonique produits | Référentiel commun de produits automobiles (DEP-0241–0242)    |
+| Unités de mesure             | Standardisées (DEP-0256)                                      |
+| Devises                      | Référentiel ISO                                               |
+| Types de paiement            | Standardisés (espèces, carte, etc.)                           |
+| Icônes et emojis catégorie   | Partagés entre tous les tenants                               |
+| Formats d'image              | Standardisés (DEP-0258–0260)                                  |
+| Templates de notification    | Templates par défaut depaneurIA (personnalisables par tenant) |
 
 ### Règles
 
@@ -619,23 +619,23 @@ vers un autre pour accélérer la mise en place d'un nouveau dépanneur.
 
 ### Modèles clonables
 
-| Modèle                          | Données clonées                                             | Données non clonées              |
-|---------------------------------|-------------------------------------------------------------|----------------------------------|
-| Structure de catégories         | Hiérarchie, slugs, labels, icônes, `display_order`         | `tenant_id` (remplacé)           |
-| Catalogue produits              | Noms, descriptions, SKU, images, mots-clés, synonymes      | Prix, stock, visibilité          |
-| Zones de livraison              | Nom, géométrie, horaires                                    | Frais de livraison, minimum      |
-| Templates de notification       | Contenu, canal, déclencheur                                 | Personnalisations tenant         |
-| Configuration agent vocal       | Flux d'appel, phrases système (DEP-0441–0456)              | Numéro virtuel, salutation       |
+| Modèle                    | Données clonées                                       | Données non clonées         |
+| ------------------------- | ----------------------------------------------------- | --------------------------- |
+| Structure de catégories   | Hiérarchie, slugs, labels, icônes, `display_order`    | `tenant_id` (remplacé)      |
+| Catalogue produits        | Noms, descriptions, SKU, images, mots-clés, synonymes | Prix, stock, visibilité     |
+| Zones de livraison        | Nom, géométrie, horaires                              | Frais de livraison, minimum |
+| Templates de notification | Contenu, canal, déclencheur                           | Personnalisations tenant    |
+| Configuration agent vocal | Flux d'appel, phrases système (DEP-0441–0456)         | Numéro virtuel, salutation  |
 
 ### Processus de clonage
 
-| Étape | Action                                     | Résultat                                               |
-|-------|--------------------------------------------|--------------------------------------------------------|
-| 1     | Sélectionner le tenant source              | Liste des modèles clonables affichée                   |
-| 2     | Cocher les modèles à cloner               | Sélection multiple possible                            |
-| 3     | Sélectionner le tenant cible               | Vérification que le tenant cible existe                |
-| 4     | Lancer le clonage                          | Copie des données avec nouveau `tenant_id`             |
-| 5     | Vérification                               | Rapport de clonage affiché (succès / erreurs)          |
+| Étape | Action                        | Résultat                                      |
+| ----- | ----------------------------- | --------------------------------------------- |
+| 1     | Sélectionner le tenant source | Liste des modèles clonables affichée          |
+| 2     | Cocher les modèles à cloner   | Sélection multiple possible                   |
+| 3     | Sélectionner le tenant cible  | Vérification que le tenant cible existe       |
+| 4     | Lancer le clonage             | Copie des données avec nouveau `tenant_id`    |
+| 5     | Vérification                  | Rapport de clonage affiché (succès / erreurs) |
 
 ### Règles
 
@@ -658,20 +658,20 @@ tenants en raison de leur nature unique, personnelle ou confidentielle.
 
 ### Modèles non clonables
 
-| Modèle                          | Raison de non-clonabilité                                   |
-|---------------------------------|-------------------------------------------------------------|
-| Clients                         | Données personnelles (RGPD), liées au tenant d'inscription  |
-| Adresses de livraison           | Données personnelles, géographiquement spécifiques          |
-| Commandes                       | Données financières et commerciales uniques                  |
-| Lignes de commande              | Liées aux commandes, même restriction                        |
-| Paiements                       | Données financières sensibles                                |
-| Paniers                         | Données de transaction en cours, personnelles                |
-| Enregistrements d'appels        | Données vocales personnelles                                 |
-| Historique d'état               | Traçabilité unique au tenant (DEP-0585)                      |
-| Statistiques                    | Calculées à partir de données propres au tenant              |
-| Numéros virtuels téléphoniques  | Attribution unique par opérateur (Twilio)                     |
-| Préférences et consentements    | Données personnelles, RGPD                                   |
-| Tokens d'authentification       | Sécurité, liés à l'identité du tenant                        |
+| Modèle                         | Raison de non-clonabilité                                  |
+| ------------------------------ | ---------------------------------------------------------- |
+| Clients                        | Données personnelles (RGPD), liées au tenant d'inscription |
+| Adresses de livraison          | Données personnelles, géographiquement spécifiques         |
+| Commandes                      | Données financières et commerciales uniques                |
+| Lignes de commande             | Liées aux commandes, même restriction                      |
+| Paiements                      | Données financières sensibles                              |
+| Paniers                        | Données de transaction en cours, personnelles              |
+| Enregistrements d'appels       | Données vocales personnelles                               |
+| Historique d'état              | Traçabilité unique au tenant (DEP-0585)                    |
+| Statistiques                   | Calculées à partir de données propres au tenant            |
+| Numéros virtuels téléphoniques | Attribution unique par opérateur (Twilio)                  |
+| Préférences et consentements   | Données personnelles, RGPD                                 |
+| Tokens d'authentification      | Sécurité, liés à l'identité du tenant                      |
 
 ### Règles
 
@@ -688,25 +688,25 @@ tenants en raison de leur nature unique, personnelle ou confidentielle.
 
 ## Synthèse du bloc DEP-0635–DEP-0654
 
-| DEP      | Sujet                              | Décision clé                                                              |
-|----------|------------------------------------|---------------------------------------------------------------------------|
-| DEP-0635 | Validation champs catégorie        | 9 champs validés, slug unique par tenant, profondeur max 3                |
-| DEP-0636 | Aperçu avant publication           | Lecture seule, données du tenant actif, brouillons visibles avec badge    |
-| DEP-0637 | Test ajout produit                 | 11 étapes, tous champs obligatoires, statut brouillon à la création      |
-| DEP-0638 | Test édition produit               | 9 étapes, slug recalculé, historique prix conservé                        |
-| DEP-0639 | Test glisser-déposer               | Réordonnement par tenant, sauvegarde automatique, rollback en cas d'erreur|
-| DEP-0640 | Gel admin catalogue V1             | CRUD + validation + aperçu + tri inclus, import CSV et promos reportés V2 |
-| DEP-0641 | Architecture multi-tenant          | Schéma partagé, données isolées par `tenant_id`, résolution automatique   |
-| DEP-0642 | Tenant dans les tables             | 15 tables avec `tenant_id` NOT NULL, index composé, tables ref exclues   |
-| DEP-0643 | Tenant dans les routes API         | Préfixe `/api/v1/tenants/{tenant_id}/…`, middleware JWT, 403 si divergence|
-| DEP-0644 | Tenant dans les interfaces         | Affichage par rôle, nom et logo tenant, sélecteur super admin             |
-| DEP-0645 | Tenant dans les notifications      | Expéditeur = `tenant_name`, templates par tenant, traçabilité             |
-| DEP-0646 | Tenant dans la téléphonie          | Numéro virtuel → tenant, agent vocal contextualisé, salutation tenant     |
-| DEP-0647 | Tenant dans les adresses           | Adresse par tenant, validation zone, jamais partagée, soft delete         |
-| DEP-0648 | Tenant dans les commandes          | Commande immuable au tenant, numéro unique par tenant, prix snapshot      |
-| DEP-0649 | Tenant dans les statistiques       | Calcul par tenant, agrégation super admin sauf popularité                 |
-| DEP-0650 | Tenant dans les médias             | Stockage préfixé par tenant, URL avec alias slug, soft delete 90 j        |
-| DEP-0651 | Données totalement séparées        | 11 entités isolées, anonymisation RGPD, sauvegardes par tenant           |
-| DEP-0652 | Données mutualisables              | 7 entités partagées, sans `tenant_id`, surcharge possible par tenant      |
-| DEP-0653 | Modèles clonables                  | 5 modèles clonables, copies indépendantes, jamais de données personnelles |
-| DEP-0654 | Modèles non clonables              | 12 modèles bloqués, RGPD, 422 si tentative API, options masquées en UI   |
+| DEP      | Sujet                         | Décision clé                                                               |
+| -------- | ----------------------------- | -------------------------------------------------------------------------- |
+| DEP-0635 | Validation champs catégorie   | 9 champs validés, slug unique par tenant, profondeur max 3                 |
+| DEP-0636 | Aperçu avant publication      | Lecture seule, données du tenant actif, brouillons visibles avec badge     |
+| DEP-0637 | Test ajout produit            | 11 étapes, tous champs obligatoires, statut brouillon à la création        |
+| DEP-0638 | Test édition produit          | 9 étapes, slug recalculé, historique prix conservé                         |
+| DEP-0639 | Test glisser-déposer          | Réordonnement par tenant, sauvegarde automatique, rollback en cas d'erreur |
+| DEP-0640 | Gel admin catalogue V1        | CRUD + validation + aperçu + tri inclus, import CSV et promos reportés V2  |
+| DEP-0641 | Architecture multi-tenant     | Schéma partagé, données isolées par `tenant_id`, résolution automatique    |
+| DEP-0642 | Tenant dans les tables        | 15 tables avec `tenant_id` NOT NULL, index composé, tables ref exclues     |
+| DEP-0643 | Tenant dans les routes API    | Préfixe `/api/v1/tenants/{tenant_id}/…`, middleware JWT, 403 si divergence |
+| DEP-0644 | Tenant dans les interfaces    | Affichage par rôle, nom et logo tenant, sélecteur super admin              |
+| DEP-0645 | Tenant dans les notifications | Expéditeur = `tenant_name`, templates par tenant, traçabilité              |
+| DEP-0646 | Tenant dans la téléphonie     | Numéro virtuel → tenant, agent vocal contextualisé, salutation tenant      |
+| DEP-0647 | Tenant dans les adresses      | Adresse par tenant, validation zone, jamais partagée, soft delete          |
+| DEP-0648 | Tenant dans les commandes     | Commande immuable au tenant, numéro unique par tenant, prix snapshot       |
+| DEP-0649 | Tenant dans les statistiques  | Calcul par tenant, agrégation super admin sauf popularité                  |
+| DEP-0650 | Tenant dans les médias        | Stockage préfixé par tenant, URL avec alias slug, soft delete 90 j         |
+| DEP-0651 | Données totalement séparées   | 11 entités isolées, anonymisation RGPD, sauvegardes par tenant             |
+| DEP-0652 | Données mutualisables         | 7 entités partagées, sans `tenant_id`, surcharge possible par tenant       |
+| DEP-0653 | Modèles clonables             | 5 modèles clonables, copies indépendantes, jamais de données personnelles  |
+| DEP-0654 | Modèles non clonables         | 12 modèles bloqués, RGPD, 422 si tentative API, options masquées en UI     |

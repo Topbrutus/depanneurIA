@@ -1,0 +1,11 @@
+{
+  "name": "@depaneuria/auth",
+  "version": "0.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "scripts": {
+    "lint": "echo 'lint not implemented'",
+    "test": "echo 'test not implemented'",
+    "typecheck": "tsc --noEmit"
+  }
+}

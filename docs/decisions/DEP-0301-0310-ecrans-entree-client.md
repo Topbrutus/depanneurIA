@@ -365,23 +365,23 @@ Définir le contenu et l'affichage du message d'erreur affiché au client lorsqu
 
 ### Écrans de gestion de compte
 
-| DEP | Écran | Titre affiché |
-|-----|-------|---------------|
-| DEP-0301 | Inscription client | « Créer un compte » |
-| DEP-0302 | Connexion client | « Se connecter » |
-| DEP-0303 | Profil client | « Mon profil » |
-| DEP-0304 | Gestion d'adresses | « Mes adresses » |
-| DEP-0305 | Choix de mode | « Comment souhaitez-vous commander ? » |
-| DEP-0306 | Récupération d'accès | « Récupérer mon accès » |
+| DEP      | Écran                | Titre affiché                          |
+| -------- | -------------------- | -------------------------------------- |
+| DEP-0301 | Inscription client   | « Créer un compte »                    |
+| DEP-0302 | Connexion client     | « Se connecter »                       |
+| DEP-0303 | Profil client        | « Mon profil »                         |
+| DEP-0304 | Gestion d'adresses   | « Mes adresses »                       |
+| DEP-0305 | Choix de mode        | « Comment souhaitez-vous commander ? » |
+| DEP-0306 | Récupération d'accès | « Récupérer mon accès »                |
 
 ### Messages de bienvenue et d'erreur
 
-| DEP | Type | Texte principal |
-|-----|------|----------------|
-| DEP-0307 | Bienvenue mode manuel | « Bienvenue sur depaneurIA ! » |
-| DEP-0308 | Bienvenue mode assisté | « Bienvenue en mode assisté ! » |
-| DEP-0309 | Bienvenue mode téléphone | « Bienvenue en mode téléphone ! » |
-| DEP-0310 | Erreur adresse incomplète | « Adresse incomplète » |
+| DEP      | Type                      | Texte principal                   |
+| -------- | ------------------------- | --------------------------------- |
+| DEP-0307 | Bienvenue mode manuel     | « Bienvenue sur depaneurIA ! »    |
+| DEP-0308 | Bienvenue mode assisté    | « Bienvenue en mode assisté ! »   |
+| DEP-0309 | Bienvenue mode téléphone  | « Bienvenue en mode téléphone ! » |
+| DEP-0310 | Erreur adresse incomplète | « Adresse incomplète »            |
 
 ---
 

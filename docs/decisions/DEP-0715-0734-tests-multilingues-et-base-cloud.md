@@ -33,14 +33,14 @@ le contenu du panier soit perdu ou corrompu.
 
 ### Scénario de test
 
-| Étape | Action                                                       | Résultat attendu                          |
-|-------|--------------------------------------------------------------|-------------------------------------------|
-| 1     | Le client est connecté, langue active = `fr`                 | Interface en français                     |
-| 2     | Le client ajoute 3 produits au panier                        | Panier contient 3 articles                |
-| 3     | Le client change la langue vers `en` depuis les paramètres   | Interface passe en anglais                |
-| 4     | Le client consulte le panier                                 | Les 3 articles sont toujours présents     |
+| Étape | Action                                                         | Résultat attendu                                   |
+| ----- | -------------------------------------------------------------- | -------------------------------------------------- |
+| 1     | Le client est connecté, langue active = `fr`                   | Interface en français                              |
+| 2     | Le client ajoute 3 produits au panier                          | Panier contient 3 articles                         |
+| 3     | Le client change la langue vers `en` depuis les paramètres     | Interface passe en anglais                         |
+| 4     | Le client consulte le panier                                   | Les 3 articles sont toujours présents              |
 | 5     | Les noms des produits s'affichent dans la langue active (`en`) | Noms traduits si disponibles, sinon nom par défaut |
-| 6     | Le client change à nouveau vers `fr`                         | Panier intact, noms en français           |
+| 6     | Le client change à nouveau vers `fr`                           | Panier intact, noms en français                    |
 
 ### Règles de validation
 
@@ -67,15 +67,15 @@ est conservé lorsque le client change de langue.
 
 ### Scénario de test
 
-| Étape | Action                                                       | Résultat attendu                          |
-|-------|--------------------------------------------------------------|-------------------------------------------|
-| 1     | Le client est connecté, langue active = `fr`                 | Interface en français                     |
-| 2     | Le client engage une conversation avec l'assistant texte     | 5 messages échangés en français           |
-| 3     | Le client change la langue vers `en`                         | Interface passe en anglais                |
-| 4     | Le client rouvre la fenêtre de conversation                  | Les 5 messages précédents sont affichés   |
-| 5     | Les messages du client restent dans leur langue d'origine    | Messages clients en français              |
-| 6     | Le client envoie un nouveau message en anglais               | L'assistant répond en anglais             |
-| 7     | Le client revient en `fr`                                    | Tous les messages sont conservés          |
+| Étape | Action                                                    | Résultat attendu                        |
+| ----- | --------------------------------------------------------- | --------------------------------------- |
+| 1     | Le client est connecté, langue active = `fr`              | Interface en français                   |
+| 2     | Le client engage une conversation avec l'assistant texte  | 5 messages échangés en français         |
+| 3     | Le client change la langue vers `en`                      | Interface passe en anglais              |
+| 4     | Le client rouvre la fenêtre de conversation               | Les 5 messages précédents sont affichés |
+| 5     | Les messages du client restent dans leur langue d'origine | Messages clients en français            |
+| 6     | Le client envoie un nouveau message en anglais            | L'assistant répond en anglais           |
+| 7     | Le client revient en `fr`                                 | Tous les messages sont conservés        |
 
 ### Règles de validation
 
@@ -101,15 +101,15 @@ et cohérente lorsque le client change de langue.
 
 ### Scénario de test
 
-| Étape | Action                                                       | Résultat attendu                          |
-|-------|--------------------------------------------------------------|-------------------------------------------|
-| 1     | Le client passe une commande en français                     | Commande confirmée, statut `en_preparation`|
-| 2     | Le client change la langue vers `en`                         | Interface passe en anglais                |
-| 3     | Le client consulte l'écran de suivi de commande              | Commande affichée avec tous ses détails   |
-| 4     | Les noms de produits s'affichent dans la langue active (`en`) | Traductions affichées si disponibles      |
-| 5     | Les statuts de commande sont traduits (DEP-0693)             | `en_preparation` → "In Preparation"       |
-| 6     | Le client reçoit une notification de changement de statut    | Notification en anglais (langue active)   |
-| 7     | Le client revient en `fr`                                    | Commande toujours présente et cohérente   |
+| Étape | Action                                                        | Résultat attendu                            |
+| ----- | ------------------------------------------------------------- | ------------------------------------------- |
+| 1     | Le client passe une commande en français                      | Commande confirmée, statut `en_preparation` |
+| 2     | Le client change la langue vers `en`                          | Interface passe en anglais                  |
+| 3     | Le client consulte l'écran de suivi de commande               | Commande affichée avec tous ses détails     |
+| 4     | Les noms de produits s'affichent dans la langue active (`en`) | Traductions affichées si disponibles        |
+| 5     | Les statuts de commande sont traduits (DEP-0693)              | `en_preparation` → "In Preparation"         |
+| 6     | Le client reçoit une notification de changement de statut     | Notification en anglais (langue active)     |
+| 7     | Le client revient en `fr`                                     | Commande toujours présente et cohérente     |
 
 ### Règles de validation
 
@@ -136,23 +136,23 @@ supportées (`fr` et `en`).
 
 ### Scénario de test pour l'assistant texte
 
-| Langue | Requête client                  | Produit attendu reconnu      |
-|--------|---------------------------------|------------------------------|
-| `fr`   | « Je veux des freins »          | Produit catégorie Freins     |
-| `fr`   | « J'ai besoin de plaquettes »   | Synonyme → Freins            |
-| `en`   | « I need brake pads »           | Synonyme → Freins            |
-| `en`   | « Do you have brakes? »         | Produit catégorie Freins     |
-| `fr`   | « Huile moteur »                | Produit catégorie Huiles     |
-| `en`   | « Engine oil »                  | Produit catégorie Huiles     |
+| Langue | Requête client                | Produit attendu reconnu  |
+| ------ | ----------------------------- | ------------------------ |
+| `fr`   | « Je veux des freins »        | Produit catégorie Freins |
+| `fr`   | « J'ai besoin de plaquettes » | Synonyme → Freins        |
+| `en`   | « I need brake pads »         | Synonyme → Freins        |
+| `en`   | « Do you have brakes? »       | Produit catégorie Freins |
+| `fr`   | « Huile moteur »              | Produit catégorie Huiles |
+| `en`   | « Engine oil »                | Produit catégorie Huiles |
 
 ### Scénario de test pour l'agent vocal téléphonique
 
-| Langue | Énoncé client                     | Produit attendu reconnu      |
-|--------|-----------------------------------|------------------------------|
+| Langue | Énoncé client                     | Produit attendu reconnu         |
+| ------ | --------------------------------- | ------------------------------- |
 | `fr`   | « Je voudrais des essuie-glaces » | Produit catégorie Essuie-glaces |
-| `fr`   | « Des balais d'essuie-glace »     | Synonyme → Essuie-glaces     |
-| `en`   | « I need wiper blades »           | Synonyme → Essuie-glaces     |
-| `en`   | « Windshield wipers »             | Synonyme → Essuie-glaces     |
+| `fr`   | « Des balais d'essuie-glace »     | Synonyme → Essuie-glaces        |
+| `en`   | « I need wiper blades »           | Synonyme → Essuie-glaces        |
+| `en`   | « Windshield wipers »             | Synonyme → Essuie-glaces        |
 
 ### Règles de validation
 
@@ -179,22 +179,22 @@ compte client si celui-ci est connu.
 
 ### Scénario de test 1 : Client connu avec langue préférée
 
-| Étape | Action                                                       | Résultat attendu                          |
-|-------|--------------------------------------------------------------|-------------------------------------------|
-| 1     | Le client appelle depuis un numéro enregistré               | Système reconnaît le client               |
-| 2     | La langue préférée du compte est `en` (DEP-0689)             | Salutation en anglais                     |
-| 3     | Le client demande un produit en anglais                      | Agent vocal répond en anglais             |
-| 4     | Le client termine l'appel et se connecte sur le site         | Interface affichée en anglais             |
-| 5     | La commande téléphonique apparaît dans l'historique          | Détails affichés en anglais               |
+| Étape | Action                                               | Résultat attendu              |
+| ----- | ---------------------------------------------------- | ----------------------------- |
+| 1     | Le client appelle depuis un numéro enregistré        | Système reconnaît le client   |
+| 2     | La langue préférée du compte est `en` (DEP-0689)     | Salutation en anglais         |
+| 3     | Le client demande un produit en anglais              | Agent vocal répond en anglais |
+| 4     | Le client termine l'appel et se connecte sur le site | Interface affichée en anglais |
+| 5     | La commande téléphonique apparaît dans l'historique  | Détails affichés en anglais   |
 
 ### Scénario de test 2 : Client inconnu avec choix de langue initial
 
-| Étape | Action                                                       | Résultat attendu                          |
-|-------|--------------------------------------------------------------|-------------------------------------------|
-| 1     | Le client appelle depuis un numéro inconnu                   | Salutation multilingue (DEP-0687)         |
-| 2     | Le client répond « English » ou « Anglais »                  | Système bascule en anglais                |
-| 3     | Le client passe une commande en anglais                      | Commande enregistrée, langue = `en`       |
-| 4     | Le client crée un compte plus tard avec ce téléphone         | Langue préférée du compte = `en`          |
+| Étape | Action                                               | Résultat attendu                    |
+| ----- | ---------------------------------------------------- | ----------------------------------- |
+| 1     | Le client appelle depuis un numéro inconnu           | Salutation multilingue (DEP-0687)   |
+| 2     | Le client répond « English » ou « Anglais »          | Système bascule en anglais          |
+| 3     | Le client passe une commande en anglais              | Commande enregistrée, langue = `en` |
+| 4     | Le client crée un compte plus tard avec ce téléphone | Langue préférée du compte = `en`    |
 
 ### Règles de validation
 
@@ -221,37 +221,37 @@ de depaneurIA, avant toute extension future.
 
 ### Langues supportées en V1
 
-| Code langue | Nom complet       | Statut         | Référence   |
-|-------------|-------------------|----------------|-------------|
-| `fr`        | Français          | Supporté       | DEP-0681    |
-| `en`        | Anglais           | Supporté       | DEP-0681    |
+| Code langue | Nom complet | Statut   | Référence |
+| ----------- | ----------- | -------- | --------- |
+| `fr`        | Français    | Supporté | DEP-0681  |
+| `en`        | Anglais     | Supporté | DEP-0681  |
 
 **Aucune autre langue n'est supportée en V1.**
 
 ### Fonctionnalités multilingues en V1
 
-| Fonctionnalité                                | Incluse en V1 | Référence    |
-|-----------------------------------------------|---------------|--------------|
-| Interface client bilingue (fr/en)             | ✅ Oui        | DEP-0684     |
-| Interface dépanneur bilingue (fr/en)          | ✅ Oui        | DEP-0685     |
-| Interface livreur bilingue (fr/en)            | ✅ Oui        | DEP-0686     |
-| Agent vocal téléphonique bilingue (fr/en)     | ✅ Oui        | DEP-0687     |
-| Changement de langue à tout moment            | ✅ Oui        | DEP-0684–0687|
-| Langue préférée par compte                    | ✅ Oui        | DEP-0689     |
-| Langue préférée par navigateur                | ✅ Oui        | DEP-0690     |
-| Langue préférée par téléphone                 | ✅ Oui        | DEP-0691     |
-| Traduction des noms de catégories             | ✅ Oui        | DEP-0694     |
-| Traduction des clés système                   | ✅ Oui        | DEP-0692–0693|
+| Fonctionnalité                            | Incluse en V1 | Référence     |
+| ----------------------------------------- | ------------- | ------------- |
+| Interface client bilingue (fr/en)         | ✅ Oui        | DEP-0684      |
+| Interface dépanneur bilingue (fr/en)      | ✅ Oui        | DEP-0685      |
+| Interface livreur bilingue (fr/en)        | ✅ Oui        | DEP-0686      |
+| Agent vocal téléphonique bilingue (fr/en) | ✅ Oui        | DEP-0687      |
+| Changement de langue à tout moment        | ✅ Oui        | DEP-0684–0687 |
+| Langue préférée par compte                | ✅ Oui        | DEP-0689      |
+| Langue préférée par navigateur            | ✅ Oui        | DEP-0690      |
+| Langue préférée par téléphone             | ✅ Oui        | DEP-0691      |
+| Traduction des noms de catégories         | ✅ Oui        | DEP-0694      |
+| Traduction des clés système               | ✅ Oui        | DEP-0692–0693 |
 
 ### Fonctionnalités hors périmètre V1
 
-| Fonctionnalité                                | Incluse en V1 | Raison                     |
-|-----------------------------------------------|---------------|----------------------------|
-| Support d'une 3ᵉ langue (espagnol, etc.)      | ❌ Non        | Périmètre limité           |
-| Traduction automatique des produits           | ❌ Non        | Saisie manuelle uniquement |
-| Traduction automatique des conversations      | ❌ Non        | Complexité hors scope      |
-| Détection automatique de langue par IA        | ❌ Non        | Choix explicite uniquement |
-| Traduction des descriptions longues de produits| ❌ Non       | Noms de catégories seulement|
+| Fonctionnalité                                  | Incluse en V1 | Raison                       |
+| ----------------------------------------------- | ------------- | ---------------------------- |
+| Support d'une 3ᵉ langue (espagnol, etc.)        | ❌ Non        | Périmètre limité             |
+| Traduction automatique des produits             | ❌ Non        | Saisie manuelle uniquement   |
+| Traduction automatique des conversations        | ❌ Non        | Complexité hors scope        |
+| Détection automatique de langue par IA          | ❌ Non        | Choix explicite uniquement   |
+| Traduction des descriptions longues de produits | ❌ Non        | Noms de catégories seulement |
 
 ### Règles de stabilité
 
@@ -283,23 +283,23 @@ les ressources cloud (Cloud Run, Artifact Registry, bases de données, stockage)
 
 ### Séquence de création
 
-| Étape | Action                                                       | Responsable      |
-|-------|--------------------------------------------------------------|------------------|
-| 1     | Se connecter à Google Cloud Console                          | Administrateur   |
-| 2     | Cliquer sur « Sélectionner un projet » puis « Nouveau projet »| Administrateur   |
-| 3     | Saisir le nom du projet (DEP-0722)                           | Administrateur   |
-| 4     | Sélectionner l'organisation (si applicable)                  | Administrateur   |
-| 5     | Cliquer sur « Créer »                                        | Administrateur   |
-| 6     | Attendre la confirmation de création (30–60 secondes)        | Système          |
-| 7     | Noter l'ID du projet généré (format: `nom-projet-123456`)    | Administrateur   |
+| Étape | Action                                                         | Responsable    |
+| ----- | -------------------------------------------------------------- | -------------- |
+| 1     | Se connecter à Google Cloud Console                            | Administrateur |
+| 2     | Cliquer sur « Sélectionner un projet » puis « Nouveau projet » | Administrateur |
+| 3     | Saisir le nom du projet (DEP-0722)                             | Administrateur |
+| 4     | Sélectionner l'organisation (si applicable)                    | Administrateur |
+| 5     | Cliquer sur « Créer »                                          | Administrateur |
+| 6     | Attendre la confirmation de création (30–60 secondes)          | Système        |
+| 7     | Noter l'ID du projet généré (format: `nom-projet-123456`)      | Administrateur |
 
 ### Informations requises
 
-| Champ                    | Description                                      | Exemple              |
-|--------------------------|--------------------------------------------------|----------------------|
-| Nom du projet            | Nom lisible par humain (DEP-0722)                | `depaneurIA-prod`    |
-| ID du projet             | Identifiant unique généré automatiquement        | `depaneuia-prod-4562`|
-| Organisation (optionnel) | Organisation Google Cloud si applicable          | `depanneur.com`      |
+| Champ                    | Description                               | Exemple               |
+| ------------------------ | ----------------------------------------- | --------------------- |
+| Nom du projet            | Nom lisible par humain (DEP-0722)         | `depaneurIA-prod`     |
+| ID du projet             | Identifiant unique généré automatiquement | `depaneuia-prod-4562` |
+| Organisation (optionnel) | Organisation Google Cloud si applicable   | `depanneur.com`       |
 
 ### Règles
 
@@ -325,19 +325,19 @@ principal de depaneurIA.
 
 ### Convention de nommage
 
-| Élément      | Valeur recommandée      | Raison                                      |
-|--------------|-------------------------|---------------------------------------------|
-| Nom du projet| `depaneurIA-prod`       | Clair, descriptif, environnement identifié  |
-| ID du projet | Généré automatiquement  | Google Cloud ajoute un suffixe numérique unique |
+| Élément       | Valeur recommandée     | Raison                                          |
+| ------------- | ---------------------- | ----------------------------------------------- |
+| Nom du projet | `depaneurIA-prod`      | Clair, descriptif, environnement identifié      |
+| ID du projet  | Généré automatiquement | Google Cloud ajoute un suffixe numérique unique |
 
 ### Alternatives selon l'environnement
 
-| Environnement | Nom du projet           | Usage                                       |
-|---------------|-------------------------|---------------------------------------------|
-| Production    | `depaneurIA-prod`       | Environnement de production réel            |
-| Staging       | `depaneurIA-staging`    | Environnement de pré-production             |
-| Développement | `depaneurIA-dev`        | Environnement de développement local        |
-| Test          | `depaneurIA-test`       | Environnement de tests automatisés          |
+| Environnement | Nom du projet        | Usage                                |
+| ------------- | -------------------- | ------------------------------------ |
+| Production    | `depaneurIA-prod`    | Environnement de production réel     |
+| Staging       | `depaneurIA-staging` | Environnement de pré-production      |
+| Développement | `depaneurIA-dev`     | Environnement de développement local |
+| Test          | `depaneurIA-test`    | Environnement de tests automatisés   |
 
 **En V1, un seul projet est créé : `depaneurIA-prod`.**
 
@@ -350,12 +350,12 @@ principal de depaneurIA.
 
 ### Exemples à éviter
 
-| Nom                  | Raison du rejet                              |
-|----------------------|----------------------------------------------|
-| `my-project`         | Trop générique, pas d'identification claire  |
-| `depanneur`          | Pas d'environnement identifié                |
-| `DépanneurIA Prod`   | Espaces et majuscules interdits              |
-| `projet-123`         | Pas de contexte métier                       |
+| Nom                | Raison du rejet                             |
+| ------------------ | ------------------------------------------- |
+| `my-project`       | Trop générique, pas d'identification claire |
+| `depanneur`        | Pas d'environnement identifié               |
+| `DépanneurIA Prod` | Espaces et majuscules interdits             |
+| `projet-123`       | Pas de contexte métier                      |
 
 ### Validation
 
@@ -381,25 +381,25 @@ la facturation doit être activée.
 
 ### Séquence d'activation
 
-| Étape | Action                                                       | Responsable      |
-|-------|--------------------------------------------------------------|------------------|
-| 1     | Se connecter à Google Cloud Console                          | Administrateur   |
-| 2     | Sélectionner le projet `depaneurIA-prod`                     | Administrateur   |
-| 3     | Aller dans « Facturation » depuis le menu principal          | Administrateur   |
-| 4     | Cliquer sur « Associer un compte de facturation »            | Administrateur   |
-| 5     | Créer un nouveau compte de facturation ou sélectionner existant| Administrateur|
-| 6     | Saisir les informations de carte bancaire ou mode de paiement | Administrateur   |
-| 7     | Accepter les conditions d'utilisation                        | Administrateur   |
-| 8     | Confirmer l'association du compte de facturation au projet   | Administrateur   |
+| Étape | Action                                                          | Responsable    |
+| ----- | --------------------------------------------------------------- | -------------- |
+| 1     | Se connecter à Google Cloud Console                             | Administrateur |
+| 2     | Sélectionner le projet `depaneurIA-prod`                        | Administrateur |
+| 3     | Aller dans « Facturation » depuis le menu principal             | Administrateur |
+| 4     | Cliquer sur « Associer un compte de facturation »               | Administrateur |
+| 5     | Créer un nouveau compte de facturation ou sélectionner existant | Administrateur |
+| 6     | Saisir les informations de carte bancaire ou mode de paiement   | Administrateur |
+| 7     | Accepter les conditions d'utilisation                           | Administrateur |
+| 8     | Confirmer l'association du compte de facturation au projet      | Administrateur |
 
 ### Informations requises
 
-| Champ                    | Description                                      | Exemple              |
-|--------------------------|--------------------------------------------------|----------------------|
-| Nom du compte facturation| Nom lisible pour identifier le compte            | `DépanneurIA Billing`|
-| Mode de paiement         | Carte bancaire, virement, crédits Google         | Carte Visa           |
-| Adresse de facturation   | Adresse légale de l'entreprise                   | Montréal, QC         |
-| Devise                   | Devise du compte (CAD pour le Québec)            | CAD                  |
+| Champ                     | Description                              | Exemple               |
+| ------------------------- | ---------------------------------------- | --------------------- |
+| Nom du compte facturation | Nom lisible pour identifier le compte    | `DépanneurIA Billing` |
+| Mode de paiement          | Carte bancaire, virement, crédits Google | Carte Visa            |
+| Adresse de facturation    | Adresse légale de l'entreprise           | Montréal, QC          |
+| Devise                    | Devise du compte (CAD pour le Québec)    | CAD                   |
 
 ### Règles
 
@@ -431,24 +431,24 @@ valables pendant **90 jours** après l'activation de la facturation.
 
 ### Vérification des crédits
 
-| Étape | Action                                                       | Résultat attendu                          |
-|-------|--------------------------------------------------------------|-------------------------------------------|
-| 1     | Se connecter à Google Cloud Console                          | Projet sélectionné                        |
-| 2     | Aller dans « Facturation » > « Crédits »                     | Liste des crédits disponibles             |
-| 3     | Vérifier le solde des crédits gratuits                       | Montant restant (ex. : 300 $ USD)         |
-| 4     | Vérifier la date d'expiration des crédits                    | Date limite (ex. : 2026-06-13)            |
-| 5     | Vérifier les seuils d'alerte configurés                      | Alertes à 50 $, 100 $, 200 $ configurées  |
+| Étape | Action                                    | Résultat attendu                         |
+| ----- | ----------------------------------------- | ---------------------------------------- |
+| 1     | Se connecter à Google Cloud Console       | Projet sélectionné                       |
+| 2     | Aller dans « Facturation » > « Crédits »  | Liste des crédits disponibles            |
+| 3     | Vérifier le solde des crédits gratuits    | Montant restant (ex. : 300 $ USD)        |
+| 4     | Vérifier la date d'expiration des crédits | Date limite (ex. : 2026-06-13)           |
+| 5     | Vérifier les seuils d'alerte configurés   | Alertes à 50 $, 100 $, 200 $ configurées |
 
 ### Estimation des coûts pour les tests V1
 
-| Service              | Usage estimé tests     | Coût estimé mensuel  |
-|----------------------|------------------------|----------------------|
-| Cloud Run (backend)  | 100 heures conteneur   | ~5–10 $ USD          |
-| Artifact Registry    | 5 images Docker        | ~1 $ USD             |
-| Cloud Build          | 50 builds tests        | ~5 $ USD (gratuit ≤120 min/jour)|
-| Secret Manager       | 10 secrets, 500 accès  | ~0,50 $ USD          |
-| Cloud Storage        | 1 GB images médias     | ~0,20 $ USD          |
-| **Total estimé**     | —                      | **~15 $ USD/mois**   |
+| Service             | Usage estimé tests    | Coût estimé mensuel              |
+| ------------------- | --------------------- | -------------------------------- |
+| Cloud Run (backend) | 100 heures conteneur  | ~5–10 $ USD                      |
+| Artifact Registry   | 5 images Docker       | ~1 $ USD                         |
+| Cloud Build         | 50 builds tests       | ~5 $ USD (gratuit ≤120 min/jour) |
+| Secret Manager      | 10 secrets, 500 accès | ~0,50 $ USD                      |
+| Cloud Storage       | 1 GB images médias    | ~0,20 $ USD                      |
+| **Total estimé**    | —                     | **~15 $ USD/mois**               |
 
 ### Règles de suivi
 
@@ -479,26 +479,26 @@ IAM permet de contrôler qui (utilisateur, compte de service) peut faire quoi
 
 ### Comptes IAM principaux en V1
 
-| Compte                    | Type       | Rôle principal           | Usage                        |
-|---------------------------|------------|--------------------------|------------------------------|
-| Administrateur principal  | Utilisateur| `Owner`                  | Gestion complète du projet   |
-| Développeur backend       | Utilisateur| `Editor`                 | Déploiement et développement |
-| Compte de service déploiement| Service| `Cloud Run Admin`        | Déploiement automatisé (CI/CD)|
-| Compte de service backend | Service    | `Cloud Run Invoker`      | Exécution du backend         |
-| Compte de service storage | Service    | `Storage Object Admin`   | Gestion des médias           |
+| Compte                        | Type        | Rôle principal         | Usage                          |
+| ----------------------------- | ----------- | ---------------------- | ------------------------------ |
+| Administrateur principal      | Utilisateur | `Owner`                | Gestion complète du projet     |
+| Développeur backend           | Utilisateur | `Editor`               | Déploiement et développement   |
+| Compte de service déploiement | Service     | `Cloud Run Admin`      | Déploiement automatisé (CI/CD) |
+| Compte de service backend     | Service     | `Cloud Run Invoker`    | Exécution du backend           |
+| Compte de service storage     | Service     | `Storage Object Admin` | Gestion des médias             |
 
 **En V1, un seul utilisateur humain (`Owner`) est requis.**
 
 ### Création d'un compte IAM utilisateur
 
-| Étape | Action                                                       | Responsable      |
-|-------|--------------------------------------------------------------|------------------|
-| 1     | Aller dans « IAM et administration » > « IAM »               | Administrateur   |
-| 2     | Cliquer sur « Ajouter »                                      | Administrateur   |
-| 3     | Saisir l'email de l'utilisateur à ajouter                    | Administrateur   |
-| 4     | Sélectionner le rôle (ex. : `Editor`, `Viewer`)              | Administrateur   |
-| 5     | Cliquer sur « Enregistrer »                                  | Administrateur   |
-| 6     | L'utilisateur reçoit une invitation par email                | Système          |
+| Étape | Action                                          | Responsable    |
+| ----- | ----------------------------------------------- | -------------- |
+| 1     | Aller dans « IAM et administration » > « IAM »  | Administrateur |
+| 2     | Cliquer sur « Ajouter »                         | Administrateur |
+| 3     | Saisir l'email de l'utilisateur à ajouter       | Administrateur |
+| 4     | Sélectionner le rôle (ex. : `Editor`, `Viewer`) | Administrateur |
+| 5     | Cliquer sur « Enregistrer »                     | Administrateur |
+| 6     | L'utilisateur reçoit une invitation par email   | Système        |
 
 ### Règles de sécurité
 
@@ -530,18 +530,18 @@ en cas de compromission d'un compte.
 
 ### Matrice des rôles minimaux
 
-| Compte de service             | Rôle IAM minimal             | Permissions incluses                     |
-|-------------------------------|------------------------------|------------------------------------------|
-| Compte de service déploiement | `Cloud Run Admin`            | Créer/modifier/supprimer des services    |
-|                               | `Service Account User`       | Utiliser d'autres comptes de service     |
-|                               | `Artifact Registry Writer`   | Pousser des images Docker                |
-| Compte de service backend     | `Cloud Run Invoker`          | Invoquer les services Cloud Run          |
-|                               | `Secret Manager Secret Accessor`| Lire les secrets (clés API, tokens)   |
-|                               | `Storage Object Viewer`      | Lire les objets dans Cloud Storage       |
-| Compte de service storage     | `Storage Object Admin`       | Créer/modifier/supprimer des objets      |
-|                               | `Storage Bucket User`        | Lire les métadonnées des buckets         |
-| Compte de service traitement audio| `Cloud Run Invoker`     | Invoquer les services Cloud Run          |
-|                               | `Storage Object Creator`     | Écrire des fichiers audio traités        |
+| Compte de service                  | Rôle IAM minimal                 | Permissions incluses                  |
+| ---------------------------------- | -------------------------------- | ------------------------------------- |
+| Compte de service déploiement      | `Cloud Run Admin`                | Créer/modifier/supprimer des services |
+|                                    | `Service Account User`           | Utiliser d'autres comptes de service  |
+|                                    | `Artifact Registry Writer`       | Pousser des images Docker             |
+| Compte de service backend          | `Cloud Run Invoker`              | Invoquer les services Cloud Run       |
+|                                    | `Secret Manager Secret Accessor` | Lire les secrets (clés API, tokens)   |
+|                                    | `Storage Object Viewer`          | Lire les objets dans Cloud Storage    |
+| Compte de service storage          | `Storage Object Admin`           | Créer/modifier/supprimer des objets   |
+|                                    | `Storage Bucket User`            | Lire les métadonnées des buckets      |
+| Compte de service traitement audio | `Cloud Run Invoker`              | Invoquer les services Cloud Run       |
+|                                    | `Storage Object Creator`         | Écrire des fichiers audio traités     |
 
 ### Règles de définition
 
@@ -553,10 +553,10 @@ en cas de compromission d'un compte.
 
 ### Exemples de rôles personnalisés (si nécessaire en V2)
 
-| Nom du rôle personnalisé      | Permissions incluses                             |
-|-------------------------------|--------------------------------------------------|
-| `depaneurIA.backendRunner`    | `run.services.invoke`, `secretmanager.versions.access`|
-| `depaneurIA.mediaManager`     | `storage.objects.create`, `storage.objects.get`, `storage.objects.delete`|
+| Nom du rôle personnalisé   | Permissions incluses                                                      |
+| -------------------------- | ------------------------------------------------------------------------- |
+| `depaneurIA.backendRunner` | `run.services.invoke`, `secretmanager.versions.access`                    |
+| `depaneurIA.mediaManager`  | `storage.objects.create`, `storage.objects.get`, `storage.objects.delete` |
 
 **En V1, seuls les rôles prédéfinis sont utilisés.**
 
@@ -582,27 +582,27 @@ pousser des images Docker, créer des services Cloud Run et gérer les secrets.
 
 ### Séquence de création
 
-| Étape | Action                                                       | Responsable      |
-|-------|--------------------------------------------------------------|------------------|
-| 1     | Aller dans « IAM et administration » > « Comptes de service »| Administrateur   |
-| 2     | Cliquer sur « Créer un compte de service »                   | Administrateur   |
-| 3     | Saisir le nom : `depaneurIA-deploy`                          | Administrateur   |
-| 4     | Saisir la description : « Compte de service pour déploiement CI/CD »| Administrateur|
-| 5     | Cliquer sur « Créer et continuer »                           | Administrateur   |
-| 6     | Attribuer les rôles : `Cloud Run Admin`, `Service Account User`, `Artifact Registry Writer`| Administrateur|
-| 7     | Cliquer sur « Continuer » puis « Terminé »                   | Administrateur   |
-| 8     | Créer une clé JSON pour le compte de service                 | Administrateur   |
-| 9     | Télécharger le fichier JSON de clé (ex. : `depaneurIA-deploy-key.json`)| Administrateur|
-| 10    | Stocker le fichier JSON dans Secret Manager (DEP-0734)       | Administrateur   |
+| Étape | Action                                                                                      | Responsable    |
+| ----- | ------------------------------------------------------------------------------------------- | -------------- |
+| 1     | Aller dans « IAM et administration » > « Comptes de service »                               | Administrateur |
+| 2     | Cliquer sur « Créer un compte de service »                                                  | Administrateur |
+| 3     | Saisir le nom : `depaneurIA-deploy`                                                         | Administrateur |
+| 4     | Saisir la description : « Compte de service pour déploiement CI/CD »                        | Administrateur |
+| 5     | Cliquer sur « Créer et continuer »                                                          | Administrateur |
+| 6     | Attribuer les rôles : `Cloud Run Admin`, `Service Account User`, `Artifact Registry Writer` | Administrateur |
+| 7     | Cliquer sur « Continuer » puis « Terminé »                                                  | Administrateur |
+| 8     | Créer une clé JSON pour le compte de service                                                | Administrateur |
+| 9     | Télécharger le fichier JSON de clé (ex. : `depaneurIA-deploy-key.json`)                     | Administrateur |
+| 10    | Stocker le fichier JSON dans Secret Manager (DEP-0734)                                      | Administrateur |
 
 ### Informations du compte de service
 
-| Champ                    | Valeur                                           |
-|--------------------------|--------------------------------------------------|
-| Nom du compte            | `depaneurIA-deploy`                              |
-| Email du compte          | `depaneurIA-deploy@depaneuia-prod-4562.iam.gserviceaccount.com`|
-| Rôles attribués          | `Cloud Run Admin`, `Service Account User`, `Artifact Registry Writer`|
-| Clé JSON                 | Stockée dans Secret Manager (`GCP_DEPLOY_KEY`)   |
+| Champ           | Valeur                                                                |
+| --------------- | --------------------------------------------------------------------- |
+| Nom du compte   | `depaneurIA-deploy`                                                   |
+| Email du compte | `depaneurIA-deploy@depaneuia-prod-4562.iam.gserviceaccount.com`       |
+| Rôles attribués | `Cloud Run Admin`, `Service Account User`, `Artifact Registry Writer` |
+| Clé JSON        | Stockée dans Secret Manager (`GCP_DEPLOY_KEY`)                        |
 
 ### Règles de sécurité
 
@@ -633,24 +633,24 @@ aux secrets (clés API, tokens) et aux objets stockés (images produits, médias
 
 ### Séquence de création
 
-| Étape | Action                                                       | Responsable      |
-|-------|--------------------------------------------------------------|------------------|
-| 1     | Aller dans « IAM et administration » > « Comptes de service »| Administrateur   |
-| 2     | Cliquer sur « Créer un compte de service »                   | Administrateur   |
-| 3     | Saisir le nom : `depaneurIA-backend`                         | Administrateur   |
-| 4     | Saisir la description : « Compte de service pour le backend Cloud Run »| Administrateur|
-| 5     | Cliquer sur « Créer et continuer »                           | Administrateur   |
-| 6     | Attribuer les rôles : `Cloud Run Invoker`, `Secret Manager Secret Accessor`, `Storage Object Viewer`| Administrateur|
-| 7     | Cliquer sur « Continuer » puis « Terminé »                   | Administrateur   |
+| Étape | Action                                                                                               | Responsable    |
+| ----- | ---------------------------------------------------------------------------------------------------- | -------------- |
+| 1     | Aller dans « IAM et administration » > « Comptes de service »                                        | Administrateur |
+| 2     | Cliquer sur « Créer un compte de service »                                                           | Administrateur |
+| 3     | Saisir le nom : `depaneurIA-backend`                                                                 | Administrateur |
+| 4     | Saisir la description : « Compte de service pour le backend Cloud Run »                              | Administrateur |
+| 5     | Cliquer sur « Créer et continuer »                                                                   | Administrateur |
+| 6     | Attribuer les rôles : `Cloud Run Invoker`, `Secret Manager Secret Accessor`, `Storage Object Viewer` | Administrateur |
+| 7     | Cliquer sur « Continuer » puis « Terminé »                                                           | Administrateur |
 
 ### Informations du compte de service
 
-| Champ                    | Valeur                                           |
-|--------------------------|--------------------------------------------------|
-| Nom du compte            | `depaneurIA-backend`                             |
-| Email du compte          | `depaneurIA-backend@depaneuia-prod-4562.iam.gserviceaccount.com`|
-| Rôles attribués          | `Cloud Run Invoker`, `Secret Manager Secret Accessor`, `Storage Object Viewer`|
-| Utilisé par              | Service Cloud Run `depaneurIA-api`               |
+| Champ           | Valeur                                                                         |
+| --------------- | ------------------------------------------------------------------------------ |
+| Nom du compte   | `depaneurIA-backend`                                                           |
+| Email du compte | `depaneurIA-backend@depaneuia-prod-4562.iam.gserviceaccount.com`               |
+| Rôles attribués | `Cloud Run Invoker`, `Secret Manager Secret Accessor`, `Storage Object Viewer` |
+| Utilisé par     | Service Cloud Run `depaneurIA-api`                                             |
 
 ### Configuration dans Cloud Run
 
@@ -695,33 +695,33 @@ géré par des services tiers (Twilio, OpenAI), il n'est pas nécessaire.
 
 ### Cas d'utilisation
 
-| Cas                                  | Compte de service requis ? | Raison                          |
-|--------------------------------------|----------------------------|---------------------------------|
-| Traitement audio via Twilio/OpenAI  | ❌ Non                     | Aucun stockage cloud requis     |
-| Enregistrement audio côté serveur   | ✅ Oui                     | Besoin d'écrire dans Storage    |
-| Transcription audio locale          | ✅ Oui                     | Besoin de lire/écrire fichiers  |
-| Génération audio côté serveur       | ✅ Oui                     | Besoin d'écrire dans Storage    |
+| Cas                                | Compte de service requis ? | Raison                         |
+| ---------------------------------- | -------------------------- | ------------------------------ |
+| Traitement audio via Twilio/OpenAI | ❌ Non                     | Aucun stockage cloud requis    |
+| Enregistrement audio côté serveur  | ✅ Oui                     | Besoin d'écrire dans Storage   |
+| Transcription audio locale         | ✅ Oui                     | Besoin de lire/écrire fichiers |
+| Génération audio côté serveur      | ✅ Oui                     | Besoin d'écrire dans Storage   |
 
 ### Séquence de création (si requis)
 
-| Étape | Action                                                       | Responsable      |
-|-------|--------------------------------------------------------------|------------------|
-| 1     | Aller dans « IAM et administration » > « Comptes de service »| Administrateur   |
-| 2     | Cliquer sur « Créer un compte de service »                   | Administrateur   |
-| 3     | Saisir le nom : `depaneurIA-audio`                           | Administrateur   |
-| 4     | Saisir la description : « Compte de service pour traitement audio »| Administrateur|
-| 5     | Cliquer sur « Créer et continuer »                           | Administrateur   |
-| 6     | Attribuer les rôles : `Cloud Run Invoker`, `Storage Object Creator`, `Storage Object Viewer`| Administrateur|
-| 7     | Cliquer sur « Continuer » puis « Terminé »                   | Administrateur   |
+| Étape | Action                                                                                       | Responsable    |
+| ----- | -------------------------------------------------------------------------------------------- | -------------- |
+| 1     | Aller dans « IAM et administration » > « Comptes de service »                                | Administrateur |
+| 2     | Cliquer sur « Créer un compte de service »                                                   | Administrateur |
+| 3     | Saisir le nom : `depaneurIA-audio`                                                           | Administrateur |
+| 4     | Saisir la description : « Compte de service pour traitement audio »                          | Administrateur |
+| 5     | Cliquer sur « Créer et continuer »                                                           | Administrateur |
+| 6     | Attribuer les rôles : `Cloud Run Invoker`, `Storage Object Creator`, `Storage Object Viewer` | Administrateur |
+| 7     | Cliquer sur « Continuer » puis « Terminé »                                                   | Administrateur |
 
 ### Informations du compte de service
 
-| Champ                    | Valeur                                           |
-|--------------------------|--------------------------------------------------|
-| Nom du compte            | `depaneurIA-audio`                               |
-| Email du compte          | `depaneurIA-audio@depaneuia-prod-4562.iam.gserviceaccount.com`|
-| Rôles attribués          | `Cloud Run Invoker`, `Storage Object Creator`, `Storage Object Viewer`|
-| Utilisé par              | Service Cloud Run `depaneurIA-audio-processor` (si applicable)|
+| Champ           | Valeur                                                                 |
+| --------------- | ---------------------------------------------------------------------- |
+| Nom du compte   | `depaneurIA-audio`                                                     |
+| Email du compte | `depaneurIA-audio@depaneuia-prod-4562.iam.gserviceaccount.com`         |
+| Rôles attribués | `Cloud Run Invoker`, `Storage Object Creator`, `Storage Object Viewer` |
+| Utilisé par     | Service Cloud Run `depaneurIA-audio-processor` (si applicable)         |
 
 ### Règles de sécurité
 
@@ -751,34 +751,34 @@ produits, médias téléchargés par les dépanneurs).
 
 ### Séquence de création
 
-| Étape | Action                                                       | Responsable      |
-|-------|--------------------------------------------------------------|------------------|
-| 1     | Aller dans « IAM et administration » > « Comptes de service »| Administrateur   |
-| 2     | Cliquer sur « Créer un compte de service »                   | Administrateur   |
-| 3     | Saisir le nom : `depaneurIA-storage`                         | Administrateur   |
-| 4     | Saisir la description : « Compte de service pour gestion du stockage médias »| Administrateur|
-| 5     | Cliquer sur « Créer et continuer »                           | Administrateur   |
-| 6     | Attribuer les rôles : `Storage Object Admin`, `Storage Bucket User`| Administrateur|
-| 7     | Cliquer sur « Continuer » puis « Terminé »                   | Administrateur   |
+| Étape | Action                                                                        | Responsable    |
+| ----- | ----------------------------------------------------------------------------- | -------------- |
+| 1     | Aller dans « IAM et administration » > « Comptes de service »                 | Administrateur |
+| 2     | Cliquer sur « Créer un compte de service »                                    | Administrateur |
+| 3     | Saisir le nom : `depaneurIA-storage`                                          | Administrateur |
+| 4     | Saisir la description : « Compte de service pour gestion du stockage médias » | Administrateur |
+| 5     | Cliquer sur « Créer et continuer »                                            | Administrateur |
+| 6     | Attribuer les rôles : `Storage Object Admin`, `Storage Bucket User`           | Administrateur |
+| 7     | Cliquer sur « Continuer » puis « Terminé »                                    | Administrateur |
 
 ### Informations du compte de service
 
-| Champ                    | Valeur                                           |
-|--------------------------|--------------------------------------------------|
-| Nom du compte            | `depaneurIA-storage`                             |
-| Email du compte          | `depaneurIA-storage@depaneuia-prod-4562.iam.gserviceaccount.com`|
-| Rôles attribués          | `Storage Object Admin`, `Storage Bucket User`    |
-| Utilisé par              | Backend API (endpoints upload/delete médias)     |
+| Champ           | Valeur                                                           |
+| --------------- | ---------------------------------------------------------------- |
+| Nom du compte   | `depaneurIA-storage`                                             |
+| Email du compte | `depaneurIA-storage@depaneuia-prod-4562.iam.gserviceaccount.com` |
+| Rôles attribués | `Storage Object Admin`, `Storage Bucket User`                    |
+| Utilisé par     | Backend API (endpoints upload/delete médias)                     |
 
 ### Permissions du compte de service
 
-| Permission                 | Action autorisée                                |
-|----------------------------|-------------------------------------------------|
-| `storage.objects.create`   | Créer de nouveaux objets (upload images)        |
-| `storage.objects.get`      | Lire des objets existants                       |
-| `storage.objects.delete`   | Supprimer des objets (images supprimées)        |
-| `storage.objects.update`   | Modifier les métadonnées des objets             |
-| `storage.buckets.get`      | Lire les métadonnées des buckets                |
+| Permission               | Action autorisée                         |
+| ------------------------ | ---------------------------------------- |
+| `storage.objects.create` | Créer de nouveaux objets (upload images) |
+| `storage.objects.get`    | Lire des objets existants                |
+| `storage.objects.delete` | Supprimer des objets (images supprimées) |
+| `storage.objects.update` | Modifier les métadonnées des objets      |
+| `storage.buckets.get`    | Lire les métadonnées des buckets         |
 
 ### Règles de sécurité
 
@@ -809,29 +809,29 @@ depaneurIA car il se scale automatiquement et facture uniquement à l'usage.
 
 ### Séquence d'activation
 
-| Étape | Action                                                       | Responsable      |
-|-------|--------------------------------------------------------------|------------------|
-| 1     | Se connecter à Google Cloud Console                          | Administrateur   |
-| 2     | Sélectionner le projet `depaneurIA-prod`                     | Administrateur   |
-| 3     | Aller dans « API et services » > « Bibliothèque »            | Administrateur   |
-| 4     | Rechercher « Cloud Run »                                     | Administrateur   |
-| 5     | Cliquer sur « Cloud Run API »                                | Administrateur   |
-| 6     | Cliquer sur « Activer »                                      | Administrateur   |
-| 7     | Attendre la confirmation d'activation (30–60 secondes)       | Système          |
+| Étape | Action                                                 | Responsable    |
+| ----- | ------------------------------------------------------ | -------------- |
+| 1     | Se connecter à Google Cloud Console                    | Administrateur |
+| 2     | Sélectionner le projet `depaneurIA-prod`               | Administrateur |
+| 3     | Aller dans « API et services » > « Bibliothèque »      | Administrateur |
+| 4     | Rechercher « Cloud Run »                               | Administrateur |
+| 5     | Cliquer sur « Cloud Run API »                          | Administrateur |
+| 6     | Cliquer sur « Activer »                                | Administrateur |
+| 7     | Attendre la confirmation d'activation (30–60 secondes) | Système        |
 
 ### Vérification de l'activation
 
-| Étape | Action                                                       | Résultat attendu                          |
-|-------|--------------------------------------------------------------|-------------------------------------------|
-| 1     | Aller dans « Cloud Run » depuis le menu principal            | Page Cloud Run accessible                 |
-| 2     | Vérifier l'absence d'erreur « API non activée »              | Aucune erreur affichée                    |
-| 3     | Cliquer sur « Créer un service »                             | Formulaire de création affiché            |
+| Étape | Action                                            | Résultat attendu               |
+| ----- | ------------------------------------------------- | ------------------------------ |
+| 1     | Aller dans « Cloud Run » depuis le menu principal | Page Cloud Run accessible      |
+| 2     | Vérifier l'absence d'erreur « API non activée »   | Aucune erreur affichée         |
+| 3     | Cliquer sur « Créer un service »                  | Formulaire de création affiché |
 
 ### Région recommandée en V1
 
-| Région                   | Emplacement           | Raison du choix                          |
-|--------------------------|-----------------------|------------------------------------------|
-| `northamerica-northeast1`| Montréal, Canada      | Proximité du Québec, conformité RGPD     |
+| Région                    | Emplacement      | Raison du choix                      |
+| ------------------------- | ---------------- | ------------------------------------ |
+| `northamerica-northeast1` | Montréal, Canada | Proximité du Québec, conformité RGPD |
 
 **Toujours déployer dans la même région** pour réduire la latence entre services.
 
@@ -864,38 +864,38 @@ requis pour stocker les images Docker avant déploiement sur Cloud Run.
 
 ### Séquence d'activation
 
-| Étape | Action                                                       | Responsable      |
-|-------|--------------------------------------------------------------|------------------|
-| 1     | Se connecter à Google Cloud Console                          | Administrateur   |
-| 2     | Sélectionner le projet `depaneurIA-prod`                     | Administrateur   |
-| 3     | Aller dans « API et services » > « Bibliothèque »            | Administrateur   |
-| 4     | Rechercher « Artifact Registry »                             | Administrateur   |
-| 5     | Cliquer sur « Artifact Registry API »                        | Administrateur   |
-| 6     | Cliquer sur « Activer »                                      | Administrateur   |
-| 7     | Attendre la confirmation d'activation (30–60 secondes)       | Système          |
+| Étape | Action                                                 | Responsable    |
+| ----- | ------------------------------------------------------ | -------------- |
+| 1     | Se connecter à Google Cloud Console                    | Administrateur |
+| 2     | Sélectionner le projet `depaneurIA-prod`               | Administrateur |
+| 3     | Aller dans « API et services » > « Bibliothèque »      | Administrateur |
+| 4     | Rechercher « Artifact Registry »                       | Administrateur |
+| 5     | Cliquer sur « Artifact Registry API »                  | Administrateur |
+| 6     | Cliquer sur « Activer »                                | Administrateur |
+| 7     | Attendre la confirmation d'activation (30–60 secondes) | Système        |
 
 ### Création d'un registre Docker
 
 Après activation de l'API, créer un registre Docker :
 
-| Étape | Action                                                       | Responsable      |
-|-------|--------------------------------------------------------------|------------------|
-| 1     | Aller dans « Artifact Registry » depuis le menu principal    | Administrateur   |
-| 2     | Cliquer sur « Créer un dépôt »                               | Administrateur   |
-| 3     | Saisir le nom : `depaneurIA-images`                          | Administrateur   |
-| 4     | Sélectionner le format : `Docker`                            | Administrateur   |
-| 5     | Sélectionner la région : `northamerica-northeast1`           | Administrateur   |
-| 6     | Mode : `Standard`                                            | Administrateur   |
-| 7     | Cliquer sur « Créer »                                        | Administrateur   |
+| Étape | Action                                                    | Responsable    |
+| ----- | --------------------------------------------------------- | -------------- |
+| 1     | Aller dans « Artifact Registry » depuis le menu principal | Administrateur |
+| 2     | Cliquer sur « Créer un dépôt »                            | Administrateur |
+| 3     | Saisir le nom : `depaneurIA-images`                       | Administrateur |
+| 4     | Sélectionner le format : `Docker`                         | Administrateur |
+| 5     | Sélectionner la région : `northamerica-northeast1`        | Administrateur |
+| 6     | Mode : `Standard`                                         | Administrateur |
+| 7     | Cliquer sur « Créer »                                     | Administrateur |
 
 ### Informations du registre
 
-| Champ                    | Valeur                                           |
-|--------------------------|--------------------------------------------------|
-| Nom du registre          | `depaneurIA-images`                              |
-| Format                   | `Docker`                                         |
-| Région                   | `northamerica-northeast1`                        |
-| URL du registre          | `northamerica-northeast1-docker.pkg.dev/depaneuia-prod-4562/depaneurIA-images`|
+| Champ           | Valeur                                                                         |
+| --------------- | ------------------------------------------------------------------------------ |
+| Nom du registre | `depaneurIA-images`                                                            |
+| Format          | `Docker`                                                                       |
+| Région          | `northamerica-northeast1`                                                      |
+| URL du registre | `northamerica-northeast1-docker.pkg.dev/depaneuia-prod-4562/depaneurIA-images` |
 
 ### Règles
 
@@ -926,35 +926,35 @@ sur Cloud Run. C'est l'équivalent cloud de GitHub Actions pour Google Cloud.
 
 ### Séquence d'activation
 
-| Étape | Action                                                       | Responsable      |
-|-------|--------------------------------------------------------------|------------------|
-| 1     | Se connecter à Google Cloud Console                          | Administrateur   |
-| 2     | Sélectionner le projet `depaneurIA-prod`                     | Administrateur   |
-| 3     | Aller dans « API et services » > « Bibliothèque »            | Administrateur   |
-| 4     | Rechercher « Cloud Build »                                   | Administrateur   |
-| 5     | Cliquer sur « Cloud Build API »                              | Administrateur   |
-| 6     | Cliquer sur « Activer »                                      | Administrateur   |
-| 7     | Attendre la confirmation d'activation (30–60 secondes)       | Système          |
+| Étape | Action                                                 | Responsable    |
+| ----- | ------------------------------------------------------ | -------------- |
+| 1     | Se connecter à Google Cloud Console                    | Administrateur |
+| 2     | Sélectionner le projet `depaneurIA-prod`               | Administrateur |
+| 3     | Aller dans « API et services » > « Bibliothèque »      | Administrateur |
+| 4     | Rechercher « Cloud Build »                             | Administrateur |
+| 5     | Cliquer sur « Cloud Build API »                        | Administrateur |
+| 6     | Cliquer sur « Activer »                                | Administrateur |
+| 7     | Attendre la confirmation d'activation (30–60 secondes) | Système        |
 
 ### Configuration initiale de Cloud Build
 
-| Étape | Action                                                       | Responsable      |
-|-------|--------------------------------------------------------------|------------------|
-| 1     | Aller dans « Cloud Build » depuis le menu principal          | Administrateur   |
-| 2     | Accepter les conditions d'utilisation si demandé             | Administrateur   |
-| 3     | Aller dans « Paramètres »                                    | Administrateur   |
-| 4     | Activer « Cloud Run » et « Service Account » dans les permissions| Administrateur|
-| 5     | Cliquer sur « Enregistrer »                                  | Administrateur   |
+| Étape | Action                                                            | Responsable    |
+| ----- | ----------------------------------------------------------------- | -------------- |
+| 1     | Aller dans « Cloud Build » depuis le menu principal               | Administrateur |
+| 2     | Accepter les conditions d'utilisation si demandé                  | Administrateur |
+| 3     | Aller dans « Paramètres »                                         | Administrateur |
+| 4     | Activer « Cloud Run » et « Service Account » dans les permissions | Administrateur |
+| 5     | Cliquer sur « Enregistrer »                                       | Administrateur |
 
 ### Niveau gratuit de Cloud Build
 
 Google Cloud offre **120 minutes de build gratuites par jour** (environ 3600 minutes/mois).
 
-| Élément                  | Valeur                                           |
-|--------------------------|--------------------------------------------------|
-| Minutes gratuites/jour   | 120 minutes                                      |
-| Minutes gratuites/mois   | ~3600 minutes                                    |
-| Coût après quota gratuit | 0,003 $ USD/minute de build                      |
+| Élément                  | Valeur                      |
+| ------------------------ | --------------------------- |
+| Minutes gratuites/jour   | 120 minutes                 |
+| Minutes gratuites/mois   | ~3600 minutes               |
+| Coût après quota gratuit | 0,003 $ USD/minute de build |
 
 ### Règles
 
@@ -985,36 +985,36 @@ les coder en dur dans le code source ou les variables d'environnement publiques.
 
 ### Séquence d'activation
 
-| Étape | Action                                                       | Responsable      |
-|-------|--------------------------------------------------------------|------------------|
-| 1     | Se connecter à Google Cloud Console                          | Administrateur   |
-| 2     | Sélectionner le projet `depaneurIA-prod`                     | Administrateur   |
-| 3     | Aller dans « API et services » > « Bibliothèque »            | Administrateur   |
-| 4     | Rechercher « Secret Manager »                                | Administrateur   |
-| 5     | Cliquer sur « Secret Manager API »                           | Administrateur   |
-| 6     | Cliquer sur « Activer »                                      | Administrateur   |
-| 7     | Attendre la confirmation d'activation (30–60 secondes)       | Système          |
+| Étape | Action                                                 | Responsable    |
+| ----- | ------------------------------------------------------ | -------------- |
+| 1     | Se connecter à Google Cloud Console                    | Administrateur |
+| 2     | Sélectionner le projet `depaneurIA-prod`               | Administrateur |
+| 3     | Aller dans « API et services » > « Bibliothèque »      | Administrateur |
+| 4     | Rechercher « Secret Manager »                          | Administrateur |
+| 5     | Cliquer sur « Secret Manager API »                     | Administrateur |
+| 6     | Cliquer sur « Activer »                                | Administrateur |
+| 7     | Attendre la confirmation d'activation (30–60 secondes) | Système        |
 
 ### Création d'un secret de test
 
-| Étape | Action                                                       | Responsable      |
-|-------|--------------------------------------------------------------|------------------|
-| 1     | Aller dans « Secret Manager » depuis le menu principal       | Administrateur   |
-| 2     | Cliquer sur « Créer un secret »                              | Administrateur   |
-| 3     | Saisir le nom : `OPENAI_API_KEY`                             | Administrateur   |
-| 4     | Saisir la valeur du secret (clé API OpenAI)                  | Administrateur   |
-| 5     | Région : `Automatique` (multirégion pour redondance)         | Administrateur   |
-| 6     | Cliquer sur « Créer un secret »                              | Administrateur   |
+| Étape | Action                                                 | Responsable    |
+| ----- | ------------------------------------------------------ | -------------- |
+| 1     | Aller dans « Secret Manager » depuis le menu principal | Administrateur |
+| 2     | Cliquer sur « Créer un secret »                        | Administrateur |
+| 3     | Saisir le nom : `OPENAI_API_KEY`                       | Administrateur |
+| 4     | Saisir la valeur du secret (clé API OpenAI)            | Administrateur |
+| 5     | Région : `Automatique` (multirégion pour redondance)   | Administrateur |
+| 6     | Cliquer sur « Créer un secret »                        | Administrateur |
 
 ### Secrets principaux à créer en V1
 
-| Nom du secret            | Description                                      | Utilisé par          |
-|--------------------------|--------------------------------------------------|----------------------|
-| `OPENAI_API_KEY`         | Clé API OpenAI Realtime (assistant vocal)       | Backend, téléphonie  |
-| `TWILIO_ACCOUNT_SID`     | Identifiant de compte Twilio                     | Backend, téléphonie  |
-| `TWILIO_AUTH_TOKEN`      | Token d'authentification Twilio                  | Backend, téléphonie  |
-| `DATABASE_URL`           | URL de connexion à la base de données            | Backend              |
-| `GCP_DEPLOY_KEY`         | Clé JSON du compte de service de déploiement     | CI/CD GitHub Actions |
+| Nom du secret        | Description                                  | Utilisé par          |
+| -------------------- | -------------------------------------------- | -------------------- |
+| `OPENAI_API_KEY`     | Clé API OpenAI Realtime (assistant vocal)    | Backend, téléphonie  |
+| `TWILIO_ACCOUNT_SID` | Identifiant de compte Twilio                 | Backend, téléphonie  |
+| `TWILIO_AUTH_TOKEN`  | Token d'authentification Twilio              | Backend, téléphonie  |
+| `DATABASE_URL`       | URL de connexion à la base de données        | Backend              |
+| `GCP_DEPLOY_KEY`     | Clé JSON du compte de service de déploiement | CI/CD GitHub Actions |
 
 ### Règles de sécurité
 
@@ -1033,25 +1033,25 @@ les coder en dur dans le code source ou les variables d'environnement publiques.
 
 ## Synthèse
 
-| DEP   | Titre                                                          | Statut  |
-|-------|----------------------------------------------------------------|---------|
-| 0715  | Test du basculement de langue sans perdre le panier            | Défini  |
-| 0716  | Test du basculement de langue sans perdre la conversation      | Défini  |
-| 0717  | Test du basculement de langue sans perdre la commande          | Défini  |
-| 0718  | Test de reconnaissance des synonymes dans les deux langues     | Défini  |
-| 0719  | Vérification de la cohérence multilingue sur téléphone         | Défini  |
-| 0720  | Gel de la stratégie multilingue V1                             | Défini  |
-| 0721  | Création du projet Google Cloud principal                      | Défini  |
-| 0722  | Donner un nom clair au projet Google Cloud                     | Défini  |
-| 0723  | Activation de la facturation du projet Google Cloud            | Défini  |
-| 0724  | Vérification des crédits disponibles pour les tests            | Défini  |
-| 0725  | Création des comptes IAM principaux                            | Défini  |
-| 0726  | Définition des rôles IAM minimaux nécessaires                  | Défini  |
-| 0727  | Création du compte de service de déploiement                   | Défini  |
-| 0728  | Création du compte de service du backend                       | Défini  |
-| 0729  | Création du compte de service du traitement audio si nécessaire| Défini  |
-| 0730  | Création du compte de service du stockage médias               | Défini  |
-| 0731  | Activation de Cloud Run                                        | Défini  |
-| 0732  | Activation d'Artifact Registry                                 | Défini  |
-| 0733  | Activation de Cloud Build                                      | Défini  |
-| 0734  | Activation de Secret Manager                                   | Défini  |
+| DEP  | Titre                                                           | Statut |
+| ---- | --------------------------------------------------------------- | ------ |
+| 0715 | Test du basculement de langue sans perdre le panier             | Défini |
+| 0716 | Test du basculement de langue sans perdre la conversation       | Défini |
+| 0717 | Test du basculement de langue sans perdre la commande           | Défini |
+| 0718 | Test de reconnaissance des synonymes dans les deux langues      | Défini |
+| 0719 | Vérification de la cohérence multilingue sur téléphone          | Défini |
+| 0720 | Gel de la stratégie multilingue V1                              | Défini |
+| 0721 | Création du projet Google Cloud principal                       | Défini |
+| 0722 | Donner un nom clair au projet Google Cloud                      | Défini |
+| 0723 | Activation de la facturation du projet Google Cloud             | Défini |
+| 0724 | Vérification des crédits disponibles pour les tests             | Défini |
+| 0725 | Création des comptes IAM principaux                             | Défini |
+| 0726 | Définition des rôles IAM minimaux nécessaires                   | Défini |
+| 0727 | Création du compte de service de déploiement                    | Défini |
+| 0728 | Création du compte de service du backend                        | Défini |
+| 0729 | Création du compte de service du traitement audio si nécessaire | Défini |
+| 0730 | Création du compte de service du stockage médias                | Défini |
+| 0731 | Activation de Cloud Run                                         | Défini |
+| 0732 | Activation d'Artifact Registry                                  | Défini |
+| 0733 | Activation de Cloud Build                                       | Défini |
+| 0734 | Activation de Secret Manager                                    | Défini |

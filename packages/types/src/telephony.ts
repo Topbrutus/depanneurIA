@@ -6,11 +6,11 @@
  * État d'un appel téléphonique
  */
 export type CallStatus =
-  | 'ringing'      // appel entrant
-  | 'in_progress'  // conversation en cours
-  | 'completed'    // appel terminé avec succès
-  | 'failed'       // appel échoué
-  | 'no_answer';   // pas de réponse
+  | 'ringing' // appel entrant
+  | 'in_progress' // conversation en cours
+  | 'completed' // appel terminé avec succès
+  | 'failed' // appel échoué
+  | 'no_answer'; // pas de réponse
 
 /**
  * Direction de l'appel
@@ -23,7 +23,13 @@ export type CallDirection = 'inbound' | 'outbound';
 export interface TelephonyEvent {
   id: string;
   callId: string;
-  type: 'call_started' | 'transcription_received' | 'intent_parsed' | 'order_created' | 'call_ended' | 'error';
+  type:
+    | 'call_started'
+    | 'transcription_received'
+    | 'intent_parsed'
+    | 'order_created'
+    | 'call_ended'
+    | 'error';
   timestamp: number;
   data?: Record<string, unknown>;
 }
@@ -35,7 +41,7 @@ export interface Transcription {
   id: string;
   callId: string;
   text: string;
-  confidence: number;  // 0-1
+  confidence: number; // 0-1
   timestamp: number;
   speaker: 'customer' | 'agent';
 }
@@ -46,14 +52,14 @@ export interface Transcription {
 export interface TelephonyCall {
   id: string;
   direction: CallDirection;
-  from: string;     // numéro du client
-  to: string;       // numéro du dépanneur
+  from: string; // numéro du client
+  to: string; // numéro du dépanneur
   status: CallStatus;
   startedAt: number;
   endedAt?: number;
   duration?: number; // en secondes
   customerId?: string;
-  orderId?: string;  // ID de commande créée suite à l'appel
+  orderId?: string; // ID de commande créée suite à l'appel
   transcriptions: Transcription[];
   events: TelephonyEvent[];
 }
@@ -64,7 +70,7 @@ export interface TelephonyCall {
 export interface SimulateCallRequest {
   from: string;
   to: string;
-  transcriptionText: string;  // texte simulé de ce que dit le client
+  transcriptionText: string; // texte simulé de ce que dit le client
   customerId?: string;
 }
 

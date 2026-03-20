@@ -1,39 +1,33 @@
 ---
-name: "🐛 Rapport de bug"
-about: Signaler un comportement inattendu ou une erreur
-title: "[BUG] "
+name: Signalement de bug
+about: Signaler un dysfonctionnement constaté
+title: '[BUG] : '
 labels: bug
-assignees: ""
+assignees: ''
 ---
 
-## Description
+### Bug observé
 
-Décris clairement le problème rencontré.
+Description succincte du problème rencontré.
 
-## Étapes pour reproduire
+### Résultat attendu
 
-1. Aller à '...'
-2. Cliquer sur '...'
-3. Observer '...'
+Ce qui devrait normalement se passer.
 
-## Comportement attendu
+### Étapes pour reproduire
 
-Ce qui aurait dû se passer.
+1.
+2.
+3.
 
-## Comportement observé
+### Captures / Logs
 
-Ce qui s'est passé à la place.
+Copie d'écran ou extrait de logs si pertinent.
 
-## Environnement
+### Environnement
 
-- OS : (ex. macOS 14, Windows 11, Ubuntu 22)
-- Navigateur : (ex. Chrome 122, Firefox 123)
-- Version : (ex. v0.1.0)
+Système d'exploitation, navigateur, version, etc.
 
-## Captures d'écran / logs
+### Gravité
 
-Si applicable, ajoute des captures d'écran ou des extraits de logs.
-
-## Contexte supplémentaire
-
-Tout autre détail utile.
+Bloquant / Majeur / Mineur / Cosmétique

@@ -1,52 +1,10 @@
-# Dépendances
-node_modules/
-.pnp
-.pnp.js
-
-# Build
-dist/
-build/
-.next/
-.nuxt/
-out/
-
-# Variables d'environnement
+node_modules
+.turbo
+dist
+build
 .env
-.env.local
-.env.*.local
-
-# Logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# Systèmes d'exploitation
+.env.*
+coverage
 .DS_Store
-Thumbs.db
-
-# Éditeurs
-.vscode/
-.idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-# Tests
-coverage/
-.nyc_output/
-
-# Cache
-.cache/
-.turbo/
-.eslintcache
-
-# Prisma / SQLite
-*.db
-*.db-journal
-
-# Divers
-*.tsbuildinfo
+logs
+*.log

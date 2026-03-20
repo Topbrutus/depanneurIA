@@ -7,16 +7,19 @@ Le dépôt GitHub est la source unique de vérité.
 ## Répartition
 
 ### Toi
+
 - tu choisis la direction ;
 - tu valides les priorités ;
 - tu décides quand fusionner.
 
 ### Copilot
+
 - il exécute une tâche précise ;
 - il ouvre une PR ;
 - il doit respecter le bloc actif.
 
 ### ChatGPT
+
 - il découpe le travail ;
 - il garde la cohérence ;
 - il vérifie où vous êtes rendus.

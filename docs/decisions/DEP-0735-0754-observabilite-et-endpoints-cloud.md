@@ -42,22 +42,22 @@ incompatible avec des plateformes serverless ou conteneurisées.
 
 ### Service retenu
 
-| Élément               | Valeur                                                  |
-|-----------------------|---------------------------------------------------------|
-| Service               | Google Cloud Logging (ou équivalent managé)             |
-| Activation            | Via la console cloud ou `gcloud services enable`        |
-| Niveau de log minimal | `INFO` en développement, `WARNING` en production        |
-| Rétention par défaut  | 30 jours (ajustable selon les quotas du plan)           |
-| Filtrage              | Par service, par environnement, par niveau de sévérité  |
+| Élément               | Valeur                                                 |
+| --------------------- | ------------------------------------------------------ |
+| Service               | Google Cloud Logging (ou équivalent managé)            |
+| Activation            | Via la console cloud ou `gcloud services enable`       |
+| Niveau de log minimal | `INFO` en développement, `WARNING` en production       |
+| Rétention par défaut  | 30 jours (ajustable selon les quotas du plan)          |
+| Filtrage              | Par service, par environnement, par niveau de sévérité |
 
 ### Éléments à configurer
 
-| Élément                          | Description                                            |
-|----------------------------------|--------------------------------------------------------|
-| Activation du service            | Activer Cloud Logging sur le projet cloud              |
-| Agent ou SDK                     | Chaque application envoie ses logs via le SDK natif    |
-| Filtres de base                  | Un filtre par environnement (dev, preprod, prod)       |
-| Exclusion des données sensibles  | Aucun secret, aucun token, aucun mot de passe en clair |
+| Élément                         | Description                                            |
+| ------------------------------- | ------------------------------------------------------ |
+| Activation du service           | Activer Cloud Logging sur le projet cloud              |
+| Agent ou SDK                    | Chaque application envoie ses logs via le SDK natif    |
+| Filtres de base                 | Un filtre par environnement (dev, preprod, prod)       |
+| Exclusion des données sensibles | Aucun secret, aucun token, aucun mot de passe en clair |
 
 ### Règles
 
@@ -81,27 +81,27 @@ dégradation.
 
 ### Contexte
 
-Le monitoring complète le logging : les logs expliquent *pourquoi* un
-incident se produit, le monitoring détecte *quand* il se produit. Sans
+Le monitoring complète le logging : les logs expliquent _pourquoi_ un
+incident se produit, le monitoring détecte _quand_ il se produit. Sans
 monitoring, les incidents ne sont découverts que par les utilisateurs.
 
 ### Service retenu
 
-| Élément               | Valeur                                                  |
-|-----------------------|---------------------------------------------------------|
-| Service               | Google Cloud Monitoring (ou équivalent managé)          |
-| Activation            | Via la console cloud ou `gcloud services enable`        |
-| Métriques de base     | CPU, mémoire, latence HTTP, taux d'erreurs 5xx         |
-| Tableau de bord       | Un tableau par environnement                            |
+| Élément           | Valeur                                           |
+| ----------------- | ------------------------------------------------ |
+| Service           | Google Cloud Monitoring (ou équivalent managé)   |
+| Activation        | Via la console cloud ou `gcloud services enable` |
+| Métriques de base | CPU, mémoire, latence HTTP, taux d'erreurs 5xx   |
+| Tableau de bord   | Un tableau par environnement                     |
 
 ### Alertes de base
 
-| Alerte                            | Seuil                                  | Canal             |
-|-----------------------------------|----------------------------------------|--------------------|
-| Taux d'erreurs 5xx > 5 %         | Fenêtre de 5 minutes                  | E-mail, Slack      |
-| Latence P95 > 2 secondes         | Fenêtre de 10 minutes                 | E-mail             |
-| CPU > 80 % soutenu               | Fenêtre de 15 minutes                 | E-mail             |
-| Service indisponible              | Aucune réponse pendant 2 minutes      | E-mail, Slack      |
+| Alerte                   | Seuil                            | Canal         |
+| ------------------------ | -------------------------------- | ------------- |
+| Taux d'erreurs 5xx > 5 % | Fenêtre de 5 minutes             | E-mail, Slack |
+| Latence P95 > 2 secondes | Fenêtre de 10 minutes            | E-mail        |
+| CPU > 80 % soutenu       | Fenêtre de 15 minutes            | E-mail        |
+| Service indisponible     | Aucune réponse pendant 2 minutes | E-mail, Slack |
 
 ### Règles
 
@@ -127,21 +127,21 @@ manuelle des sauvegardes, des mises à jour et de la haute disponibilité.
 
 ### Service retenu
 
-| Élément               | Valeur                                                  |
-|-----------------------|---------------------------------------------------------|
-| Base de données       | PostgreSQL (version ≥ 15)                               |
-| Service managé        | Cloud SQL for PostgreSQL (ou équivalent managé)         |
-| Activation            | Via la console cloud ou CLI                             |
-| Sauvegardes           | Automatiques quotidiennes, rétention 7 jours            |
-| Haute disponibilité   | Activée en production, désactivée en développement      |
+| Élément             | Valeur                                             |
+| ------------------- | -------------------------------------------------- |
+| Base de données     | PostgreSQL (version ≥ 15)                          |
+| Service managé      | Cloud SQL for PostgreSQL (ou équivalent managé)    |
+| Activation          | Via la console cloud ou CLI                        |
+| Sauvegardes         | Automatiques quotidiennes, rétention 7 jours       |
+| Haute disponibilité | Activée en production, désactivée en développement |
 
 ### Configuration par environnement
 
-| Environnement   | Taille instance | Stockage | HA       | Sauvegardes |
-|------------------|-----------------|----------|----------|-------------|
-| Développement    | Minimale        | 10 Go    | Non      | Quotidienne |
-| Préproduction    | Petite          | 20 Go    | Non      | Quotidienne |
-| Production       | Moyenne         | 50 Go    | Oui      | Quotidienne |
+| Environnement | Taille instance | Stockage | HA  | Sauvegardes |
+| ------------- | --------------- | -------- | --- | ----------- |
+| Développement | Minimale        | 10 Go    | Non | Quotidienne |
+| Préproduction | Petite          | 20 Go    | Non | Quotidienne |
+| Production    | Moyenne         | 50 Go    | Oui | Quotidienne |
 
 ### Règles
 
@@ -170,21 +170,21 @@ durabilité, la disponibilité et la distribution via CDN.
 
 ### Service retenu
 
-| Élément               | Valeur                                                  |
-|-----------------------|---------------------------------------------------------|
-| Service               | Google Cloud Storage (ou équivalent S3-compatible)      |
-| Activation            | Via la console cloud ou CLI                             |
-| Classe de stockage    | Standard (accès fréquent)                               |
-| Région                | Même région que les services applicatifs                |
-| Accès public          | Lecture publique pour les images produits uniquement     |
+| Élément            | Valeur                                               |
+| ------------------ | ---------------------------------------------------- |
+| Service            | Google Cloud Storage (ou équivalent S3-compatible)   |
+| Activation         | Via la console cloud ou CLI                          |
+| Classe de stockage | Standard (accès fréquent)                            |
+| Région             | Même région que les services applicatifs             |
+| Accès public       | Lecture publique pour les images produits uniquement |
 
 ### Buckets prévus
 
-| Bucket                | Usage                              | Accès           |
-|-----------------------|------------------------------------|-----------------|
-| `{projet}-media-dev`  | Images et médias en développement  | Privé + CDN     |
-| `{projet}-media-preprod` | Images et médias en préproduction | Privé + CDN   |
-| `{projet}-media-prod` | Images et médias en production     | Public + CDN    |
+| Bucket                   | Usage                             | Accès        |
+| ------------------------ | --------------------------------- | ------------ |
+| `{projet}-media-dev`     | Images et médias en développement | Privé + CDN  |
+| `{projet}-media-preprod` | Images et médias en préproduction | Privé + CDN  |
+| `{projet}-media-prod`    | Images et médias en production    | Public + CDN |
 
 ### Règles
 
@@ -214,20 +214,20 @@ projet cloud.
 
 ### API retenues
 
-| API                       | Usage                                      | Obligatoire |
-|---------------------------|--------------------------------------------|-------------|
-| OpenAI API                | Compréhension et génération de texte       | Oui         |
-| OpenAI Realtime API       | Conversation vocale en temps réel (web)    | Oui         |
-| Speech-to-Text (optionnel)| Transcription de fallback si nécessaire    | Non         |
+| API                        | Usage                                   | Obligatoire |
+| -------------------------- | --------------------------------------- | ----------- |
+| OpenAI API                 | Compréhension et génération de texte    | Oui         |
+| OpenAI Realtime API        | Conversation vocale en temps réel (web) | Oui         |
+| Speech-to-Text (optionnel) | Transcription de fallback si nécessaire | Non         |
 
 ### Éléments à configurer
 
-| Élément                          | Description                                            |
-|----------------------------------|--------------------------------------------------------|
-| Clé API OpenAI                   | Stockée dans Secret Manager (DEP-0748)                |
-| Quotas et limites                | Définir les limites de requêtes par minute             |
-| Environnement de facturation     | Un compte de facturation distinct ou partagé           |
-| Monitoring des coûts             | Alerte si les coûts dépassent un seuil défini          |
+| Élément                      | Description                                   |
+| ---------------------------- | --------------------------------------------- |
+| Clé API OpenAI               | Stockée dans Secret Manager (DEP-0748)        |
+| Quotas et limites            | Définir les limites de requêtes par minute    |
+| Environnement de facturation | Un compte de facturation distinct ou partagé  |
+| Monitoring des coûts         | Alerte si les coûts dépassent un seuil défini |
 
 ### Règles
 
@@ -257,21 +257,21 @@ Internet avec un certificat HTTPS valide.
 
 ### API et services requis
 
-| Service                   | Usage                                      | Obligatoire |
-|---------------------------|--------------------------------------------|-------------|
-| Twilio Voice              | Réception et gestion des appels entrants   | Oui         |
-| Twilio Phone Numbers      | Numéro de téléphone dédié par tenant       | Oui         |
-| OpenAI Realtime API       | Conversation vocale en temps réel          | Oui         |
-| Webhook HTTPS public      | Point d'entrée pour les appels Twilio      | Oui         |
+| Service              | Usage                                    | Obligatoire |
+| -------------------- | ---------------------------------------- | ----------- |
+| Twilio Voice         | Réception et gestion des appels entrants | Oui         |
+| Twilio Phone Numbers | Numéro de téléphone dédié par tenant     | Oui         |
+| OpenAI Realtime API  | Conversation vocale en temps réel        | Oui         |
+| Webhook HTTPS public | Point d'entrée pour les appels Twilio    | Oui         |
 
 ### Éléments à configurer
 
-| Élément                          | Description                                            |
-|----------------------------------|--------------------------------------------------------|
-| Numéro Twilio                    | Un numéro par tenant actif                            |
-| URL du webhook                   | `https://api.{domaine}/webhooks/twilio/voice`         |
-| Signature Twilio                 | Validation de la signature sur chaque requête entrante|
-| Clés Twilio (SID, Auth Token)    | Stockées dans Secret Manager (DEP-0748)               |
+| Élément                       | Description                                            |
+| ----------------------------- | ------------------------------------------------------ |
+| Numéro Twilio                 | Un numéro par tenant actif                             |
+| URL du webhook                | `https://api.{domaine}/webhooks/twilio/voice`          |
+| Signature Twilio              | Validation de la signature sur chaque requête entrante |
+| Clés Twilio (SID, Auth Token) | Stockées dans Secret Manager (DEP-0748)                |
 
 ### Règles
 
@@ -301,26 +301,26 @@ publiquement.
 
 ### Service retenu
 
-| Élément               | Valeur                                                  |
-|-----------------------|---------------------------------------------------------|
-| Service               | Google Artifact Registry (ou équivalent managé)         |
-| Format                | Docker (OCI)                                            |
-| Région                | Même région que les services applicatifs                |
-| Accès                 | Privé — authentification requise                        |
+| Élément | Valeur                                          |
+| ------- | ----------------------------------------------- |
+| Service | Google Artifact Registry (ou équivalent managé) |
+| Format  | Docker (OCI)                                    |
+| Région  | Même région que les services applicatifs        |
+| Accès   | Privé — authentification requise                |
 
 ### Registres prévus
 
-| Registre                         | Usage                                  |
-|----------------------------------|----------------------------------------|
-| `{projet}-docker`                | Images Docker des applications         |
+| Registre          | Usage                          |
+| ----------------- | ------------------------------ |
+| `{projet}-docker` | Images Docker des applications |
 
 ### Politique de rétention
 
-| Règle                            | Valeur                                 |
-|----------------------------------|----------------------------------------|
-| Images taguées (release)         | Conservation illimitée                 |
-| Images non taguées               | Suppression après 30 jours             |
-| Images de développement          | Suppression après 7 jours              |
+| Règle                    | Valeur                     |
+| ------------------------ | -------------------------- |
+| Images taguées (release) | Conservation illimitée     |
+| Images non taguées       | Suppression après 30 jours |
+| Images de développement  | Suppression après 7 jours  |
 
 ### Règles
 
@@ -349,15 +349,15 @@ préproduction.
 
 ### Caractéristiques
 
-| Élément                  | Valeur                                          |
-|--------------------------|-------------------------------------------------|
-| Nom                      | `dev`                                           |
-| Projet cloud ou espace   | Projet ou namespace dédié                       |
-| Base de données           | Instance Cloud SQL minimale (DEP-0737)         |
-| Stockage                 | Bucket `{projet}-media-dev` (DEP-0738)          |
-| Registre d'images        | Partagé avec les autres environnements          |
-| Monitoring               | Optionnel (DEP-0736)                            |
-| Logging                  | Activé (DEP-0735)                               |
+| Élément                | Valeur                                 |
+| ---------------------- | -------------------------------------- |
+| Nom                    | `dev`                                  |
+| Projet cloud ou espace | Projet ou namespace dédié              |
+| Base de données        | Instance Cloud SQL minimale (DEP-0737) |
+| Stockage               | Bucket `{projet}-media-dev` (DEP-0738) |
+| Registre d'images      | Partagé avec les autres environnements |
+| Monitoring             | Optionnel (DEP-0736)                   |
+| Logging                | Activé (DEP-0735)                      |
 
 ### Règles
 
@@ -383,15 +383,15 @@ de validation avant le déploiement en production.
 
 ### Caractéristiques
 
-| Élément                  | Valeur                                          |
-|--------------------------|-------------------------------------------------|
-| Nom                      | `staging`                                       |
-| Projet cloud ou espace   | Projet ou namespace dédié                       |
-| Base de données           | Instance Cloud SQL petite (DEP-0737)           |
-| Stockage                 | Bucket `{projet}-media-preprod` (DEP-0738)      |
-| Registre d'images        | Partagé avec les autres environnements          |
-| Monitoring               | Activé (DEP-0736)                               |
-| Logging                  | Activé (DEP-0735)                               |
+| Élément                | Valeur                                     |
+| ---------------------- | ------------------------------------------ |
+| Nom                    | `staging`                                  |
+| Projet cloud ou espace | Projet ou namespace dédié                  |
+| Base de données        | Instance Cloud SQL petite (DEP-0737)       |
+| Stockage               | Bucket `{projet}-media-preprod` (DEP-0738) |
+| Registre d'images      | Partagé avec les autres environnements     |
+| Monitoring             | Activé (DEP-0736)                          |
+| Logging                | Activé (DEP-0735)                          |
 
 ### Règles
 
@@ -420,15 +420,15 @@ sécurité des données.
 
 ### Caractéristiques
 
-| Élément                  | Valeur                                          |
-|--------------------------|-------------------------------------------------|
-| Nom                      | `production`                                    |
-| Projet cloud ou espace   | Projet ou namespace dédié et isolé              |
-| Base de données           | Instance Cloud SQL moyenne, HA activée (DEP-0737) |
-| Stockage                 | Bucket `{projet}-media-prod` (DEP-0738)         |
-| Registre d'images        | Partagé avec les autres environnements          |
-| Monitoring               | Activé avec alertes (DEP-0736)                  |
-| Logging                  | Activé (DEP-0735)                               |
+| Élément                | Valeur                                            |
+| ---------------------- | ------------------------------------------------- |
+| Nom                    | `production`                                      |
+| Projet cloud ou espace | Projet ou namespace dédié et isolé                |
+| Base de données        | Instance Cloud SQL moyenne, HA activée (DEP-0737) |
+| Stockage               | Bucket `{projet}-media-prod` (DEP-0738)           |
+| Registre d'images      | Partagé avec les autres environnements            |
+| Monitoring             | Activé avec alertes (DEP-0736)                    |
+| Logging                | Activé (DEP-0735)                                 |
 
 ### Règles
 
@@ -459,15 +459,15 @@ variable n'est partagée entre environnements.
 
 ### Variables requises
 
-| Variable                     | Exemple de valeur (dev)                    | Description                          |
-|------------------------------|--------------------------------------------|--------------------------------------|
-| `NODE_ENV`                   | `development`                              | Environnement Node.js                |
-| `DATABASE_URL`               | `postgresql://...@dev-instance/depaneuria`| URL de connexion PostgreSQL          |
-| `STORAGE_BUCKET`             | `depaneuria-media-dev`                     | Bucket de stockage des médias        |
-| `NEXT_PUBLIC_API_URL`        | `https://api-dev.depaneuria.com`           | URL publique de l'API                |
-| `NEXT_PUBLIC_APP_URL`        | `https://dev.depaneuria.com`               | URL publique du front                |
-| `TWILIO_WEBHOOK_URL`         | `https://api-dev.depaneuria.com/webhooks/twilio/voice` | URL du webhook Twilio |
-| `LOG_LEVEL`                  | `debug`                                    | Niveau de journalisation             |
+| Variable              | Exemple de valeur (dev)                                | Description                   |
+| --------------------- | ------------------------------------------------------ | ----------------------------- |
+| `NODE_ENV`            | `development`                                          | Environnement Node.js         |
+| `DATABASE_URL`        | `postgresql://...@dev-instance/depaneuria`             | URL de connexion PostgreSQL   |
+| `STORAGE_BUCKET`      | `depaneuria-media-dev`                                 | Bucket de stockage des médias |
+| `NEXT_PUBLIC_API_URL` | `https://api-dev.depaneuria.com`                       | URL publique de l'API         |
+| `NEXT_PUBLIC_APP_URL` | `https://dev.depaneuria.com`                           | URL publique du front         |
+| `TWILIO_WEBHOOK_URL`  | `https://api-dev.depaneuria.com/webhooks/twilio/voice` | URL du webhook Twilio         |
+| `LOG_LEVEL`           | `debug`                                                | Niveau de journalisation      |
 
 ### Règles
 
@@ -496,15 +496,15 @@ de valider le comportement de l'application dans un contexte quasi identique
 
 ### Variables requises
 
-| Variable                     | Exemple de valeur (staging)                | Description                          |
-|------------------------------|--------------------------------------------|--------------------------------------|
-| `NODE_ENV`                   | `staging`                                  | Environnement Node.js                |
-| `DATABASE_URL`               | `postgresql://...@staging-instance/depaneuria` | URL de connexion PostgreSQL     |
-| `STORAGE_BUCKET`             | `depaneuria-media-preprod`                 | Bucket de stockage des médias        |
-| `NEXT_PUBLIC_API_URL`        | `https://api-staging.depaneuria.com`       | URL publique de l'API                |
-| `NEXT_PUBLIC_APP_URL`        | `https://staging.depaneuria.com`           | URL publique du front                |
-| `TWILIO_WEBHOOK_URL`         | `https://api-staging.depaneuria.com/webhooks/twilio/voice` | URL du webhook Twilio |
-| `LOG_LEVEL`                  | `info`                                     | Niveau de journalisation             |
+| Variable              | Exemple de valeur (staging)                                | Description                   |
+| --------------------- | ---------------------------------------------------------- | ----------------------------- |
+| `NODE_ENV`            | `staging`                                                  | Environnement Node.js         |
+| `DATABASE_URL`        | `postgresql://...@staging-instance/depaneuria`             | URL de connexion PostgreSQL   |
+| `STORAGE_BUCKET`      | `depaneuria-media-preprod`                                 | Bucket de stockage des médias |
+| `NEXT_PUBLIC_API_URL` | `https://api-staging.depaneuria.com`                       | URL publique de l'API         |
+| `NEXT_PUBLIC_APP_URL` | `https://staging.depaneuria.com`                           | URL publique du front         |
+| `TWILIO_WEBHOOK_URL`  | `https://api-staging.depaneuria.com/webhooks/twilio/voice` | URL du webhook Twilio         |
+| `LOG_LEVEL`           | `info`                                                     | Niveau de journalisation      |
 
 ### Règles
 
@@ -534,15 +534,15 @@ ou une fuite de données.
 
 ### Variables requises
 
-| Variable                     | Exemple de valeur (production)             | Description                          |
-|------------------------------|--------------------------------------------|--------------------------------------|
-| `NODE_ENV`                   | `production`                               | Environnement Node.js                |
-| `DATABASE_URL`               | `postgresql://...@prod-instance/depaneuria`| URL de connexion PostgreSQL          |
-| `STORAGE_BUCKET`             | `depaneuria-media-prod`                    | Bucket de stockage des médias        |
-| `NEXT_PUBLIC_API_URL`        | `https://api.depaneuria.com`               | URL publique de l'API                |
-| `NEXT_PUBLIC_APP_URL`        | `https://depaneuria.com`                   | URL publique du front                |
-| `TWILIO_WEBHOOK_URL`         | `https://api.depaneuria.com/webhooks/twilio/voice` | URL du webhook Twilio       |
-| `LOG_LEVEL`                  | `warning`                                  | Niveau de journalisation             |
+| Variable              | Exemple de valeur (production)                     | Description                   |
+| --------------------- | -------------------------------------------------- | ----------------------------- |
+| `NODE_ENV`            | `production`                                       | Environnement Node.js         |
+| `DATABASE_URL`        | `postgresql://...@prod-instance/depaneuria`        | URL de connexion PostgreSQL   |
+| `STORAGE_BUCKET`      | `depaneuria-media-prod`                            | Bucket de stockage des médias |
+| `NEXT_PUBLIC_API_URL` | `https://api.depaneuria.com`                       | URL publique de l'API         |
+| `NEXT_PUBLIC_APP_URL` | `https://depaneuria.com`                           | URL publique du front         |
+| `TWILIO_WEBHOOK_URL`  | `https://api.depaneuria.com/webhooks/twilio/voice` | URL du webhook Twilio         |
+| `LOG_LEVEL`           | `warning`                                          | Niveau de journalisation      |
 
 ### Règles
 
@@ -571,23 +571,23 @@ l'audit des accès.
 
 ### Service retenu
 
-| Élément               | Valeur                                                  |
-|-----------------------|---------------------------------------------------------|
-| Service               | Google Secret Manager (ou équivalent managé)            |
-| Chiffrement           | AES-256 au repos, géré par la plateforme                |
-| Accès                 | IAM — chaque service n'accède qu'à ses propres secrets  |
-| Versionnement         | Chaque secret est versionné automatiquement             |
+| Élément       | Valeur                                                 |
+| ------------- | ------------------------------------------------------ |
+| Service       | Google Secret Manager (ou équivalent managé)           |
+| Chiffrement   | AES-256 au repos, géré par la plateforme               |
+| Accès         | IAM — chaque service n'accède qu'à ses propres secrets |
+| Versionnement | Chaque secret est versionné automatiquement            |
 
 ### Secrets à stocker
 
-| Secret                          | Utilisé par         | Environnements         |
-|---------------------------------|---------------------|------------------------|
-| `DATABASE_URL`                  | API                 | dev, staging, prod     |
-| `JWT_SECRET`                    | API                 | dev, staging, prod     |
-| `OPENAI_API_KEY`                | API (assistant)     | dev, staging, prod     |
-| `TWILIO_ACCOUNT_SID`            | API (téléphonie)    | dev, staging, prod     |
-| `TWILIO_AUTH_TOKEN`             | API (téléphonie)    | dev, staging, prod     |
-| `STORAGE_SERVICE_ACCOUNT_KEY`   | API (stockage)      | dev, staging, prod     |
+| Secret                        | Utilisé par      | Environnements     |
+| ----------------------------- | ---------------- | ------------------ |
+| `DATABASE_URL`                | API              | dev, staging, prod |
+| `JWT_SECRET`                  | API              | dev, staging, prod |
+| `OPENAI_API_KEY`              | API (assistant)  | dev, staging, prod |
+| `TWILIO_ACCOUNT_SID`          | API (téléphonie) | dev, staging, prod |
+| `TWILIO_AUTH_TOKEN`           | API (téléphonie) | dev, staging, prod |
+| `STORAGE_SERVICE_ACCOUNT_KEY` | API (stockage)   | dev, staging, prod |
 
 ### Règles
 
@@ -619,12 +619,12 @@ l'isolation.
 
 ### Structure des domaines
 
-| Composant              | Développement                        | Préproduction                       | Production                    |
-|------------------------|--------------------------------------|-------------------------------------|-------------------------------|
-| Front client           | `dev.depaneuria.com`                 | `staging.depaneuria.com`            | `depaneuria.com`              |
-| API                    | `api-dev.depaneuria.com`             | `api-staging.depaneuria.com`        | `api.depaneuria.com`          |
-| Administration         | `admin-dev.depaneuria.com`           | `admin-staging.depaneuria.com`      | `admin.depaneuria.com`        |
-| Tenant (client)        | `{slug}-dev.depaneuria.com`          | `{slug}-staging.depaneuria.com`     | `{slug}.depaneuria.com`       |
+| Composant       | Développement               | Préproduction                   | Production              |
+| --------------- | --------------------------- | ------------------------------- | ----------------------- |
+| Front client    | `dev.depaneuria.com`        | `staging.depaneuria.com`        | `depaneuria.com`        |
+| API             | `api-dev.depaneuria.com`    | `api-staging.depaneuria.com`    | `api.depaneuria.com`    |
+| Administration  | `admin-dev.depaneuria.com`  | `admin-staging.depaneuria.com`  | `admin.depaneuria.com`  |
+| Tenant (client) | `{slug}-dev.depaneuria.com` | `{slug}-staging.depaneuria.com` | `{slug}.depaneuria.com` |
 
 ### Règles
 
@@ -655,22 +655,22 @@ la confiance des utilisateurs et le bon fonctionnement des webhooks Twilio
 
 ### Stratégie retenue
 
-| Élément                  | Valeur                                          |
-|--------------------------|-------------------------------------------------|
-| Certificats              | Let's Encrypt (gratuit, automatique)            |
-| Renouvellement           | Automatique (90 jours)                          |
-| Protocole minimum        | TLS 1.2                                         |
-| Redirection HTTP → HTTPS | Automatique sur tous les domaines               |
-| HSTS                     | Activé avec `max-age=31536000`                  |
+| Élément                  | Valeur                               |
+| ------------------------ | ------------------------------------ |
+| Certificats              | Let's Encrypt (gratuit, automatique) |
+| Renouvellement           | Automatique (90 jours)               |
+| Protocole minimum        | TLS 1.2                              |
+| Redirection HTTP → HTTPS | Automatique sur tous les domaines    |
+| HSTS                     | Activé avec `max-age=31536000`       |
 
 ### Configuration par composant
 
-| Composant              | Terminaison TLS                                 |
-|------------------------|-------------------------------------------------|
-| Front client           | Au niveau du load balancer ou du CDN            |
-| API                    | Au niveau du load balancer                      |
-| Administration         | Au niveau du load balancer                      |
-| Webhooks               | Au niveau du load balancer (même certificat API)|
+| Composant      | Terminaison TLS                                  |
+| -------------- | ------------------------------------------------ |
+| Front client   | Au niveau du load balancer ou du CDN             |
+| API            | Au niveau du load balancer                       |
+| Administration | Au niveau du load balancer                       |
+| Webhooks       | Au niveau du load balancer (même certificat API) |
 
 ### Règles
 
@@ -702,18 +702,18 @@ définie en DEP-0161–DEP-0180.
 
 ### Endpoints
 
-| Méthode | Chemin                        | Description                              |
-|---------|-------------------------------|------------------------------------------|
-| GET     | `/`                           | Page d'accueil de la boutique            |
-| GET     | `/catalogue`                  | Page du catalogue (liste des catégories) |
-| GET     | `/catalogue/{slug}`           | Page d'une catégorie spécifique          |
-| GET     | `/produit/{slug}`             | Page de détail d'un produit              |
-| GET     | `/panier`                     | Page du panier                           |
-| GET     | `/suivi`                      | Page de suivi de commande                |
-| GET     | `/connexion`                  | Page de connexion                        |
-| GET     | `/inscription`                | Page d'inscription                       |
-| GET     | `/profil`                     | Page du profil client                    |
-| GET     | `/assistant`                  | Interface de l'assistant texte/vocal     |
+| Méthode | Chemin              | Description                              |
+| ------- | ------------------- | ---------------------------------------- |
+| GET     | `/`                 | Page d'accueil de la boutique            |
+| GET     | `/catalogue`        | Page du catalogue (liste des catégories) |
+| GET     | `/catalogue/{slug}` | Page d'une catégorie spécifique          |
+| GET     | `/produit/{slug}`   | Page de détail d'un produit              |
+| GET     | `/panier`           | Page du panier                           |
+| GET     | `/suivi`            | Page de suivi de commande                |
+| GET     | `/connexion`        | Page de connexion                        |
+| GET     | `/inscription`      | Page d'inscription                       |
+| GET     | `/profil`           | Page du profil client                    |
+| GET     | `/assistant`        | Interface de l'assistant texte/vocal     |
 
 ### Règles
 
@@ -744,22 +744,22 @@ administrateur.
 
 ### Endpoints
 
-| Méthode | Chemin                              | Auth requise | Description                          |
-|---------|-------------------------------------|--------------|--------------------------------------|
-| GET     | `/api/v1/catalogue`                 | Non          | Liste des catégories et produits     |
-| GET     | `/api/v1/catalogue/{slug}`          | Non          | Détail d'une catégorie               |
-| GET     | `/api/v1/produits/{slug}`           | Non          | Détail d'un produit                  |
-| POST    | `/api/v1/auth/inscription`          | Non          | Inscription d'un nouveau client      |
-| POST    | `/api/v1/auth/connexion`            | Non          | Connexion (envoi OTP)                |
-| POST    | `/api/v1/auth/verification`         | Non          | Vérification du code OTP             |
-| GET     | `/api/v1/profil`                    | Oui (client) | Profil du client connecté            |
-| PUT     | `/api/v1/profil`                    | Oui (client) | Mise à jour du profil                |
-| GET     | `/api/v1/panier`                    | Oui (client) | Contenu du panier                    |
-| POST    | `/api/v1/panier/articles`           | Oui (client) | Ajout d'un article au panier         |
-| DELETE  | `/api/v1/panier/articles/{id}`      | Oui (client) | Suppression d'un article du panier   |
-| POST    | `/api/v1/commandes`                 | Oui (client) | Création d'une commande              |
-| GET     | `/api/v1/commandes/{id}/suivi`      | Oui (client) | Suivi d'une commande                 |
-| POST    | `/api/v1/webhooks/twilio/voice`     | Signature    | Webhook entrant Twilio (DEP-0740)    |
+| Méthode | Chemin                          | Auth requise | Description                        |
+| ------- | ------------------------------- | ------------ | ---------------------------------- |
+| GET     | `/api/v1/catalogue`             | Non          | Liste des catégories et produits   |
+| GET     | `/api/v1/catalogue/{slug}`      | Non          | Détail d'une catégorie             |
+| GET     | `/api/v1/produits/{slug}`       | Non          | Détail d'un produit                |
+| POST    | `/api/v1/auth/inscription`      | Non          | Inscription d'un nouveau client    |
+| POST    | `/api/v1/auth/connexion`        | Non          | Connexion (envoi OTP)              |
+| POST    | `/api/v1/auth/verification`     | Non          | Vérification du code OTP           |
+| GET     | `/api/v1/profil`                | Oui (client) | Profil du client connecté          |
+| PUT     | `/api/v1/profil`                | Oui (client) | Mise à jour du profil              |
+| GET     | `/api/v1/panier`                | Oui (client) | Contenu du panier                  |
+| POST    | `/api/v1/panier/articles`       | Oui (client) | Ajout d'un article au panier       |
+| DELETE  | `/api/v1/panier/articles/{id}`  | Oui (client) | Suppression d'un article du panier |
+| POST    | `/api/v1/commandes`             | Oui (client) | Création d'une commande            |
+| GET     | `/api/v1/commandes/{id}/suivi`  | Oui (client) | Suivi d'une commande               |
+| POST    | `/api/v1/webhooks/twilio/voice` | Signature    | Webhook entrant Twilio (DEP-0740)  |
 
 ### Règles
 
@@ -788,35 +788,35 @@ l'authentification et l'autorisation par rôle.
 
 ### Endpoints dépanneur
 
-| Méthode | Chemin                                  | Description                              |
-|---------|-----------------------------------------|------------------------------------------|
-| GET     | `/api/v1/admin/commandes`               | Liste des commandes du tenant            |
-| PUT     | `/api/v1/admin/commandes/{id}/statut`   | Changement de statut d'une commande      |
-| GET     | `/api/v1/admin/catalogue`               | Liste des produits du catalogue          |
-| POST    | `/api/v1/admin/catalogue/produits`      | Ajout d'un produit                       |
-| PUT     | `/api/v1/admin/catalogue/produits/{id}` | Modification d'un produit                |
-| DELETE  | `/api/v1/admin/catalogue/produits/{id}` | Suppression d'un produit                 |
-| GET     | `/api/v1/admin/categories`              | Liste des catégories                     |
-| POST    | `/api/v1/admin/categories`              | Ajout d'une catégorie                    |
-| PUT     | `/api/v1/admin/categories/{id}`         | Modification d'une catégorie             |
+| Méthode | Chemin                                  | Description                         |
+| ------- | --------------------------------------- | ----------------------------------- |
+| GET     | `/api/v1/admin/commandes`               | Liste des commandes du tenant       |
+| PUT     | `/api/v1/admin/commandes/{id}/statut`   | Changement de statut d'une commande |
+| GET     | `/api/v1/admin/catalogue`               | Liste des produits du catalogue     |
+| POST    | `/api/v1/admin/catalogue/produits`      | Ajout d'un produit                  |
+| PUT     | `/api/v1/admin/catalogue/produits/{id}` | Modification d'un produit           |
+| DELETE  | `/api/v1/admin/catalogue/produits/{id}` | Suppression d'un produit            |
+| GET     | `/api/v1/admin/categories`              | Liste des catégories                |
+| POST    | `/api/v1/admin/categories`              | Ajout d'une catégorie               |
+| PUT     | `/api/v1/admin/categories/{id}`         | Modification d'une catégorie        |
 
 ### Endpoints livreur
 
-| Méthode | Chemin                                  | Description                              |
-|---------|-----------------------------------------|------------------------------------------|
-| GET     | `/api/v1/livreur/livraisons`            | Liste des livraisons disponibles         |
-| PUT     | `/api/v1/livreur/livraisons/{id}/accepter` | Accepter une livraison                |
-| PUT     | `/api/v1/livreur/livraisons/{id}/statut`| Mise à jour du statut de livraison       |
+| Méthode | Chemin                                     | Description                        |
+| ------- | ------------------------------------------ | ---------------------------------- |
+| GET     | `/api/v1/livreur/livraisons`               | Liste des livraisons disponibles   |
+| PUT     | `/api/v1/livreur/livraisons/{id}/accepter` | Accepter une livraison             |
+| PUT     | `/api/v1/livreur/livraisons/{id}/statut`   | Mise à jour du statut de livraison |
 
 ### Endpoints super admin
 
-| Méthode | Chemin                                  | Description                              |
-|---------|-----------------------------------------|------------------------------------------|
-| GET     | `/api/v1/super-admin/tenants`           | Liste des tenants                        |
-| POST    | `/api/v1/super-admin/tenants`           | Création d'un tenant                     |
-| PUT     | `/api/v1/super-admin/tenants/{id}`      | Modification d'un tenant                 |
-| PUT     | `/api/v1/super-admin/tenants/{id}/suspendre` | Suspension d'un tenant              |
-| PUT     | `/api/v1/super-admin/tenants/{id}/reactiver` | Réactivation d'un tenant            |
+| Méthode | Chemin                                       | Description              |
+| ------- | -------------------------------------------- | ------------------------ |
+| GET     | `/api/v1/super-admin/tenants`                | Liste des tenants        |
+| POST    | `/api/v1/super-admin/tenants`                | Création d'un tenant     |
+| PUT     | `/api/v1/super-admin/tenants/{id}`           | Modification d'un tenant |
+| PUT     | `/api/v1/super-admin/tenants/{id}/suspendre` | Suspension d'un tenant   |
+| PUT     | `/api/v1/super-admin/tenants/{id}/reactiver` | Réactivation d'un tenant |
 
 ### Règles
 
@@ -864,11 +864,11 @@ et l'isolation multi-tenant.
 
 ### Formats et tailles
 
-| Variante       | Dimensions maximales | Format   | Usage                           |
-|----------------|----------------------|----------|---------------------------------|
-| Original       | Taille originale     | WebP/PNG | Archive, pas servi directement  |
-| Miniature      | 300 × 300 px         | WebP     | Liste catalogue, panier         |
-| Moyenne        | 800 × 800 px         | WebP     | Page de détail produit          |
+| Variante  | Dimensions maximales | Format   | Usage                          |
+| --------- | -------------------- | -------- | ------------------------------ |
+| Original  | Taille originale     | WebP/PNG | Archive, pas servi directement |
+| Miniature | 300 × 300 px         | WebP     | Liste catalogue, panier        |
+| Moyenne   | 800 × 800 px         | WebP     | Page de détail produit         |
 
 ### Pipeline de traitement
 
@@ -880,13 +880,13 @@ et l'isolation multi-tenant.
 
 ### Distribution
 
-| Élément                  | Valeur                                          |
-|--------------------------|-------------------------------------------------|
-| CDN                      | Activé devant le bucket de production            |
-| Cache                    | `Cache-Control: public, max-age=86400` (1 jour) |
-| URL publique             | `https://cdn.depaneuria.com/{tenant_slug}/produits/{produit_slug}/medium_800x800.webp` |
-| URL interne (bucket)     | `{bucket}/{tenant_id}/produits/{produit_id}/medium_800x800.webp` |
-| Invalidation             | Lors de la mise à jour d'une image produit       |
+| Élément              | Valeur                                                                                 |
+| -------------------- | -------------------------------------------------------------------------------------- |
+| CDN                  | Activé devant le bucket de production                                                  |
+| Cache                | `Cache-Control: public, max-age=86400` (1 jour)                                        |
+| URL publique         | `https://cdn.depaneuria.com/{tenant_slug}/produits/{produit_slug}/medium_800x800.webp` |
+| URL interne (bucket) | `{bucket}/{tenant_id}/produits/{produit_id}/medium_800x800.webp`                       |
+| Invalidation         | Lors de la mise à jour d'une image produit                                             |
 
 > **Note** : Les URLs publiques exposées aux clients utilisent des slugs
 > lisibles (cohérent avec DEP-0751). Un mécanisme de réécriture au niveau
@@ -909,25 +909,25 @@ et l'isolation multi-tenant.
 
 ## Synthèse
 
-| DEP   | Titre                                                    | Statut  |
-|-------|----------------------------------------------------------|---------|
-| 0735  | Activer Cloud Logging                                    | Défini  |
-| 0736  | Activer Cloud Monitoring                                 | Défini  |
-| 0737  | Activer la base de données choisie                       | Défini  |
-| 0738  | Activer le service de stockage de fichiers choisi        | Défini  |
-| 0739  | Activer les API nécessaires à l'assistant si choisies    | Défini  |
-| 0740  | Activer les API nécessaires à la téléphonie              | Défini  |
-| 0741  | Créer le registre d'images du projet                     | Défini  |
-| 0742  | Créer l'environnement cloud de développement             | Défini  |
-| 0743  | Créer l'environnement cloud de préproduction             | Défini  |
-| 0744  | Créer l'environnement cloud de production                | Défini  |
-| 0745  | Définir les variables d'environnement cloud dev          | Défini  |
-| 0746  | Définir les variables d'environnement cloud préproduction| Défini  |
-| 0747  | Définir les variables d'environnement cloud production   | Défini  |
-| 0748  | Stocker les secrets dans Secret Manager                  | Défini  |
-| 0749  | Définir les domaines et sous-domaines                    | Défini  |
-| 0750  | Définir la stratégie HTTPS                               | Défini  |
-| 0751  | Définir les endpoints publics du front                   | Défini  |
-| 0752  | Définir les endpoints publics de l'API                   | Défini  |
-| 0753  | Définir les endpoints privés d'administration            | Défini  |
-| 0754  | Définir la stratégie de stockage des images produits     | Défini  |
+| DEP  | Titre                                                     | Statut |
+| ---- | --------------------------------------------------------- | ------ |
+| 0735 | Activer Cloud Logging                                     | Défini |
+| 0736 | Activer Cloud Monitoring                                  | Défini |
+| 0737 | Activer la base de données choisie                        | Défini |
+| 0738 | Activer le service de stockage de fichiers choisi         | Défini |
+| 0739 | Activer les API nécessaires à l'assistant si choisies     | Défini |
+| 0740 | Activer les API nécessaires à la téléphonie               | Défini |
+| 0741 | Créer le registre d'images du projet                      | Défini |
+| 0742 | Créer l'environnement cloud de développement              | Défini |
+| 0743 | Créer l'environnement cloud de préproduction              | Défini |
+| 0744 | Créer l'environnement cloud de production                 | Défini |
+| 0745 | Définir les variables d'environnement cloud dev           | Défini |
+| 0746 | Définir les variables d'environnement cloud préproduction | Défini |
+| 0747 | Définir les variables d'environnement cloud production    | Défini |
+| 0748 | Stocker les secrets dans Secret Manager                   | Défini |
+| 0749 | Définir les domaines et sous-domaines                     | Défini |
+| 0750 | Définir la stratégie HTTPS                                | Défini |
+| 0751 | Définir les endpoints publics du front                    | Défini |
+| 0752 | Définir les endpoints publics de l'API                    | Défini |
+| 0753 | Définir les endpoints privés d'administration             | Défini |
+| 0754 | Définir la stratégie de stockage des images produits      | Défini |

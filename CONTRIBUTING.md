@@ -1,56 +1,79 @@
-# Contribution
+# Contribution au projet depaneurIA
 
-## Principe
+Ce dépôt centralise le développement de la plateforme **depaneurIA**. Merci de respecter ces quelques règles pour assurer la cohérence et la qualité du projet.
 
-Le dépôt est piloté par une checklist ordonnée de 1000 lignes.
-On évite les changements flous, larges ou non reliés à un bloc précis.
+## Principes de base
 
-## Avant de commencer
+- **Petits changements :** Privilégiez des modifications atomiques et faciles à relire.
+- **Ouverture d'issue :** Avant tout changement important, merci d'ouvrir une issue pour discuter de l'approche technique ou fonctionnelle.
 
-1. Lire `docs/STATE.md`
-2. Identifier le bloc actif dans `docs/TASK-BLOCKS.md`
-3. Vérifier si une issue existe déjà
-4. Lier le travail à une issue
+## Qualité minimale du code
 
-## Règles de travail
+- **TypeScript strict** : Obligatoire partout. Pas de \`any\` gratuit (sauf avec justification explicite).
+- **Simplicité** : Petits modules lisibles, imports propres.
+- **Séparation des préoccupations** : Pas de logique métier dans les composants UI.
+- **Réutilisabilité** : Utiliser les packages partagés (\`packages/\*\`) pour la logique métier, la configuration et les types.
+- **Formatage** : Prettier et ESLint doivent passer avant toute PR.
 
-- Une seule intention claire par pull request
-- Travailler bloc par bloc
-- Écrire ce qui a été fait et ce qui reste
-- Mettre à jour `docs/STATE.md` si l’état du projet change
-- Cocher les tâches terminées dans `docs/1000-checklist.md`
+## Branch naming rules
 
-## Nommage recommandé
+- `main` = branche stable (production)
+- `dev` = branche d’intégration (développement principal)
+- `feat/<topic>` = nouvelle fonctionnalité
+- `fix/<topic>` = correction de bug
+- `docs/<topic>` = modification de la documentation
+- `chore/<topic>` = maintenance, configuration, etc.
+- `infra/<topic>` = modifications d'infrastructure
 
-### Branches
-- `feat/dep-0084-readme-initial`
-- `chore/dep-0098-template-bug`
-- `docs/dep-0101-pr-template`
+Utilisez des noms de branches courts, en minuscules, avec des tirets pour séparer les mots.
 
-### Commits
-- `docs: add initial README`
-- `chore: add GitHub issue templates`
-- `ci: add repo guard workflow`
+### Exemples :
 
-### Tags de version
-- Format : `vMAJEUR.MINEUR.PATCH` (SemVer strict)
-- Exemples : `v1.0.0`, `v1.2.3`, `v2.0.0`
-- Pré-versions : `v1.0.0-alpha.1`, `v1.0.0-beta.2`, `v1.0.0-rc.1`
-- Toujours créer le tag depuis la branche `main` après fusion
-- Le message du tag doit rappeler la version et le bloc DEP concerné
+- `feat/web-client`
+- `feat/api-core`
+- `fix/readme-links`
+- `docs/project-vision`
+- `infra/gcp-bootstrap`
 
-## Pull requests
+## Commit naming rules
 
-Chaque PR devrait contenir :
+Nous suivons les [Conventional Commits](https://www.conventionalcommits.org/) de manière simple :
 
-- le ou les IDs de checklist concernés ;
-- le but du changement ;
-- la définition de terminé ;
-- les points restant à faire ;
-- les impacts éventuels sur `STATE.md`.
+**Format :** `type(scope): short description`
 
-## Ce qu’on évite
+**Types autorisés :**
 
-- sauter plusieurs blocs sans raison ;
-- mélanger code produit + infra + docs dans une même PR si ce n’est pas nécessaire ;
-- fermer une issue sans avoir mis à jour la checklist et l’état.
+- `feat` : Nouvelle fonctionnalité
+- `fix` : Correction de bug
+- `docs` : Documentation
+- `chore` : Tâches de maintenance (ex. config)
+- `refactor` : Modification du code sans changement fonctionnel
+- `test` : Ajout ou modification de tests
+- `build` : Système de build ou dépendances externes
+- `ci` : Configuration de l'intégration continue
+
+La description doit être courte, claire et rédigée en minuscules.
+
+### Exemples :
+
+- `feat(repo): add base folder structure`
+- `fix(api): correct order status mapping`
+- `docs(readme): clarify project vision`
+- `chore(github): add issue templates`
+
+## Version tag naming rules
+
+- Format officiel : `vMAJOR.MINOR.PATCH`
+- Pas d’espaces
+- Toujours en minuscules pour le `v`
+- Utiliser les tags seulement pour des versions stables ou jalons clairement décidés
+
+### Exemples :
+
+- `v0.1.0`
+- `v0.2.0`
+- `v1.0.0`
+
+## Pull Requests
+
+Toute modification doit passer par une Pull Request (PR) propre et lisible. Elle sera revue avant d'être fusionnée dans la branche principale.
