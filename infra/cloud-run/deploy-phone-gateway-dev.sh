@@ -17,6 +17,14 @@ echo "SERVICE_NAME=${SERVICE_NAME}"
 echo "IMAGE_URI=${IMAGE_URI}"
 echo "SERVICE_ACCOUNT=${SERVICE_ACCOUNT}"
 
+if [[ "${DRY_RUN:-0}" == "1" ]]; then
+  echo "[DRY RUN] gcloud auth configure-docker ${REGION}-docker.pkg.dev"
+  echo "[DRY RUN] docker build -f apps/phone-gateway/Dockerfile -t ${IMAGE_URI} ."
+  echo "[DRY RUN] docker push ${IMAGE_URI}"
+  echo "[DRY RUN] gcloud run deploy ${SERVICE_NAME} --image ${IMAGE_URI} --project ${PROJECT_ID} --region ${REGION} --platform managed --allow-unauthenticated --port 8080 --service-account ${SERVICE_ACCOUNT}"
+  exit 0
+fi
+
 gcloud auth configure-docker "${REGION}-docker.pkg.dev"
 
 docker build -f apps/phone-gateway/Dockerfile -t "${IMAGE_URI}" .
