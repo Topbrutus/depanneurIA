@@ -1,9 +1,9 @@
 {
-  "name": "@depaneuria/web-store",
+  "name": "@depaneuria/web-store-app",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 5200",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "test": "echo 'test not implemented'",

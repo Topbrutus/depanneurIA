@@ -39,7 +39,7 @@ export function Layout() {
             fontSize: '24px',
           }}
         >
-          depaneurIA
+          dépanneurIA
         </Link>
         <div style={{ display: 'flex', gap: spacing.md, alignItems: 'center' }}>
           <Link to="/shop" style={{ textDecoration: 'none', color: colors.secondary }}>
@@ -108,7 +108,7 @@ export function Layout() {
             Accessibilité
           </Link>
         </div>
-        <p style={{ margin: 0, fontSize: '14px' }}>© 2026 depaneurIA. Prototype V1.</p>
+        <p style={{ margin: 0, fontSize: '14px' }}>© 2026 dépanneurIA. Prototype V1.</p>
       </footer>
     </div>
   );
