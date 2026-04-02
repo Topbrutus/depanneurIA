@@ -35,29 +35,5 @@ db.exec(`
   );
 `)
 
-// Insérer les produits de base si la table est vide
-const count = (db.prepare('SELECT COUNT(*) as c FROM products').get() as any).c
-if (count === 0) {
-  const insert = db.prepare(`
-    INSERT INTO products (name, category, price, emoji, stock)
-    VALUES (@name, @category, @price, @emoji, @stock)
-  `)
-  const products = [
-    { name: "Lait 2%",          category: "Laitier",     price: 4.99, emoji: "🥛", stock: 12 },
-    { name: "Pain blanc",        category: "Boulangerie", price: 3.49, emoji: "🍞", stock: 8  },
-    { name: "Oeufs (12)",        category: "Laitier",     price: 5.49, emoji: "🥚", stock: 15 },
-    { name: "Beurre",            category: "Laitier",     price: 6.99, emoji: "🧈", stock: 10 },
-    { name: "Jus d'orange",      category: "Boissons",    price: 3.99, emoji: "🍊", stock: 20 },
-    { name: "Coca-Cola 2L",      category: "Boissons",    price: 3.29, emoji: "🥤", stock: 25 },
-    { name: "Eau Evian",         category: "Boissons",    price: 1.99, emoji: "💧", stock: 30 },
-    { name: "Chips BBQ",         category: "Collations",  price: 3.79, emoji: "🍟", stock: 18 },
-    { name: "Chocolat noir",     category: "Confiseries", price: 2.99, emoji: "🍫", stock: 14 },
-    { name: "Bonbons gummies",   category: "Confiseries", price: 1.99, emoji: "🍬", stock: 22 },
-    { name: "Aspirine",          category: "Pharmacie",   price: 7.49, emoji: "💊", stock: 6  },
-    { name: "Cafe moulu",        category: "Epicerie",    price: 8.99, emoji: "☕", stock: 9  },
-  ]
-  for (const p of products) insert.run(p)
-  console.log('[DB] Produits de base insérés')
-}
 
 export default db

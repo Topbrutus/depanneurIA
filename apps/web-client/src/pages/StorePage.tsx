@@ -1,5 +1,11 @@
+import ThemeSelector from '../components/ThemeSelector'
+import { useTheme } from '../themes/ThemeContext'
 import { api } from '../lib/api'
 import AddProductModal from '../components/AddProductModal'
+import ProductWizard from '../components/ProductWizard'
+import ModeChooserModal from '../components/ModeChooserModal'
+import ImportListModal from '../components/ImportListModal'
+import BatchScanModal from '../components/BatchScanModal'
 import { useState, useRef, useCallback, useEffect } from 'react'
 import type { Role, CartItem, Message } from '../types'
 import { PRODUCTS, CATEGORIES, ROLES, AI_SUGGESTIONS } from '../data'
@@ -21,7 +27,13 @@ export default function StorePage({ role, onLogout }: Props) {
   }])
   const [input, setInput]   = useState('')
   const [loading, setLoading] = useState(false)
-  const [showAddModal, setShowAddModal] = useState(false)
+  const [showAddModal, setShowAddModal]         = useState(false)
+  const [showModeChooser, setShowModeChooser]   = useState(false)
+  const [showImportList, setShowImportList]     = useState<'list'|'photo'|null>(null)
+  const [showBatchScan, setShowBatchScan]       = useState(false)
+  const [editProduct, setEditProduct]           = useState<any | null>(null)
+  const [showTheme, setShowTheme] = useState(false)
+  const { theme } = useTheme()
   const chatEnd = useRef<HTMLDivElement>(null)
 
   const currentRole = ROLES.find(r => r.id === role)!
@@ -182,6 +194,22 @@ N'inclus ce bloc QUE si une action panier est demandée.`
     }
   }
 
+  const handleEditProduct = async (data: any) => {
+    if (!editProduct) return
+    try {
+      const res = await fetch(`http://localhost:3001/api/products/${editProduct.id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: data.name, price: data.price, category: data.category, stock: data.stock, emoji: data.emoji, image: data.image || data.imageData || '' })
+      })
+      const updated = await res.json()
+      setLocalProducts(prev => prev.map((p: any) => p.id === editProduct.id ? updated : p))
+    } catch {
+      setLocalProducts(prev => prev.map((p: any) => p.id === editProduct.id ? { ...p, ...data } : p))
+    }
+    setEditProduct(null)
+  }
+
   return (
 
     <div style={{ fontFamily: 'var(--font-mono)', background: 'var(--bg-primary)', height: '100vh', display: 'flex', flexDirection: 'column' }}>
@@ -216,7 +244,8 @@ N'inclus ce bloc QUE si une action panier est demandée.`
             <span>{currentRole.icon}</span>
             <span>{currentRole.label}</span>
           </div>
-          <button onClick={() => setShowAddModal(true)} style={{background:"#fff",border:"none",borderRadius:6,color:"#2d7a3a",fontWeight:700,fontSize:12,padding:"4px 12px",marginRight:8}}>+ Produit</button><button onClick={onLogout} style={{
+          <button onClick={() => setShowModeChooser(true)} style={{background:"#fff",border:"none",borderRadius:6,color:"#2d7a3a",fontWeight:700,fontSize:12,padding:"4px 12px",marginRight:8}}>+ Produit</button><button onClick={() => setShowTheme(true)} style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.3)', borderRadius: 6, color: '#fff', fontSize: 11, padding: '4px 10px' }}>🎨 Thème</button>
+          <button onClick={onLogout} style={{
             padding: '4px 10px', borderRadius: 6,
             border: '1px solid #1e2a38', background: 'transparent',
             color: '#475569', fontSize: 11,
@@ -253,50 +282,47 @@ N'inclus ce bloc QUE si une action panier est demandée.`
             {filtered.map(p => {
               const glow    = aiGlowing.has(p.id)
               const dragged = draggedId === p.id
-              const handleAddProduct = async (data: any) => {
-    try {
-      const saved = await api.addProduct({
-        name: data.name,
-        price: data.price,
-        category: data.category,
-        stock: data.stock,
-        emoji: data.emoji,
-        image: data.imageData || '',
-      })
-      setLocalProducts(prev => [...prev, saved as any])
-    } catch {
-      // Fallback local si API indisponible
-      const newId = Date.now()
-      const newProduct = { id: newId, name: data.name, price: data.price, category: data.category, stock: data.stock, emoji: data.emoji, image: data.imageData || '' }
-      setLocalProducts(prev => [...prev, newProduct as any])
-    }
-  }
-
-  return (
-
+              return (
                 <div
                   key={p.id}
-                  draggable
-                  onDragStart={e => onDragStart(e, p.id)}
-                  onDragEnd={onDragEnd}
-                  onClick={() => addToCart(p)}
-                  title="Cliquez ou glissez vers le panier"
-                  style={{
-                    background: glow ? '#f0a50015' : '#0d1a2d',
-                    border: `1px solid ${glow ? '#f0a500' : dragged ? '#475569' : '#1e2a38'}`,
-                    borderRadius: 8, padding: '10px 8px',
-                    cursor: 'grab', userSelect: 'none',
-                    transition: 'all 0.2s',
-                    transform: dragged ? 'scale(0.93) rotate(1.5deg)' : 'scale(1)',
-                    opacity: dragged ? 0.55 : 1,
-                    boxShadow: glow ? '0 0 16px #f0a50044' : 'none',
-                  }}
+                  style={{ position: 'relative' }}
                 >
-                  {p.image ? <img src={p.image.startsWith('/') ? 'http://localhost:3001' + p.image : p.image} style={{width:'100%',height:'120px',objectFit:'contain',borderRadius:6,marginBottom:4,display:'block',padding:'8px',background:'#0d1a2d'}} onError={(e)=>{(e.target as HTMLImageElement).style.display='none'}} /> : null}<div style={{ fontSize: 56, height: '120px', display: p.image ? 'none' : 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 4 }}>{p.emoji}</div>
-                  <div style={{ fontSize: 10, fontWeight: 600, color: '#e2e8f0', lineHeight: 1.3 }}>{p.name}</div>
-                  <div style={{ fontSize: 9, color: '#475569', marginTop: 2 }}>{p.category}</div>
-                  <div style={{ fontSize: 12, fontWeight: 700, color: '#f0a500', marginTop: 5 }}>{p.price.toFixed(2)}$</div>
-                  <div style={{ fontSize: 9, color: '#2d3f55', marginTop: 1 }}>stock {p.stock}</div>
+                  <div
+                    draggable
+                    onDragStart={e => onDragStart(e, p.id)}
+                    onDragEnd={onDragEnd}
+                    onClick={() => addToCart(p)}
+                    title="Cliquez ou glissez vers le panier"
+                    style={{
+                      background: glow ? '#f0a50015' : '#0d1a2d',
+                      border: `1px solid ${glow ? '#f0a500' : dragged ? '#475569' : '#1e2a38'}`,
+                      borderRadius: 8, padding: '10px 8px',
+                      cursor: 'grab', userSelect: 'none',
+                      transition: 'all 0.2s',
+                      transform: dragged ? 'scale(0.93) rotate(1.5deg)' : 'scale(1)',
+                      opacity: dragged ? 0.55 : 1,
+                      boxShadow: glow ? '0 0 16px #f0a50044' : 'none',
+                    }}
+                  >
+                    {p.image ? <img src={p.image.startsWith('/') ? 'http://localhost:3001' + p.image : p.image} style={{width:'100%',height:'120px',objectFit:'contain',borderRadius:6,marginBottom:4,display:'block',padding:'8px',background:'#0d1a2d'}} onError={(e)=>{(e.target as HTMLImageElement).style.display='none'}} /> : null}
+                    <div style={{ fontSize: 56, height: '120px', display: p.image ? 'none' : 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 4 }}>{p.emoji}</div>
+                    <div style={{ fontSize: 10, fontWeight: 600, color: '#e2e8f0', lineHeight: 1.3 }}>{p.name}</div>
+                    <div style={{ fontSize: 9, color: '#475569', marginTop: 2 }}>{p.category}</div>
+                    <div style={{ fontSize: 12, fontWeight: 700, color: '#f0a500', marginTop: 5 }}>{p.price.toFixed(2)}$</div>
+                    <div style={{ fontSize: 9, color: '#2d3f55', marginTop: 1 }}>stock {p.stock}</div>
+                  </div>
+                  <button
+                    onClick={e => { e.stopPropagation(); setEditProduct(p) }}
+                    title="Modifier"
+                    style={{
+                      position: 'absolute', top: 4, right: 4,
+                      width: 24, height: 24, borderRadius: 6,
+                      border: '1px solid #1e2a38', background: '#0d1a2d',
+                      color: '#94a3b8', fontSize: 12, cursor: 'pointer',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      lineHeight: 1, padding: 0,
+                    }}
+                  >✏️</button>
                 </div>
               )
             })}
@@ -482,7 +508,33 @@ N'inclus ce bloc QUE si une action panier est demandée.`
         @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
         button:active { transform: scale(0.95); }
       `}</style>
-    {showAddModal && <AddProductModal onSave={handleAddProduct} onClose={() => setShowAddModal(false)} />}
+    {showTheme && <ThemeSelector onClose={() => setShowTheme(false)} />}
+      {showAddModal && <ProductWizard onSave={handleAddProduct} onClose={() => setShowAddModal(false)} />}
+      {editProduct && <AddProductModal onSave={handleEditProduct} onClose={() => setEditProduct(null)} initialData={editProduct} productId={editProduct.id} />}
+      {showModeChooser && (
+        <ModeChooserModal
+          onClose={() => setShowModeChooser(false)}
+          onChoose={mode => {
+            setShowModeChooser(false)
+            if (mode === 'single') setShowAddModal(true)
+            else if (mode === 'batch') setShowBatchScan(true)
+            else setShowImportList(mode)
+          }}
+        />
+      )}
+      {showImportList && (
+        <ImportListModal
+          initialMode={showImportList}
+          onClose={() => setShowImportList(null)}
+          onProductSaved={p => setLocalProducts(prev => [p, ...prev])}
+        />
+      )}
+      {showBatchScan && (
+        <BatchScanModal
+          onClose={() => setShowBatchScan(false)}
+          onProductSaved={p => setLocalProducts(prev => [p, ...prev])}
+        />
+      )}
     </div>
   )
 }
