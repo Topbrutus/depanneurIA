@@ -57,10 +57,10 @@ PRODUITS: ${PRODUCTS.map(p => `ID:${p.id}|"${p.name}"|${p.category}|${p.price}$`
 PANIER: ${cart.length ? cart.map(i => `${i.name}x${i.qty}`).join(', ') : 'vide'}
 Si l'utilisateur veut ajouter un produit: <cart_actions>{"add":[{"id":1,"qty":1}],"remove":[],"clear":false}</cart_actions>`
     try {
-      const res  = await fetch('https://api.anthropic.com/v1/messages', { method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 600, system, messages: [...messages.map(m => ({ role: m.role, content: m.content })), { role: 'user', content: text }] }) })
+      const res  = await fetch('http://localhost:3001/api/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ system, messages: [...messages.map(m => ({ role: m.role, content: m.content })), { role: 'user', content: text }] }) })
       const data = await res.json()
-      let raw    = data.content?.[0]?.text ?? 'Désolé, erreur de connexion.'
+      let raw    = data.text ?? 'Désolé, erreur de connexion.'
       let actions: Message['actions'] = []
       const match = raw.match(/<cart_actions>([\s\S]*?)<\/cart_actions>/)
       if (match) {
